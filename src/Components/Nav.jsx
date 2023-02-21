@@ -7,7 +7,7 @@ const Nav = () => {
         <a href="">
           <img src={logo} alt="" className="object-contain w-[9rem]" />
         </a>
-        <span className="flex text-white w-[29rem] justify-between items-center font-[600] text-sm">
+        <span className="flex text-white w-[29rem] justify-between items-center font-light text-sm">
           <a href="">How it works</a>
           <a href="">FaQs</a>
           <a href="">Login</a>
