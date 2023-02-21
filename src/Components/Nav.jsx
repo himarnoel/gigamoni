@@ -11,7 +11,7 @@ const Nav = () => {
           </a>
           <span className="flex text-white w-[29rem] justify-between items-center font-light text-sm">
             <a href="">How it works</a>
-            <a href="">FaQs</a>
+            <a href="">FAQs</a>
             <a href="">Login</a>
             <button className="px-8 py-[0.7rem] rounded bg-[#009186]">
               {" "}
@@ -34,7 +34,12 @@ const Nav = () => {
           <HiMenu className="text-white text-2xl md:text-4 xl" onClick="" />
         </span>
       </div>
-      <div className="h-10 w-full flex flex-col bg-[#87ACA3]/[0.4] "></div>
+      <div className="h-28 w-full flex flex-col items-center justify-evenly text-white  bg-[#87ACA3] text-light z-50 absolute top-20 rounded-b-lg">
+        {" "}
+        <a href="">How it works</a>
+        <a href="">FAQs</a>
+        <a href="">Login</a>
+      </div>
     </div>
   );
 };
