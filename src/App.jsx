@@ -7,9 +7,12 @@ function App() {
 
   return (
     <div className="relative">
-      <img src={heroBg} className="object-cover h-[45rem] absolute blur-[3px]" />
-      <div className="bg-[#00302D] w-full h-[45rem] z-40  mt-[-10rem]"></div>
-      <Nav/>
+      <img
+        src={heroBg}
+        className="object-cover h-[45rem] absolute blur-[1px]"
+      />
+      <div className="bg-[#00302D]/[0.85] w-full h-[45rem] z-40 relative mix-blend-multiply   mt-[-10rem]"></div>
+      <Nav />
     </div>
   );
 }
