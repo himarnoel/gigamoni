@@ -1,9 +1,9 @@
-import React from 'react'
-import heroImage from '../assets/'
-const Nav = () => {
-  return (
-    <div>Nav</div>
-  )
-}
+import React from "react";
 
-export default Nav
+const Nav = () => {
+  return <div>
+    
+  </div>;
+};
+
+export default Nav;
