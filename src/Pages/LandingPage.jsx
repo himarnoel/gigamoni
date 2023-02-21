@@ -14,7 +14,7 @@ const LandingPage = () => {
         <div className="bg-[#00302D]/[0.85] w-full h-[45rem] z-40 relative  mix-blend-multiply   lg:mt-[-10rem]"></div>
         <Nav />
 
-        {/* <Hero /> */}
+        <Hero />
       </div>
     </div>
   );
