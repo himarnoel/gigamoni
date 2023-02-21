@@ -13,16 +13,28 @@ function App() {
         <div className="bg-[#00302D]/[0.85] w-full h-[45rem] z-40 relative  mix-blend-multiply   mt-[-10rem]"></div>
         <Nav />
 
-        <p
-          className=" absolute top-80 left-16 text-white z-40 text-4xl w-[30rem] leading-loose
+        <div className="grid lg:grid-cols-2">
+          <div
+            className=" absolute top-80 left-16 text-white z-40 text-4xl  leading-loose
         "
-        >
-          Transfer globally, finance locally with{" "}
-          <span className="relative">
-            <img src={circle} alt="" className="object-contain w-48 absolute z-[60]" />
-            <p className="relative left-10  ">ease</p>
-          </span>
-        </p>
+          >
+            <p> Transfer globally, finance </p>
+            <div className="flex items-center">
+              {" "}
+              <p>locally</p>
+              <span className="relative w-[15rem]">
+                <img
+                  src={circle}
+                  alt=""
+                  className="object-contain  left-0 top-0  absolute z-[60]"
+                />
+                <p className="relative left-10  "> with ease</p>
+              </span>
+            </div>
+          </div>
+
+
+        </div>
       </div>
     </div>
   );
