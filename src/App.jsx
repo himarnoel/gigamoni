@@ -7,7 +7,7 @@ function App() {
 
   return (
     <div className="relative">
-      <img src={heroBg} className="object-cover h-[45rem] absolute blur-sm" />
+      <img src={heroBg} className="object-cover h-[45rem] absolute blur-[3px]" />
       <div className="bg-[#00302D] w-full h-[45rem] z-40  mt-[-10rem]"></div>
     </div>
   );
