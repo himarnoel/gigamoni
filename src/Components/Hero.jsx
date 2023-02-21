@@ -18,11 +18,11 @@ const Hero = () => {
             <div className="flex items-center">
               <span className="relative w-[20rem] flex">
                 <p>locally</p>
-                {/* <img
+                <img
                   src={circle}
                   alt=""
-                  className="object-contain w-[13.5rem] left-[6.5rem] top-0  absolute z-[60]"
-                /> */}
+                  className="object-contain w-36 top-[0.1rem] left-[4.3rem] md:w-[13.5rem] md:left-[6.5rem] md:top-0  absolute z-[60]"
+                />
                 <p className="relative left-1"> with ease</p>
               </span>
             </div>
