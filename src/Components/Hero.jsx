@@ -10,7 +10,7 @@ const Hero = () => {
       <div className=" w-full  ">
         {/* global text */}
         <div
-          className="  text-white z-40 text-4xl  leading-loose absolute top-72  lg:left-10 xl:left-24
+          className="  text-white z-40 text-4xl  leading-loose absolute lg:top-72 md:top-[9rem] md:left-8  lg:left-10 xl:left-24
   "
         >
           <div>
@@ -36,7 +36,7 @@ const Hero = () => {
             <li>Transfer money online in African currencies</li>
             <li>Payment received in USD, GBP, and EUR </li>
           </ol>
-          <button className="px-8 py-[0.7rem] font-bold  text-sm rounded bg-[#009186] mt-2 text-[#262626]">
+          <button className="px-8 py-[0.7rem] font-bold  text-sm rounded-lg bg-[#009186] mt-2 text-[#262626]">
             Send Money
           </button>
         </div>
@@ -45,7 +45,7 @@ const Hero = () => {
           <img
             src={card}
             alt=""
-            className="absolute object-contain  xl:w-[23rem] lg:w-[20rem] lg:right-10   xl:right-24 z-[200]  lg:top-[24rem] xl:top-[20rem] "
+            className="absolute object-contain  xl:w-[23rem]  md:w-[15rem] lg:w-[20rem] lg:right-10 md:right-8 md:top-72    xl:right-24 z-[200]  lg:top-[24rem] xl:top-[20rem] "
           />
         </div>
       </div>

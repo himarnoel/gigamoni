@@ -9,9 +9,9 @@ const LandingPage = () => {
       <div className="relative">
         <img
           src={heroBg}
-          className="lg:object-cover lg:h-[45rem] h-[45rem] object-cover absolute blur-[2.3px]   "
+          className="   w-full    h-[50rem] md:h-[36rem] object-cover absolute  "
         />
-        <div className="bg-[#00302D]/[0.85] w-full h-[45rem] z-40 relative  mix-blend-multiply   lg:mt-[-10rem]"></div>
+        <div className="bg-[#00302D]/[0.85] w-full h-[36rem] z-40 relative  mix-blend-multiply    lg:mt-[-10rem]"></div>
         <Nav />
 
         <Hero />

@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "../assets/logo.svg";
-
+import { HiMenu } from "react-icons/hi";
 const Nav = () => {
   return (
     <div className=" ">
@@ -21,14 +21,18 @@ const Nav = () => {
         </div>
       </div>
 
-      <div className=" px-3 font-poppins w-full bg-[#87ACA3]/[0.4] lg:hidden  absolute top-40 py-3 flex  z-40 rounded-b-lg">
-        <img src={logo} alt="" className="w-24" />
-        <button className="px-8 py-[0.7rem] rounded bg-[#009186]  text-white">
-          {" "}
-          Create Account
-        </button>
-
-
+      <div className=" px-3 md:px-8  font-poppins w-full bg-[#87ACA3]/[0.4] lg:hidden  absolute top-0 py-5 flex  z-40 rounded-b-lg justify-between">
+        <img src={logo} alt="" className="md:w-40 w-24 " />
+        <span className="flex ">
+          <button
+            className="px-5 py-[0.7rem] text-sm md:text-base
+           rounded-lg bg-[#009186]  text-white mr-4"
+          >
+            {" "}
+            Create Account
+          </button>{" "}
+          <HiMenu className="text-white text-2xl md:text-4 xl" onClick="" />
+        </span>
       </div>
     </div>
   );
