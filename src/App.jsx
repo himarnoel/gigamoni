@@ -21,19 +21,26 @@ function App() {
             <p> Transfer globally, finance </p>
             <div className="flex items-center">
               {" "}
-              <p>locally</p>
-              <span className="relative w-[15rem]">
+              <span className="relative w-[20rem] flex">
+                <p>locally</p>
                 <img
                   src={circle}
                   alt=""
-                  className="object-contain  left-0 top-0  absolute z-[60]"
+                  className="object-contain w-[13.5rem] left-[6.5rem] top-0  absolute z-[60]"
                 />
-                <p className="relative left-10  "> with ease</p>
+                <p className="relative left-1"> with ease</p>
               </span>
             </div>
+            <p className="text-[1.2rem] font-[600] w-[30rem] leading-[1.7] mt-3">
+              Make international transactions with ease. Get money across to
+              family, friends, and business partners faster and easier{" "}
+            </p>
+
+            <ol>
+              <li>Transfer money online in African currencies</li>
+              <li>Payment received in USD, GBP, and EUR </li>
+            </ol>
           </div>
-
-
         </div>
       </div>
     </div>
