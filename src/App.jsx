@@ -9,9 +9,9 @@ function App() {
     <div className="relative">
       <img
         src={heroBg}
-        className="object-cover h-[45rem] absolute blur-[1px]"
+        className="object-cover h-[45rem] absolute "
       />
-      <div className="bg-[#00302D]/[0.85] w-full h-[45rem] z-40 relative mix-blend-multiply   mt-[-10rem]"></div>
+      <div className="bg-[#00302D]/[0.85] w-full h-[45rem] z-40 relative  mix-blend-multiply   mt-[-10rem]"></div>
       <Nav />
     </div>
   );
