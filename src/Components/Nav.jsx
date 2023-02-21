@@ -41,9 +41,15 @@ const Nav = () => {
       {bool ? (
         <div className="h-28 w-full flex flex-col items-center justify-evenly text-white  bg-[#87ACA3] text-light z-50 fixed top-20 rounded-b-lg">
           {" "}
-          <a href="">How it works</a>
-          <a href="">FAQs</a>
-          <a href="">Login</a>
+          <a href="" onClick={() => setbool(!bool)}>
+            How it works
+          </a>
+          <a href="" onClick={() => setbool(!bool)}>
+            FAQs
+          </a>
+          <a href="" onClick={() => setbool(!bool)}>
+            Login
+          </a>
         </div>
       ) : (
         ""
