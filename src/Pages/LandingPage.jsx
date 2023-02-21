@@ -1,5 +1,9 @@
 import React from "react";
-
+import Nav from "./Components/Nav";
+import heroBg from "./assets/hero/bg.png";
+import circle from "./assets/hero/circle.svg";
+import card from "./assets/hero/card.svg";
+import Hero from './Components/Hero';
 const LandingPage = () => {
   return (
     <div className="font-poppins">
