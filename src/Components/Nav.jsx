@@ -3,7 +3,7 @@ import logo from "../assets/logo.svg";
 const Nav = () => {
   return (
     <div className=" ">
-      <div className="font-poppins w-full bg-[#87ACA3]/[0.3] px-16 absolute top-40 py-3  z-40 rounded-b-lg flex justify-between items-center">
+      <div className="font-poppins w-full bg-[#87ACA3]/[0.3] xl:px-24 lg:px-10 absolute top-40 py-3  z-40 rounded-b-lg flex justify-between items-center">
         <a href="">
           <img src={logo} alt="" className="object-contain w-[9rem]" />
         </a>
