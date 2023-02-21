@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../assets/logo.svg";
 import { HiMenu } from "react-icons/hi";
 const Nav = () => {
+  const [bool, setbool] = useState(false);
   return (
     <div className=" ">
       <div className="lg:block hidden">
@@ -31,15 +32,22 @@ const Nav = () => {
             {" "}
             Create Account
           </button>{" "}
-          <HiMenu className="text-white text-2xl md:text-4 xl" onClick="" />
+          <HiMenu
+            className="text-white text-2xl md:text-4 xl"
+            onClick={() => setbool(!bool)}
+          />
         </span>
       </div>
-      <div className="h-28 w-full flex flex-col items-center justify-evenly text-white  bg-[#87ACA3] text-light z-50 fixed top-20 rounded-b-lg">
-        {" "}
-        <a href="">How it works</a>
-        <a href="">FAQs</a>
-        <a href="">Login</a>
-      </div>
+      {bool ? (
+        <div className="h-28 w-full flex flex-col items-center justify-evenly text-white  bg-[#87ACA3] text-light z-50 fixed top-20 rounded-b-lg">
+          {" "}
+          <a href="">How it works</a>
+          <a href="">FAQs</a>
+          <a href="">Login</a>
+        </div>
+      ) : (
+        ""
+      )}
     </div>
   );
 };
