@@ -21,7 +21,7 @@ const Nav = () => {
         </div>
       </div>
 
-      <div className=" px-5 md:px-8  font-poppins w-full bg-[#87ACA3]/[0.4] lg:hidden  absolute top-0 py-5 flex  z-40 rounded-b-lg justify-between">
+      <div className=" fixed px-5 md:px-8  font-poppins w-full bg-[#87ACA3]/[0.4] lg:hidden   top-0 py-5 flex  z-40 rounded-b-lg justify-between">
         <img src={logo} alt="" className="md:w-40 w-24 " />
         <span className="flex ">
           <button
@@ -34,6 +34,7 @@ const Nav = () => {
           <HiMenu className="text-white text-2xl md:text-4 xl" onClick="" />
         </span>
       </div>
+      <div className="h-10 w-full flex flex-col bg-[#87ACA3]/[0.4] "></div>
     </div>
   );
 };
