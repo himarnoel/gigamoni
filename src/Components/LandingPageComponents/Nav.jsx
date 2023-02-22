@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import logo from "../assets/logo.svg";
+import logo from "../../assets/logo.svg";
 import { HiMenu } from "react-icons/hi";
 const Nav = () => {
   const [bool, setbool] = useState(false);

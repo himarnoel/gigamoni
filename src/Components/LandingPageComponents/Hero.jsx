@@ -1,7 +1,7 @@
 import React from "react";
 
-import circle from "../assets/hero/circle.svg";
-import card from "../assets/hero/card.svg";
+import circle from "../../assets/hero/circle.svg";
+import card from "../../assets/hero/card.svg";
 
 const Hero = () => {
   return (
@@ -10,7 +10,7 @@ const Hero = () => {
       <div className="">
         {/* global text */}
         <div
-          className=" 2xl:left-[10rem] mx-2 sm:mx-8 md:mx-1 text-white z-40 text-2xl left-0 right-0  md:right-[16rem]  lg:right-[27rem] xl:right-[45rem]    md:text-left sm:text-4xl   leading-loose absolute top-24  lg:top-[16rem] md:top-[10rem] md:left-8  lg:left-10 xl:left-24
+          className="xl:left-[8rem] 2xl:left-[10rem] mx-2 sm:mx-8 md:mx-1 text-white z-40 text-2xl left-0 right-0  md:right-[16rem]  lg:right-[27rem] xl:right-[45rem]  xl:top-[18rem]   md:text-left sm:text-4xl   leading-loose absolute top-24  lg:top-[16rem] md:top-[10rem] md:left-8  lg:left-10 
   "
         >
           <div className="leading-[2] ">
@@ -41,7 +41,7 @@ const Hero = () => {
             alt=""
             className="mx-auto  md:hidden    mt-10 lg:mt-5   object-contain   w-[16rem]  xl:w-[23rem]  md:w-[15rem] lg:w-[20rem] lg:right-10 md:right-8 md:top-64    xl:right-24 z-[20]  lg:top-[2rem] xl:top-[20rem] "
           />
-          <button className="w-full md:w-fit  mt-5  px-8 py-[0.7rem] font-bold  text-sm rounded-lg bg-[#87ACA3] md:mt-8 lg:mt-3 text-[#262626]">
+          <button className="w-full md:w-fit  mt-5  px-8 py-[0.7rem] font-bold xl:mt-6  text-sm rounded-lg bg-[#87ACA3] md:mt-8 lg:mt-3 text-[#262626]">
             Send Money
           </button>
         </div>
@@ -50,7 +50,7 @@ const Hero = () => {
           <img
             src={card}
             alt=""
-            className="absolute object-contain hidden md:block   w-[16rem]  xl:w-[23rem]  md:w-[15rem] lg:w-[20rem] lg:right-10 md:right-8 md:top-64 2xl:right-[10rem]    xl:right-24 z-[200]  lg:top-[19rem] xl:top-[18rem] "
+            className="absolute object-contain hidden md:block   w-[16rem]  xl:w-[23rem]  md:w-[15rem] lg:w-[20rem] lg:right-10 md:right-8 md:top-64 2xl:right-[10rem]    xl:right-24 z-[200]  lg:top-[19rem] xl:top-[19.5rem] "
           />
         </div>
       </div>
