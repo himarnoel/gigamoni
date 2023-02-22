@@ -6,7 +6,7 @@ const Nav = () => {
   return (
     <div className=" ">
       <div className="lg:block hidden">
-        <div className=" font-poppins w-full bg-[#87ACA3]/[0.4] xl:px-24 lg:px-10 absolute top-40 py-3  z-40 rounded-b-lg flex justify-between items-center">
+        <div className=" font-poppins w-full bg-[#87ACA3]/[0.4] 2xl:px-[10rem] xl:px-24 lg:px-10  absolute top-40 py-3  z-40 rounded-b-lg flex justify-between items-center">
           <a href="">
             <img src={logo} alt="" className="object-contain w-[9rem]" />
           </a>
@@ -21,7 +21,7 @@ const Nav = () => {
         </div>
       </div>
 
-      <div className=" fixed  px-2 sm:px-5 md:px-8  font-poppins w-full bg-[#87ACA3]/[0.4] lg:hidden   top-0 py-5 flex  z-[70] rounded-b-lg justify-between">
+      <div className=" fixed  px-2 sm:px-10 md:px-8  font-poppins w-full bg-[#87ACA3]/[0.4] lg:hidden   top-0 py-5 flex  z-[70] rounded-b-lg justify-between">
         <img src={logo} alt="" className="md:w-40 w-24 " />
         <span className="flex ">
           <button
@@ -32,7 +32,7 @@ const Nav = () => {
             Create Account
           </button>{" "}
           <HiMenu
-            className="text-white text-xl sm:text-2xl md:text-4xl"
+            className="text-white text-xl sm:text-3xl md:text-4xl"
             onClick={() => setbool(!bool)}
           />
         </span>
