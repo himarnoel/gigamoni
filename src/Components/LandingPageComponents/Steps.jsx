@@ -1,5 +1,6 @@
 import React from "react";
 import { First } from "../../assets/illustration/index.jsx";
+import step from './step';
 
 const Steps = () => {
   return (
@@ -16,7 +17,7 @@ const Steps = () => {
       grid-col-2
       lg:grid-cols-4"
       >
-      
+      <step />
       </div>
     </div>
   );
