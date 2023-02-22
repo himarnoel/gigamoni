@@ -18,7 +18,7 @@ const LandingPage = () => {
         <Nav />
         <Hero />
       </div>
-      <Send/>
+      <Senred/>
       <Steps />
     </div>
   );
