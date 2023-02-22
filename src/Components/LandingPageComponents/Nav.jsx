@@ -6,7 +6,7 @@ const Nav = () => {
   return (
     <div className=" ">
       <div className="lg:block hidden">
-        <div className=" font-poppins w-full bg-[#87ACA3]/[0.4] 2xl:px-[10rem] xl:px-24 lg:px-10  absolute top-40 py-3  z-40 rounded-b-lg flex justify-between items-center">
+        <div className=" font-poppins w-full bg-[#87ACA3]/[0.4] 2xl:px-[10rem] xl:px-[8rem] lg:px-10  absolute top-40 py-3  z-40 rounded-b-lg flex justify-between items-center">
           <a href="">
             <img src={logo} alt="" className="object-contain w-[9rem]" />
           </a>
@@ -20,7 +20,7 @@ const Nav = () => {
           </span>
         </div>
       </div>
-
+      {/* Mobile nav bar */}
       <div className=" fixed  px-2 sm:px-10 md:px-8  font-poppins w-full bg-[#87ACA3]/[0.4] lg:hidden   top-0 py-5 flex  z-[70] rounded-b-lg justify-between">
         <img src={logo} alt="" className="md:w-40 w-24 " />
         <span className="flex ">
