@@ -22,7 +22,7 @@ const Send = () => {
               Fast and reliable transfer of money across the globe with
               competitive exchange rates
             </div>
-            <div className=" rounded-xl w-full h-[5rem] mt-5  sm:w-[15rem] sm:h-[10rem] lg:w-[16rem] sm:mt-5 lg:mt-0   lg:h-[12rem] px-4 flex justify-center items-center text-left  bg-[#2B7C85] text-[#F8F8FF] text-sm font-light">
+            <div className="rounded-xl w-full h-[5rem] mt-5 sm:w-[15rem] sm:h-[10rem] lg:w-[16rem] lg:h-[12rem] px-4 flex justify-center items-center text-left  bg-[#2B7C85] text-[#F8F8FF] text-sm font-light">
               Empower people and local businesses with financial reach
             </div>
           </div>
