@@ -50,7 +50,7 @@ const Hero = () => {
           <img
             src={card}
             alt=""
-            className="absolute object-contain hidden md:block   w-[16rem]  xl:w-[23rem]  md:w-[15rem] lg:w-[20rem] lg:right-10 md:right-8 md:top-64 2xl:right-[10rem]    xl:right-24 z-[200]  lg:top-[19rem] xl:top-[18.5rem] "
+            className="absolute object-contain hidden md:block   w-[16rem]  xl:w-[23rem]  md:w-[15rem] lg:w-[20rem] lg:right-10 md:right-8 md:top-64 2xl:right-[10rem]    xl:right-24   lg:top-[19rem] xl:top-[18.5rem] z-[60]"
           />
         </div>
       </div>
