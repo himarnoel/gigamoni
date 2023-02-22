@@ -1,6 +1,7 @@
 import React from "react";
 import { First } from "../../assets/illustration/index.jsx";
-import step from "./step";
+
+import Step from "./step";
 
 const Steps = () => {
   return (
@@ -17,7 +18,7 @@ const Steps = () => {
       grid-col-2
       lg:grid-cols-4"
       >
-        <step info="Enter senders details" img={First} number="Step 1" />
+        <Step info="Enter senders details" img={First} number="Step 1" />
       </div>
     </div>
   );
