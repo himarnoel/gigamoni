@@ -8,7 +8,7 @@ import Steps from "./../Components/LandingPageComponents/Steps";
 
 const LandingPage = () => {
   return (
-    <div className="font-poppins">
+    <div className="font-poppins bg-[]">
       <div className="relative">
         <img
           src={heroBg}
