@@ -14,7 +14,7 @@ const Send = () => {
         <img
           src={send}
           alt=""
-          className="object-contain w-[15rem]  mx-auto  md:w-[20rem] md:mt-0"
+          className="object-contain w-[15rem]  mx-auto md:mx-0  md:w-[20rem] md:mt-0"
         />
         <div className=" w-full sm:w-[35rem] flex flex-col justify-between ">
           <div className=" flex flex-col lg:flex-row items-center justify-between lg:mt-14 ">
