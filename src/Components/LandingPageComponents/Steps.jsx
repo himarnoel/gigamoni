@@ -5,7 +5,7 @@ import {
   Third,
   Fourth,
 } from "../../assets/illustration/index.jsx";
-import Step from "./Step.jsx";
+import Step from "./step.jsx";
 
 const Steps = () => {
   return (
