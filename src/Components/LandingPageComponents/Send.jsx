@@ -26,7 +26,7 @@ const Send = () => {
               Empower people and local businesses with financial reach
             </div>
           </div>
-          <p className="font-medium sm:text-lg mt-5 lg:mt-0 sm:ml-4 sm:text-center lg:text-left ">
+          <p className="font-medium text-sm sm:text-lg mt-5 lg:mt-0 sm:ml-4 sm:text-center lg:text-left ">
             We provide a simple, efficient method to send money abroad fast and
             easy with good rates.
           </p>

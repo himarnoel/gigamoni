@@ -14,7 +14,7 @@ const Steps = () => {
       <div className=" float-right items-end text-right text-[#2B7C85]">
         {" "}
         <p className="text-3xl font-bold">How It Works</p>
-        <p className="mt-5 font-semibold text-left float-right md:text-right w-[16.5rem] md:w-full text-xs ">
+        <p className="mt-5 font-semibold text-left float-right md:text-right w-[16.5rem] md:w-full  ">
           Send money across borders in 4 easy steps
         </p>
       </div>
