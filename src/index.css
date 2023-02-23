@@ -4,4 +4,16 @@
 
 body{
     background-color: #F8F8FF ;
+
+}
+
+.ul{
+    /* list-style: none outside url(./assets/check.svg); */
+    
+}
+.li{
+    background-image: url(./assets/check1.svg);
+    background-repeat: no-repeat;
+    padding-left: 19px;
+    background-position: 0 13px;
 }

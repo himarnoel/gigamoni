@@ -19,39 +19,20 @@ const Reason = () => {
             alt=""
             className="object-contain xss:w-[15rem] sm:w-[18rem]  mt-5  mx-auto md:hidden"
           />
-          <ul className="font-extralight text-xs leading-[2.2rem] mt-5 xss:px-3 sm:px-0 mb-3 text-[#F8F8FF]">
-            <li className="flex  items-center ">
-              <IoMdCheckmark />
-              <p className="ml-2  text-[#F8F8FF]">24/7 customer support.</p>
+          <ul className="font-extralight ul text-xs leading-[2.2rem] mt-5 xss:px-3 sm:px-0 mb-3 text-[#F8F8FF]">
+            <li className=" li">
+              {/* <IoMdCheckmark /> */}
+              24/7 customer support.
             </li>{" "}
-            <li className="flex  items-center ">
-              <IoMdCheckmark />
-              <p className="ml-2  text-[#F8F8FF]">Transparent fee structure</p>
-            </li>{" "}
-            <li className="flex  items-center ">
-              <IoMdCheckmark />
-              <p className="ml-2  text-[#F8F8FF]">
-                Competitive exchange rates.
-              </p>
-            </li>{" "}
-            <li className="flex  items-center ">
-              <IoMdCheckmark />
-              <p className="ml-2  text-[#F8F8FF]">
-                Easy and secure online transactions.
-              </p>
-            </li>{" "}
-            <li className="flex  items-center ">
-              <IoMdCheckmark />
-              <p className="ml-2  text-[#F8F8FF]">
-                Fast and reliable transfer of money across the globe.
-              </p>
+            <li className=" li">Transparent fee structure</li>{" "}
+            <li className=" li">Competitive exchange rates.</li>{" "}
+            <li className=" li">Easy and secure online transactions.</li>{" "}
+            <li className=" li ">
+              Fast and reliable transfer of money across the globe.
             </li>
-            <li className="flex  items-center">
-              <IoMdCheckmark />
-              <p className="ml-2  text-[#F8F8FF] ">
-                Access to funding for purchase orders from established suppliers
-                to  and grow your business.
-              </p>
+            <li className=" li">
+              Access to funding for purchase orders from established suppliers
+              to  and grow your business.
             </li>
           </ul>
         </div>
