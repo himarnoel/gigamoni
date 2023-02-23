@@ -19,7 +19,7 @@ const Steps = () => {
         </p>
       </div>
       <div
-        className="grid mt-20  place-items-center lg:gap-x-4
+        className="grid mt-10  place-items-center lg:gap-x-4
       grid-cols-2
       gap-y-5
       gap-x-3
