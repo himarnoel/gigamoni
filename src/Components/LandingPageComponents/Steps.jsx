@@ -5,7 +5,8 @@ import {
   Third,
   Fourth,
 } from "../../assets/illustration/index.jsx";
-import Step from "./Step.jsx";
+import Step from "./step.jsx";
+
 
 const Steps = () => {
   return (
@@ -17,7 +18,6 @@ const Steps = () => {
           Send money across borders in 4 easy steps
         </p>
       </div>
-      I dey
       <div
         className="grid mt-20  place-items-center lg:gap-x-4
       grid-cols-2
@@ -26,7 +26,6 @@ const Steps = () => {
        md:gap-y-10
       lg:grid-cols-4"
       >
-        I dey
         <Step
           number="Step 1"
           info="Enter senders details"
