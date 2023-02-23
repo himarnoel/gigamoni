@@ -5,7 +5,7 @@ import {
   Third,
   Fourth,
 } from "../../assets/illustration/index.jsx";
-import Step from "./Step";
+import Step from "./Step.jsx";
 
 const Steps = () => {
   return (
@@ -13,19 +13,46 @@ const Steps = () => {
       <div className=" float-right items-end text-right text-[#2B7C85]">
         {" "}
         <p className="text-3xl font-bold">How It Works</p>
-        <p className="mt-5 font-semibold text-left md:text-right w-[16.5rem] md:w-full ">
+        <p className="mt-5 font-semibold text-left float-right md:text-right w-[16.5rem] md:w-full ">
           Send money across borders in 4 easy steps
         </p>
       </div>
       <div
-        className="grid mt-20
-      grid-col-2
+        className="grid mt-20  place-items-center lg:gap-x-4
+      grid-cols-2
+      gap-y-5
+      gap-x-3
+       md:gap-y-10
       lg:grid-cols-4"
       >
-        <Step number="Step 1" info="Enter senders details" img={First} />{" "}
-        <Step number="Step 2" info="Fill in receivers details  " img={Second} />{" "}
-        <Step number="Step 3" info="Enter senders details" img={Third} />{" "}
-        <Step number="Step 4" info="Enter senders details" img={Fourth} />
+        <Step
+          number="Step 1"
+          info="Enter senders details"
+          img={First}
+          class="text-center  md:mb-10 text-[0.4rem] md:text-[0.7rem]"
+          class2="w-[3rem] md:w-[6rem] object-contain"
+        />{" "}
+        <Step
+          number="Step 2"
+          info="Fill in receivers details"
+          img={Second}
+          class="text-center  md:mb-10 text-[0.4rem] md:text-[0.7rem]"
+          class2="w-[3rem] md:w-[7rem] object-contain"
+        />{" "}
+        <Step
+          number="Step 3"
+          info="Confirm all details are correct"
+          img={Third}
+          class="text-center  md:mb-8  text-[0.4rem] md:ext-[0.7rem]"
+          class2="w-[3rem] md:w-[6rem] object-contain "
+        />{" "}
+        <Step
+          number="Step 4"
+          info="Make payment"
+          img={Fourth}
+          class="text-center  md:mb-10 text-[0.4rem] md:text-[0.7rem]"
+          class2="w-[3rem] md:w-[7rem] object-contain"
+        />
       </div>
     </div>
   );
