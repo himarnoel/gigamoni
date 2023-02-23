@@ -5,6 +5,7 @@ module.exports = {
   theme: {
     screens: {
       xs: "300px",
+      xss: "340px",
       ...defaultTheme.screens,
     },
     fontFamily: {

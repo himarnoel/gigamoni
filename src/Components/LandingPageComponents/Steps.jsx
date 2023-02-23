@@ -33,29 +33,29 @@ xs:gap-y-10
           number="Step 1"
           info="Enter senders details"
           img={First}
-          class="text-center  md:mb-10 text-[0.4rem]  xs:text-[0.55rem] md:text-[0.7rem]"
-          class2="w-[3rem] xs:w-[4.5rem]  md:w-[6rem] object-contain"
+          class="text-center  md:mb-10 text-[0.4rem]  xs:text-[0.55rem] xss:text-[0.6rem] sm:text-[0.8rem] md:text-[0.7rem]"
+          class2="w-[3rem] xs:w-[4.5rem] xss:w-[5rem] sm:w-[7rem]   md:w-[6rem] object-contain"
         />{" "}
         <EachStep
           number="Step 2"
           info="Fill in receivers details"
           img={Second}
-          class="text-center  md:mb-10 text-[0.4rem] xs:text-[0.55rem] md:text-[0.7rem]"
-          class2="w-[3rem] xs:w-[4.5rem] md:w-[7rem] object-contain"
+          class="text-center  md:mb-10 text-[0.4rem] xs:text-[0.55rem] xss:text-[0.6rem] sm:text-[0.8rem] md:text-[0.7rem]"
+          class2="w-[3rem] xs:w-[4.5rem] xss:w-[5rem] sm:w-[7rem]  md:w-[7rem] object-contain"
         />{" "}
         <EachStep
           number="Step 3"
           info="Confirm all details are correct"
           img={Third}
-          class="text-center  md:mb-8  text-[0.4rem] xs:text-[0.55rem] md:text-[0.7rem]"
-          class2="w-[3rem] xs:w-[4.5rem] md:w-[6rem] object-contain "
+          class="text-center  md:mb-8  text-[0.4rem] xs:text-[0.5rem] xss:text-[0.6rem] sm:text-[0.8rem] md:text-[0.7rem]"
+          class2="w-[3rem] xs:w-[4.2rem] xss:w-[5rem] sm:w-[7rem]  md:w-[6rem] object-contain "
         />{" "}
         <EachStep
           number="Step 4"
           info="Make payment"
           img={Fourth}
-          class="text-center  md:mb-10 text-[0.4rem] xs:text-[0.55rem] md:text-[0.7rem]"
-          class2="w-[3rem] xs:w-[4.5rem] md:w-[7rem] object-contain"
+          class="text-center  md:mb-10 text-[0.4rem] xs:text-[0.55rem] xss:text-[0.6rem] sm:text-[0.8rem] md:text-[0.7rem]"
+          class2="w-[3rem] xs:w-[4.5rem] xss:w-[5rem] sm:w-[7rem]  md:w-[7rem] object-contain"
         />
       </div>
     </div>
