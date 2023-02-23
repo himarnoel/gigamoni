@@ -1,7 +1,11 @@
 import React from "react";
-import { First } from "../../assets/illustration/index.jsx";
-
-import Step from "./step";
+import {
+  First,
+  Second,
+  Third,
+  Fourth,
+} from "../../assets/illustration/index.jsx";
+import Step from "./Step";
 
 const Steps = () => {
   return (
@@ -18,7 +22,10 @@ const Steps = () => {
       grid-col-2
       lg:grid-cols-4"
       >
-        <Step info="Enter senders details" img={First} number="Step 1" />
+        <Step number="Step 1" info="Enter senders details" img={First} />{" "}
+        <Step number="Step 2" info="Fill in receivers details  " img={Second} />{" "}
+        <Step number="Step 3" info="Enter senders details" img={Third} />{" "}
+        <Step number="Step 4" info="Enter senders details" img={Fourth} />
       </div>
     </div>
   );
