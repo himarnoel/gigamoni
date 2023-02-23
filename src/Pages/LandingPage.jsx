@@ -6,6 +6,7 @@ import Nav from "./../Components/LandingPageComponents/Nav";
 import Send from "../Components/LandingPageComponents/Send";
 import Steps from "./../Components/LandingPageComponents/Steps";
 import Reason from "./../Components/LandingPageComponents/Reason";
+import Services from "./../Components/LandingPageComponents/Services";
 
 const LandingPage = () => {
   return (
@@ -22,6 +23,7 @@ const LandingPage = () => {
       <Send />
       <Steps />
       <Reason />
+      <Services />
     </div>
   );
 };

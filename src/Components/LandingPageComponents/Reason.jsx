@@ -4,7 +4,7 @@ import { IoMdCheckmark } from "react-icons/io";
 import "../../App.css";
 const Reason = () => {
   return (
-    <div className="px-2 sm:px-10  md:px-8  lg:px-10  xl:px-[10rem] mt-20 flex  flex-col mb-[40rem]">
+    <div className="px-2 sm:px-10  md:px-8  lg:px-10  xl:px-[10rem] mt-20 flex  flex-col ">
       <div
         className="w-full bg-[#175873] rounded-3xl flex flex-col md:flex-row
          items-center  justify-around text-white md:px-4 lg:px-9 xl:px-8 py-5 md:py-10    lg:py-5
