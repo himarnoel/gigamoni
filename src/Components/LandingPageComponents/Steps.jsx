@@ -25,6 +25,7 @@ const Steps = () => {
        md:gap-y-10
       lg:grid-cols-4"
       >
+        I dey
         <Step
           number="Step 1"
           info="Enter senders details"
