@@ -7,7 +7,6 @@ import {
 } from "../../assets/illustration/index.jsx";
 import Step from "./step.jsx";
 
-
 const Steps = () => {
   return (
     <div className="px-2 sm:px-10  md:px-8  lg:px-10  xl:px-[10rem] mt-20 mb-[40rem] flex  flex-col">
@@ -24,6 +23,7 @@ const Steps = () => {
       gap-y-5
       gap-x-3
        md:gap-y-10
+       lg:gap-y-64
       lg:grid-cols-4"
       >
         <Step
@@ -44,7 +44,7 @@ const Steps = () => {
           number="Step 3"
           info="Confirm all details are correct"
           img={Third}
-          class="text-center  md:mb-8  text-[0.4rem] md:ext-[0.7rem]"
+          class="text-center  md:mb-8  text-[0.4rem] md:text-[0.7rem]"
           class2="w-[3rem] md:w-[6rem] object-contain "
         />{" "}
         <Step
