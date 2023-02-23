@@ -5,7 +5,7 @@ import {
   Third,
   Fourth,
 } from "../../assets/illustration/index.jsx";
-import Step from "./step.jsx";
+import Step from "./Step.jsx";
 
 const Steps = () => {
   return (
@@ -18,41 +18,43 @@ const Steps = () => {
         </p>
       </div>
       <div
-        className="grid mt-10  place-items-center lg:gap-x-4
-      grid-cols-2
+        className="grid mt-8 md:mt-10 lg:mt-12  place-items-center lg:gap-x-4
+    
       gap-y-5
       gap-x-3
        md:gap-y-10
        lg:gap-y-64
+
+       xs:grid-cols-2
       lg:grid-cols-4"
       >
         <Step
           number="Step 1"
           info="Enter senders details"
           img={First}
-          class="text-center  md:mb-10 text-[0.4rem] md:text-[0.7rem]"
-          class2="w-[3rem] md:w-[6rem] object-contain"
+          class="text-center  md:mb-10 text-[0.4rem]  xs:text-[0.55rem] md:text-[0.7rem]"
+          class2="w-[3rem] xs:w-[4.5rem]  md:w-[6rem] object-contain"
         />{" "}
         <Step
           number="Step 2"
           info="Fill in receivers details"
           img={Second}
-          class="text-center  md:mb-10 text-[0.4rem] md:text-[0.7rem]"
-          class2="w-[3rem] md:w-[7rem] object-contain"
+          class="text-center  md:mb-10 text-[0.4rem] xs:text-[0.55rem] md:text-[0.7rem]"
+          class2="w-[3rem] xs:w-[4.5rem] md:w-[7rem] object-contain"
         />{" "}
         <Step
           number="Step 3"
           info="Confirm all details are correct"
           img={Third}
-          class="text-center  md:mb-8  text-[0.4rem] md:text-[0.7rem]"
-          class2="w-[3rem] md:w-[6rem] object-contain "
+          class="text-center  md:mb-8  text-[0.4rem] xs:text-[0.55rem] xs:w-full md:text-[0.7rem]"
+          class2="w-[3rem] xs:w-[4.5rem] md:w-[6rem] object-contain "
         />{" "}
         <Step
           number="Step 4"
           info="Make payment"
           img={Fourth}
-          class="text-center  md:mb-10 text-[0.4rem] md:text-[0.7rem]"
-          class2="w-[3rem] md:w-[7rem] object-contain"
+          class="text-center  md:mb-10 text-[0.4rem] xs:text-[0.55rem] md:text-[0.7rem]"
+          class2="w-[3rem] xs:w-[4.5rem] md:w-[7rem] object-contain"
         />
       </div>
     </div>
