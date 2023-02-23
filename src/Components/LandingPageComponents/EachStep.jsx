@@ -1,6 +1,6 @@
 import React from "react";
 
-const Step = (props) => {
+const EachStep = (props) => {
   return (
     <div className=" border  border-[#87ACA3] text-[#262626] shadow shadow-[#009186]/[0.2] rounded-full w-[8rem] xs:h-[10rem] xs:w-[10rem] md:h-[14rem]  text-center h-[8rem] md:w-[14rem] bg-[#F8F8FF] flex flex-col justify-around md:justify-center items-center ">
       <div className={props.class}>
@@ -13,4 +13,4 @@ const Step = (props) => {
   );
 };
 
-export default Step;
+export default EachStep;

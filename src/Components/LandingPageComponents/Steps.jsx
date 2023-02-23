@@ -5,7 +5,8 @@ import {
   Third,
   Fourth,
 } from "../../assets/illustration/index.jsx";
-import Step from "./step.jsx";
+
+import EachStep from "./EachStep.jsx";
 
 const Steps = () => {
   return (
@@ -28,29 +29,28 @@ const Steps = () => {
        xs:grid-cols-2
       lg:grid-cols-4"
       >
-        <Step
+        <EachStep
           number="Step 1"
           info="Enter senders details"
           img={First}
           class="text-center  md:mb-10 text-[0.4rem]  xs:text-[0.55rem] md:text-[0.7rem]"
           class2="w-[3rem] xs:w-[4.5rem]  md:w-[6rem] object-contain"
         />{" "}
-        <Step
+        <EachStep
           number="Step 2"
           info="Fill in receivers details"
           img={Second}
           class="text-center  md:mb-10 text-[0.4rem] xs:text-[0.55rem] md:text-[0.7rem]"
           class2="w-[3rem] xs:w-[4.5rem] md:w-[7rem] object-contain"
         />{" "}
-       
-        <Step
+        <EachStep
           number="Step 3"
-          info="Confirm all details  are correct"
+          info="Confirm all details are correct"
           img={Third}
           class="text-center  md:mb-8  text-[0.4rem] xs:text-[0.55rem] xs:w-full md:text-[0.7rem]"
           class2="w-[3rem] xs:w-[4.5rem] md:w-[6rem] object-contain "
         />{" "}
-        <Step
+        <EachStep
           number="Step 4"
           info="Make payment"
           img={Fourth}
