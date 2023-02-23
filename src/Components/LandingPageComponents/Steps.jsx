@@ -42,9 +42,10 @@ const Steps = () => {
           class="text-center  md:mb-10 text-[0.4rem] xs:text-[0.55rem] md:text-[0.7rem]"
           class2="w-[3rem] xs:w-[4.5rem] md:w-[7rem] object-contain"
         />{" "}
+       
         <Step
           number="Step 3"
-          info="Confirm all details are correct"
+          info="Confirm all details  are correct"
           img={Third}
           class="text-center  md:mb-8  text-[0.4rem] xs:text-[0.55rem] xs:w-full md:text-[0.7rem]"
           class2="w-[3rem] xs:w-[4.5rem] md:w-[6rem] object-contain "
