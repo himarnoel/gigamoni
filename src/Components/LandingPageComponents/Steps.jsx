@@ -17,6 +17,7 @@ const Steps = () => {
           Send money across borders in 4 easy steps
         </p>
       </div>
+      I dey
       <div
         className="grid mt-20  place-items-center lg:gap-x-4
       grid-cols-2
