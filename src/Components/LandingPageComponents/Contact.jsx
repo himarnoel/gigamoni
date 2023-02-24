@@ -11,7 +11,7 @@ const Contact = () => {
         We would like to hear from you
       </p>
 
-      <div className="w-full grid md:grid-cols-2">
+      <div className="w-full grid md:grid-cols-2 md:mt-8 gap-x-4 ">
         <div className="flex flex-col">
           <div className="font-medium mt-5">
             <p className="text-xs text-left ">
@@ -35,7 +35,7 @@ const Contact = () => {
           </div>
         </div>
         <div>
-          <div>
+          <div className="mt-5">
             {" "}
             <p className="text-[#2B7C85] text-[24px] font-semibold text-right md:mr-4">
               Tell us how we can serve you better
@@ -49,7 +49,7 @@ const Contact = () => {
               name="text"
               id="name"
               placeholder="Name"
-              className={`border border-solid border-[#87ACA3] mt-3 p-2 rounded-md w-full  focus:outline-[#D1D1D1] placeholder:text-xs placeholder:text-[#707070] `}
+              className={`border border-solid border-[#87ACA3] mt-3 p-2 rounded-lg w-full  focus:outline-[#D1D1D1] placeholder:text-xs placeholder:text-[#707070] `}
               type="name"
               // onChange={formik.handleChange}
               // value={formik.values.password}
@@ -60,7 +60,7 @@ const Contact = () => {
               name="email"
               id="email"
               placeholder="Email Address"
-              className={`border border-solid border-[#87ACA3] mt-3 p-2 rounded-md w-full  focus:outline-[#D1D1D1] placeholder:text-xs placeholder:text-[#707070]  `}
+              className={`border border-solid border-[#87ACA3] mt-3 p-2 rounded-lg w-full  focus:outline-[#D1D1D1] placeholder:text-xs placeholder:text-[#707070]  `}
               type="email"
               // onChange={formik.handleChange}
               // value={formik.values.password}
@@ -69,7 +69,7 @@ const Contact = () => {
             />{" "}
             <textarea
               placeholder="Drop a messages for us"
-              className={`border border-solid border-[#87ACA3] mt-3 p-2 rounded-md w-full  focus:outline-[#D1D1D1] placeholder:text-xs placeholder:text-[#707070] `}
+              className={`border border-solid border-[#87ACA3] mt-3 p-2 rounded-lg w-full  focus:outline-[#D1D1D1] placeholder:text-xs placeholder:text-[#707070] `}
               type="text"
               name="message"
               id="message"
@@ -81,7 +81,7 @@ const Contact = () => {
               required
             ></textarea>
             <button
-              className="p-5 rounded-[8px] text-[#F8F8FF] bg-[#009186]"
+              className="px-14 py-3 mt-5 text-xs font-semibold rounded-[8px] text-[#F8F8FF] bg-[#009186] float-right"
               type="submit"
             >
               Submit
