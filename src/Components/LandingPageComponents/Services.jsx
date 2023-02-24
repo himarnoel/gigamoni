@@ -8,16 +8,16 @@ const Services = () => {
       </p>
       <div className="grid md:grid-cols-2 mt-10">
         {/* card is  self created class syle is in index.css*/}
-        <div className="w-full  card  h-[16rem] rounded-[23.8886px] relative">
+        <div className="w-full  card  h-[16rem] rounded-[14.572px] md:rounded-[23.8886px] relative mb-10">
           <img
             src={bg}
             alt=""
             className="object-cover w-full h-[16rem] rounded-[23.8886px]"
           />
-          <p className="text-lg md:text-sm ml-5 font-semibold absolute top-[1.5rem] text-center">
+          <p className="  md:text-sm  lg:text-lg ml-5 font-semibold absolute top-[1.5rem] text-center">
             Secure Funding for Large Purchase Orders
           </p>
-          <p className="text-xs font-normal mx-5 text- absolute top-[4.6rem] left-0 right-0 leading-[2rem] md:leading-[1.5rem] mt-1">
+          <p className="text-xs font-normal mx-5 text- absolute top-[4.6rem] left-0 right-0 leading-[1.3rem]   md:leading-[1.5rem] lg:leading-[2rem] mt-1">
             We aim to provide small businesses with a new way to access working
             capital, by allowing them to crowdfund their purchase orders and
             connect with buyers directly. This eliminates the need for
@@ -28,7 +28,7 @@ const Services = () => {
             Participate
           </button>
         </div>
-        <p className="flex justify-center items-center text-xs pl-20 md:leading-[1.6rem]">
+        <p className="flex justify-center items-center text-xs mx-5 leading-[1.3rem] md:pl-20  md:leading-[1.6rem]">
           We are providing small businesses with a new way to access working
           capital, by allowing them to crowdfund their purchase orders and
           connect with buyers directly.
