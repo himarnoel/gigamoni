@@ -8,6 +8,7 @@ import {
   Reason,
   Services,
   Contact,
+  Faqs,
   Foot,
 } from "../Components/LandingPageComponents/index";
 
@@ -28,6 +29,7 @@ const LandingPage = () => {
       <Reason />
       <Services />
       <Contact />
+      <Faqs />
       <Foot />
     </div>
   );

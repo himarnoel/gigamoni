@@ -6,5 +6,6 @@ import Reason from "./Reason";
 import Services from "./Services";
 import Foot from "./Foot";
 import Contact from "./Contact";
+import Faqs from "./Faqs";
 
-export { Hero, Nav, Send, Steps, Reason, Services, Contact, Foot };
+export { Hero, Nav, Send, Steps, Reason, Services, Contact, Faqs, Foot };
