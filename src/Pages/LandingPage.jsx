@@ -1,13 +1,14 @@
 import React from "react";
-
 import heroBg from "../assets/hero/bg.png";
-import Hero from "./../Components/LandingPageComponents/Hero";
-import Nav from "./../Components/LandingPageComponents/Nav";
-import Send from "../Components/LandingPageComponents/Send";
-import Steps from "./../Components/LandingPageComponents/Steps";
-import Reason from "./../Components/LandingPageComponents/Reason";
-import Services from "./../Components/LandingPageComponents/Services";
-import Foot from "./../Components/LandingPageComponents/Foot";
+import {
+  Hero,
+  Nav,
+  Send,
+  Steps,
+  Reason,
+  Services,
+  Foot,
+} from "../Components/LandingPageComponents/index";
 
 const LandingPage = () => {
   return (
