@@ -2,18 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
-    background-color: #F8F8FF ;
-
+body {
+  background-color: #f8f8ff;
 }
 
-.ul{
-    /* list-style: none outside url(./assets/check.svg); */
-    
+.ul {
+  /* list-style: none outside url(./assets/check.svg); */
 }
-.li{
-    background-image: url(./assets/check1.svg);
-    background-repeat: no-repeat;
-    padding-left: 19px;
-    background-position: 0 13px;
+.li {
+  background-image: url(./assets/check1.svg);
+  background-repeat: no-repeat;
+  padding-left: 19px;
+  background-position: 0 13px;
+}
+
+.card {
+  background: linear-gradient(
+    124.14deg,
+    rgba(255, 255, 255, 0.4) 7.39%,
+    rgba(217, 217, 217, 0.1) 79.14%
+  );
+  box-shadow: 0px 2.38886px 14.3332px -0.597215px rgba(0, 145, 134, 0.25);
+  backdrop-filter: blur(8.95822px);
+  /* Note: backdrop-filter has minimal browser support */
+
 }
