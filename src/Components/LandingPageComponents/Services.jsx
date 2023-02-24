@@ -17,7 +17,7 @@ const Services = () => {
           <p className=" text-lg md:text-sm  lg:text-lg md:ml-5 left-0 right-0 font-semibold absolute top-[1.3rem] xss:top-[1.2rem] text-center">
             Secure Funding for Large Purchase Orders
           </p>
-          <p className="text-xs font-normal mx-5 font-[#262626] absolute top-[5rem] xs:top-[6rem] xss:top-[5rem] md:top-[4.6rem] left-0 right-0 leading-[1.3rem] xs:leading-[1.6rem]  xss:leading-[1.5rem]   md:leading-[1.5rem] lg:leading-[2rem] ">
+          <p className="text-xs font-normal mx-5 font-[#262626] absolute top-[5rem] xs:top-[6rem] xss:top-[5.5rem] md:top-[4.6rem] left-0 right-0 leading-[1.3rem] xs:leading-[1.6rem]  xss:leading-[1.5rem]   md:leading-[1.5rem] lg:leading-[2rem] ">
             We aim to provide small businesses with a new way to access working
             capital, by allowing them to crowdfund their purchase orders and
             connect with buyers directly. This eliminates the need for
