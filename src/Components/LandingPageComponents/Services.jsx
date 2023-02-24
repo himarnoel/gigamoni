@@ -28,7 +28,7 @@ const Services = () => {
             Participate
           </button>
         </div>
-        <p className="flex justify-center items-center text-xs pl-16 leading-[1.6rem]">
+        <p className="flex justify-center items-center text-xs pl-20 leading-[1.6rem]">
           We are providing small businesses with a new way to access working
           capital, by allowing them to crowdfund their purchase orders and
           connect with buyers directly.
