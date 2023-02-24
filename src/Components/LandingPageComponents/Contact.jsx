@@ -5,13 +5,13 @@ import { HiEnvelope } from "react-icons/hi2";
 import { RiPhoneFill } from "react-icons/ri";
 const Contact = () => {
   return (
-    <div className="mt-20 text-center mb-[40rem]bg-[#87ACA3]  w-full pb-20  px-2 sm:px-10  md:px-8  lg:px-10  xl:px-[10rem]  py-[1rem] mb-[40rem]">
+    <div className="mt-20 text-center   w-full pb-20  px-2 sm:px-10  md:px-8  lg:px-10  xl:px-[10rem]  py-[1rem] mb-[40rem]">
       <p className="text-[#2B7C85] text-sm  md:text-[20px]">Contact Us</p>
-      <p className="text-[#175873] text-3xl mt-4 font-semibold ">
+      <p className="text-[#175873] text-3xl md:mt-4 font-semibold  mt-10 ">
         We would like to hear from you
       </p>
 
-      <div className="w-full grid md:grid-cols-2 md:mt-8 gap-x-6 ">
+      <div className="w-full grid md:grid-cols-2 mt-8 md:mt-8 gap-x-6  ">
         <div className="flex flex-col">
           <div className="font-medium mt-5">
             <p className="text-xs text-left ">
@@ -30,7 +30,7 @@ const Contact = () => {
             <img src={map} className="object-contain" />
             <img
               src={call}
-              className="object-contain w-[7rem] absolute top-[50%] left-[50%] translate-y-[-50%] translate-x-[-50%]"
+              className="object-contain w-[5rem] md:w-[7rem] absolute top-[50%] left-[50%] translate-y-[-50%] translate-x-[-50%]"
             />
           </div>
         </div>
@@ -69,7 +69,7 @@ const Contact = () => {
             />{" "}
             <textarea
               placeholder="Drop a messages for us"
-              className={`border border-solid h-[10rem] md:h-[20rem] border-[#87ACA3] mt-3 p-2 rounded-lg w-full  focus:outline-[#D1D1D1] placeholder:text-xs placeholder:text-[#707070] `}
+              className={`border border-solid h-[10rem] md:h-[14rem] border-[#87ACA3] mt-3 p-2 rounded-lg w-full  focus:outline-[#D1D1D1] placeholder:text-xs placeholder:text-[#707070] `}
               type="text"
               name="message"
               id="message"
