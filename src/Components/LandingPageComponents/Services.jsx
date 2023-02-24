@@ -2,8 +2,8 @@ import React from "react";
 import bg from "../../assets/Rectangle.png";
 const Services = () => {
   return (
-    <div className="bg-[#87ACA3] w-full mt-20 mb-[40rem]  px-2 sm:px-10  md:px-8  lg:px-10  xl:px-[10rem]  py-[1rem]">
-      <p className="text-center text-[#F8F8FF] text-xl font-semibold">
+    <div className="bg-[#87ACA3]  w-full mt-20 mb-[40rem] pb-20  px-2 sm:px-10  md:px-8  lg:px-10  xl:px-[10rem]  py-[1rem]">
+      <p className="text-center text-[#F8F8FF] text-3xl font-semibold mt-5 ">
         Explore our Services
       </p>
       <div className="grid md:grid-cols-2 mt-10">
@@ -17,7 +17,7 @@ const Services = () => {
           <p className="text-lg ml-5 font-semibold absolute top-[1.5rem] text-center">
             Secure Funding for Large Purchase Orders
           </p>
-        <p className="text-xs font-normal mx-5 text- absolute top-[4.6rem] left-0 right-0 leading-[2rem]">
+          <p className="text-xs font-normal mx-5 text- absolute top-[4.6rem] left-0 right-0 leading-[2rem]">
             We aim to provide small businesses with a new way to access working
             capital, by allowing them to crowdfund their purchase orders and
             connect with buyers directly. This eliminates the need for
