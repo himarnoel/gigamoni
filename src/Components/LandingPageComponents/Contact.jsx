@@ -6,12 +6,12 @@ import { RiPhoneFill } from "react-icons/ri";
 const Contact = () => {
   return (
     <div className="mt-20 text-center mb-[40rem]bg-[#87ACA3]  w-full pb-20  px-2 sm:px-10  md:px-8  lg:px-10  xl:px-[10rem]  py-[1rem] mb-[40rem]">
-      <p className="text-[#2B7C85] text-sm text-[20px]">Contact Us</p>
+      <p className="text-[#2B7C85] text-sm  md:text-[20px]">Contact Us</p>
       <p className="text-[#175873] text-3xl mt-4 font-semibold ">
         We would like to hear from you
       </p>
 
-      <div className="w-full grid md:grid-cols-2 md:mt-8 gap-x-4 ">
+      <div className="w-full grid md:grid-cols-2 md:mt-8 gap-x-6 ">
         <div className="flex flex-col">
           <div className="font-medium mt-5">
             <p className="text-xs text-left ">
@@ -37,10 +37,10 @@ const Contact = () => {
         <div>
           <div className="mt-5">
             {" "}
-            <p className="text-[#2B7C85] text-[24px] font-semibold text-right md:mr-4">
+            <p className="text-[#2B7C85] text-[17px] mt-5 md:text-0 md:text-[24px] font-semibold text-right md:mr-4">
               Tell us how we can serve you better
             </p>
-            <p className="text-[#262626] text-xs text-right ">
+            <p className="text-[#262626] text-xs text-right mt-3 mb-3 ">
               Let’s make your payments easier, together.
             </p>
           </div>
@@ -69,12 +69,11 @@ const Contact = () => {
             />{" "}
             <textarea
               placeholder="Drop a messages for us"
-              className={`border border-solid border-[#87ACA3] mt-3 p-2 rounded-lg w-full  focus:outline-[#D1D1D1] placeholder:text-xs placeholder:text-[#707070] `}
+              className={`border border-solid h-[10rem] md:h-[20rem] border-[#87ACA3] mt-3 p-2 rounded-lg w-full  focus:outline-[#D1D1D1] placeholder:text-xs placeholder:text-[#707070] `}
               type="text"
               name="message"
               id="message"
-              cols="30"
-              rows="10"
+              
               // onChange={formik.handleChange}
               // value={formik.values.password}
               // onBlur={formik.handleBlur}
