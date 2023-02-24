@@ -7,6 +7,7 @@ import {
   Steps,
   Reason,
   Services,
+  Contact,
   Foot,
 } from "../Components/LandingPageComponents/index";
 
@@ -26,6 +27,7 @@ const LandingPage = () => {
       <Steps />
       <Reason />
       <Services />
+      <Contact />
       <Foot />
     </div>
   );
