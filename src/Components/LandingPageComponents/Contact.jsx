@@ -35,7 +35,15 @@ const Contact = () => {
           </div>
         </div>
         <div>
-          <p className="text-[]">Tell us how we can serve you better</p>
+          <div>
+            {" "}
+            <p className="text-[#2B7C85] text-[24px] font-semibold text-right md:mr-4">
+              Tell us how we can serve you better
+            </p>
+            <p className="text-[#262626] text-xs text-right ">
+              Let’s make your payments easier, together.
+            </p>
+          </div>
           <form action="" method="post" onSubmit="">
             <input
               name="text"
