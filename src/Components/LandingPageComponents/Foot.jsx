@@ -6,6 +6,7 @@ import { BsTwitter, BsInstagram } from "react-icons/bs";
 const Foot = () => {
   return (
     <div>
+      {/* Lg footer */}
       <div className=" hidden md:block mt-20 text-center bg-[#004943] py-10  f items-start w-full    md:px-8  lg:px-10  xl:px-[10rem]    ">
         <div className="flex items-center justify-between ">
           <div className=" flex flex-col ">
