@@ -16,17 +16,17 @@ const Send = () => {
           alt=""
           className="object-contain w-[15rem]  mx-auto md:mx-0  md:w-[20rem] md:mt-0"
         />
-        <div className=" w-full sm:w-[35rem] flex flex-col justify-between ">
-          <div className=" flex flex-col lg:flex-row items-center justify-between lg:mt-14 ">
-            <div className="rounded-xl w-full h-[5rem] mt-5 sm:w-[15rem] sm:h-[10rem] lg:w-[16rem] lg:h-[12rem] px-4 flex justify-center items-center text-left  bg-[#2B7C85] text-[#F8F8FF] text-sm font-light">
+        <div className=" w-full sm:w-[35rem] flex flex-col justify-between md:justify-center lg:justify-between  ">
+          <div className=" flex flex-col md:flex-row items-center justify-between lg:mt-14 ">
+            <div className="rounded-xl w-full h-[5rem] mt-5 sm:w-[15rem] sm:h-[10rem] md:w-[13rem] lg:w-[16rem] lg:h-[12rem] px-4 flex justify-center items-center text-left  bg-[#2B7C85] text-[#F8F8FF] text-sm font-light">
               Fast and reliable transfer of money across the globe with
               competitive exchange rates
             </div>
-            <div className="rounded-xl w-full h-[5rem] mt-5 sm:w-[15rem] sm:h-[10rem] lg:w-[16rem] lg:h-[12rem] px-4 flex justify-center items-center text-left  bg-[#2B7C85] text-[#F8F8FF] text-sm font-light">
+            <div className="rounded-xl w-full h-[5rem] mt-5 sm:w-[15rem] sm:h-[10rem] md:w-[13rem] lg:w-[16rem] lg:h-[12rem] px-4 flex justify-center items-center text-left  bg-[#2B7C85] text-[#F8F8FF] text-sm font-light">
               Empower people and local businesses with financial reach
             </div>
           </div>
-          <p className="font-medium text-sm sm:text-lg mt-5 lg:mt-0 sm:ml-4 sm:text-center lg:text-left ">
+          <p className="font-medium text-sm sm:text-lg mt-5 md:mt-14 lg:mt-0  sm:ml-4 sm:text-center lg:text-left ">
             We provide a simple, efficient method to send money abroad fast and
             easy with good rates.
           </p>
