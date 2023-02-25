@@ -27,7 +27,7 @@ const Hero = () => {
               </span>
             </div>
           </div>
-          <p className="text-[1rem] w-full sm:w-[22rem] font-medium   md:w-[28rem] leading-[1.7] mt-4 md:mt-4 sm:mt-3">
+          <p className="text-[1rem] self-start w-full sm:w-[22rem] font-medium   md:w-[28rem] leading-[1.7] mt-4 md:mt-4 sm:mt-3">
             Make international transactions with ease. Get money across to
             family, friends, and business partners faster and easier{" "}
           </p>
@@ -41,7 +41,7 @@ const Hero = () => {
             alt=""
             className="mx-auto  md:hidden    mt-10 lg:mt-5   object-contain   w-[16rem]  xl:w-[23rem]  md:w-[15rem] lg:w-[20rem] lg:right-10 md:right-8 md:top-64    xl:right-24 z-[20]  lg:top-[2rem] xl:top-[20rem] "
           />
-          <button className="w-[14rem] xss:w-[14rem] xs:w-[16rem]  md:w-fit  mt-5   py-[0.7rem] font-bold xl:mt-6  text-sm rounded-lg bg-[#87ACA3] md:mt-8 lg:mt-3 text-[#262626]">
+          <button className="w-[14rem] xss:w-[14rem] xs:w-[16rem] sm:w-[22rem] md:w-fit  mt-5   py-[0.7rem] font-bold xl:mt-6  text-sm rounded-lg bg-[#87ACA3] md:mt-8 lg:mt-3 text-[#262626]">
             Send Money
           </button>
         </div>
