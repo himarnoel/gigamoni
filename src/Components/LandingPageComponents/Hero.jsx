@@ -34,7 +34,7 @@ const Hero = () => {
 
           <ol className=" self-start md:text-sm ml-4 sm:mt-3 md:mt-6 lg:mt-3 sm:text-sm text-xs mt-8  font-light list-disc leading-[2.3]">
             <li>Transfer money online in African currencies</li>
-            <li>Payment received in USD, GBP, and EUR </li>
+            <li className="mt-3">Payment received in USD, GBP, and EUR </li>
           </ol>
           <img
             src={card}
