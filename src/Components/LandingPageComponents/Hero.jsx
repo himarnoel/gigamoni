@@ -13,7 +13,7 @@ const Hero = () => {
           className="xl:left-[10rem] 2xl:left-[10rem] mx-2 sm:mx-8 md:mx-1 text-white z-40 text-2xl left-0 right-0  md:right-[16rem]  lg:right-[27rem] xl:right-[40rem]  xl:top-[18rem]   md:text-left sm:text-4xl   leading-loose absolute top-24  lg:top-[16rem] md:top-[10rem] md:left-8  lg:left-10 
   "
         >
-          <div className="leading-[2] ">
+          <div className="leading-[2] font-semibold ">
             <p> Transfer globally, finance </p>
             <div className="flex items-center">
               <span className="relative  sm:w-[20rem] flex">
@@ -27,7 +27,7 @@ const Hero = () => {
               </span>
             </div>
           </div>
-          <p className="text-[1rem] w-full sm:w-[22rem] md:font-[600]   md:w-[28rem] leading-[1.7] mt-4 md:mt-4 sm:mt-3">
+          <p className="text-[1rem] w-full sm:w-[22rem] md:font-medium   md:w-[28rem] leading-[1.7] mt-4 md:mt-4 sm:mt-3">
             Make international transactions with ease. Get money across to
             family, friends, and business partners faster and easier{" "}
           </p>
