@@ -6,8 +6,10 @@ import { RiPhoneFill } from "react-icons/ri";
 const Contact = () => {
   return (
     <div className="mt-20 text-center   w-full px-2 xss:px-4 xs:px-6  sm:px-10  md:px-8  lg:px-10  xl:px-[10rem]  py-[1rem] ">
-      <p className="text-[#2B7C85] text-sm  md:text-[20px]">Contact Us</p>
-      <p className="text-[#175873] text-xl md:text-[1.8rem]  xl:text-2xl 2xl:text-3xl  md:mt-4 font-semibold  mt-10 ">
+      <p className="text-[#2B7C85] text-sm  md:text-[20px]  text-center">
+        Contact Us
+      </p>
+      <p className="text-[#175873] text-xl md:text-[1.8rem]  xl:text-3xl 2xl:text-3xl  font-semibold xl:mt-14 md:mt-4  mt-10 ">
         We would like to hear from you
       </p>
 
