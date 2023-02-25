@@ -2,17 +2,17 @@ import React from "react";
 import bg from "../../assets/Rectangle.png";
 const Services = () => {
   return (
-    <div className="bg-[#87ACA3]  w-full mt-20  px-2 xss:px-4 xs:px-6  sm:px-10  md:px-8  lg:px-10  xl:px-[10rem]  py-[1rem]">
+    <div className="bg-[#87ACA3] md:pb-10 w-full mt-20  px-2 xss:px-4 xs:px-6  sm:px-10  md:px-8  lg:px-10  xl:px-[10rem]  py-[1rem]">
       <p className="text-center text-[#F8F8FF] text-3xl font-semibold mt-5 ">
         Explore our Services
       </p>
       <div className="grid md:grid-cols-2 mt-10">
         {/* card is  self created class syle is in index.css*/}
-        <div className="w-full  card  h-[20rem]  xs:h-[18rem] sm:h-[14rem]  rounded-[14.572px] md:rounded-[23.8886px] relative mb-10">
+        <div className="w-full  card  h-[20rem]  xs:h-[18rem] sm:h-[14rem] md:h-[18rem]  rounded-[14.572px] md:rounded-[23.8886px] relative mb-10 md:mb-0">
           <img
             src={bg}
             alt=""
-            className="object-cover w-full h-[20rem]  xs:h-[18rem] sm:h-[14rem] rounded-[16px] opacity-[0.1] md:rounded-[23.8886px] mix-blend-overlay "
+            className="object-cover w-full h-[20rem]  xs:h-[18rem] sm:h-[14rem] md:h-[18rem] rounded-[16px] opacity-[0.1] md:rounded-[23.8886px] mix-blend-overlay "
           />
           <p className=" text-lg md:text-sm  lg:text-lg md:ml-5 px-2 xss:px-4 xs:px-6  left-0 right-0 font-semibold absolute top-[1.3rem] xs:top-[1.1rem] text-center">
             Secure Funding for Large Purchase Orders
