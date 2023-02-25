@@ -7,7 +7,7 @@ const Contact = () => {
   return (
     <div className="mt-20 text-center   w-full pb-20  px-2 sm:px-10  md:px-8  lg:px-10  xl:px-[10rem]  py-[1rem] ">
       <p className="text-[#2B7C85] text-sm  md:text-[20px]">Contact Us</p>
-      <p className="text-[#175873]  md:text-[1.8rem]  md:mt-4 font-semibold  mt-10 ">
+      <p className="text-[#175873] text-xl md:text-[1.8rem]  xl:text-2xl 2xl:text-3xl  md:mt-4 font-semibold  mt-10 ">
         We would like to hear from you
       </p>
 
@@ -73,7 +73,6 @@ const Contact = () => {
               type="text"
               name="message"
               id="message"
-              
               // onChange={formik.handleChange}
               // value={formik.values.password}
               // onBlur={formik.handleBlur}
