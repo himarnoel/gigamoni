@@ -45,11 +45,11 @@ const Foot = () => {
               <img
                 src={powerlogo}
                 alt=""
-                className="object-contain w-[7rem]  xss:ml-0"
+                className="object-contain w-[7rem] "
               />
             </span>
           </div>
-          <div className="flex items-center w-[5rem] xss:w-[8rem]   mt-[7rem] justify-between text-white  md:text-xl lg:text-3xl">
+          <div className="flex items-center w-[5rem] xss:w-[8rem]  sm:text-xl   mt-[7rem] justify-between text-white  md:text-xl lg:text-3xl">
             <ImFacebook2 />
             <BsTwitter />
             <BsInstagram />
