@@ -21,12 +21,12 @@ const Nav = () => {
         </div>
       </div>
       {/* Mobile nav bar */}
-      <div className=" absolute  px-2 sm:px-10 md:px-8  font-poppins w-full bg-[#87ACA3]/[0.4] lg:hidden   top-0 py-5 flex  z-[70] rounded-b-lg justify-between">
+      <div className=" absolute  px-2 xss:px-4 xs:px-6 sm:px-10 md:px-8  font-poppins w-full bg-[#87ACA3]/[0.4] lg:hidden   top-0 py-5 flex  z-[70] rounded-b-lg justify-between">
         <img src={logo} alt="" className="md:w-40 w-24 " />
         <span className="flex ">
           <button
-            className="sm:px-5 py-[0.4rem] px-2 text-[0.7rem] sm:py-[0.7rem] sm:text-sm md:text-base
-           rounded-lg bg-[#009186]  text-white mr-4"
+            className="sm:px-5 py-[0.5rem] px-2 xss:py-[0.5rem] xss:px-4 xs:py-[0.7rem] xs:px-7   sm:py-[0.7rem]  text-[0.7rem] xs:text-[0.8rem] sm:text-sm md:text-base
+           rounded-[8px] bg-[#009186]  text-white mr-4"
           >
             {" "}
             Create Account

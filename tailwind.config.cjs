@@ -4,8 +4,8 @@ module.exports = {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     screens: {
-      xs: "300px",
-      xss: "340px",
+      xss: "300px",
+      xs: "340px",
       ...defaultTheme.screens,
     },
     fontFamily: {

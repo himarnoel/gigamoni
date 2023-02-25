@@ -11,15 +11,15 @@ const Reason = () => {
         "
       >
         <div className=" ">
-          <p className="text-center md:text-left xss:text-2xl sm:text-3xl font-semibold md:mt-8 xss:mt-4 ">
+          <p className="text-center md:text-left xs:text-2xl sm:text-3xl font-semibold md:mt-8 xs:mt-4 ">
             Why Choose Gigamoni
           </p>
           <img
             src={reason}
             alt=""
-            className="object-contain xss:w-[15rem] sm:w-[18rem]  mt-5  mx-auto md:hidden"
+            className="object-contain xs:w-[15rem] sm:w-[18rem]  mt-5  mx-auto md:hidden"
           />
-          <ul className="font-extralight ul text-xs leading-[2.2rem] mt-5 xss:px-3 sm:px-0 mb-3 text-[#F8F8FF]">
+          <ul className="font-extralight ul text-xs leading-[2.2rem] mt-5 xs:px-3 sm:px-0 mb-3 text-[#F8F8FF]">
             <li className=" li">
               {/* <IoMdCheckmark /> */}
               24/7 customer support.
