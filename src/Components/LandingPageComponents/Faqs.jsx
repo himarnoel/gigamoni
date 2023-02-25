@@ -1,5 +1,6 @@
 import React from "react";
 import { HiOutlinePlus } from "react-icons/hi";
+import Accordion from "./Accordion";
 const Faqs = () => {
   return (
     <div className="mt-20 text-center  mb-[40rem] w-full pb-20  px-2 sm:px-10  md:px-8  lg:px-10  xl:px-[10rem]  py-[1rem] ">
@@ -19,23 +20,7 @@ const Faqs = () => {
           </p>
           <HiOutlinePlus className="text-3xl text-[#333333]" />
         </div>
-       
-        <div className="border mt-10 border-solid px-10 py-4 border-[#009186] rounded-[16px] flex items-center justify-between">
-          <p>
-            {" "}
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt
-          </p>
-          <HiOutlinePlus className="text-3xl text-[#333333]" />
-        </div>{" "}
-        <div className="border mt-10 border-solid px-10 py-4 border-[#009186] rounded-[16px] flex items-center justify-between">
-          <p>
-            {" "}
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt
-          </p>
-          <HiOutlinePlus className="text-3xl text-[#333333]" />
-        </div>
+        <Accordion /> <Accordion /> <Accordion />
       </div>
     </div>
   );
