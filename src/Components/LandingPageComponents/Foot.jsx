@@ -31,7 +31,7 @@ const Foot = () => {
         </span>
       </div>
       {/* Mobile footer */}
-      <div className="md:hidden  mt-20 text-left bg-[#004943] py-5 mb-64 text-white   items-start w-full   px-2 sm:px-10  ">
+      <div className="md:hidden  mt-20 text-left bg-[#004943] py-5  text-white   items-start w-full   px-2 sm:px-10  ">
         <div className="grid grid-cols-3 text-[0.68rem] gap-y-6">
           <p>FAQs</p> <p>Contact Us </p> <p>How it works</p>{" "}
           <p>Privacy Policy</p> <p>Terms and conditions</p>
