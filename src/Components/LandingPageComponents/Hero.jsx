@@ -41,7 +41,7 @@ const Hero = () => {
             alt=""
             className="mx-auto  md:hidden    mt-10 lg:mt-5   object-contain   w-[16rem]  xl:w-[23rem]  md:w-[15rem] lg:w-[20rem] lg:right-10 md:right-8 md:top-64    xl:right-24 z-[20]  lg:top-[2rem] xl:top-[20rem] "
           />
-          <button className="w-[14rem] xss:w-[14rem] xs:w-[16rem] sm:w-[22rem] md:w-fit  mt-5   py-[0.7rem] font-bold xl:mt-6  text-sm rounded-lg bg-[#87ACA3] md:mt-8 lg:mt-3 text-[#262626]">
+          <button className="w-[14rem] xss:w-[14rem] xs:w-[16rem] sm:w-[22rem]  md:w-[13rem] md:self-start  mt-5   py-[0.7rem] font-bold xl:mt-6  text-sm rounded-lg bg-[#87ACA3] md:mt-8 lg:mt-3 text-[#262626]">
             Send Money
           </button>
         </div>
