@@ -19,7 +19,7 @@ const Reason = () => {
             alt=""
             className="object-contain w-[13rem] xs:w-[15rem] sm:w-[18rem]  mt-5  mx-auto md:hidden"
           />
-          <ul className="font-extralight ul text-xs leading-[2.2rem] mt-5 px-2 xs:px-3 sm:px-5 mb-3 text-[#F8F8FF]">
+          <ul className="font-extralight ul text-xs leading-[2.2rem] mt-5 px-2 xs:px-3 sm:px-5 md:px-0 mb-3 text-[#F8F8FF]">
             <li className=" li">
               {/* <IoMdCheckmark /> */}
               24/7 customer support.
