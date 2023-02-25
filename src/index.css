@@ -15,6 +15,12 @@ body {
   padding-left: 19px;
   background-position: 0 13px;
 }
+.lis{
+  background-image: url(./assets/check1.svg);
+  background-repeat: no-repeat;
+  padding-left: 19px;
+  background-position: 0 5px;
+}
 
 .card {
   background: linear-gradient(
