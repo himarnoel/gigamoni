@@ -42,7 +42,7 @@ const Foot = () => {
             <img src={footlogo} alt="" className="object-contain w-[10rem]" />
             <span className="flex items-center ml-5 lg:ml-10 mt-4 ">
               <p className=" text-[0.5rem] text-[#F8F8FF] mr-2">Powered By</p>
-              <img src={powerlogo} alt="" />
+              <img src={powerlogo} alt="" className="object-contain w-[7rem]" />
             </span>
           </div>
           <div className="flex items-center w-[8rem]  mt-[7rem] justify-between text-white  md:text-xl lg:text-3xl">
