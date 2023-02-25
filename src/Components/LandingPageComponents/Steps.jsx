@@ -11,7 +11,7 @@ import EachStep from "./EachStep.jsx";
 const Steps = () => {
   // xss xs are custom breakpoint please check tailwind.config.cjs
   return (
-    <div className="px-2 sm:px-10  md:px-8  lg:px-10  xl:px-[10rem] mt-20  flex  flex-col">
+    <div className="px-2 xss:px-4 xs:px-6  sm:px-10  md:px-8  lg:px-10  xl:px-[10rem] mt-20  flex  flex-col">
       <div className=" float-right items-end text-right text-[#2B7C85]">
         {" "}
         <p className="text-3xl font-bold">How It Works</p>
@@ -24,6 +24,7 @@ const Steps = () => {
     
       gap-y-5
       gap-x-3
+      
        md:gap-y-10
        lg:gap-y-64
 xss:gap-y-10
@@ -35,28 +36,28 @@ xss:gap-y-10
           info="Enter senders details"
           img={First}
           class="text-center  md:mb-10 text-[0.4rem]  xss:text-[0.55rem] xs:text-[0.6rem] sm:text-[0.8rem] md:text-[0.7rem]"
-          class2="w-[3rem] xss:w-[4.5rem] xs:w-[5rem] sm:w-[7rem]   md:w-[6rem] object-contain"
+          class2="w-[3rem] xss:w-[4.5rem] xs:w-[4rem] sm:w-[7rem]   md:w-[6rem] object-contain"
         />{" "}
         <EachStep
           number="Step 2"
           info="Fill in receivers details"
           img={Second}
           class="text-center  md:mb-10 text-[0.4rem] xss:text-[0.55rem] xs:text-[0.6rem] sm:text-[0.8rem] md:text-[0.7rem]"
-          class2="w-[3rem] xss:w-[4.5rem] xs:w-[5rem] sm:w-[7rem]  md:w-[7rem] object-contain"
+          class2="w-[3rem] xss:w-[4.5rem] xs:w-[4rem] sm:w-[7rem]  md:w-[7rem] object-contain"
         />{" "}
         <EachStep
           number="Step 3"
           info="Confirm all details are correct"
           img={Third}
           class="text-center  md:mb-8  text-[0.4rem] xss:text-[0.5rem] xs:text-[0.6rem] sm:text-[0.8rem] md:text-[0.7rem]"
-          class2="w-[3rem] xss:w-[4.2rem] xs:w-[5rem] sm:w-[7rem]  md:w-[6rem] object-contain "
+          class2="w-[3rem] xss:w-[4.2rem] xs:w-[4rem] sm:w-[7rem]  md:w-[6rem] object-contain "
         />{" "}
         <EachStep
           number="Step 4"
           info="Make payment"
           img={Fourth}
           class="text-center  md:mb-10 text-[0.4rem] xss:text-[0.55rem] xs:text-[0.6rem] sm:text-[0.8rem] md:text-[0.7rem]"
-          class2="w-[3rem] xss:w-[4.5rem] xs:w-[5rem] sm:w-[7rem]  md:w-[7rem] object-contain"
+          class2="w-[3rem] xss:w-[4.5rem] xs:w-[4.5rem] sm:w-[7rem]  md:w-[7rem] object-contain"
         />
       </div>
     </div>
