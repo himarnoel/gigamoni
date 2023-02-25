@@ -7,13 +7,15 @@ const Faqs = () => {
       <p className="text-[#2B7C85] text-sm  md:text-[20px] text-center">
         Frequently Asked Questions
       </p>
-one      <p className="text-center text-[#175873] font-semibold text-xl md:text-[1.8rem] lg:text-[1.7rem]  xl:text-2xl 2xl:text-3xl md:mt-4  mt-10 ">
+      <p className="text-center text-[#175873] font-semibold text-xl md:text-[1.8rem] lg:text-[1.7rem]  xl:text-2xl 2xl:text-3xl md:mt-4  mt-10 ">
         Everything you need to know about sending money with Gigamoni
       </p>
       <div className="mt-10">
         {" "}
         <Accordion />
-        <Accordion /> <Accordion /> <Accordion />
+        <Accordion />
+        <Accordion />
+        <Accordion />
       </div>
     </div>
   );
