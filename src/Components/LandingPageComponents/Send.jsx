@@ -2,7 +2,7 @@ import React from "react";
 import send from "../../assets/Send/hand.png";
 const Send = () => {
   return (
-    <div className="  px-2 sm:px-10  md:px-8  lg:px-10  xl:px-[10rem] mt-20 ">
+    <div className=" px-2 xss:px-4 xs:px-6  sm:px-10  md:px-8  lg:px-10  xl:px-[10rem] mt-20 ">
       <h1 className="text-[#175873]  w-full  text-[1.3rem] lg:text-[1.7rem] font-semibold ">
         Send Money Overseas Hassle Free{" "}
       </h1>
