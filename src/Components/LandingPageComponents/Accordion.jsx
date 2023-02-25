@@ -8,7 +8,7 @@ const Accordion = () => {
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt
       </p>
-      <HiOutlinePlus className="text-xl  md:text-3xl text-[#333333]" />
+      <HiOutlinePlus className="text-4xl  md:text-3xl text-[#333333]" />
     </div>
   );
 };

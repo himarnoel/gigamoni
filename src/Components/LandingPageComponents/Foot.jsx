@@ -7,7 +7,7 @@ const Foot = () => {
   return (
     <div>
       {/* Lg footer */}
-      <div className=" hidden md:block mt-20 text-center bg-[#004943] py-10  f items-start w-full    md:px-8  lg:px-10  xl:px-[10rem]    ">
+      <div className=" hidden md:block  mt-20 text-center  bg-[#004943] py-10   items-start w-full    md:px-8  lg:px-10  xl:px-[10rem]    ">
         <div className="flex items-center justify-between ">
           <div className=" flex flex-col ">
             <img src={footlogo} alt="" className="object-contain w-[10rem]" />
@@ -32,7 +32,7 @@ const Foot = () => {
         </span>
       </div>
       {/* Mobile footer */}
-      <div className="md:hidden  mt-20 text-left bg-[#004943] py-5  text-white   items-start w-full   px-2 sm:px-10  ">
+      <div className="md:hidden mb-[40rem] mt-20 text-left bg-[#004943] py-5 px-2 xss:px-4 xs:px-6  sm:px-10   text-white   items-start w-full   ">
         <div className="grid grid-cols-3 text-[0.68rem] gap-y-6">
           <p>FAQs</p> <p>Contact Us </p> <p>How it works</p>{" "}
           <p>Privacy Policy</p> <p>Terms and conditions</p>
@@ -40,12 +40,18 @@ const Foot = () => {
         <div className="flex items-center justify-between">
           <div className=" flex flex-col mt-10 ">
             <img src={footlogo} alt="" className="object-contain w-[10rem]" />
-            <span className="flex items-center ml-5 lg:ml-10 mt-4 ">
-              <p className=" text-[0.5rem] text-[#F8F8FF] mr-2">Powered By</p>
-              <img src={powerlogo} alt="" className="object-contain w-[7rem]" />
+            <span className="flex items-center ml-3 xss:ml-5  lg:ml-10 mt-1">
+              <p className="text-[0.5rem] text-[#F8F8FF] mr-2">
+                Powered By
+              </p>
+              <img
+                src={powerlogo}
+                alt=""
+                className="object-contain w-[7rem]  xss:ml-0"
+              />
             </span>
           </div>
-          <div className="flex items-center w-[8rem]  mt-[7rem] justify-between text-white  md:text-xl lg:text-3xl">
+          <div className="flex items-center w-[5rem] xss:w-[8rem]   mt-[7rem] justify-between text-white  md:text-xl lg:text-3xl">
             <ImFacebook2 />
             <BsTwitter />
             <BsInstagram />
