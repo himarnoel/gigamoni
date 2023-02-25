@@ -3,7 +3,7 @@ import { HiOutlinePlus } from "react-icons/hi";
 import Accordion from "./Accordion";
 const Faqs = () => {
   return (
-    <div className="mt-20 text-center  w-full pb-20  px-2 sm:px-10  md:px-8  lg:px-10  xl:px-[10rem]  py-[1rem] ">
+    <div className=" mt-20 text-center  w-full pb-20  px-2 sm:px-10  md:px-8  lg:px-10  xl:px-[10rem]  py-[1rem] ">
       <p className="text-[#2B7C85] text-sm  md:text-[20px] text-center">
         Frequently Asked Questions
       </p>
