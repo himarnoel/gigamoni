@@ -21,7 +21,7 @@ const Nav = () => {
         </div>
       </div>
       {/* Mobile nav bar */}
-      <div className=" fixed  px-2 sm:px-10 md:px-8  font-poppins w-full bg-[#87ACA3]/[0.4] lg:hidden   top-0 py-5 flex  z-[70] rounded-b-lg justify-between">
+      <div className=" absolute  px-2 sm:px-10 md:px-8  font-poppins w-full bg-[#87ACA3]/[0.4] lg:hidden   top-0 py-5 flex  z-[70] rounded-b-lg justify-between">
         <img src={logo} alt="" className="md:w-40 w-24 " />
         <span className="flex ">
           <button
