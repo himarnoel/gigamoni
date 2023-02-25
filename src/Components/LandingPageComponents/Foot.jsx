@@ -12,7 +12,7 @@ const Foot = () => {
           
         </div>
 
-        <div className="flex   text-white w-[30rem] justify-between items-center  text-[0.7rem]">
+        <div className="flex   text-white lg:w-[28rem] xl:w-[28rem] justify-between items-center  text-[0.7rem]">
           <a href="">FAQs</a>
           <a href="">Contact Us</a>
           <a href="">How it works</a>
