@@ -30,17 +30,25 @@ const Foot = () => {
           <img src={powerlogo} alt="" />
         </span>
       </div>
+      {/* Mobile footer */}
       <div className="md:hidden  mt-20 text-left bg-[#004943] py-5 mb-64 text-white   items-start w-full   px-2 sm:px-10  ">
         <div className="grid grid-cols-3 text-[0.68rem] gap-y-6">
           <p>FAQs</p> <p>Contact Us </p> <p>How it works</p>{" "}
           <p>Privacy Policy</p> <p>Terms and conditions</p>
         </div>
-        <div className=" flex flex-col mt-10 ">
-          <img src={footlogo} alt="" className="object-contain w-[10rem]" />
-          <span className="flex items-center ml-5 lg:ml-10 mt-4 ">
-            <p className=" text-[0.5rem] text-[#F8F8FF] mr-2">Powered By</p>
-            <img src={powerlogo} alt="" />
-          </span>
+        <div className="flex items-center justify-between">
+          <div className=" flex flex-col mt-10 ">
+            <img src={footlogo} alt="" className="object-contain w-[10rem]" />
+            <span className="flex items-center ml-5 lg:ml-10 mt-4 ">
+              <p className=" text-[0.5rem] text-[#F8F8FF] mr-2">Powered By</p>
+              <img src={powerlogo} alt="" />
+            </span>
+          </div>
+          <div className="flex items-center w-[8rem]  mt-[7rem] justify-between text-white  md:text-xl lg:text-3xl">
+            <ImFacebook2 />
+            <BsTwitter />
+            <BsInstagram />
+          </div>
         </div>
       </div>
     </div>
