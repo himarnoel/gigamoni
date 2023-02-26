@@ -1,6 +1,6 @@
 import React from "react";
 import NavBar from "./../../Components/AppComponents/NavBar";
-import img from "../../assets/app_assets/bg1.png";
+
 const Signup = () => {
   return (
     <div>
