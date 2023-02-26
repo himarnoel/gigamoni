@@ -1,8 +1,9 @@
 import React from 'react'
+import Nav from './../Components/LandingPageComponents/Nav';
 
 const Signup = () => {
   return (
-    <div>Signup</div>
+    <div><Nav /></div>
   )
 }
 
