@@ -5,13 +5,13 @@ const Signup = () => {
   return (
     <div>
       <NavBar />
-      <div className="grid md:grid-cols-2  h-screen ">
-        <div className="sjs w-full lg:px-10 xl:px-[8rem] 2xl:px-[10rem] pt-[4.5rem]">
+      <div className="grid md:grid-cols-2  ">
+        <div className="sjs w-full lg:px-10 xl:px-[8rem] 2xl:px-[10rem] pt-[0.2rem] h-[34.9rem] ">
           <h2 className="text-center text-[1.9rem] font-semibold text-[#262626] ">
             Create Account
           </h2>
           <h1 className="text-3xl font-bold mt-4">Hello,</h1>
-          <div className="h-[28rem] flex flex-col justify-evenly ">
+          <div className="h-[23rem] flex flex-col justify-evenly ">
             <div class="relative z-0">
               <input
                 type="text"
@@ -97,9 +97,17 @@ const Signup = () => {
               </label>
             </div>
           </div>
+          <button className="px-5 py-3 float-right bg-[#009186] text-[#F8F8FF] rounded-[8px] font-semibold">
+            Create Account
+          </button>
+          <span className="flex items-center mt-10">
+            {" "}
+            <p className=" text-[#262626]">Already have an account?</p>
+            <span className="text-[#009186]">Login</span>
+          </span>
         </div>
-        <div className="ssds w-full h-screen bg lg:px-10 xl:px-[8rem] 2xl:px-[10rem] flex justify-center items-center">
-          <div className="w-full text-3xl mt-10 px-20 text-center font-semibold flex justify-center items-center bg-[#87ACA3]/[0.3] h-[20rem] rounded-[8px] text-[#87ACA3]">
+        <div className="ssds w-full h-full bg lg:px-10 xl:px-[8rem] 2xl:px-[10rem] flex justify-center items-center">
+          <div className="w-full text-3xl px-[4.5rem] text-center font-semibold flex justify-center items-center bg-[#87ACA3]/[0.3] h-[20rem] rounded-[8px] text-[#87ACA3]">
             <p className="leading-[1.2]">
               International Bulk Payment Solution Made Just For{" "}
               <span className="text-[#F8F8FF]"> YOU</span>
