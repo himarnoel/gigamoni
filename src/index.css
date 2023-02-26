@@ -21,6 +21,9 @@ body {
   padding-left: 19px;
   background-position: 0 5px;
 }
+.bg{
+  background-image: url(./assets/app_assets/bg1.png);
+}
 
 .card {
   background: linear-gradient(
