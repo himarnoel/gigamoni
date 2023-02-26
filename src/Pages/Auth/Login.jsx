@@ -1,10 +1,10 @@
 import React from "react";
-import Nav from "../../Components/LandingPageComponents/Nav";
+import NavBar from "../../Components/AppComponents/NavBar";
 
 const Login = () => {
   return (
     <div>
-      <Nav />
+      <NavBar />
     </div>
   );
 };

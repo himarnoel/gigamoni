@@ -1,11 +1,11 @@
 import React from "react";
-
-import Nav from "./../../Components/LandingPageComponents/Nav";
+import NavBar from "./../../Components/AppComponents/NavBar";
 
 const Signup = () => {
   return (
     <div>
-      <Nav />
+      <NavBar />
+      <div className="grid md:grid-cols-2"></div>
     </div>
   );
 };
