@@ -46,7 +46,7 @@ const Contact = () => {
               Let’s make your payments easier, together.
             </p>
           </div>
-          <form action="" method="post" onSubmit="">
+          <form action="" method="post" >
             <input
               name="text"
               id="name"

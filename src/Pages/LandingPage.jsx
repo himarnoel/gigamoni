@@ -13,6 +13,8 @@ import {
 } from "../Components/LandingPageComponents/index";
 
 const LandingPage = () => {
+ 
+
   return (
     <div className="font-poppins bg-[]">
       <div className="relative">
@@ -21,7 +23,7 @@ const LandingPage = () => {
           className="   w-full    h-[53rem] sm:h-[50rem] md:h-[36rem] lg:h-[40rem] xl:h-[42rem] object-cover absolute  "
         />
         <div className="bg-[#00302D]/[0.85] w-full  h-[53rem] sm:h-[50rem] md:h-[36rem] lg:h-[40rem] xl:h-[42rem] z-40 relative  mix-blend-multiply    lg:mt-[-10rem]"></div>
-        <Nav />
+        <Nav/>
         <Hero />
       </div>
       <Send />
@@ -31,6 +33,7 @@ const LandingPage = () => {
       <Contact />
       <Faqs />
       <Foot />
+
     </div>
   );
 };

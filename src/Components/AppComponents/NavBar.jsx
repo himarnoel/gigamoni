@@ -1,15 +1,6 @@
-import React, { useState } from "react";
-import logo from "../../assets/logo.svg";
-import { HiMenu } from "react-icons/hi";
-import { useNavigate } from "react-router-dom";
+import React from "react";
+
 const Nav = () => {
-  const [bool, setbool] = useState(false);
-  const navigate = useNavigate();
-
-  const showAlert = () => {
-    alert("I'm an alert");
-  };
-
   return (
     <div className=" ">
       <div className="lg:block hidden">
