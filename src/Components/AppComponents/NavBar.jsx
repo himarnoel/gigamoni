@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 const NavBar = () => {
   const [bool, setbool] = useState(false);
   return (
-    <div className=" ">
+    <div className=" font-poppins ">
       <div className="lg:block hidden">
         <div className=" font-poppins font-semibold w-full bg-[#F8F8FF] shadow 2xl:px-[10rem] xl:px-[8rem] lg:px-10   py-3  z-40 rounded-b-lg flex justify-between items-center">
           <a href="">
@@ -21,7 +21,7 @@ const NavBar = () => {
             >
               Create Account
             </button>
-          </span>
+          </span> 
         </div>
       </div>
       {/* Mobile nav bar */}
