@@ -1,17 +1,19 @@
 import React from "react";
 import NavBar from "./../../Components/AppComponents/NavBar";
-
+import icon from "./../../assets/google-icon.svg";
 const Signup = () => {
   return (
     <div>
       <NavBar />
-      <div className="grid md:grid-cols-2  ">
-        <div className="sjs w-full lg:px-10 xl:px-[8rem] 2xl:px-[10rem] pt-[0.2rem] h-[34.9rem] ">
-          <h2 className="text-center text-[1.9rem] font-semibold text-[#262626] ">
+      <div className="grid md:grid-cols-2  h-screen ">
+        <div className="w-full  pt-[4rem]">
+          <h2 className="text-center text-[1.5rem] font-semibold text-[#262626] ">
             Create Account
           </h2>
-          <h1 className="text-3xl font-bold mt-4">Hello,</h1>
-          <div className="h-[23rem] flex flex-col justify-evenly ">
+          <h1 className="text-3xl font-bold mt-3 lg:mx-10 xl:mx-[5rem] 2xl:mx-[10rem]">
+            Hello,
+          </h1>
+          <div className="h-[25rem] flex flex-col justify-evenly lg:mx-10 xl:mx-[8rem] 2xl:mx-[10rem]">
             <div class="relative z-0">
               <input
                 type="text"
@@ -97,13 +99,19 @@ const Signup = () => {
               </label>
             </div>
           </div>
-          <button className="px-5 py-3 float-right bg-[#009186] text-[#F8F8FF] rounded-[8px] font-semibold">
+          <button className="px-3 py-2 float-right lg:mx-10 xl:mx-[8rem] 2xl:mx-[10rem] bg-[#009186] text-[#F8F8FF] rounded-[8px] font-semibold">
             Create Account
           </button>
-          <span className="flex items-center mt-10">
+          <span className="flex items-center mt-10 lg:mx-10 xl:mx-[8rem] 2xl:mx-[10rem]">
             {" "}
-            <p className=" text-[#262626]">Already have an account?</p>
+            <p className=" text-[#262626] mr-2">Already have an account?</p>
             <span className="text-[#009186]">Login</span>
+          </span>
+
+          <span className=" flex items-center justify-center py-3 border-2  border-[#009186] border-solid rounded-[8px] mt-10 mb-4 lg:mx-10 xl:mx-[8rem] 2xl:mx-[10rem]">
+            {" "}
+            <p className="mr-2  text-[#009186]"> Continue with Google</p>
+            <img src={icon} alt="" className="object-contain w-5" />
           </span>
         </div>
         <div className="ssds w-full h-full bg lg:px-10 xl:px-[8rem] 2xl:px-[10rem] flex justify-center items-center">
