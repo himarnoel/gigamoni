@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import logo from "../../assets/logo.svg";
 import { HiMenu } from "react-icons/hi";
 import { useNavigate } from "react-router-dom";
-const NavBar = () => {
+const NavBar = (props) => {
   const [bool, setbool] = useState(false);
   return (
     <div className=" font-poppins ">
-      <div className="lg:block hidden">
+      <div className={`${props.class} lg:block hidden`}>
         <div className=" font-poppins font-semibold w-full bg-[#F8F8FF] shadow 2xl:px-[10rem] xl:px-[8rem] lg:px-10  fixed top-0 py-2  z-40 rounded-b-lg flex justify-between items-center">
           <a href="">
             <img src={logo} alt="" className="object-contain w-[9rem]" />
@@ -21,7 +21,7 @@ const NavBar = () => {
             >
               Create Account
             </button>
-          </span> 
+          </span>
         </div>
       </div>
       {/* Mobile nav bar */}
