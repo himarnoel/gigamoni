@@ -6,11 +6,12 @@ import { useFormik } from "formik";
 import { baseurl, signupValidate } from "../../Service/validate_and_api";
 import axios from "axios";
 import RingLoader from "react-spinners/RingLoader";
+import { useNavigate } from "react-router-dom";
 const Signup = () => {
   const [countries, setcountries] = useState(["Nigeria"]);
   const [selected, setSelected] = useState("");
   const [load, setload] = useState(false);
-
+  const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -23,7 +24,6 @@ const Signup = () => {
     validationSchema: signupValidate,
     onSubmit: (values) => {
       window.scrollTo(0, 0);
-
       setload(true);
       axios
         .post(`${baseurl}/signup/`, {
@@ -37,7 +37,7 @@ const Signup = () => {
         .then((res) => {
           console.log(res);
           setload(false);
-          alert("check your mail");
+          navigate("/check");
         })
         .catch((e) => {
           console.log(e);
