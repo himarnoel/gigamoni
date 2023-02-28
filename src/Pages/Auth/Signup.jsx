@@ -336,11 +336,11 @@ const Signup = () => {
                 <h2 className="text-center text-[1.3rem] font-semibold text-[#262626] ">
                   Create Account
                 </h2>
-                <h1 className="text-[1.5rem] font-bold px-2 mt-5">Hello,</h1>
+                <h1 className="text-[1.5rem] font-bold px-4 mt-5">Hello,</h1>
               </div>
               <form
                 onSubmit={formik.handleSubmit}
-                className="  mt-2  flex flex-col justify-between  h-[22rem] md:h-[30rem] px-3"
+                className="  mt-2  flex flex-col justify-between  h-[22rem] md:h-[30rem] px-4"
               >
                 <div class="relative z-0 mt-0">
                   <input
@@ -556,7 +556,7 @@ const Signup = () => {
                   Create Account
                 </button>
               </form>
-              <div className=" mt-3 px-3 pb-4  mb-3">
+              <div className=" mt-3 px-4 pb-4  mb-3">
                 {" "}
                 <span className="flex items-center">
                   {" "}
@@ -565,7 +565,7 @@ const Signup = () => {
                   </p>
                   <span className="text-[#009186]">Login</span>
                 </span>
-                <span className=" flex items-center justify-center py-[0.5rem] border-2 mt-4 border-[#009186] border-solid rounded-[8px]   lg:mx-10 xl:mx-[8rem] 2xl:mx-[10rem]">
+                <span className=" flex items-center justify-center py-[0.5rem] border-2 mt-8 border-[#009186] border-solid rounded-[8px]   lg:mx-10 xl:mx-[8rem] 2xl:mx-[10rem]">
                   {" "}
                   <p className="mr-2  text-[#009186]"> Continue with Google</p>
                   <img src={icon} alt="" className="object-contain w-5" />
