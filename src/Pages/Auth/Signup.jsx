@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import NavBar from "./../../Components/AppComponents/NavBar";
 import icon from "./../../assets/google-icon.svg";
-import Input from "../../Components/AppComponents/Input";
-import Countries from "./../../Components/AppComponents/Countries";
 import { RiArrowDownSLine } from "react-icons/ri";
-import { AiFillFile } from "react-icons/ai";
+import { useFormik } from "formik";
+import { signupValidate } from "../../Service/validate_and_api";
 const Signup = () => {
   const [countries, setcountries] = useState(["Nigeria"]);
   const [selected, setSelected] = useState("");
@@ -15,6 +14,21 @@ const Signup = () => {
 
     setSelected(event.target.value);
   };
+
+  const formik = useFormik({
+    initialValues: {
+      name: "",
+      email: "",
+      phonenumber: "",
+      country: "",
+      password: "",
+      passwordConfirmation: "",
+    },
+    validationSchema: signupValidate,
+    onSubmit: (values) => {
+      console.log(values);
+    },
+  });
   return (
     <div className="flex flex-col h-screen ">
       <NavBar class="" />
@@ -29,7 +43,7 @@ const Signup = () => {
             </h1>
           </div>
 
-          <div className="lg:h-[24rem] xl:h-[26rem]  flex flex-col justify-between   lg:mx-10 xl:mx-[8rem] 2xl:mx-[10rem]">
+          <form className="lg:h-[24rem] xl:h-[26rem]  flex flex-col justify-between   lg:mx-10 xl:mx-[8rem] 2xl:mx-[10rem]">
             <div class="relative z-0 mt-0">
               <input
                 type="text"
@@ -128,7 +142,7 @@ const Signup = () => {
             <button className="px-5 py-2 self-end  bg-[#009186] text-[#F8F8FF] rounded-[8px] font-semibold">
               Create Account
             </button>
-          </div>
+          </form>
 
           <div className="">
             {" "}
