@@ -315,17 +315,23 @@ const Signup = () => {
       </div>
       {/* Mobile View */}
       <dv className="lg:hidden ">
-        {" "}
+        {load ? (
+          <div className="absolute bg-cover bg-white/70 z-[20] h-screen w-screen flex  justify-center items-center text-3xl">
+            <RingLoader color="#009186" size={90} />
+          </div>
+        ) : (
+          ""
+        )}
         <div className="bg  w-screen  flex  flex-col md:h-screen">
           <NavBar class="" />
-          <div className="px-2 xss:px-4 xs:px-6 sm:px-10 md:px-8 flex-auto mt-3 flex flex-col h-full">
+          <div className="px-2 xss:px-4 xs:px-6 sm:px-10 md:px-8 flex-auto mt-3 md:flex md:flex-col md:h-full">
             <div className="w-full text-3xl px-[4.5rem]  text-center font-semibold flex justify-center items-center bg-[#87ACA3]/[0.5] h-[15rem] rounded-[8px] text-[#87ACA3]">
               <p className="leading-[1.2]">
                 International Bulk Payment Solution Made Just For{" "}
                 <span className="text-[#F8F8FF]"> YOU</span>
               </p>
             </div>
-            <div className="w-full bg-white rounded-lg mt-5 pt-5 flex-auto">
+            <div className="w-full bg-white rounded-lg mt-5 pt-5 md:flex-auto">
               <div className="">
                 <h2 className="text-center text-[1.3rem] font-semibold text-[#262626] ">
                   Create Account
