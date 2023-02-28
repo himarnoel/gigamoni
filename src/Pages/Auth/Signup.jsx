@@ -8,7 +8,7 @@ import axios from "axios";
 const Signup = () => {
   const [countries, setcountries] = useState(["Nigeria"]);
   const [selected, setSelected] = useState("");
-  const [load, setload] = useState(false)
+  const [load, setload] = useState(false);
 
   const handleChange = (event) => {
     console.log("Label 👉️", event.target.selectedOptions[0].label);
