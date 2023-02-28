@@ -83,6 +83,7 @@ const Signup = () => {
               <input
                 type="email"
                 id="email"
+                name="email"
                 className={
                   formik.errors.email && formik.touched.email
                     ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
@@ -90,7 +91,7 @@ const Signup = () => {
                 }
                 placeholder=" "
                 onChange={formik.handleChange}
-                value={formik.values.name}
+                value={formik.values.email}
                 onBlur={formik.handleBlur}
               />
               <label
@@ -121,8 +122,8 @@ const Signup = () => {
                     : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
                 }
                 placeholder=" "
-                    onChange={formik.handleChange}
-                value={formik.values.name}
+                onChange={formik.handleChange}
+                value={formik.values.phonenumber}
                 onBlur={formik.handleBlur}
               />
               <label
@@ -178,7 +179,7 @@ const Signup = () => {
                     : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
                 }
                 placeholder=" "
-                  onChange={formik.handleChange}
+                onChange={formik.handleChange}
                 value={formik.values.password}
                 onBlur={formik.handleBlur}
               />
