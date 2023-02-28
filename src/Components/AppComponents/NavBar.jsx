@@ -25,7 +25,7 @@ const NavBar = (props) => {
         </div>
       </div>
       {/* Mobile nav bar */}
-      <div className=" absolute  px-2 xss:px-4 xs:px-6 sm:px-10 md:px-8  font-poppins w-full bg-[#87ACA3]/[0.4] lg:hidden   top-0 py-5 flex  z-[70] rounded-b-lg justify-between">
+      <div className="  shadow  px-2 xss:px-4 xs:px-6 sm:px-10 md:px-8  font-poppins w-full bg-white lg:hidden    py-5 flex  z-[70] rounded-b-lg justify-between">
         <img src={logo} alt="" className="md:w-40 w-24 " />
         <span className="flex ">
           <button
@@ -36,7 +36,7 @@ const NavBar = (props) => {
             Create Account
           </button>{" "}
           <HiMenu
-            className="text-white text-xl sm:text-3xl md:text-4xl"
+            className="text-black text-xl sm:text-3xl md:text-4xl"
             onClick={() => setbool(!bool)}
           />
         </span>
