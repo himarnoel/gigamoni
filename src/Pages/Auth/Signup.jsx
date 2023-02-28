@@ -316,16 +316,16 @@ const Signup = () => {
       {/* Mobile View */}
       <dv className="lg:hidden ">
         {" "}
-        <div className="bg  w-screen  flex  flex-col ">
+        <div className="bg  w-screen  flex  flex-col md:h-screen">
           <NavBar class="" />
-          <div className="px-2 xss:px-4 xs:px-6 sm:px-10 md:px-8 flex-auto mt-3">
+          <div className="px-2 xss:px-4 xs:px-6 sm:px-10 md:px-8 flex-auto mt-3 flex flex-col h-full">
             <div className="w-full text-3xl px-[4.5rem]  text-center font-semibold flex justify-center items-center bg-[#87ACA3]/[0.5] h-[15rem] rounded-[8px] text-[#87ACA3]">
               <p className="leading-[1.2]">
                 International Bulk Payment Solution Made Just For{" "}
                 <span className="text-[#F8F8FF]"> YOU</span>
               </p>
             </div>
-            <div className="w-full bg-white rounded-lg mt-5 pt-5 ">
+            <div className="w-full bg-white rounded-lg mt-5 pt-5 flex-auto">
               <div className="">
                 <h2 className="text-center text-[1.3rem] font-semibold text-[#262626] ">
                   Create Account
@@ -334,7 +334,7 @@ const Signup = () => {
               </div>
               <form
                 onSubmit={formik.handleSubmit}
-                className="  mt-2  flex flex-col justify-between  h-[22rem] px-3"
+                className="  mt-2  flex flex-col justify-between  h-[22rem] md:h-[30rem] px-3"
               >
                 <div class="relative z-0 mt-0">
                   <input
