@@ -22,6 +22,8 @@ const Signup = () => {
     },
     validationSchema: signupValidate,
     onSubmit: (values) => {
+      window.scrollTo(0, 0);
+
       setload(true);
       axios
         .post(`${baseurl}/signup/`, {
@@ -47,7 +49,7 @@ const Signup = () => {
     <>
       <div className="hidden lg:block">
         {load ? (
-          <div className="absolute bg-cover bg-white/70 z-[20] h-screen w-screen flex  justify-center items-center text-3xl">
+          <div className="absolute bg-cover bg-[#262626]/[0.8]  z-[20] h-screen w-screen flex  justify-center items-center text-3xl">
             <RingLoader color="#009186" size={90} />
           </div>
         ) : (
@@ -318,7 +320,7 @@ const Signup = () => {
       <dv className="lg:hidden ">
         {load ? (
           <div className="absolute bg-cover bg-[#262626]/[0.8] z-[20] h-screen w-screen flex  justify-center items-center text-3xl">
-            <RingLoader color="#009186" size={90} />
+            <RingLoader color="#009186" size={75} />
           </div>
         ) : (
           ""
@@ -335,7 +337,7 @@ const Signup = () => {
                 </p>
               </p>
             </div>
-            <div className="w-full bg-white rounded-lg mt-5 pt-5 px-4 md:py-10 md:mt-20  md:px-14">
+            <div className="w-full bg-white rounded-lg mt-5 pt-5 px-4 sm:px-10 md:py-10 md:mt-20  md:px-14">
               <div className="">
                 <h2 className="text-center text-[1.3rem] font-semibold text-[#262626] ">
                   Create Account
