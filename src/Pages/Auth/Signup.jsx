@@ -556,7 +556,7 @@ const Signup = () => {
                   Create Account
                 </button>
               </form>
-              <div className=" mt-3 px-4 pb-4  mb-3">
+              <div className=" mt-6 px-4 pb-4  mb-3">
                 {" "}
                 <span className="flex items-center">
                   {" "}
