@@ -1,13 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import NavBar from "./../../Components/AppComponents/NavBar";
 import icon from "./../../assets/google-icon.svg";
 import Input from "../../Components/AppComponents/Input";
+import Countries from "./../../Components/AppComponents/Countries";
+import { RiArrowDownSLine } from "react-icons/ri";
+import { AiFillFile } from "react-icons/ai";
 const Signup = () => {
+  const [countries, setcountries] = useState(["Nigeria"]);
+  const [selected, setSelected] = useState("");
+
+  const handleChange = (event) => {
+    console.log("Label 👉️", event.target.selectedOptions[0].label);
+    console.log(event.target.value);
+
+    setSelected(event.target.value);
+  };
   return (
     <div className="flex flex-col h-screen ">
       <NavBar class="" />
-      <div className="grid md:grid-cols-2   flex-auto">
-        <div className="w-full flex flex-col justify-around">
+      <div className="grid md:grid-cols-2  flex-auto">
+        <div className="w-full flex flex-col justify-around  ">
           <div className="">
             <h2 className="text-center text-[1.3rem] font-semibold text-[#262626] ">
               Create Account
@@ -17,7 +29,7 @@ const Signup = () => {
             </h1>
           </div>
 
-          <div className="lg:h-[24rem] xl:h-[24rem]   flex flex-col justify-between   lg:mx-10 xl:mx-[8rem] 2xl:mx-[10rem]">
+          <div className="lg:h-[24rem] xl:h-[26rem]  flex flex-col justify-between   lg:mx-10 xl:mx-[8rem] 2xl:mx-[10rem]">
             <div class="relative z-0 mt-0">
               <input
                 type="text"
@@ -27,7 +39,7 @@ const Signup = () => {
               />
               <label
                 for="name"
-                class="absolute text-xs font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186]  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                class="absolute text-xs font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186]   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
               >
                 Name
               </label>
@@ -64,19 +76,26 @@ const Signup = () => {
               <select
                 type="text"
                 id="country"
-                class="block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
-                placeholder="Country"
+                className="block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                //placeholder=" "
+                value={selected}
+                onChange={handleChange}
               >
-                <option disabled={true} value="">
-                  --Choose and option--
-                </option>
+                <option value=""></option>
+                <option value="Afghanistan">Afghanistan</option>
+                <option value="Aland Islands">Åland Islands</option>
+                <option value="Albania">Albania</option>
+                <option value="Algeria">Algeria</option>
+                <option value="American Samoa">American Samoa</option>
               </select>
               <label
                 for="country"
-                class="absolute text-xs font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-25 peer-focus:top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186]  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                class="absolute text-xs font-poppins text-[#262626]  duration-300 transform -translate-y-4 scale-25 top-7 focus:top-4  peer-focus:top-2 -z-10 origin-[0] peer-focus:left-2 peer-focus:text-[#009186] peer-aria-selected:scale-200 peer-aria-selected:scale-200 peer-aria-selected:translate-y-14 peer-focus:scale-75 peer-focus:-translate-y-6"
               >
                 Country
               </label>
+
+              <RiArrowDownSLine className="pointer-events-none cursor-pointer text-4xl absolute inset-y-0 right-0 flex items-center px-2 text-[#262626]" />
             </div>{" "}
             <div class="relative z-0 ">
               <input
@@ -103,17 +122,17 @@ const Signup = () => {
                 for="confirmpassword"
                 class="absolute text-xs font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186]  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
               >
-                Name
+                Confirma Password
               </label>
             </div>
-            <button className="px-5 py-2 self-end  mt-5 bg-[#009186] text-[#F8F8FF] rounded-[8px] font-semibold">
+            <button className="px-5 py-2 self-end  bg-[#009186] text-[#F8F8FF] rounded-[8px] font-semibold">
               Create Account
             </button>
           </div>
 
-          <div>
+          <div className="">
             {" "}
-            <span className="flex items-center  lg:mx-10 xl:mx-[8rem] 2xl:mx-[10rem] ">
+            <span className="flex items-center   lg:mx-10 xl:mx-[8rem] 2xl:mx-[10rem] ">
               {" "}
               <p className=" text-[#262626] mr-2">Already have an account?</p>
               <span className="text-[#009186]">Login</span>
