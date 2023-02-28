@@ -106,7 +106,7 @@ const Signup = () => {
               </label>
               {formik.errors.email && formik.touched.email ? (
                 <p className="text-red-500 text-xs font-poppins">
-                  {formik.errors.name}
+                  {formik.errors.email}
                 </p>
               ) : (
                 ""
@@ -138,7 +138,7 @@ const Signup = () => {
               </label>
               {formik.errors.phonenumber && formik.touched.phonenumber ? (
                 <p className="text-red-500 text-xs font-poppins">
-                  {formik.errors.name}
+                  {formik.errors.phonenumber}
                 </p>
               ) : (
                 ""
