@@ -35,6 +35,7 @@ const Nav = () => {
         <img src={logo} alt="" className="md:w-40 w-24 " />
         <span className="flex ">
           <button
+            onClick={() => navigate("/signup")}
             className="sm:px-5 py-[0.5rem] px-2 xss:py-[0.5rem] xss:px-4 xs:py-[0.7rem] xs:px-7   sm:py-[0.7rem]  text-[0.7rem] xs:text-[0.8rem] sm:text-sm md:text-base
            rounded-[8px] bg-[#009186]  text-white mr-4"
           >
