@@ -5,6 +5,7 @@ import { RiArrowDownSLine } from "react-icons/ri";
 import { useFormik } from "formik";
 import { baseurl, signupValidate } from "../../Service/validate_and_api";
 import axios from "axios";
+import RingLoader from "react-spinners/RingLoader";
 const Signup = () => {
   const [countries, setcountries] = useState(["Nigeria"]);
   const [selected, setSelected] = useState("");
@@ -28,6 +29,7 @@ const Signup = () => {
     },
     validationSchema: signupValidate,
     onSubmit: (values) => {
+      setload(true);
       axios
         .post(`${baseurl}/signup/`, {
           password: values.password,
@@ -39,14 +41,24 @@ const Signup = () => {
         })
         .then((res) => {
           console.log(res);
+          setload(false);
+          alert("check your mail");
         })
         .catch((e) => {
           console.log(e);
+          setload(false);
         });
     },
   });
   return (
     <div className="flex flex-col h-screen ">
+      {load ? (
+        <div className="absolute bg-cover bg-white/70 z-[20] h-screen w-screen flex  justify-center items-center text-3xl">
+          <RingLoader color="#009186" size={90} />
+        </div>
+      ) : (
+        ""
+      )}
       <NavBar class="" />
       <div className="grid md:grid-cols-2  flex-auto">
         <div className="w-full flex flex-col justify-around  ">
