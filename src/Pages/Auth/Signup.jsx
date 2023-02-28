@@ -3,10 +3,12 @@ import NavBar from "./../../Components/AppComponents/NavBar";
 import icon from "./../../assets/google-icon.svg";
 import { RiArrowDownSLine } from "react-icons/ri";
 import { useFormik } from "formik";
-import { signupValidate } from "../../Service/validate_and_api";
+import { baseurl, signupValidate } from "../../Service/validate_and_api";
+import axios from "axios";
 const Signup = () => {
   const [countries, setcountries] = useState(["Nigeria"]);
   const [selected, setSelected] = useState("");
+  const [load, setload] = useState(false)
 
   const handleChange = (event) => {
     console.log("Label 👉️", event.target.selectedOptions[0].label);
@@ -26,7 +28,21 @@ const Signup = () => {
     },
     validationSchema: signupValidate,
     onSubmit: (values) => {
-      console.log(values);
+      axios
+        .post(`${baseurl}/signup/`, {
+          password: values.password,
+
+          fullname: values.name,
+          email: values.email,
+          phoneNumber: values.phonenumber.toString(),
+          country: values.country,
+        })
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((e) => {
+          console.log(e);
+        });
     },
   });
   return (
@@ -148,10 +164,15 @@ const Signup = () => {
               <select
                 type="text"
                 id="country"
-                className="block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
-                //placeholder=" "
-                value={selected}
-                onChange={handleChange}
+                className={
+                  formik.errors.country && formik.touched.country
+                    ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                    : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                  //placeholder=" "
+                }
+                onChange={formik.handleChange}
+                value={formik.values.country}
+                onBlur={formik.handleBlur}
               >
                 <option value=""></option>
                 <option value="Afghanistan">Afghanistan</option>
@@ -159,20 +180,32 @@ const Signup = () => {
                 <option value="Albania">Albania</option>
                 <option value="Algeria">Algeria</option>
                 <option value="American Samoa">American Samoa</option>
+                <option value="Nigeria">Nigeria</option>
               </select>
               <label
                 for="country"
-                class="absolute text-xs font-poppins text-[#262626]  duration-300 transform -translate-y-4 scale-25 top-7 focus:top-4  peer-focus:top-2 -z-10 origin-[0] peer-focus:left-2 peer-focus:text-[#009186] peer-aria-selected:scale-200 peer-aria-selected:scale-200 peer-aria-selected:translate-y-14 peer-focus:scale-75 peer-focus:-translate-y-6"
+                className={
+                  formik.errors.country && formik.touched.country
+                    ? "absolute text-xs font-poppins text-red-500  duration-300 transform -translate-y-4 scale-25 top-7 focus:top-4  peer-focus:top-2 -z-10 origin-[0] peer-focus:left-2 peer-focus:text-[#009186] peer-aria-selected:scale-200 peer-aria-selected:scale-200 peer-aria-selected:translate-y-14 peer-focus:scale-75 peer-focus:-translate-y-6"
+                    : "absolute text-xs font-poppins text-[#262626]  duration-300 transform -translate-y-4 scale-25 top-7 focus:top-4  peer-focus:top-2 -z-10 origin-[0] peer-focus:left-2 peer-focus:text-[#009186] peer-aria-selected:scale-200 peer-aria-selected:scale-200 peer-aria-selected:translate-y-14 peer-focus:scale-75 peer-focus:-translate-y-6"
+                }
               >
                 Country
               </label>
-
               <RiArrowDownSLine className="pointer-events-none cursor-pointer text-4xl absolute inset-y-0 right-0 flex items-center px-2 text-[#262626]" />
+              {formik.errors.country && formik.touched.country ? (
+                <p className="text-red-500 text-xs font-poppins">
+                  {formik.errors.phonenumber}
+                </p>
+              ) : (
+                ""
+              )}
             </div>{" "}
             <div class="relative z-0 ">
               <input
-                type="text"
+                type="password"
                 id="password"
+                name="password"
                 className={
                   formik.errors.password && formik.touched.password
                     ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
@@ -185,26 +218,62 @@ const Signup = () => {
               />
               <label
                 for="password"
-                class="absolute text-xs font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186]  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                className={
+                  formik.errors.password && formik.touched.password
+                    ? "absolute text-xs font-poppins text-red-500  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                    : "absolute text-xs font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                }
               >
                 Password
               </label>
+              {formik.errors.password && formik.touched.password ? (
+                <p className="text-red-500 text-xs font-poppins">
+                  {formik.errors.password}
+                </p>
+              ) : (
+                ""
+              )}
             </div>{" "}
             <div class="relative z-0 ">
               <input
-                type="text"
+                type="password"
                 id="confirmpassword"
-                class="block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                name="passwordConfirmation"
+                className={
+                  formik.errors.passwordConfirmation &&
+                  formik.touched.passwordConfirmation
+                    ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500  focus:border-red-500  appearance-none   focus:outline-none focus:ring-0  peer"
+                    : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                }
                 placeholder=" "
+                onChange={formik.handleChange}
+                value={formik.values.passwordConfirmation}
+                onBlur={formik.handleBlur}
               />
               <label
-                for="confirmpassword"
-                class="absolute text-xs font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186]  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                for="passwordConfirmation"
+                className={
+                  formik.errors.passwordConfirmation &&
+                  formik.touched.passwordConfirmation
+                    ? "absolute text-xs font-poppins text-red-500    duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                    : "absolute text-xs font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                }
               >
-                Confirma Password
+                Password
               </label>
+              {formik.errors.passwordConfirmation &&
+              formik.touched.passwordConfirmation ? (
+                <p className="text-red-500 text-xs font-poppins">
+                  {formik.errors.passwordConfirmation}
+                </p>
+              ) : (
+                ""
+              )}
             </div>
-            <button className="px-5 py-2 self-end  bg-[#009186] text-[#F8F8FF] rounded-[8px] font-semibold">
+            <button
+              type="submit"
+              className="px-5 py-2 self-end  bg-[#009186] text-[#F8F8FF] rounded-[8px] font-semibold"
+            >
               Create Account
             </button>
           </form>
