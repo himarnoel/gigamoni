@@ -59,7 +59,7 @@ const Signup = () => {
           <div className="grid md:grid-cols-2  flex-auto">
             <div className="w-full flex flex-col justify-around  ">
               <div className="">
-                <h2 className="text-center text-[1.3rem] font-semibold text-[#262626] ">
+                <h2 className="text-center text-[1.3rem]  font-semibold text-[#262626] ">
                   Create Account
                 </h2>
                 <h1 className="text-[1.5rem] font-bold  lg:mx-10 xl:mx-[5rem] 2xl:mx-[10rem]">
@@ -313,6 +313,7 @@ const Signup = () => {
           </div>
         </div>
       </div>
+
       {/* Mobile View */}
       <dv className="lg:hidden ">
         {load ? (
@@ -322,11 +323,11 @@ const Signup = () => {
         ) : (
           ""
         )}
-        <div className="bg  w-screen  flex  flex-col md:h-screen">
+        <div className="bg  w-screen  flex  flex-col md:pb-10">
           <NavBar class="" />
           <div className="px-2 xss:px-4 xs:px-6 sm:px-10 md:px-8 flex-auto mt-3 md:flex md:flex-col md:h-full">
-            <div className="w-full text-3xl px-[1rem]  text-center font-semibold flex justify-center items-center bg-[#87ACA3]/[0.5] h-[15rem] rounded-[8px] text-[#87ACA3]">
-              <p className="leading-[1.5]">
+            <div className="w-full text-[1.5rem] xss:text-3xl px-[1rem]  text-center font-semibold flex justify-center items-center bg-[#87ACA3]/[0.5] h-[15rem] rounded-[8px] text-[#87ACA3]">
+              <p className=" leading-[1.5] xss:leading-[1.5]">
                 <p> International Bulk</p>
                 <p>Payment Solution</p>
                 <p>
@@ -334,16 +335,16 @@ const Signup = () => {
                 </p>
               </p>
             </div>
-            <div className="w-full bg-white rounded-lg mt-5 pt-5 md:flex-auto">
+            <div className="w-full bg-white rounded-lg mt-5 pt-5 px-4 md:py-10 md:mt-20  md:px-14">
               <div className="">
                 <h2 className="text-center text-[1.3rem] font-semibold text-[#262626] ">
                   Create Account
                 </h2>
-                <h1 className="text-[1.5rem] font-bold px-4 mt-5">Hello,</h1>
+                <h1 className="text-[1.5rem] font-bold mt-5">Hello,</h1>
               </div>
               <form
                 onSubmit={formik.handleSubmit}
-                className="  mt-2  flex flex-col justify-between  h-[22rem] md:h-[30rem] px-4"
+                className="  mt-2  flex flex-col justify-between  h-[22rem] md:h-[30rem]"
               >
                 <div class="relative z-0 mt-0">
                   <input
@@ -559,16 +560,16 @@ const Signup = () => {
                   Create Account
                 </button>
               </form>
-              <div className=" mt-6 px-4 pb-4  mb-3">
+              <div className=" mt-6  pb-4  mb-3">
                 {" "}
-                <span className="flex items-center">
+                <span className="flex items-center justify-center">
                   {" "}
                   <p className=" text-[#262626] mr-2">
                     Already have an account?
                   </p>
                   <span className="text-[#009186]">Login</span>
                 </span>
-                <span className=" flex items-center justify-center py-[0.5rem] border-2 mt-8 border-[#009186] border-solid rounded-[8px]   lg:mx-10 xl:mx-[8rem] 2xl:mx-[10rem]">
+                <span className=" flex items-center justify-center py-[0.5rem] md:mt-10 border-2 mt-8 border-[#009186] border-solid rounded-[8px]   lg:mx-10 xl:mx-[8rem] 2xl:mx-[10rem]">
                   {" "}
                   <p className="mr-2  text-[#009186]"> Continue with Google</p>
                   <img src={icon} alt="" className="object-contain w-5" />
