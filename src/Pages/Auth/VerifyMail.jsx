@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import NavBar from "./../../Components/AppComponents/NavBar";
 import mail from "../../assets/Vector.svg";
+import OtpInput from "react18-input-otp";
 
 const VerifyMail = () => {
+  const [code, setCode] = useState("");
+
+  const handleChange = (code) => setCode(code);
   return (
     <div>
       <div className="flex flex-col h-screen font-poppins justify-center text-[#262626]">
@@ -23,6 +27,32 @@ const VerifyMail = () => {
             <p className="text-center lg:mt-4 ">
               Enter the verification code that was sent to your phone number
             </p>
+            <OtpInput
+              value={code}
+              onChange={handleChange}
+              className="mx-auto mt-5"
+              numInputs={5}
+              separator={<span style={{ width: "8px" }}></span>}
+              isInputNum={true}
+              shouldAutoFocus={true}
+              inputStyle={{
+                border: "1px solid #87ACA3",
+                borderRadius: "8px",
+                width: "54px",
+                height: "54px",
+                fontSize: "16px",
+                color: "#000",
+                fontWeight: "400",
+                caretColor: "blue",
+              }}
+              focusStyle={{
+                border: "1px solid #009186",
+                outline: "none",
+              }}
+            />
+            <button className="px-12 py-2 lg:py-3 float-right xl:px-12 bg-[#009186] text-white rounded-[8px] text-sm mt-2">
+              Submit
+            </button>
           </div>
           <button className=" self-end bg-[#87ACA3] text-xs md:text-sm  text-[#262626] rounded-[8px] font-semibold lg:mt-3 xss:mt-3 xs:mt-6 px-8 py-3">
             Back to Login
