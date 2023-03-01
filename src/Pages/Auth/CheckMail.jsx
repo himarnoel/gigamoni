@@ -1,7 +1,7 @@
 import React from "react";
 import NavBar from "./../../Components/AppComponents/NavBar";
 
-import img1 from "../../assets/vector.svg";
+import img1 from "../../assets/Vector.svg";
 
 const CheckMail = () => {
   return (
