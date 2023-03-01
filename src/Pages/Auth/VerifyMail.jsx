@@ -1,6 +1,6 @@
 import React from "react";
 import NavBar from "./../../Components/AppComponents/NavBar";
-import mail from "../../assets/vector.svg";
+import mail from "../../assets/Vector.svg";
 
 const VerifyMail = () => {
   return (
