@@ -5,6 +5,7 @@ import { Route, Routes } from "react-router-dom";
 import Login from "./Pages/Auth/Login";
 import Signup from "./Pages/Auth/Signup";
 import CheckMail from "./Pages/Auth/CheckMail";
+import VerifyMail from "./Pages/Auth/VerifyMail";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -16,6 +17,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/check" element={<CheckMail />} />
+        <Route path="/verify" element={<VerifyMail />} />
       </Routes>
     </div>
   );
