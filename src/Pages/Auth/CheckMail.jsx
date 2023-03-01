@@ -1,7 +1,7 @@
 import React from "react";
 import NavBar from "./../../Components/AppComponents/NavBar";
 
-import img from "../../assets/vector.svg";
+import img1 from "../../assets/vector.svg";
 
 const CheckMail = () => {
   return (
@@ -17,7 +17,7 @@ const CheckMail = () => {
               <span className="h-[4rem]  w-[4rem] xs:h-[5rem] xs:w-[5rem] md:h-[6rem] md:w-[6rem]   lg:h-[5rem] lg:w-[5rem]   flex justify-center items-center rounded-full bg-[#00913E]/[0.1] mt-3 lg:mt-[2rem]">
                 {" "}
                 <img
-                  src={img}
+                  src={img1}
                   alt=""
                   className="text-blue-700 h-[2rem] object-contain md:h-[2.5rem] lg:h-[2rem]"
                 />
