@@ -70,3 +70,8 @@ select:focus ~ label {
   left: 0px;
   top: 2rem;
 }
+
+.spin-button-none::-webkit-outer-spin-button,
+.spin-button-none::-webkit-inner-spin-button{
+  appearance: none;
+}
