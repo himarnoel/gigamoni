@@ -9,7 +9,8 @@ const VerifyMail = () => {
   const [activeOTPIndex, setActiveOTPIndex] = useState(0);
   const inputref = useRef(null);
 
-  const handleOnChange = (e) => {
+  const handleOnChange = (e, i) => {
+    console.log(i);
     const { value } = e.target;
     const newOTP = [...otp];
     newOTP[currentOTPIndex] = value.substring(value.length - 1);
@@ -27,17 +28,18 @@ const VerifyMail = () => {
 
   const handleOnKeyDown = (e, index) => {
     currentOTPIndex = index;
-    if (e.key == "Backspace") {
-      setActiveOTPIndex(currentOTPIndex - 1);
-    }
+    // console.log(index);
+    // if (e.key == "Backspace") {
+    //   // etActiveOTPIndex(currentOTPIndex - 1);
+    // }
   };
-  console.log(otp);
+  // console.log(otp);
   return (
     <div>
       <div className="flex flex-col h-screen font-poppins justify-center text-[#262626]">
         <NavBar />
         <div className="bg flex-auto lg:flex  items-center flex-col lg:px-[19rem] ">
-          <p className="text-center text-[#F8F8FF] text-base sm:text-2xl lg:text-xl xl:text-[1.3rem] font-semibold mt-4 sm:mt-8 lg:mt-8 xl:mt-">
+          <p className="text-center text-[rgb(248,248,255)] text-base sm:text-2xl lg:text-xl xl:text-[1.3rem] font-semibold mt-4 sm:mt-8 lg:mt-8 xl:mt-">
             Verify Your Phone Number
           </p>
           <div className="lg:h-[70%] bg-[#F8F8FF] w-full rounded-[11.8392px] lg:mt-6 lg:px-8">
@@ -52,7 +54,7 @@ const VerifyMail = () => {
             <p className="text-center lg:mt-4 ">
               Enter the verification code that was sent to your phone number
             </p>
-      
+
             <div className="flex  justify-evenly">
               {" "}
               {otp.map((arr, i) => (
@@ -62,7 +64,7 @@ const VerifyMail = () => {
                     ref={i === activeOTPIndex ? inputref : null}
                     type="number"
                     className="w-12 h-12 border-2 spin-button-none rounded bg-transparent outline-none text-center font-semibold text-xl spin-button-none border-gray-400 focus:border-gray-700 focus:text-gray-700 text-gray-400 transition"
-                    onChange={ handleOnChange}
+                    onChange={(e) => handleOnChange(e, i)}
                     onKeyDown={(e) => handleOnKeyDown(e, i)}
                     value={otp[i]}
                   />
