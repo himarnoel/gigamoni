@@ -185,6 +185,7 @@ const Login = () => {
         <div className="bg  w-screen  h-screen flex  flex-col md:pb-10">
           <NavBar class="" />
           <div className="px-2 xss:px-4 xs:px-6 sm:px-10 md:px-8 flex-auto  flex justify-around  flex-col md:h-full">
+            
             <div className="w-full  text-[1.5rem] xss:text-3xl px-[1rem]  text-center font-semibold flex justify-center items-center bg-[#87ACA3]/[0.5] h-[22%] rounded-[8px] text-[#87ACA3]">
               <p className=" leading-[1.5] xss:leading-[1.5] text-xl">
                 <p> International Bulk</p>
@@ -235,7 +236,7 @@ const Login = () => {
                       ""
                     )}
                   </div>{" "}
-                  <div class="relative z-0 mt-2 ">
+                  <div class="relative z-0 mt-4 ">
                     <input
                       type="password"
                       id="password"
