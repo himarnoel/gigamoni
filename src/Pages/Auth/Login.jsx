@@ -182,12 +182,11 @@ const Login = () => {
         ) : (
           ""
         )}
-        <div className="bg  w-screen  h-screen flex  flex-col md:pb-10">
+        <div className="bg  w-screen  h-screen sm:h-fit md:h-screen flex  flex-col md:pb-10">
           <NavBar class="" />
           <div className="px-2 xss:px-4 xs:px-6 sm:px-10 md:px-8 flex-auto  flex justify-around  flex-col md:h-full">
-            
             <div className="w-full  text-[1.5rem] xss:text-3xl px-[1rem]  text-center font-semibold flex justify-center items-center bg-[#87ACA3]/[0.5] h-[22%] rounded-[8px] text-[#87ACA3]">
-              <p className=" leading-[1.5] xss:leading-[1.5] text-xl">
+              <p className=" leading-[1.5] xss:leading-[1.5] text-xl md:text-3xl md:leading-[1.5]">
                 <p> International Bulk</p>
                 <p>Payment Solution</p>
                 <p>
@@ -195,14 +194,16 @@ const Login = () => {
                 </p>
               </p>
             </div>
-            <div className="xss:h-[72%]  h-[67%] bg-white rounded-[16px] xs:py-8 py-2  px-4 flex justify-between flex-col">
-              <h1 className="text-center font-semibold text-xl mt-2">Login</h1>
-              <div className="flex flex-col justify-between h-[90%]">
+            <div className="xss:h-[72%]  h-[67%] md:h-[57%] bg-white rounded-[16px] xs:py-8 py-2 md:py-20  px-4 flex justify-between flex-col md:px-20">
+              <h1 className="text-center font-semibold text-xl mt-2  md:text-2xl">
+                Login
+              </h1>
+              <div className="flex flex-col justify-between h-[90%] md:h-[85%]">
                 {" "}
-                <h2 className=" font-bold  xs:text-[1.4rem] xs:mt-4">
+                <h2 className=" font-bold  xs:text-[1.4rem] xs:mt-4 md:text-3xl">
                   Welcome,
                 </h2>
-                <form onSubmit={formik.handleSubmit} className="flex flex-col">
+                <form onSubmit={formik.handleSubmit} className="flex flex-col ">
                   <div class="relative z-0 ">
                     <input
                       type="text"
@@ -271,17 +272,17 @@ const Login = () => {
                   </div>{" "}
                   <button
                     type="submit"
-                    className="px-14 mt-4 text-sm py-2 self-end  bg-[#009186] text-[#F8F8FF] rounded-[8px] font-semibold"
+                    className="px-14 mt-4 text-sm md:py-3 py-2 self-end  bg-[#009186] text-[#F8F8FF] rounded-[8px] font-semibold"
                   >
                     Login
                   </button>
                 </form>
-                <span className="flex justify-center text-[0.7rem] xss:text-xs text-center mt-2">
+                <span className="flex justify-center text-[0.7rem] xss:text-xs text-center mt-2 md:mt-0 md:text-[1.2rem]">
                   {" "}
                   <p className=" text-[#262626] mr-2">Don't have an account?</p>
                   <span className="text-[#009186]">Create account</span>
                 </span>
-                <span className="  flex items-center justify-center py-[0.4rem] text-sm border-2 mt-4 lg:mt-8 xl:mt-10 border-[#009186] border-solid rounded-[8px]   lg:mx-10 xl:mx-[8rem] 2xl:mx-[10rem]">
+                <span className=" md:mt-0 md:text-[1.2rem]  flex items-center justify-center py-[0.4rem] text-sm border-2 mt-4 lg:mt-8 xl:mt-10 border-[#009186] border-solid rounded-[8px]   lg:mx-10 xl:mx-[8rem] 2xl:mx-[10rem]">
                   {" "}
                   <p className="mr-2  text-[#009186] "> Continue with Google</p>
                   <img src={icon} alt="" className="object-contain w-5" />

@@ -318,7 +318,7 @@ const Signup = () => {
 
       {/* Mobile View */}
       <dv className="lg:hidden ">
-        {load ? (
+        {load ? ( 
           <div className="absolute bg-cover bg-[#262626]/[0.8] z-[20] h-screen w-screen flex  justify-center items-center text-3xl">
             <RingLoader color="#009186" size={75} />
           </div>
