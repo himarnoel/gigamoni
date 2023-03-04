@@ -7,11 +7,11 @@ const CheckMail = () => {
     <div>
       <div className="flex flex-col h-screen font-poppins justify-center">
         <NavBar />
-        <div className="bg flex-auto lg:flex justify-around items-center flex-col ">
-          <p className="text-center text-[#F8F8FF] text-base sm:text-2xl lg:text-xl xl:text-2xl font-semibold mt-4 sm:mt-8 lg:mt-5 xl:mt-5">
+        <div className="bg flex-auto lg:flex justify-around items-center flex-col   ">
+          <p className="text-center text-[#F8F8FF] text-base sm:text-2xl lg:text-2xl xl:text-2xl font-semibold mt-4 sm:mt-8 lg:mt-0   xl:mt-5">
             Check your Email
           </p>
-          <div className="flex flex-col items-center w-full  h-[25rem] xss:h-[22rem] xs:h-[25rem] md:h-[27rem] lg:h-[28rem] xl:h-[32rem] px-2 xss:px-4 xs:px-6 lg:px-20  sm:w-fit mx-auto mt-2 xss:mt-2 xs:mt-4  md:mt-6 lg:mt-6 xl:mt-4">
+          <div className="flex flex-col items-center w-full  h-[25rem] xss:h-[22rem] xs:h-[25rem] md:h-[27rem] lg:h-[28rem] xl:h-[32rem] px-2 xss:px-4 xs:px-6 lg:px-[18rem]  mx-auto mt-2 xss:mt-2 xs:mt-4  md:mt-6 lg:mt-6 xl:mt-4">
             <div className="mx-auto text-[#262626] text-center flex flex-col  shade  items-center bg-[#F8F8FF]  px-4 xs:px-6 xl:px-[4rem]  rounded-[8px] md:rounded-[11.8392px] w-full h-full  shadow-[0_35px_60px_-15px_rgba(25,0,0,0.3)]">
               <span className="h-[4rem]  w-[4rem] xs:h-[5rem] xs:w-[5rem] md:h-[6rem] md:w-[6rem]   lg:h-[5rem] lg:w-[5rem]   flex justify-center items-center rounded-full bg-[#00913E]/[0.1] mt-3 lg:mt-[2rem]">
                 {" "}
