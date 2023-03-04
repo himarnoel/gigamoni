@@ -37,8 +37,8 @@ const Forgot = () => {
           <h1 className="text-[#F8F8FF] text-2xl font-semibold mx-auto mt-5">
             Forgot Password
           </h1>
-          <div className="rounded-[11.8392px] bg-[#F8F8FF]  h-[45%] xss:h-[40%] xs:h-[30%] sm:h-[28%] md:h-[26%] lg:h-[50%] w-full mt-10 px-2 md:px-10 py-8  flex-col flex ">
-            <p className="  text-[0.6rem] xss:text-[0.8rem] xs:text-[0.6rem] sm:text-sm ">
+          <div className="rounded-[11.8392px] bg-[#F8F8FF]  h-[45%] xss:h-[40%] xs:h-[45%] sm:h-[28%] md:h-[26%] lg:h-[50%] w-full mt-10 px-2 md:px-10 py-8  flex-col flex ">
+            <p className="  text-[0.6rem] xss:text-[0.8rem] xs:text-[0.8rem] sm:text-sm ">
               Enter your Email address below we’ll send an email with
               instructions on how to reset your password
             </p>
@@ -65,7 +65,7 @@ const Forgot = () => {
                   ""
                 )} */}
               </div>{" "}
-              <button className="py-3 w-full text-xs bg-[#009186] rounded-[5px] mt-5 sm:text-sm text-white">
+              <button className="py-3 w-full text-xs bg-[#009186] rounded-[5px] mt-2 md:mt-4 sm:text-sm text-white">
                 submit
               </button>
             </form>
