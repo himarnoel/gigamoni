@@ -24,11 +24,9 @@ const VerifyMail = () => {
 
     if (!value) {
       setActiveOTPIndex(currentOTPIndex - 1);
-      setVal(value);
     } else {
       setActiveOTPIndex(currentOTPIndex + 1);
       console.log(value);
-      setVal(value);
     }
     setOtp(newOTP);
   };
