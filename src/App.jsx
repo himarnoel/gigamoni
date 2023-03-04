@@ -2,12 +2,15 @@ import { useState } from "react";
 import "./App.css";
 import LandingPage from "./Pages/LandingPage";
 import { Route, Routes } from "react-router-dom";
-import Login from "./Pages/Auth/Login";
-import Signup from "./Pages/Auth/Signup";
-import CheckMail from "./Pages/Auth/CheckMail";
-import VerifyMail from "./Pages/Auth/VerifyMail";
-import Forgot from "./Pages/Auth/Forgot";
-import RecoverPass from "./Pages/Auth/RecoverPass";
+import {
+  Login,
+  Signup,
+  CheckMail,
+  VerifyMail,
+  Forgot,
+  RecoverPass,
+  NewPassword,
+} from "./Pages/Auth/index";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -22,6 +25,7 @@ function App() {
         <Route path="/verify" element={<VerifyMail />} />
         <Route path="/forgot" element={<Forgot />} />
         <Route path="/recover" element={<RecoverPass />} />
+        <Route path="/newpassword" element={<NewPassword />} />
       </Routes>
     </div>
   );
