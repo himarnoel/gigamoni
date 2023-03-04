@@ -3,7 +3,11 @@ import NavBar from "./../../Components/AppComponents/NavBar";
 import icon from "./../../assets/google-icon.svg";
 import { RiArrowDownSLine } from "react-icons/ri";
 import { useFormik } from "formik";
-import { baseurl, signupValidate } from "../../Service/validate_and_api";
+import {
+  baseurl,
+  loginValidate,
+  signupValidate,
+} from "../../Service/validate_and_api";
 import axios from "axios";
 import RingLoader from "react-spinners/RingLoader";
 import { useNavigate } from "react-router-dom";
@@ -14,25 +18,17 @@ const Login = () => {
   const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
-      name: "",
       email: "",
-      phonenumber: "",
-      country: "",
-      password: "",
-      passwordConfirmation: "",
+      password: ""
     },
-    validationSchema: signupValidate,
+    validationSchema: loginValidate,
     onSubmit: (values) => {
       window.scrollTo(0, 0);
       setload(true);
       axios
         .post(`${baseurl}/signup/`, {
           password: values.password,
-
-          fullname: values.name,
           email: values.email,
-          phoneNumber: values.phonenumber.toString(),
-          country: values.country,
         })
         .then((res) => {
           console.log(res);
@@ -194,7 +190,7 @@ const Login = () => {
                 </p>
               </p>
             </div>
-            <div className="xss:h-[72%]  h-[67%] md:h-[57%] bg-white rounded-[16px] xs:py-8 py-2 md:py-20  px-4 flex justify-between flex-col md:px-20">
+            <div className="xss:h-[72%]  h-[67%] md:h-[57%] bg-white rounded-[16px] xs:py-4 py-2 md:py-20  px-4 flex justify-between flex-col md:px-20">
               <h1 className="text-center font-semibold text-xl mt-2  md:text-2xl">
                 Login
               </h1>
@@ -282,7 +278,7 @@ const Login = () => {
                   <p className=" text-[#262626] mr-2">Don't have an account?</p>
                   <span className="text-[#009186]">Create account</span>
                 </span>
-                <span className=" md:mt-0 md:text-[1.2rem]  flex items-center justify-center py-[0.4rem] text-sm border-2 mt-4 lg:mt-8 xl:mt-10 border-[#009186] border-solid rounded-[8px]   lg:mx-10 xl:mx-[8rem] 2xl:mx-[10rem]">
+                <span className=" md:mt-0 text-xs  md:text-[1.2rem]  flex items-center justify-center py-[0.3rem] text-sm border-2 mt-4 lg:mt-8 xl:mt-10 border-[#009186] border-solid rounded-[8px]   lg:mx-10 xl:mx-[8rem] 2xl:mx-[10rem]">
                   {" "}
                   <p className="mr-2  text-[#009186] "> Continue with Google</p>
                   <img src={icon} alt="" className="object-contain w-5" />

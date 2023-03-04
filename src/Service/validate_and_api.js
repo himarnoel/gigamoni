@@ -6,6 +6,8 @@ export const loginValidate = yup.object().shape({
     .required("Please fill up this field"),
   password: yup.string().required("Please fill up this field"),
 });
+
+
 const phoneRegExp =
   /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 const passwordRegExp =
