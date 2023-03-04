@@ -52,18 +52,18 @@ const Forgot = () => {
                     "block font-poppins  w-full px-5 placeholder:text-xs md:placeholder:text-base py-2 text-sm text-gray-900 bg-transparent  rounded-[5px] border-[1.5px] placeholder:text-center placeholder:px-0 border-[#87ACA3] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
                   }
                   placeholder="Enter your email address"
-                  //   onChange={formik.handleChange}
-                  //   value={formik.values.email}
-                  //   onBlur={formik.handleBlur}
+                  onChange={formik.handleChange}
+                  value={formik.values.email}
+                  onBlur={formik.handleBlur}
                 />
 
-                {/* {formik.errors.email && formik.touched.email ? (
+                {formik.errors.email && formik.touched.email ? (
                   <p className="text-red-500 text-xs font-poppins">
                     {formik.errors.email}
-                  </p>  
+                  </p>
                 ) : (
                   ""
-                )} */}
+                )}
               </div>{" "}
               <div className="w-full px-3 sm:px-0 mt-5 ">
                 <button className="py-3  w-full text-xs bg-[#009186] rounded-[5px] mt-2 md:mt-4 sm:text-sm text-white">
