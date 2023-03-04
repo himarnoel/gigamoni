@@ -7,7 +7,6 @@ export const loginValidate = yup.object().shape({
   password: yup.string().required("Please fill up this field"),
 });
 
-
 const phoneRegExp =
   /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 const passwordRegExp =
@@ -38,5 +37,12 @@ export const signupValidate = yup.object().shape({
     .required("Please fill up this field"),
 });
 
-export const baseurl =
-  "https://gigamoni-backend.onrender.com/api/v1/accounts";
+export const forgotValidate = yup.object().shape({
+  email: yup
+    .string()
+    .email("please enter a valid email")
+    .required("Please fill up this field"),
+  password: yup.string().required("Please fill up this field"),
+});
+
+export const baseurl = "https://gigamoni-backend.onrender.com/api/v1/accounts";
