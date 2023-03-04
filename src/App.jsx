@@ -7,6 +7,7 @@ import Signup from "./Pages/Auth/Signup";
 import CheckMail from "./Pages/Auth/CheckMail";
 import VerifyMail from "./Pages/Auth/VerifyMail";
 import Forgot from "./Pages/Auth/Forgot";
+import RecoverPass from "./Pages/Auth/RecoverPass";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -20,6 +21,7 @@ function App() {
         <Route path="/check" element={<CheckMail />} />
         <Route path="/verify" element={<VerifyMail />} />
         <Route path="/forgot" element={<Forgot />} />
+        <Route path="/recover" element={<RecoverPass />} />
       </Routes>
     </div>
   );
