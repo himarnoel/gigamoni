@@ -33,7 +33,7 @@ const Forgot = () => {
     <div className="font-poppins">
       <div className="flex justify-between flex-col h-screen ">
         <NavBar />
-        <div className="flex-auto bg flex flex-col px-2 xss:px-4 xs:px-6 sm:px-10 md:px-8  lg:px-[15rem] xl:px-[23rem]">
+        <div className="flex-auto bg flex flex-col px-2 xss:px-4 xs:px-6 xsm:px-[5rem] sm:px-[6rem]  md:px-[8rem] lg:px-[18rem] xl:px-[25rem]">
           <h1 className="text-[#F8F8FF] text-2xl font-semibold mx-auto mt-5">
             Forgot Password
           </h1>
