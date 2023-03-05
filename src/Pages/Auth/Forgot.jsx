@@ -37,7 +37,7 @@ const Forgot = () => {
           <h1 className="text-[#F8F8FF] text-2xl font-semibold mx-auto mt-5">
             Forgot Password
           </h1>
-          <div className="rounded-[11.8392px] bg-[#F8F8FF] h-fit   md:h-[26%] lg:h-[50%] w-full mt-10 px-2 md:px-10 py-8  flex-col flex ">
+          <div className="rounded-[11.8392px] shade bg-[#F8F8FF] h-fit   md:h-[26%] lg:h-[50%] w-full mt-10 px-3 xsm:px-8 md:px-10   py-8  flex-col flex ">
             <p className="  text-[0.6rem] xss:text-[0.8rem] xs:text-[0.7rem] sm:text-sm ">
               Enter your Email address below we’ll send an email with
               instructions on how to reset your password
@@ -49,7 +49,9 @@ const Forgot = () => {
                   id="email"
                   name="email"
                   className={
-                    "block font-poppins  w-full px-5 placeholder:text-xs md:placeholder:text-base py-2 text-sm text-gray-900 bg-transparent  rounded-[5px] border-[1.5px] placeholder:text-center placeholder:px-0 border-[#87ACA3] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                    formik.errors.email && formik.touched.email
+                      ? "block font-poppins  w-full pl-4  py-2 placeholder:pl-0 placeholder:text-center text-sm text-gray-900 bg-transparent  border-[1.5px]  border-red-500 appearance-none rounded-[8px]   focus:outline-none focus:ring-0 focus:border-[#009186] "
+                      : "block font-poppins  w-full pl-4  py-2 placeholder:pl-0 placeholder:text-center text-sm text-gray-900 bg-transparent  border-[1.5px] border-[#87ACA3] appearance-none rounded-[8px]   focus:outline-none focus:ring-0 focus:border-[#009186] "
                   }
                   placeholder="Enter your email address"
                   onChange={formik.handleChange}
@@ -58,7 +60,7 @@ const Forgot = () => {
                 />
 
                 {formik.errors.email && formik.touched.email ? (
-                  <p className="text-red-500 text-xs font-poppins">
+                  <p className="text-red-500 text-xs font-poppins mt-2">
                     {formik.errors.email}
                   </p>
                 ) : (

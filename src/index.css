@@ -79,3 +79,8 @@ select:focus ~ label {
 .shade{
   box-shadow: 0px 3.10952px 3.10952px rgba(255, 255, 255, 0.1);
 }
+
+
+.check{
+  overflow-y: hidden;
+}

@@ -4,15 +4,15 @@ import img1 from "../../assets/Vector.svg";
 
 const CheckMail = () => {
   return (
-    <div>
-      <div className="flex flex-col h-screen  font-poppins justify-between">
+    <div className="check">
+      <div className="flex flex-col h-screen  font-poppins justify-between ">
         <NavBar />
-        <div className="bg flex-auto lg:flex  items-center flex-col   ">
-          <p className="text-center text-[#F8F8FF] text-base sm:text-2xl lg:text-2xl xl:text-2xl 2xl:text-3xl font-semibold mt-4 sm:mt-8 lg:mt-4   xl:mt-4">
+        <div className="bg flex-auto lg:flex  items-center flex-col justify-between lg:pb-[5%] lg:pt-[4%] x">
+          <p className="text-center text-[#F8F8FF] text-base sm:text-2xl lg:text-2xl xl:text-2xl 2xl:text-3xl font-semibold mt-4 sm:mt-8 lg:mt-0  xl:mt-0 ">
             Check your Email
           </p>
-          <div className="flex flex-col items-center w-full  h-[25rem] xss:h-[22rem] xs:h-[25rem] md:h-[29rem] lg:h-[28rem] xl:h-[32rem] px-2 xss:px-4 xs:px-6 xsm:px-[5rem] sm:px-[6rem]  md:px-[8rem] lg:px-[18rem] xl:px-[25rem]  mx-auto mt-2 xss:mt-2 xs:mt-4  md:mt-6 lg:mt-6 xl:mt-5">
-            <div className="mx-auto text-[#262626] text-center flex flex-col   shade  items-center bg-[#F8F8FF]  px-2 xs:px-4 sm:px-6  xl:px-[2rem]  rounded-[8px] md:rounded-[11.8392px] w-full h-full  shadow-[0_35px_60px_-15px_rgba(25,0,0,0.3)]">
+          <div className="flex flex-col items-center w-full  h-[25rem] xss:h-[22rem] xs:h-[25rem] md:h-[29rem] lg:h-[28rem] xl:h-[30.8rem] mxl:h-[33rem]  px-2 xss:px-4 xs:px-6 xsm:px-[5rem] sm:px-[6rem]  md:px-[8rem] lg:px-[18rem] xl:px-[25rem] mxl:px-[29.6rem]   mx-auto mt-2 xss:mt-2 xs:mt-4  md:mt-6 lg:mt-6 xl:mt-5">
+            <div className="mx-auto text-[#262626] text-center flex flex-col   shade  items-center bg-[#F8F8FF]  px-2 xs:px-4 sm:px-6  xl:px-[2rem] xl:  rounded-[8px] md:rounded-[11.8392px] w-full h-full  shadow-[0_35px_60px_-15px_rgba(25,0,0,0.3)]">
               <span className="h-[4rem]  w-[4rem] xs:h-[5rem] xs:w-[5rem] md:h-[6rem] md:w-[6rem]   lg:h-[5rem] lg:w-[5rem]   flex justify-center items-center rounded-full bg-[#00913E]/[0.1] mt-3 md:mt-[2rem] lg:mt-[2rem]">
                 {" "}
                 <img
@@ -24,10 +24,10 @@ const CheckMail = () => {
               <p className="text-xs xs:text-[0.78rem] font-semibold sm:text-sm md:text-xl lg:text-sm xl:text-lg sm:font-medium mt-3 xl:mt-5 w">
                 We have sent a Verification link to your mail
               </p>
-              <p className="text-xs  mt-6 xss:mt-3  xs:mt-3 md:mt-3 md:text-sm lg:text-xs xl:mt-3">
+              <p className="text-xs  mt-6 xss:mt-3  xs:mt-3 md:mt-3 md:text-sm lg:text-sm xl:mt-3">
                 If you can’t find the email kindly check your spam folder
               </p>
-              <p className="text-xs mt-[4rem] xss:mt-[3rem] xs:mt-14 md:mt-20  md:text-sm xl:text-sm xl:mt-20">
+              <p className="text-xs mt-[4rem] xss:mt-[3rem] xs:mt-14 md:mt-20  md:text-sm xl:text-sm xl:mt-14 mxl:mt-16">
                 Didn't receive email?
               </p>
 

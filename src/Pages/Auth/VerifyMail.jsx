@@ -17,7 +17,6 @@ const VerifyMail = () => {
   const inputref = useRef(null);
 
   const handleOnChange = (e, i) => {
-    // console.log(i);
     const { value } = e.target;
     const newOTP = [...otp];
     newOTP[currentOTPIndex] = value.substring(value.length - 1);
@@ -26,38 +25,38 @@ const VerifyMail = () => {
       setActiveOTPIndex(currentOTPIndex - 1);
     } else {
       setActiveOTPIndex(currentOTPIndex + 1);
-      console.log(value);
     }
     setOtp(newOTP);
   };
   useEffect(() => {
     inputref.current?.focus();
   }, [activeOTPIndex]);
-  const handleOnKeyDown = (e, index) => {
-    currentOTPIndex = index;
-    // console.log(V);
 
-    // if (e.key == "Backspace") {
-    //   setActiveOTPIndex(currentOTPIndex - 1);
-    //   console.log(Val);
-    // }
+  const handleOnKeyDown = (e, index) => {
+    if (e.key == "Backspace" && !e.target.value) {
+      // currentOTPIndex = index;
+      setActiveOTPIndex(index - 1);
+      console.log(currentOTPIndex);
+    } else {
+      currentOTPIndex = index;
+    }
   };
   // console.log(otp);
   return (
     <div className="font-poppins">
-      {bool ? (
+      {!bool ? (
         <div className="hidden sm:block">
           <div
             onClick={() => setbool(false)}
-            className="bg-[#262626]/[0.8] h-screen w-screen absolute flex flex-col justify-center items-center "
+            className="bg-[#262626]/[0.8] h-screen w-screen absolute flex flex-col justify-center items-center  px-2 xss:px-4 xs:px-6 xsm:px-[5rem] sm:px-[6rem]  md:px-[8rem] lg:px-[18rem] xl:px-[25rem] "
           >
-            <div className="flex-col flex justify-evenly items-center px-2 lg:px-20 bg-[#F8F8FF] rounded-[11.8392px] h-[60%] w-[80%] md:h-[60%] lg:w-[40%] ">
+            <div className="flex-col flex justify-evenly items-center px-2 lg:px-20 bg-[#F8F8FF] rounded-[11.8392px] h-[25rem] xss:h-[22rem] xs:h-[25rem] md:h-[29rem] lg:h-[28rem] xl:h-[32rem] w-full ">
               <p className="lg:text-2xl md:text-4xl font-medium ">
                 You Are All Set
               </p>
               <img src={pop} alt="" className="md:w-[12rem]  w-[5rem]" />
               <button className="w-full py-3 bg-[#009186] rounded-[8px] text-[#F8F8FF]">
-                Go to Dashboard
+                Go to Dashboard   
               </button>
             </div>
           </div>
