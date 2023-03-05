@@ -9,6 +9,7 @@ import SetMobile from "./SetMobile";
 const VerifyMail = () => {
   const navigate = useNavigate();
   let currentOTPIndex = 0;
+  let newOTP = [];
   const [otp, setOtp] = useState(new Array(6).fill(""));
   const [activeOTPIndex, setActiveOTPIndex] = useState(0);
   const [bol, setbol] = useState(false);
@@ -17,9 +18,10 @@ const VerifyMail = () => {
   const inputref = useRef(null);
 
   const handleOnChange = (e, i) => {
-    console.log("");
+    console.log("20");
     const { value } = e.target;
-    const newOTP = [...otp];
+    console.log(value);
+    newOTP = [...otp];
     newOTP[currentOTPIndex] = value.substring(value.length - 1);
 
     if (!value) {
@@ -35,13 +37,27 @@ const VerifyMail = () => {
 
   const handleOnKeyDown = (e, index) => {
     currentOTPIndex = index;
+    if (
+      e.key == "e" ||
+      e.key == "+" ||
+      e.key == "-" ||
+      e.key == "/" ||
+      e.key == "."
+    ) {
+      e.preventDefault();
+      e.target.value = "";
+      newOTP[currentOTPIndex] = "";
+    }
+    if (e.key === "Tab") {
+      e.preventDefault();
+      setActiveOTPIndex(currentOTPIndex + 1);
+    }
     if (e.key === "Backspace" && !e.target.value) {
       e.preventDefault();
       setActiveOTPIndex(currentOTPIndex - 1);
     }
-    console.log(otp);
   };
-  // console.log(otp);
+
   return (
     <div className="font-poppins">
       {bool ? (
@@ -92,6 +108,7 @@ const VerifyMail = () => {
                   <input
                     ref={i === activeOTPIndex ? inputref : null}
                     type="number"
+                    pattern="[0-9]*"
                     className="h-16 w-8  xs:w-[2.17rem] sm:w-20 lg:w-12 lg:h-14 border spin-button-none rounded-[8px] bg-transparent outline-none text-center font-semibold text-lg text-[#262626] font-poppins spin-button-none border-[#87ACA3] border-solid transition"
                     onChange={(e) => handleOnChange(e, i)}
                     onKeyDown={(e) => handleOnKeyDown(e, i)}
