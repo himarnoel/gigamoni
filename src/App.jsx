@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import LandingPage from "./Pages/LandingPage";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import {
   Login,
   Signup,
@@ -25,7 +25,8 @@ function App() {
         <Route path="/verify" element={<VerifyMail />} />
         <Route path="/forgot" element={<Forgot />} />
         <Route path="/recover" element={<RecoverPass />} />
-        <Route path="/newpassword" element={<NewPassword />} />
+        <Route path="/newpassword" element={<NewPassword />} /> 
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </div>
   );

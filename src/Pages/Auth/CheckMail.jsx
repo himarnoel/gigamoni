@@ -1,8 +1,14 @@
 import React from "react";
 import NavBar from "./../../Components/AppComponents/NavBar";
 import img1 from "../../assets/Vector.svg";
+import { useSearchParams } from "react-router-dom";
 
 const CheckMail = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const id = searchParams.get("id");
+  const key = searchParams.get("key");
+  console.log("id", id);
+  console.log("key", key);
   return (
     <div className="check">
       <div className="flex flex-col h-screen  font-poppins justify-between ">

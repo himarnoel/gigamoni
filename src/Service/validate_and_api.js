@@ -45,4 +45,21 @@ export const forgotValidate = yup.object().shape({
   password: yup.string().required("Please fill up this field"),
 });
 
+export const newpasswordValidate = yup.object().shape({
+  password: yup
+    .string()
+    .min(8, "password must containat least 8 characters ")
+    .matches(
+      passwordRegExp,
+      "characters with at least one of each: uppercase, lowercase, number and special"
+    )
+    .required("Please fill up this field"),
+
+    
+  passwordConfirmation: yup
+    .string()
+    .oneOf([yup.ref("password"), null], "Passwords must match")
+    .required("Please fill up this field"),
+});
+
 export const baseurl = "https://gigamoni-backend.onrender.com/api/v1/accounts";

@@ -3,7 +3,7 @@ import NavBar from "./../../Components/AppComponents/NavBar";
 import mail from "../../assets/Vector.svg";
 import OtpInput from "react18-input-otp";
 import pop from "../../assets/poper.svg";
-import { useNavigate } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 import SetMobile from "./SetMobile";
 
 const VerifyMail = () => {
@@ -18,7 +18,6 @@ const VerifyMail = () => {
   const inputref = useRef(null);
 
   const handleOnChange = (e, i) => {
-    console.log("20");
     const { value } = e.target;
     console.log(value);
     newOTP = [...otp];
