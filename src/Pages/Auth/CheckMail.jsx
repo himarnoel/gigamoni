@@ -7,7 +7,7 @@ const CheckMail = () => {
     <div className="check">
       <div className="flex flex-col h-screen  font-poppins justify-between ">
         <NavBar />
-        <div className="bg flex-auto lg:flex  items-center flex-col justify-between lg:pb-[5%] lg:pt-[4%] x">
+        <div className="bg flex-auto lg:flex  items-center flex-col justify-around lg:pb-[5%] lg:pt-[4%] x">
           <p className="text-center text-[#F8F8FF] text-base sm:text-2xl lg:text-2xl xl:text-2xl 2xl:text-3xl font-semibold mt-4 sm:mt-8 lg:mt-0  xl:mt-0 ">
             Check your Email
           </p>
