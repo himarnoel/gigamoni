@@ -7,11 +7,12 @@ import { baseurl, signupValidate } from "../../Service/validate_and_api";
 import axios from "axios";
 import RingLoader from "react-spinners/RingLoader";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 const Signup = () => {
   const [countries, setcountries] = useState(["Nigeria"]);
   const [selected, setSelected] = useState("");
   const [load, setload] = useState(false);
-  const [phone, setphone] = useState("");
+  const [phone, setphone] = useState("+234");
   const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
@@ -31,22 +32,29 @@ const Signup = () => {
           password: values.password,
           fullname: values.name,
           email: values.email,
-          phoneNumber: values.phonenumber.toString(),
+          phoneNumber: phone + values.phonenumber.toString().substring(1),
           country: values.country,
         })
         .then((res) => {
           console.log(res);
           setload(false);
           navigate("/check");
+          toast.success("success");
+          // console.log(res.response.status);
           localStorage.setItem("email", values.email.toString());
         })
         .catch((e) => {
           console.log(e);
           setload(false);
+          if (e.response.status == 400) {
+            toast.error("user already exist");
+          } else {
+            toast.error("An error occurred");
+          }
         });
     },
   });
-  console.log(formik.values);
+
   return (
     <>
       <div className="hidden lg:block">
