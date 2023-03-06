@@ -21,7 +21,7 @@ export const signupValidate = yup.object().shape({
     .string()
     .required("Please fill up this field")
     .matches(phoneRegExp, "Phone number is not valid")
-    .max(11, "too long"),
+    .max(15, "too long"),
   country: yup.string().required("Please fill up this field"),
   password: yup
     .string()
