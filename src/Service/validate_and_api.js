@@ -8,7 +8,7 @@ export const loginValidate = yup.object().shape({
 });
 
 const phoneRegExp =
-  /^((\+[0-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
+  /^((\\+[0-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 const passwordRegExp =
   /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 export const signupValidate = yup.object().shape({
@@ -55,6 +55,7 @@ export const newpasswordValidate = yup.object().shape({
     )
     .required("Please fill up this field"),
 
+    
   passwordConfirmation: yup
     .string()
     .oneOf([yup.ref("password"), null], "Passwords must match")
