@@ -22,7 +22,6 @@ const NewPassword = () => {
       setload(true);
       axios
         .post(`${baseurl}/new-password/`, {
-         
           token: key,
           uidb64: id,
         })
