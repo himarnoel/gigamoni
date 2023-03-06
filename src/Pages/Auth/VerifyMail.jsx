@@ -13,7 +13,7 @@ const VerifyMail = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [load, setload] = useState(false);
   const [deter, setDeter] = useState(false);
-  const id="";
+
   useEffect(() => {
     const id = searchParams.get("id");
     const key = searchParams.get("key");
@@ -86,6 +86,7 @@ const VerifyMail = () => {
 
   const VerifyPhone = () => {
     const otpValues = otp.reduce((partialSum, a) => partialSum + a);
+    let id = searchParams.get("id");
     axios
       .get(`${baseurl}/phone/${id}/${otpValues}`)
       .then((res) => {
@@ -96,7 +97,7 @@ const VerifyMail = () => {
       .catch((e) => {
         console.log(e);
         setload(false);
-        setDeter(false);
+        setDeter(true);
       });
   };
 
