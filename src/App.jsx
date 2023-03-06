@@ -13,6 +13,7 @@ import {
   RecoverPass,
   NewPassword,
 } from "./Pages/Auth/index";
+import Dashboard from "./Pages/Dashboard";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -29,6 +30,7 @@ function App() {
         <Route path="/forgot" element={<Forgot />} />
         <Route path="/recover" element={<RecoverPass />} />
         <Route path="/newpassword" element={<NewPassword />} />
+        <Route path="/dashboard" element={<Dashboard />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </div>

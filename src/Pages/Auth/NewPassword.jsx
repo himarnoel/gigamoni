@@ -23,8 +23,8 @@ const NewPassword = () => {
       axios
         .post(`${baseurl}/new-password/`, {
           password: values.password,
-          token: id,
-          uidb64: key,
+          token: key,
+          uidb64: id,
         })
         .then((res) => {
           console.log(res);
