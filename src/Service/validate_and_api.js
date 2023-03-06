@@ -42,7 +42,7 @@ export const forgotValidate = yup.object().shape({
     .string()
     .email("please enter a valid email")
     .required("Please fill up this field"),
-  password: yup.string().required("Please fill up this field"),
+
 });
 
 export const newpasswordValidate = yup.object().shape({

@@ -7,7 +7,6 @@ const Forgot = () => {
   const formik = useFormik({
     initialValues: {
       email: "",
-      password: "",
     },
     validationSchema: forgotValidate,
     onSubmit: (values) => {
@@ -15,13 +14,14 @@ const Forgot = () => {
       setload(true);
       axios
         .post(`${baseurl}/signup/`, {
-          password: values.password,
+         
           email: values.email,
         })
         .then((res) => {
           console.log(res);
           setload(false);
-          navigate("/check");
+          localStorage.setItem("email", values.email.toString());
+          navigate("/recover");
         })
         .catch((e) => {
           console.log(e);
@@ -66,7 +66,7 @@ const Forgot = () => {
                 ) : (
                   ""
                 )}
-              </div>{" "}
+              </div>
               <div className="w-full px-3 sm:px-0 mt-5 ">
                 <button className="py-3  w-full text-xs bg-[#009186] rounded-[5px] mt-2 md:mt-4 sm:text-sm text-white">
                   submit

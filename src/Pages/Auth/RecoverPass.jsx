@@ -2,8 +2,32 @@ import React from "react";
 import NavBar from "./../../Components/AppComponents/NavBar";
 import img1 from "../../assets/Vector.svg";
 const RecoverPass = () => {
+  const [load, setload] = useState(false);
+  const Resender = () => {
+    let email = localStorage.getItem("email");
+    setload(true);
+    axios
+      .post(`${baseurl}/request/`, {
+        email,
+      })
+      .then((res) => {
+        console.log(res);
+        setload(false);
+      })
+      .catch((e) => {
+        console.log(e);
+        setload(false);
+      });
+  };
   return (
-    <div>
+    <div className="check">
+      {load ? (
+        <div className="absolute bg-cover bg-[#262626]/[0.8]  z-[20] h-screen w-screen flex  justify-center items-center text-3xl">
+          <RingLoader color="#009186" size={90} />
+        </div>
+      ) : (
+        ""
+      )}
       <div className="flex flex-col h-screen  font-poppins justify-between">
         <NavBar />
         <div className="bg flex-auto lg:flex  items-center flex-col   ">
@@ -30,7 +54,10 @@ const RecoverPass = () => {
                 Didn't receive email?
               </p>
 
-              <button className="px-12 py-[0.78rem] xss:py-[0.72rem] sm:py-3 lg:py-3  xl:px-12 bg-[#009186] text-white rounded-[8px] text-sm mt-2">
+              <button
+                onClick={() => Resender()}
+                className="px-12 py-[0.78rem] xss:py-[0.72rem] sm:py-3 lg:py-3  xl:px-12 bg-[#009186] text-white rounded-[8px] text-sm mt-2"
+              >
                 Resend Mail
               </button>
             </div>
