@@ -13,7 +13,7 @@ const VerifyMail = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [load, setload] = useState(false);
   const [deter, setDeter] = useState(false);
-
+  const id="";
   useEffect(() => {
     const id = searchParams.get("id");
     const key = searchParams.get("key");
@@ -84,6 +84,23 @@ const VerifyMail = () => {
     }
   };
 
+  const VerifyPhone = () => {
+    const otpValues = otp.reduce((partialSum, a) => partialSum + a);
+
+    axios
+      .get(`${baseurl}/phone/${id}/${otpValues}`)
+      .then((res) => {
+        console.log(res);
+        setload(false);
+        setDeter(true);
+      })
+      .catch((e) => {
+        console.log(e);
+        setload(false);
+        setDeter(false);
+      });
+  };
+
   return (
     <div className="font-poppins">
       {load ? (
@@ -117,7 +134,7 @@ const VerifyMail = () => {
       <div className="flex flex-col h-screen font-poppins justify-between text-[#262626] ">
         <NavBar />
 
-        {!deter ? (
+        {deter ? (
           <div className="bg flex-auto sm:flex  items-center lg:justify-around flex-col  px-2 xss:px-4 xs:px-6 lg:px-[19rem]  xl:px-[25rem]  mxl:px-[27rem]"></div>
         ) : (
           <div className="bg flex-auto sm:flex  items-center lg:justify-around flex-col  px-2 xss:px-4 xs:px-6 lg:px-[19rem]  xl:px-[25rem]  mxl:px-[27rem]">
@@ -155,7 +172,7 @@ const VerifyMail = () => {
               </div>
               <div className="flex flex-col xl:h-[40%] justify-between items-center mt-4 lg:mt-[1%] xl:mt-[4%] sm:mb-5 md:mb-0">
                 <button
-                  onClick={() => setbool(true)}
+                  onClick={() => VerifyPhone()}
                   className=" hidden md:block px-12 py-2 lg:py-3 lg:px-14 lg:mt-[5%] lg:text-xs self-end  xl:px-12 bg-[#009186] text-white rounded-[8px] text-sm mt-2"
                 >
                   Submit
