@@ -4,31 +4,32 @@ import { forgotValidate } from "../../Service/validate_and_api";
 import { useFormik } from "formik";
 
 const Forgot = () => {
-  const formik = useFormik({
-    initialValues: {
-      email: "",
-    },
-    validationSchema: forgotValidate,
-    onSubmit: (values) => {
-      window.scrollTo(0, 0);
-      setload(true);
-      axios
-        .post(`${baseurl}/request/`, {
-         
-          email: values.email,
-        })
-        .then((res) => {
-          console.log(res);
-          setload(false);
-          localStorage.setItem("email", values.email.toString());
-          navigate("/recover");
-        })
-        .catch((e) => {
-          console.log(e);
-          setload(false);
-        });
-    },
-  });
+  const Forgotpassword = () => {
+    const formik = useFormik({
+      initialValues: {
+        email: "",
+      },
+      validationSchema: forgotValidate,
+      onSubmit: (values) => {
+        window.scrollTo(0, 0);
+        setload(true);
+        axios
+          .post(`${baseurl}/request/`, {
+            email: values.email,
+          })
+          .then((res) => {
+            console.log(res);
+            setload(false);
+            localStorage.setItem("email", values.email.toString());
+            navigate("/recover");
+          })
+          .catch((e) => {
+            console.log(e);
+            setload(false);
+          });
+      },
+    });
+  };
   return (
     <div className="font-poppins">
       <div className="flex justify-between flex-col h-screen ">
@@ -68,7 +69,10 @@ const Forgot = () => {
                 )}
               </div>
               <div className="w-full px-3 sm:px-0 mt-5 ">
-                <button className="py-3  w-full text-xs bg-[#009186] rounded-[5px] mt-2 md:mt-4 sm:text-sm text-white">
+                <button
+                  onClick={() => Forgotpassword()}
+                  className="py-3  w-full text-xs bg-[#009186] rounded-[5px] mt-2 md:mt-4 sm:text-sm text-white"
+                >
                   submit
                 </button>
               </div>
