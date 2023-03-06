@@ -22,10 +22,10 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/check" element={<CheckMail />} />
-        <Route path="/verify/:id/:" element={<VerifyMail />} />
+        <Route path="/verify" element={<VerifyMail />} />
         <Route path="/forgot" element={<Forgot />} />
         <Route path="/recover" element={<RecoverPass />} />
-        <Route path="/newpassword/:id?/:key?" element={<NewPassword />} />
+        <Route path="/newpassword" element={<NewPassword />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </div>

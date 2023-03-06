@@ -37,7 +37,7 @@ const Signup = () => {
         .then((res) => {
           console.log(res);
           setload(false);
-          // navigate("/check", { state: { email: values.email } });
+          navigate("/check");
           localStorage.setItem("email", values.email.toString());
         })
         .catch((e) => {
