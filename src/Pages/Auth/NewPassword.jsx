@@ -59,7 +59,7 @@ const NewPassword = () => {
                   value={formik.values.password}
                   onBlur={formik.handleBlur}
                 />
-                <label
+                <label  
                   for="passwordConfirmation"
                   className={
                     formik.errors.password && formik.touched.password

@@ -3,10 +3,34 @@ import NavBar from "./../../Components/AppComponents/NavBar";
 import mail from "../../assets/Vector.svg";
 import OtpInput from "react18-input-otp";
 import pop from "../../assets/poper.svg";
-import { useNavigate} from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import SetMobile from "./SetMobile";
+import axios from "axios";
+import { baseurl } from "../../Service/validate_and_api";
+import { RingLoader } from "react-spinners";
 
 const VerifyMail = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [load, setload] = useState(false);
+
+  useEffect(() => {
+    const id = searchParams.get("id");
+    const key = searchParams.get("key");
+    console.log("id", id);
+    console.log("key", key);
+    setload(true);
+    axios
+      .get(`${baseurl}/verify/${id}/${key}`)
+      .then((res) => {
+        console.log(res);
+        setload(false);
+      })
+      .catch((e) => {
+        console.log(e);
+        setload(false);
+      });
+  }, []);
+
   const navigate = useNavigate();
   let currentOTPIndex = 0;
   let newOTP = [];
@@ -59,6 +83,13 @@ const VerifyMail = () => {
 
   return (
     <div className="font-poppins">
+      {load ? (
+        <div className="absolute bg-cover bg-[#262626]/[0.8]  z-[20] h-screen w-screen flex  justify-center items-center text-3xl">
+          <RingLoader color="#009186" size={90} />
+        </div>
+      ) : (
+        ""
+      )}
       {bool ? (
         <div className="hidden sm:block">
           <div
