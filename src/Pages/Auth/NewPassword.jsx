@@ -36,6 +36,7 @@ const NewPassword = () => {
   });
   return (
     <div className="">
+     
       <div className="flex flex-col h-screen  font-poppins justify-between ">
         <NavBar />
         <div className="bg flex-auto flex flex-col justify-between   ">
