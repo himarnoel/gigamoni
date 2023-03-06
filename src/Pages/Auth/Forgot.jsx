@@ -4,32 +4,30 @@ import { forgotValidate } from "../../Service/validate_and_api";
 import { useFormik } from "formik";
 
 const Forgot = () => {
-  const Forgotpassword = () => {
-    const formik = useFormik({
-      initialValues: {
-        email: "",
-      },
-      validationSchema: forgotValidate,
-      onSubmit: (values) => {
-        window.scrollTo(0, 0);
-        setload(true);
-        axios
-          .post(`${baseurl}/request/`, {
-            email: values.email,
-          })
-          .then((res) => {
-            console.log(res);
-            setload(false);
-            localStorage.setItem("email", values.email.toString());
-            navigate("/recover");
-          })
-          .catch((e) => {
-            console.log(e);
-            setload(false);
-          });
-      },
-    });
-  };
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+    },
+    validationSchema: forgotValidate,
+    onSubmit: (values) => {
+      window.scrollTo(0, 0);
+      setload(true);
+      axios
+        .post(`${baseurl}/request/`, {
+          email: values.email,
+        })
+        .then((res) => {
+          console.log(res);
+          setload(false);
+          localStorage.setItem("email", values.email.toString());
+          navigate("/recover");
+        })
+        .catch((e) => {
+          console.log(e);
+          setload(false);
+        });
+    },
+  });
   return (
     <div className="font-poppins">
       <div className="flex justify-between flex-col h-screen ">
@@ -43,7 +41,10 @@ const Forgot = () => {
               Enter your Email address below we’ll send an email with
               instructions on how to reset your password
             </p>
-            <form className="dd mx-auto flex w-full  flex-col flex-auto  justify-center items-center mt-4">
+            <form
+              onSubmit={formik.handleSubmit}
+              className="dd mx-auto flex w-full  flex-col flex-auto  justify-center items-center mt-4"
+            >
               <div class="relative z-0   w-full">
                 <input
                   type="email"
@@ -69,10 +70,7 @@ const Forgot = () => {
                 )}
               </div>
               <div className="w-full px-3 sm:px-0 mt-5 ">
-                <button
-                  onClick={() => Forgotpassword()}
-                  className="py-3  w-full text-xs bg-[#009186] rounded-[5px] mt-2 md:mt-4 sm:text-sm text-white"
-                >
+                <button className="py-3  w-full text-xs bg-[#009186] rounded-[5px] mt-2 md:mt-4 sm:text-sm text-white">
                   submit
                 </button>
               </div>
