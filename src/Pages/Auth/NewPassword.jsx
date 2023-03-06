@@ -2,8 +2,10 @@ import React from "react";
 import NavBar from "../../Components/AppComponents/NavBar";
 import { useFormik } from "formik";
 import { newpasswordValidate } from "../../Service/validate_and_api";
+import { useSearchParams } from "react-router-dom";
 
 const NewPassword = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
   const formik = useFormik({
     initialValues: {
       password: "",
@@ -11,13 +13,15 @@ const NewPassword = () => {
     },
     validationSchema: newpasswordValidate,
     onSubmit: (values) => {
+      const id = searchParams.get("id");
+      const key = searchParams.get("key");
       window.scrollTo(0, 0);
       setload(true);
       axios
-        .post(`${baseurl}/signup/`, {
+        .post(`${baseurl}/new-password/`, {
           password: values.password,
-          token: "",
-          uidb64: "",
+          token: id,
+          uidb64: key,
         })
         .then((res) => {
           console.log(res);
@@ -59,7 +63,7 @@ const NewPassword = () => {
                   value={formik.values.password}
                   onBlur={formik.handleBlur}
                 />
-                <label  
+                <label
                   for="passwordConfirmation"
                   className={
                     formik.errors.password && formik.touched.password

@@ -13,7 +13,7 @@ const Forgot = () => {
       window.scrollTo(0, 0);
       setload(true);
       axios
-        .post(`${baseurl}/signup/`, {
+        .post(`${baseurl}/request/`, {
          
           email: values.email,
         })
