@@ -34,15 +34,15 @@ const NewPassword = () => {
     <div className="">
       <div className="flex flex-col h-screen  font-poppins justify-between ">
         <NavBar />
-        <div className="bg flex-auto flex flex-col justify-between  ">
-          <div className="w-full px-2 xss:px-4 xs:px-6 xsm:px-[5rem] sm:px-0 sm:w-fit  mx-auto">
-            <h1 className="text-center text-[#F8F8FF] text-base sm:text-2xl lg:text-2xl xl:text-2xl 2xl:text-3xl  sm:mt-8 lg:mt-[3rem]  xl:mt-4 mxl:text-2xl mt-5 mxl:mt-10 font-semibold ">
+        <div className="bg flex-auto flex flex-col justify-between   ">
+          <div className="w-full px-2 xss:px-4 xs:px-6 xsm:px-[5rem] sm:px-0 sm:w-fit  mx-auto mxl:mt-[14rem]">
+            <h1 className="text-center text-[#F8F8FF] text-base sm:text-2xl lg:text-2xl xl:text-2xl mxl:text-3xl 2xl:text-3xl  sm:mt-8 lg:mt-[rem]  xl:mt-4 mt-5 mxl:mt-10 font-semibold ">
               Create new password
             </h1>
 
             <form
               onSubmit={formik.handleSubmit}
-              className="mx-auto bg-[#F8F8FF] w-full h-[87%]   sm:w-[35rem] sm:h-[20rem]  md:w-[40rem] md:h-[25rem] xl:h-[19rem] md:mt-[5rem] lg:mt-[3rem]  rounded-[11.8392px] shade px-4 py-2 sm:px-10 sm:py-8 md:px-20 md:py-14 flex flex-col justify-around  mt-5"
+              className="mx-auto bg-[#F8F8FF] w-full h-[87%]   sm:w-[35rem] sm:h-[20rem]  md:w-[40rem] md:h-[25rem] lg:h-[19rem] lg:w-[30rem] mxl:w-[40rem] mxl:h-[25rem] md:mt-[5rem] lg:mt-[3rem]  rounded-[11.8392px] shade px-4 py-2 sm:px-10 sm:py-8 md:px-20 md:py-14 lg:px-10 lg:py-10 flex flex-col justify-around  mt-5"
             >
               <div class="relative z-0 ">
                 <input
@@ -63,8 +63,8 @@ const NewPassword = () => {
                   for="passwordConfirmation"
                   className={
                     formik.errors.password && formik.touched.password
-                      ? "absolute text-xs font-poppins text-red-500    duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-red-500 peer-placeholder-shown:scale-100  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                      : "absolute text-xs font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                      ? "absolute mxl:text-sm text-xs font-poppins text-red-500    duration-300 transform -translate-y-6 scale-75 top-4 mxl:top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-red-500 peer-placeholder-shown:scale-100  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                      : "absolute mxl:text-sm text-xs font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 mxl:top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                   }
                 >
                   Password
@@ -98,8 +98,8 @@ const NewPassword = () => {
                   className={
                     formik.errors.passwordConfirmation &&
                     formik.touched.passwordConfirmation
-                      ? "absolute text-xs font-poppins text-red-500    duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-red-500 peer-placeholder-shown:scale-100  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                      : "absolute text-xs font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                      ? "absolute mxl:text-sm text-xs font-poppins text-red-500    duration-300 transform -translate-y-6 scale-75 top-4 mxl:top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-red-500 peer-placeholder-shown:scale-100  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                      : "absolute mxl:text-sm text-xs font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 mxl:top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                   }
                 >
                   Confirm Password
@@ -113,11 +113,11 @@ const NewPassword = () => {
                   ""
                 )}
               </div>
-              <button className="py-3  w-full text-xs bg-[#009186] rounded-[5px] mt-2 md:mt-4 sm:text-sm text-white">
+              <button className="py-3  w-full text-xs mxl:text-sm bg-[#009186] rounded-[5px] mt-2 md:mt-4 sm:text-sm text-white">
                 Reset Password
               </button>
             </form>
-            <button className="float-right bg-[#87ACA3] text-xs md:text-sm  text-[#262626] rounded-[8px] font-semibold mt-6 xss:mt-3 xs:mt-3 px-8 py-3">
+            <button className="float-right bg-[#87ACA3] text-xs md:text-sm  text-[#262626] rounded-[8px] font-semibold mt-6 xss:mt-3 xs:mt-3 px-8 py-3  mxl:px-10 mxl:py-4 mxl:mt-8">
               Back to Login
             </button>
           </div>

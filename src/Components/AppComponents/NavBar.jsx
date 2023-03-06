@@ -7,7 +7,7 @@ const NavBar = (props) => {
   return (
     <div className=" font-poppins ">
       <div className={`${props.class} lg:block hidden `}>
-        <div className=" font-poppins font-semibold w-full bg-[#F8F8FF] shadow 2xl:px-[10rem] xl:px-[8rem] lg:px-10  py-2  z-40 rounded-b-lg flex justify-between items-center">
+        <div className=" font-poppins font-semibold w-full bg-[#F8F8FF] shadow 2xl:px-[10rem] xl:px-[8rem] lg:px-10  py-2  mxl:h-[88px] z-40 rounded-b-lg flex justify-between items-center">
           <a href="">
             <img src={logo} alt="" className="object-contain w-[9rem]" />
           </a>
