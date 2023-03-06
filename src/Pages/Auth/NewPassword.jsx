@@ -3,7 +3,7 @@ import NavBar from "../../Components/AppComponents/NavBar";
 import { useFormik } from "formik";
 import { baseurl, newpasswordValidate } from "../../Service/validate_and_api";
 import { useSearchParams } from "react-router-dom";
-import  RingLoader  from 'react-spinners/RingLoader';
+import RingLoader from "react-spinners/RingLoader";
 import axios from "axios";
 
 const NewPassword = () => {
@@ -22,6 +22,7 @@ const NewPassword = () => {
       setload(true);
       axios
         .post(`${baseurl}/new-password/`, {
+          password: values.password,
           token: key,
           uidb64: id,
         })
@@ -38,7 +39,7 @@ const NewPassword = () => {
   });
   return (
     <div className="">
-       {load ? (
+      {load ? (
         <div className="absolute bg-cover bg-[#262626]/[0.8]  z-[20] h-screen w-screen flex  justify-center items-center text-3xl">
           <RingLoader color="#009186" size={90} />
         </div>
@@ -126,7 +127,10 @@ const NewPassword = () => {
                   ""
                 )}
               </div>
-              <button type="submit" className="py-3  w-full text-xs mxl:text-sm bg-[#009186] rounded-[5px] mt-2 md:mt-4 sm:text-sm text-white">
+              <button
+                type="submit"
+                className="py-3  w-full text-xs mxl:text-sm bg-[#009186] rounded-[5px] mt-2 md:mt-4 sm:text-sm text-white"
+              >
                 Reset Password
               </button>
             </form>
