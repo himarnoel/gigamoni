@@ -11,7 +11,7 @@ const Signup = () => {
   const [countries, setcountries] = useState(["Nigeria"]);
   const [selected, setSelected] = useState("");
   const [load, setload] = useState(false);
-  const [phone, setphone] = useState("")
+  const [phone, setphone] = useState("");
   const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
@@ -38,7 +38,7 @@ const Signup = () => {
         .then((res) => {
           console.log(res);
           setload(false);
-          navigate("/check");
+          navigate("/check", { state: { email: values.email } });
         })
         .catch((e) => {
           console.log(e);

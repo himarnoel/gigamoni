@@ -26,14 +26,14 @@ const Login = () => {
       window.scrollTo(0, 0);
       setload(true);
       axios
-        .post(`${baseurl}/signup/`, {
+        .post(`${baseurl}/login/`, {
           password: values.password,
           email: values.email,
         })
         .then((res) => {
           console.log(res);
           setload(false);
-          navigate("/check");
+          navigate("/");
         })
         .catch((e) => {
           console.log(e);

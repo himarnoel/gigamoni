@@ -1,16 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
 import NavBar from "./../../Components/AppComponents/NavBar";
 import img1 from "../../assets/Vector.svg";
-import { useSearchParams } from "react-router-dom";
+import { useLocation, useSearchParams } from "react-router-dom";
+import axios from "axios";
+import RingLoader from "react-spinners/RingLoader";
+import { baseurl } from "../../Service/validate_and_api";
 
 const CheckMail = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const id = searchParams.get("id");
-  const key = searchParams.get("key");
-  console.log("id", id);
-  console.log("key", key);
+  const [load, setload] = useState(false);
+  // const { state } = useLocation();
+  // const { email } = state;
+  const Resender = () => {
+    setload(true);
+    axios
+      .post(`${baseurl}/request/`, {
+        email: "olaimarnoel@gmail.com",
+      })
+      .then((res) => {
+        console.log(res);
+        setload(false);
+      })
+      .catch((e) => {
+        console.log(e);
+        setload(false);
+      });
+  };
   return (
     <div className="check">
+      {load ? (
+        <div className="absolute bg-cover bg-[#262626]/[0.8]  z-[20] h-screen w-screen flex  justify-center items-center text-3xl">
+          <RingLoader color="#009186" size={90} />
+        </div>
+      ) : (
+        ""
+      )}
       <div className="flex flex-col h-screen  font-poppins justify-between ">
         <NavBar />
         <div className="bg flex-auto lg:flex  items-center flex-col justify-around lg:pb-[5%] lg:pt-[4%] x">
@@ -37,7 +60,10 @@ const CheckMail = () => {
                 Didn't receive email?
               </p>
 
-              <button className="px-12 py-[0.78rem] xss:py-[0.72rem] sm:py-3 lg:py-3  xl:px-12 bg-[#009186] text-white rounded-[8px] text-sm mt-2">
+              <button
+                onClick={() => Resender()}
+                className="px-12 py-[0.78rem] xss:py-[0.72rem] sm:py-3 lg:py-3  xl:px-12 bg-[#009186] text-white rounded-[8px] text-sm mt-2"
+              >
                 Resend Mail
               </button>
             </div>

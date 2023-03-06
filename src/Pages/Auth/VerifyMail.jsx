@@ -23,11 +23,11 @@ const VerifyMail = () => {
     axios
       .get(`${baseurl}/verify/${id}/${key}`)
       .then((res) => {
-        console.log(res);
         setload(false);
         setDeter(true);
       })
       .catch((e) => {
+        alert(failed);
         console.log(e);
         setload(false);
         setDeter(false);
@@ -85,6 +85,7 @@ const VerifyMail = () => {
   };
 
   const VerifyPhone = () => {
+    setload(true);
     const otpValues = otp.reduce((partialSum, a) => partialSum + a);
     let id = searchParams.get("id");
     axios
@@ -93,6 +94,7 @@ const VerifyMail = () => {
         console.log(res);
         setload(false);
         setDeter(true);
+        setbool(true);
       })
       .catch((e) => {
         console.log(e);
@@ -121,8 +123,11 @@ const VerifyMail = () => {
                 You Are All Set
               </p>
               <img src={pop} alt="" className="md:w-[12rem]  w-[5rem]" />
-              <button className="w-full py-3 bg-[#009186] rounded-[8px] text-[#F8F8FF]">
-                Go to Dashboard
+              <button
+                onClick={() => navigate("/login")}
+                className="w-full py-3 bg-[#009186] rounded-[8px] text-[#F8F8FF]"
+              >
+                Login
               </button>
             </div>
           </div>
