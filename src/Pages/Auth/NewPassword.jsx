@@ -4,6 +4,7 @@ import { useFormik } from "formik";
 import { newpasswordValidate } from "../../Service/validate_and_api";
 import { useSearchParams } from "react-router-dom";
 import  RingLoader  from 'react-spinners/RingLoader';
+import axios from "axios";
 
 const NewPassword = () => {
   const [searchParams, setSearchParams] = useSearchParams();
