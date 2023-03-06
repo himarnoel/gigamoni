@@ -29,7 +29,6 @@ const Signup = () => {
       axios
         .post(`${baseurl}/signup/`, {
           password: values.password,
-
           fullname: values.name,
           email: values.email,
           phoneNumber: values.phonenumber.toString(),
@@ -38,7 +37,8 @@ const Signup = () => {
         .then((res) => {
           console.log(res);
           setload(false);
-          navigate("/check", { state: { email: values.email } });
+          // navigate("/check", { state: { email: values.email } });
+          localStorage.setItem("email", values.email.toString());
         })
         .catch((e) => {
           console.log(e);

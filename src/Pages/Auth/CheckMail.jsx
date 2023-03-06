@@ -8,13 +8,12 @@ import { baseurl } from "../../Service/validate_and_api";
 
 const CheckMail = () => {
   const [load, setload] = useState(false);
-  // const { state } = useLocation();
-  // const { email } = state;
   const Resender = () => {
+    let email = localStorage.getItem("email");
     setload(true);
     axios
       .post(`${baseurl}/request/`, {
-        email: "olaimarnoel@gmail.com",
+        email,
       })
       .then((res) => {
         console.log(res);
