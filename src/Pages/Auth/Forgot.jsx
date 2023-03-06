@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import NavBar from "./../../Components/AppComponents/NavBar";
 import { forgotValidate } from "../../Service/validate_and_api";
 import { useFormik } from "formik";
+import RingLoader from "react-spinners/RingLoader";
 
 const Forgot = () => {
+  const [load, setload] = useState(false);
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -30,6 +32,13 @@ const Forgot = () => {
   });
   return (
     <div className="font-poppins">
+      {load ? (
+        <div className="absolute bg-cover bg-[#262626]/[0.8]  z-[20] h-screen w-screen flex  justify-center items-center text-3xl">
+          <RingLoader color="#009186" size={90} />
+        </div>
+      ) : (
+        ""
+      )}
       <div className="flex justify-between flex-col h-screen ">
         <NavBar />
         <div className="flex-auto bg flex flex-col px-2 xss:px-4 xs:px-6 xsm:px-[5rem] sm:px-[6rem]  md:px-[8rem] lg:px-[18rem] xl:px-[25rem]">
@@ -69,7 +78,10 @@ const Forgot = () => {
                   ""
                 )}
               </div>
-              <button className="py-3  w-full text-xs bg-[#009186] rounded-[5px] mt-2 md:mt-4 sm:text-sm text-white">
+              <button
+                type="submit"
+                className="py-3  w-full text-xs bg-[#009186] rounded-[5px] mt-2 md:mt-4 sm:text-sm text-white"
+              >
                 submit
               </button>
             </form>
