@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import NavBar from "./../../Components/AppComponents/NavBar";
-import { forgotValidate } from "../../Service/validate_and_api";
+import { baseurl, forgotValidate } from "../../Service/validate_and_api";
 import { useFormik } from "formik";
 import RingLoader from "react-spinners/RingLoader";
+import axios from "axios";
 
 const Forgot = () => {
   const [load, setload] = useState(false);
@@ -51,7 +52,7 @@ const Forgot = () => {
               instructions on how to reset your password
             </p>
             <form
-              onSubmit={formik.handleSubmit}
+               onSubmit={formik.handleSubmit}
               className="dd mx-auto flex w-full  flex-col flex-auto  justify-center items-center mt-4"
             >
               <div class="relative z-0   w-full">

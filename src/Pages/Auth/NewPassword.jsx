@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import NavBar from "../../Components/AppComponents/NavBar";
 import { useFormik } from "formik";
 import { newpasswordValidate } from "../../Service/validate_and_api";
 import { useSearchParams } from "react-router-dom";
+import  RingLoader  from 'react-spinners/RingLoader';
 
 const NewPassword = () => {
   const [searchParams, setSearchParams] = useSearchParams();
+  const [load, setload] = useState(false);
   const formik = useFormik({
     initialValues: {
       password: "",
@@ -36,7 +38,13 @@ const NewPassword = () => {
   });
   return (
     <div className="">
-     
+       {load ? (
+        <div className="absolute bg-cover bg-[#262626]/[0.8]  z-[20] h-screen w-screen flex  justify-center items-center text-3xl">
+          <RingLoader color="#009186" size={90} />
+        </div>
+      ) : (
+        ""
+      )}
       <div className="flex flex-col h-screen  font-poppins justify-between ">
         <NavBar />
         <div className="bg flex-auto flex flex-col justify-between   ">
@@ -118,7 +126,7 @@ const NewPassword = () => {
                   ""
                 )}
               </div>
-              <button className="py-3  w-full text-xs mxl:text-sm bg-[#009186] rounded-[5px] mt-2 md:mt-4 sm:text-sm text-white">
+              <button type="submit" className="py-3  w-full text-xs mxl:text-sm bg-[#009186] rounded-[5px] mt-2 md:mt-4 sm:text-sm text-white">
                 Reset Password
               </button>
             </form>
