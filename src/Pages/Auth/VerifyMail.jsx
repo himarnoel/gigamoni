@@ -86,7 +86,6 @@ const VerifyMail = () => {
 
   const VerifyPhone = () => {
     const otpValues = otp.reduce((partialSum, a) => partialSum + a);
-
     axios
       .get(`${baseurl}/phone/${id}/${otpValues}`)
       .then((res) => {
@@ -134,7 +133,7 @@ const VerifyMail = () => {
       <div className="flex flex-col h-screen font-poppins justify-between text-[#262626] ">
         <NavBar />
 
-        {deter ? (
+        {!deter ? (
           <div className="bg flex-auto sm:flex  items-center lg:justify-around flex-col  px-2 xss:px-4 xs:px-6 lg:px-[19rem]  xl:px-[25rem]  mxl:px-[27rem]"></div>
         ) : (
           <div className="bg flex-auto sm:flex  items-center lg:justify-around flex-col  px-2 xss:px-4 xs:px-6 lg:px-[19rem]  xl:px-[25rem]  mxl:px-[27rem]">
