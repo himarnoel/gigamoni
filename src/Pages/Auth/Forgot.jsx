@@ -69,11 +69,9 @@ const Forgot = () => {
                   ""
                 )}
               </div>
-              <div className="w-full px-3 sm:px-0 mt-5 ">
-                <button className="py-3  w-full text-xs bg-[#009186] rounded-[5px] mt-2 md:mt-4 sm:text-sm text-white">
-                  submit
-                </button>
-              </div>
+              <button className="py-3  w-full text-xs bg-[#009186] rounded-[5px] mt-2 md:mt-4 sm:text-sm text-white">
+                submit
+              </button>
             </form>
           </div>
           <button className=" self-end bg-[#87ACA3] text-xs md:text-sm   float-right text-[#262626] rounded-[8px] font-semibold lg:mt-3 mt-5 xss:mt-3 xs:mt-6 px-12 py-3">
