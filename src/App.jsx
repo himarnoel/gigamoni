@@ -2,6 +2,8 @@ import { useState } from "react";
 import "./App.css";
 import LandingPage from "./Pages/LandingPage";
 import { Navigate, Route, Routes } from "react-router-dom";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify";
 import {
   Login,
   Signup,
@@ -17,6 +19,7 @@ function App() {
 
   return (
     <div>
+      <ToastContainer />
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<Login />} />

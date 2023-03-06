@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import logo from "../../assets/logo.svg";
 import { HiMenu } from "react-icons/hi";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const NavBar = (props) => {
   const [bool, setbool] = useState(false);
   return (
@@ -14,7 +14,7 @@ const NavBar = (props) => {
           <span className="flex  text-black w-[29rem] justify-between items-center  text-sm">
             <a href="">How it works</a>
             <a href="">FAQs</a>
-            <a href="">Login</a>
+            <Link href="">Login</Link>
             <button
               onClick={() => navigate("/signup")}
               className="px-8 py-[0.7rem] rounded text-white bg-[#009186]"

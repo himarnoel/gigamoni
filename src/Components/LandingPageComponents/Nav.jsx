@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import logo from "../../assets/logo.svg";
 import { HiMenu } from "react-icons/hi";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const Nav = () => {
   const [bool, setbool] = useState(false);
   const navigate = useNavigate();
@@ -20,7 +20,7 @@ const Nav = () => {
           <span className="flex  text-white w-[29rem] justify-between items-center  text-sm">
             <a href="">How it works</a>
             <a href="">FAQs</a>
-            <a href="">Login</a>
+            <Link href="">Login</Link>
             <button
               onClick={() => navigate("/signup")}
               className="px-8 py-[0.7rem] rounded bg-[#009186]"
@@ -57,9 +57,7 @@ const Nav = () => {
           <a href="" onClick={() => setbool(!bool)}>
             FAQs
           </a>
-          <a href="" onClick={() => setbool(!bool)}>
-            Login
-          </a>
+          <Link to="/" >Login</Link>
         </div>
       ) : (
         ""
