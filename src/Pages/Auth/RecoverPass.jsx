@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import NavBar from "./../../Components/AppComponents/NavBar";
 import img1 from "../../assets/Vector.svg";
 const RecoverPass = () => {
