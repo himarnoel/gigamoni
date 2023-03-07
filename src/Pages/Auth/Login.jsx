@@ -39,7 +39,12 @@ const Login = () => {
         .catch((e) => {
           console.log(e);
           setload(false);
-          toast.error("Incorrect email or password");
+          if (e.response.data.detail == "Account has not been verified") {
+            toast.error("Account has not been verified");
+            navigate("/check");
+          } else {
+            toast.error("Incorrect email or password");
+          }
         });
     },
   });
