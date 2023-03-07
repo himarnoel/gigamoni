@@ -14,6 +14,7 @@ import {
   NewPassword,
 } from "./Pages/Auth/index";
 import Dashboard from "./Pages/Dashboard";
+import Success from "./Pages/Auth/Success";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -31,6 +32,7 @@ function App() {
         <Route path="/recover" element={<RecoverPass />} />
         <Route path="/newpassword" element={<NewPassword />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/success" element={<Success />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </div>
