@@ -26,7 +26,7 @@ const NewPassword = () => {
       axios
         .post(`${baseurl}/new-password/`, {
           password: values.password,
-          token: key.substring(0, string.length - 1),
+          token: key.substring(0, key.length - 1),
           uidb64: id,
         })
         .then((res) => {
@@ -36,11 +36,12 @@ const NewPassword = () => {
         })
         .catch((e) => {
           console.log(e);
-          toast.error("An error occurred");
+          toast.error("Invalid url");
           setload(false);
         });
     },
   });
+
   return (
     <div className="">
       {load ? (
