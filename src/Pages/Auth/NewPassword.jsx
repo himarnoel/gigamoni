@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import NavBar from "../../Components/AppComponents/NavBar";
 import { useFormik } from "formik";
 import { baseurl, newpasswordValidate } from "../../Service/validate_and_api";
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import RingLoader from "react-spinners/RingLoader";
 import axios from "axios";
 import { toast } from "react-toastify";
 
 const NewPassword = () => {
+  const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
   const [load, setload] = useState(false);
   const formik = useFormik({
@@ -37,13 +38,8 @@ const NewPassword = () => {
         })
         .catch((e) => {
           setload(false);
-          if (e.status == 200) {
-            navigate("/success"); // To move to the next route
-            toast.success("Successful"); //notifiation
-          } else {
-            console.log(e);
-            toast.error("An error occured"); // Display error notification
-          }
+          console.log(e);
+          toast.error("An error occured"); // Display error notification
         });
     },
   });
