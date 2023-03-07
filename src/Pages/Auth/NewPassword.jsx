@@ -5,6 +5,7 @@ import { baseurl, newpasswordValidate } from "../../Service/validate_and_api";
 import { useSearchParams } from "react-router-dom";
 import RingLoader from "react-spinners/RingLoader";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const NewPassword = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -33,6 +34,7 @@ const NewPassword = () => {
         })
         .catch((e) => {
           console.log(e);
+          toast.error("An error occurred");
           setload(false);
         });
     },
