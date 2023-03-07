@@ -20,7 +20,7 @@ const Nav = () => {
           <span className="flex  text-white w-[29rem] justify-between items-center  text-sm">
             <a href="">How it works</a>
             <a href="">FAQs</a>
-            <Link href="">Login</Link>
+            <Link to="/login">Login</Link>
             <button
               onClick={() => navigate("/signup")}
               className="px-8 py-[0.7rem] rounded bg-[#009186]"
@@ -57,7 +57,7 @@ const Nav = () => {
           <a href="" onClick={() => setbool(!bool)}>
             FAQs
           </a>
-          <Link to="/" >Login</Link>
+          <Link to="/login">Login</Link>
         </div>
       ) : (
         ""
