@@ -8,17 +8,17 @@ import SetMobile from "./SetMobile";
 import axios from "axios";
 import { baseurl } from "../../Service/validate_and_api";
 import { RingLoader } from "react-spinners";
+import { toast } from "react-toastify";
 
 const VerifyMail = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [load, setload] = useState(false);
-  const [deter, setDeter] = useState(false);
+  const [deter, setDeter] = useState(true);
 
   useEffect(() => {
     const id = searchParams.get("id");
     const key = searchParams.get("key");
-    console.log("id", id);
-    console.log("key", key);
+
     setload(true);
     axios
       .get(`${baseurl}/verify/${id}/${key}`)
@@ -31,6 +31,7 @@ const VerifyMail = () => {
         console.log(e);
         setload(false);
         setDeter(false);
+        toast.error("An error occurred");
       });
   }, []);
 
@@ -100,6 +101,11 @@ const VerifyMail = () => {
         console.log(e);
         setload(false);
         setDeter(true);
+        if (e.response.data == "Request new OTP") {
+          toast.error("OTP expired, request for new OTP");
+        } else {
+          toast.error("Invalid OTP");
+        }
       });
   };
 

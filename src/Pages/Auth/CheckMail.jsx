@@ -5,6 +5,7 @@ import { useLocation, useSearchParams } from "react-router-dom";
 import axios from "axios";
 import RingLoader from "react-spinners/RingLoader";
 import { baseurl } from "../../Service/validate_and_api";
+import { toast } from "react-toastify";
 
 const CheckMail = () => {
   const [load, setload] = useState(false);
@@ -21,6 +22,7 @@ const CheckMail = () => {
       })
       .catch((e) => {
         console.log(e);
+        toast.error("An error occurred");
         setload(false);
       });
   };

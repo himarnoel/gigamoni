@@ -11,6 +11,7 @@ import {
 import axios from "axios";
 import RingLoader from "react-spinners/RingLoader";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 const Login = () => {
   const [countries, setcountries] = useState(["Nigeria"]);
   const [selected, setSelected] = useState("");
@@ -19,7 +20,7 @@ const Login = () => {
   const formik = useFormik({
     initialValues: {
       email: "",
-      password: ""
+      password: "",
     },
     validationSchema: loginValidate,
     onSubmit: (values) => {
@@ -38,6 +39,7 @@ const Login = () => {
         .catch((e) => {
           console.log(e);
           setload(false);
+          toast.error("Incorrect email or password");
         });
     },
   });
