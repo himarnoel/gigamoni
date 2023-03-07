@@ -42,6 +42,10 @@ const Login = () => {
           if (e.response.data.detail == "Account has not been verified") {
             toast.error("Account has not been verified");
             navigate("/check");
+          } else if (
+            e.response.data.detail == "Phone number has not been verified"
+          ) {
+            toast.error("Account has not been verified");
           } else {
             toast.error("Incorrect email or password");
           }
