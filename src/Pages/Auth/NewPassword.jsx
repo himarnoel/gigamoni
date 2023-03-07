@@ -29,7 +29,7 @@ const NewPassword = () => {
         .then((res) => {
           console.log(res);
           setload(false);
-          navigate("/check");
+          navigate("/success");
         })
         .catch((e) => {
           console.log(e);
