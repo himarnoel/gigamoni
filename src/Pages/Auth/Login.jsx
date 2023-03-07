@@ -278,7 +278,7 @@ const Login = () => {
                 <span className="flex justify-center text-[0.7rem] xss:text-xs text-center mt-2 md:mt-0 md:text-[1.2rem]">
                   {" "}
                   <p className=" text-[#262626] mr-2">Don't have an account?</p>
-                  <span className="text-[#009186]">Create account</span>
+                  <Login className="text-[#009186]">Create account</Login>
                 </span>
                 <span className=" md:mt-0 text-xs  md:text-[1.2rem]  flex items-center justify-center py-[0.3rem] text-sm border-2 mt-4 lg:mt-8 xl:mt-10 border-[#009186] border-solid rounded-[8px]   lg:mx-10 xl:mx-[8rem] 2xl:mx-[10rem]">
                   {" "}

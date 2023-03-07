@@ -6,7 +6,7 @@ import { useFormik } from "formik";
 import { baseurl, signupValidate } from "../../Service/validate_and_api";
 import axios from "axios";
 import RingLoader from "react-spinners/RingLoader";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 const Signup = () => {
   const [countries, setcountries] = useState(["Nigeria"]);
@@ -305,7 +305,7 @@ const Signup = () => {
                   <p className=" text-[#262626] mr-2">
                     Already have an account?
                   </p>
-                  <span className="text-[#009186]">Login</span>
+                  <Link to="/login" className="text-[#009186]">Login</Link>
                 </span>
                 <span className=" flex items-center justify-center py-[0.5rem] border-2 mt-4 border-[#009186] border-solid rounded-[8px]   lg:mx-10 xl:mx-[8rem] 2xl:mx-[10rem]">
                   {" "}

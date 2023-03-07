@@ -14,12 +14,12 @@ const Nav = () => {
     <div className=" ">
       <div className="lg:block hidden">
         <div className=" font-poppins font-semibold w-full bg-[#87ACA3]/[0.4] 2xl:px-[10rem] xl:px-[8rem] lg:px-10  absolute top-40 py-3  z-40 rounded-b-lg flex justify-between items-center">
-          <a href="">
+          <Link to="/">
             <img src={logo} alt="" className="object-contain w-[9rem]" />
-          </a>
+          </Link>
           <span className="flex  text-white w-[29rem] justify-between items-center  text-sm">
-            <a href="">How it works</a>
-            <a href="">FAQs</a>
+            <Link to="/">How it works</Link>
+            <Link to="/">FAQs</Link>
             <Link to="/login">Login</Link>
             <button
               onClick={() => navigate("/signup")}
