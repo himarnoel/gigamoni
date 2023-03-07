@@ -46,6 +46,7 @@ const Login = () => {
             e.response.data.detail == "Phone number has not been verified"
           ) {
             toast.error("Account has not been verified");
+            navigate("/verify");
           } else {
             toast.error("Incorrect email or password");
           }
