@@ -3,7 +3,7 @@ import NavBar from "./../../Components/AppComponents/NavBar";
 import mail from "../../assets/Vector.svg";
 import OtpInput from "react18-input-otp";
 import pop from "../../assets/poper.svg";
-import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import SetMobile from "./SetMobile";
 import axios from "axios";
 import { baseurl } from "../../Service/validate_and_api";
@@ -16,21 +16,14 @@ const VerifyMail = () => {
   const [deter, setDeter] = useState(true);
 
   useEffect(() => {
-    let id = "";
-    let key = "";
-    if (searchParams.get("id").length !== 0) {
-      id = searchParams.get("id");
-      key = searchParams.get("key");
-    } else {
-      const { state } = useLocation();
-      id = state.id;
-      key = state.key;
-    }
-
+    const id = searchParams.get("id");
+    const key = searchParams.get("key");
+    console.log(key);
     setload(true);
     axios
       .get(`${baseurl}/verify/${id}/${key}`)
       .then((res) => {
+        console.log(res);
         setload(false);
         setDeter(true);
       })

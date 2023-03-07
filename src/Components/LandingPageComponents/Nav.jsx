@@ -18,8 +18,8 @@ const Nav = () => {
             <img src={logo} alt="" className="object-contain w-[9rem]" />
           </Link>
           <span className="flex  text-white w-[29rem] justify-between items-center  text-sm">
-            <Link to="/">How it works</Link>
-            <Link to="/">FAQs</Link>
+            <Link to="how">How it works</Link>
+            <Link to="faq">FAQs</Link>
             <Link to="/login">Login</Link>
             <button
               onClick={() => navigate("/signup")}

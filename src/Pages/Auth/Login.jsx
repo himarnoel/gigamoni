@@ -24,6 +24,7 @@ const Login = () => {
     },
     validationSchema: loginValidate,
     onSubmit: (values) => {
+    
       window.scrollTo(0, 0);
       setload(true);
       axios
@@ -46,9 +47,10 @@ const Login = () => {
             e.response.data.detail == "Phone number has not been verified"
           ) {
             toast.error("Account has not been verified");
-            navigate("/verify", {
-              state: { id: e.response.data.id, key: e.response.data.key },
-            });
+         
+            navigate(
+              `/verify?id=${e.response.data.id}&key=${e.response.data.key}`
+            );
           } else {
             toast.error("Incorrect email or password");
           }
