@@ -4,9 +4,11 @@ import { baseurl, forgotValidate } from "../../Service/validate_and_api";
 import { useFormik } from "formik";
 import RingLoader from "react-spinners/RingLoader";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Forgot = () => {
   const [load, setload] = useState(false);
+  const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -52,7 +54,7 @@ const Forgot = () => {
               instructions on how to reset your password
             </p>
             <form
-               onSubmit={formik.handleSubmit}
+              onSubmit={formik.handleSubmit}
               className="dd mx-auto flex w-full  flex-col flex-auto  justify-center items-center mt-4"
             >
               <div class="relative z-0   w-full">

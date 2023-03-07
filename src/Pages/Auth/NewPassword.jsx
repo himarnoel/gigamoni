@@ -19,12 +19,14 @@ const NewPassword = () => {
     onSubmit: (values) => {
       const id = searchParams.get("id");
       const key = searchParams.get("key");
+      console.log(key);
+      console.log(id);
       window.scrollTo(0, 0);
       setload(true);
       axios
         .post(`${baseurl}/new-password/`, {
           password: values.password,
-          token: key,
+          token: key.substring(0, string.length - 1),
           uidb64: id,
         })
         .then((res) => {
