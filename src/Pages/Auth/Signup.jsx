@@ -47,7 +47,7 @@ const Signup = () => {
           console.log(e);
           setload(false);
           if (e.response.status == 400) {
-            toast.error("user already exist");
+            toast.error("user with this email already exist");
           } else {
             toast.error("An error occurred");
           }

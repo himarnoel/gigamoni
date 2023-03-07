@@ -36,9 +36,14 @@ const NewPassword = () => {
           toast.success("Successful"); //notifiation
         })
         .catch((e) => {
-          console.log(e);
-          toast.error("Wonder this is error"); // Display error notification 
           setload(false);
+          if (e.status == 200) {
+            navigate("/success"); // To move to the next route
+            toast.success("Successful"); //notifiation
+          } else {
+            console.log(e);
+            toast.error("An error occured"); // Display error notification
+          }
         });
     },
   });
