@@ -4,6 +4,7 @@ import { HiMenu } from "react-icons/hi";
 import { Link, useNavigate } from "react-router-dom";
 const NavBar = (props) => {
   const [bool, setbool] = useState(false);
+  const navigate =  useNavigate();
   return (
     <div className=" font-poppins ">
       <div className={`${props.class} lg:block hidden `}>
