@@ -19,7 +19,7 @@ const NewPassword = () => {
     onSubmit: (values) => {
       const id = searchParams.get("id");
       const key = searchParams.get("key");
-      console.log(key);
+      console.log(key.substring(0, key.length - 1));
       console.log(id);
       window.scrollTo(0, 0);
       setload(true);
@@ -32,11 +32,12 @@ const NewPassword = () => {
         .then((res) => {
           console.log(res);
           setload(false);
-          navigate("/success");
+          navigate("/success"); // To move to the next route
+          toast.success("Successful"); //notifiation
         })
         .catch((e) => {
           console.log(e);
-          toast.error("Invalid url");
+          toast.error("Wonder this is error"); // Display error notification 
           setload(false);
         });
     },
