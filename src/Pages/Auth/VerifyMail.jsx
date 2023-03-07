@@ -18,7 +18,7 @@ const VerifyMail = () => {
   useEffect(() => {
     const id = searchParams.get("id");
     const key = searchParams.get("key");
-    console.log(key);
+
     setload(true);
     axios
       .get(`${baseurl}/verify/${id}/${key}`)
@@ -107,6 +107,8 @@ const VerifyMail = () => {
         } else {
           toast.error("Invalid OTP");
         }
+
+        setOtp(new Array(6).fill(""));
       });
   };
 
