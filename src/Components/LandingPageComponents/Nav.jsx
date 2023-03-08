@@ -43,7 +43,9 @@ const Nav = () => {
             >
               FAQs
             </Link>
-            <Link onClick={() => navigate("/login")}>Login</Link>
+            <Link onClick={() => navigate("/login")} className="cursor-pointer">
+              Login
+            </Link>
             <button
               onClick={() => navigate("/signup")}
               className="px-8 py-[0.7rem] rounded bg-[#009186]"
@@ -55,7 +57,7 @@ const Nav = () => {
       </div>
       {/* Mobile nav bar */}
       <div className=" absolute  px-2 xss:px-4 xs:px-6 sm:px-10 md:px-8  font-poppins w-full bg-[#87ACA3]/[0.4] lg:hidden   top-0 py-5 flex  z-[70] rounded-b-lg justify-between">
-        <Rlink to="/" onClick={() => setbool(false) }>
+        <Rlink to="/" onClick={() => setbool(false)}>
           {" "}
           <img src={logo} alt="" className="md:w-40 w-24 " />
         </Rlink>
