@@ -4,7 +4,7 @@ import { HiMenu } from "react-icons/hi";
 import { Link, useNavigate } from "react-router-dom";
 const NavBar = (props) => {
   const [bool, setbool] = useState(false);
-  const navigate =  useNavigate();
+  const navigate = useNavigate();
   return (
     <div className=" font-poppins ">
       <div className={`${props.class} lg:block hidden `}>
@@ -26,8 +26,12 @@ const NavBar = (props) => {
         </div>
       </div>
       {/* Mobile nav bar */}
+
       <div className="  shadow  px-2 xss:px-4 xs:px-6 sm:px-10 md:px-8  font-poppins w-full bg-white lg:hidden    py-5 flex  z-[70] rounded-b-lg justify-between">
-        <img src={logo} alt="" className="md:w-40 w-24 " />
+        <Link to="/">
+          {" "}
+          <img src={logo} alt="" className="md:w-40 w-24 " />
+        </Link>
         <span className="flex ">
           <button
             onClick={() => navigate("/signup")}
@@ -52,7 +56,7 @@ const NavBar = (props) => {
           <a href="" onClick={() => setbool(!bool)}>
             FAQs
           </a>
-          <Link to="/">Login</Link>
+          <Link to="/login">Login</Link>
         </div>
       ) : (
         ""

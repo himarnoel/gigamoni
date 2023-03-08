@@ -87,6 +87,34 @@ const VerifyMail = () => {
   };
 
   const VerifyPhone = () => {
+
+    setload(true);
+    const otpValues = otp.reduce((partialSum, a) => partialSum + a);
+    let id = searchParams.get("id");
+    axios
+      .get(`${baseurl}/phone/${id}/${otpValues}`)
+      .then((res) => {
+        console.log(res);
+        setload(false);
+        setDeter(true);
+        setbool(true);
+      })
+      .catch((e) => {
+        console.log(e);
+        setload(false);
+        setDeter(true);
+        if (e.response.data == "Request new OTP") {
+          toast.error("OTP expired, request for new OTP");
+        } else {
+          toast.error("Invalid OTP");
+        }
+
+        setOtp(new Array(6).fill(""));
+      });
+  };
+
+  const VerifymobilePhone = () => {
+    setbol(true);
     setload(true);
     const otpValues = otp.reduce((partialSum, a) => partialSum + a);
     let id = searchParams.get("id");
@@ -192,7 +220,7 @@ const VerifyMail = () => {
                   Submit
                 </button>
                 <button
-                  onClick={() => setbol(true)}
+                  onClick={() => VerifyPhone()}
                   className=" md:hidden px-12 py-2 lg:py-3 lg:px-14 lg:mt-[5%] lg:text-xs self-end  xl:px-12 bg-[#009186] text-white rounded-[8px] text-sm mt-2"
                 >
                   Submit

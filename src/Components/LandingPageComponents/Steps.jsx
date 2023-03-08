@@ -11,7 +11,7 @@ import EachStep from "./EachStep.jsx";
 const Steps = () => {
   // xss xs are custom breakpoint please check tailwind.config.cjs
   return (
-    <div className="px-2 xss:px-4 xs:px-6  sm:px-10  md:px-8  lg:px-10  xl:px-[10rem] mt-20  flex  flex-col">
+    <div   id="hiw" className="px-2 xss:px-4 xs:px-6  sm:px-10  md:px-8  lg:px-10  xl:px-[10rem] mt-20  flex  flex-col">
       <div className=" float-right items-end text-right text-[#2B7C85]">
         {" "}
         <p className="text-3xl font-bold">How It Works</p>

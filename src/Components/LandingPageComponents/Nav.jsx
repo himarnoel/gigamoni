@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import logo from "../../assets/logo.svg";
 import { HiMenu } from "react-icons/hi";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate, Link as Rlink } from "react-router-dom";
+import { Link } from "react-scroll";
 const Nav = () => {
   const [bool, setbool] = useState(false);
   const navigate = useNavigate();
@@ -14,13 +15,35 @@ const Nav = () => {
     <div className=" ">
       <div className="lg:block hidden">
         <div className=" font-poppins font-semibold w-full bg-[#87ACA3]/[0.4] 2xl:px-[10rem] xl:px-[8rem] lg:px-10  absolute top-40 py-3  z-40 rounded-b-lg flex justify-between items-center">
-          <Link to="/">
+          <Rlink to="/" onClick={() => setbool(!bool)}>
             <img src={logo} alt="" className="object-contain w-[9rem]" />
-          </Link>
+          </Rlink>
           <span className="flex  text-white w-[29rem] justify-between items-center  text-sm">
-            <Link to="how">How it works</Link>
-            <Link to="faq">FAQs</Link>
-            <Link to="/login">Login</Link>
+            <Link
+              activeClass="active"
+              className="cursor-pointer"
+              to="hiw"
+              spy={true}
+              smooth={true}
+              offset={-40}
+              duration={1000}
+              onClick={() => setbool(!bool)}
+            >
+              How it works
+            </Link>
+            <Link
+              className="cursor-pointer"
+              activeClass="active"
+              to="faqs"
+              spy={true}
+              smooth={true}
+              offset={-20}
+              duration={2000}
+              onClick={() => setbool(!bool)}
+            >
+              FAQs
+            </Link>
+            <Link onClick={() => navigate("/login")}>Login</Link>
             <button
               onClick={() => navigate("/signup")}
               className="px-8 py-[0.7rem] rounded bg-[#009186]"
@@ -32,7 +55,10 @@ const Nav = () => {
       </div>
       {/* Mobile nav bar */}
       <div className=" absolute  px-2 xss:px-4 xs:px-6 sm:px-10 md:px-8  font-poppins w-full bg-[#87ACA3]/[0.4] lg:hidden   top-0 py-5 flex  z-[70] rounded-b-lg justify-between">
-        <img src={logo} alt="" className="md:w-40 w-24 " />
+        <Rlink to="/" onClick={() => setbool(false) }>
+          {" "}
+          <img src={logo} alt="" className="md:w-40 w-24 " />
+        </Rlink>
         <span className="flex ">
           <button
             onClick={() => navigate("/signup")}
@@ -51,13 +77,29 @@ const Nav = () => {
       {bool ? (
         <div className="h-28 lg:hidden w-full flex flex-col text-xs sm:text-base items-center justify-evenly text-white  bg-[#87ACA3] text-light z-50 fixed top-[4rem] rounded-b-lg">
           {" "}
-          <a href="" onClick={() => setbool(!bool)}>
+          <Link
+            activeClass="active"
+            to="hiw"
+            spy={true}
+            smooth={true}
+            offset={-40}
+            duration={1000}
+            onClick={() => setbool(!bool)}
+          >
             How it works
-          </a>
-          <a href="" onClick={() => setbool(!bool)}>
+          </Link>
+          <Link
+            activeClass="active"
+            to="faqs"
+            spy={true}
+            smooth={true}
+            offset={-20}
+            duration={2000}
+            onClick={() => setbool(!bool)}
+          >
             FAQs
-          </a>
-          <Link to="/login">Login</Link>
+          </Link>
+          <Link onClick={() => navigate("/login")}>Login</Link>
         </div>
       ) : (
         ""
