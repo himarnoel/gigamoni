@@ -50,12 +50,8 @@ const NavBar = (props) => {
       {bool ? (
         <div className="h-28 lg:hidden w-full flex flex-col text-xs sm:text-base items-center justify-evenly text-white  bg-[#87ACA3] text-light z-50 fixed top-[4rem] rounded-b-lg">
           {" "}
-          <a href="" onClick={() => setbool(!bool)}>
-            How it works
-          </a>
-          <a href="" onClick={() => setbool(!bool)}>
-            FAQs
-          </a>
+          <Link to="/" onClick={() => setbool(!bool)}> How it works</Link>
+          <Link to="/" onClick={() => setbool(!bool)} > FAQs</Link>
           <Link to="/login">Login</Link>
         </div>
       ) : (
