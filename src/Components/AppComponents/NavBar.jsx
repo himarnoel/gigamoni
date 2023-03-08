@@ -7,7 +7,9 @@ const NavBar = (props) => {
   const navigate = useNavigate();
   return (
     <div className=" font-poppins ">
-      <div className={`${props.class} lg:block hidden top-0 fixed w-full z-[90] `}>
+      <div
+        className={`${props.class} lg:block hidden top-0 fixed w-full z-[90] `}
+      >
         <div className=" font-poppins font-semibold w-full bg-[#F8F8FF] shadow 2xl:px-[10rem] xl:px-[8rem] lg:px-10  py-2  mxl:h-[88px] z-40 rounded-b-lg flex justify-between items-center">
           <Link to="/">
             <img src={logo} alt="" className="object-contain w-[9rem]" />
@@ -49,9 +51,12 @@ const NavBar = (props) => {
       </div>
       {bool ? (
         <div className="h-[15rem] lg:hidden w-full flex flex-col text-sm sm:text-base items-center justify-evenly text-white  bg-[#87ACA3] text-light z-50 fixed top-[4rem] rounded-b-lg">
-          {" "}
-          <Link to="/" onClick={() => setbool(!bool)}> How it works</Link>
-          <Link to="/" onClick={() => setbool(!bool)} > FAQs</Link>
+          <Link to="/" onClick={() => setbool(!bool)}>
+            How it works
+          </Link>
+          <Link to="/" onClick={() => setbool(!bool)}>
+            FAQs
+          </Link>
           <Link to="/login">Login</Link>
         </div>
       ) : (
