@@ -66,20 +66,20 @@ const Signup = () => {
           ""
         )}
 
-        <div className="flex flex-col h-screen  font-poppins ">
-          <NavBar class="top-0 fixed w-full " />
-          <div className="grid md:grid-cols-2  mt-10">
+        <div className="flex flex-col    font-poppins ">
+          <NavBar class="" />
+          <div className="grid md:grid-cols-2  lg:mt-[3.7rem]  h-screen">
             <div className="w-full flex flex-col   ">
               <h2 className="text-center text-[1.3rem] lg:mt-[1.5rem] mxl:mt-[4rem] mxl:text-[2rem]  font-semibold text-[#262626] ">
                 Create Account
               </h2>
-              <h1 className="text-[1.5rem] lg:mt-[2rem] mxl:mt-[3rem] mxl:text-[2.5rem] font-bold  lg:mx-[2.5rem] xl:mx-[5rem] 2xl:mx-[10rem] mxl:mx-[3.5rem]">
+              <h1 className="text-[1.5rem] lg:mt-[2rem] mxl:mt-[3rem] mxl:text-[2.5rem] font-bold  lg:mx-[3rem] xl:mx-[6rem] 2xl:mx-[10rem] mxl:mx-[3.5rem]">
                 Hello,
               </h1>
 
               <form
                 onSubmit={formik.handleSubmit}
-                className="lg:h-[25rem] xl:h-[26rem] lg:mt-[1rem]  mxl:h-[35rem]  flex flex-col justify-between mxl:mt-[2rem]   lg:mx-[3rem] xl:mx-[8rem] mxl:mx-[6rem]  2xl:mx-[10rem]"
+                className="lg:h-[30rem] xl:h-[26rem] lg:mt-[1rem] xl:mt-[1rem]  mxl:h-[35rem]  flex flex-col justify-between mxl:mt-[2rem]   lg:mx-[4rem] xl:mx-[8rem] mxl:mx-[6rem]  2xl:mx-[10rem]"
               >
                 <div class="relative z-0 mt-0">
                   <input
@@ -287,13 +287,13 @@ const Signup = () => {
                 </div>
                 <button
                   type="submit"
-                  className="px-5 py-2 mxl:py-4 mxl:px-8 self-end  bg-[#009186] text-[#F8F8FF] rounded-[8px] font-semibold"
+                  className="px-5 py-2 mxl:py-4 mxl:px-8 self-end l bg-[#009186] text-[#F8F8FF] rounded-[8px] font-semibold"
                 >
                   Create Account
                 </button>
               </form>
 
-              <div className=" lg:mt-[3rem] mxl:mt-[6rem] lg:mb-[3rem]  ">
+              <div className=" lg:mt-[4rem] mxl:mt-[6rem] lg:mb-[3rem] mxl:mb-[0rem]">
                 {" "}
                 <span className="flex items-center justify-center  lg:mx-10 xl:mx-[8rem] 2xl:mx-[10rem] ">
                   {" "}
@@ -304,7 +304,7 @@ const Signup = () => {
                     Login
                   </Link>
                 </span>
-                <span className=" flex items-center justify-center py-[0.5rem] border-2 mt-4 mxl:mt-[3rem]  border-[#009186] border-solid rounded-[8px]   lg:mx-10 xl:mx-[8rem]  2xl:mx-[10rem]">
+                <span className=" flex items-center justify-center py-[0.5rem] border-2 lg:mt-[2rem] mxl:mt-[3rem]  border-[#009186] border-solid rounded-[8px]   lg:mx-10 xl:mx-[8rem]  2xl:mx-[10rem]">
                   {" "}
                   <p className="mr-2  text-[#009186]"> Continue with Google</p>
                   <img src={icon} alt="" className="object-contain w-5" />
@@ -324,7 +324,7 @@ const Signup = () => {
       </div>
 
       {/* Mobile View */}
-      <dv className="lg:hidden ">
+      <dv className="lg:hidden">
         {load ? (
           <div className="absolute bg-cover bg-[#262626]/[0.8] z-[20] h-screen w-screen flex  justify-center items-center text-3xl">
             <RingLoader color="#009186" size={75} />
@@ -334,7 +334,7 @@ const Signup = () => {
         )}
         <div className="bg  w-screen  flex  flex-col md:pb-10">
           <NavBar class="" />
-          <div className="px-2 xss:px-4 xs:px-6 sm:px-10 md:px-8 flex-auto mt-3 md:flex md:flex-col md:h-full">
+          <div className="px-2 xss:px-4 xs:px-6 sm:px-10 md:px-8 flex-auto  md:flex md:flex-col md:h-full mt-[6rem]">
             <div className="w-full text-[1.5rem] xss:text-3xl px-[1rem]  text-center font-semibold flex justify-center items-center bg-[#87ACA3]/[0.5] h-[15rem] rounded-[8px] text-[#87ACA3]">
               <p className=" leading-[1.5] xss:leading-[1.5]">
                 <p> International Bulk</p>

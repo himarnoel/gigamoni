@@ -7,7 +7,7 @@ const NavBar = (props) => {
   const navigate = useNavigate();
   return (
     <div className=" font-poppins ">
-      <div className={`${props.class} lg:block hidden  `}>
+      <div className={`${props.class} lg:block hidden top-0 fixed w-full z-[90] `}>
         <div className=" font-poppins font-semibold w-full bg-[#F8F8FF] shadow 2xl:px-[10rem] xl:px-[8rem] lg:px-10  py-2  mxl:h-[88px] z-40 rounded-b-lg flex justify-between items-center">
           <Link to="/">
             <img src={logo} alt="" className="object-contain w-[9rem]" />
@@ -27,7 +27,7 @@ const NavBar = (props) => {
       </div>
       {/* Mobile nav bar */}
 
-      <div className="  shadow  px-2 xss:px-4 xs:px-6 sm:px-10 md:px-8  font-poppins w-full bg-white lg:hidden    py-5 flex  z-[70] rounded-b-lg justify-between">
+      <div className=" fixed top-0  shadow  px-2 xss:px-4 xs:px-6 sm:px-10 md:px-8  font-poppins w-full bg-white lg:hidden    py-5 flex  z-[70] rounded-b-lg justify-between">
         <Link to="/">
           {" "}
           <img src={logo} alt="" className="md:w-40 w-24 " />
@@ -48,7 +48,7 @@ const NavBar = (props) => {
         </span>
       </div>
       {bool ? (
-        <div className="h-28 lg:hidden w-full flex flex-col text-xs sm:text-base items-center justify-evenly text-white  bg-[#87ACA3] text-light z-50 fixed top-[4rem] rounded-b-lg">
+        <div className="h-[15rem] lg:hidden w-full flex flex-col text-sm sm:text-base items-center justify-evenly text-white  bg-[#87ACA3] text-light z-50 fixed top-[4rem] rounded-b-lg">
           {" "}
           <Link to="/" onClick={() => setbool(!bool)}> How it works</Link>
           <Link to="/" onClick={() => setbool(!bool)} > FAQs</Link>
