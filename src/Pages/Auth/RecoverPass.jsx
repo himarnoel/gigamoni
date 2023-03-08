@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import NavBar from "./../../Components/AppComponents/NavBar";
 import img1 from "../../assets/Vector.svg";
 import { RingLoader } from "react-spinners";
+import axios from "axios";
 const RecoverPass = () => {
   const [load, setload] = useState(false);
   const Resender = () => {
