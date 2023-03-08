@@ -73,13 +73,13 @@ const Signup = () => {
               <h2 className="text-center text-[1.3rem] mxl:mt-[4rem] mxl:text-[2rem]  font-semibold text-[#262626] ">
                 Create Account
               </h2>
-              <h1 className="text-[1.5rem] mxl:mt-[3rem] mxl:text-[2.5rem] font-bold  lg:mx-10 xl:mx-[5rem] 2xl:mx-[10rem] mxl:mx-[6rem]">
+              <h1 className="text-[1.5rem] mxl:mt-[3rem] mxl:text-[2.5rem] font-bold  lg:mx-10 xl:mx-[5rem] 2xl:mx-[10rem] mxl:mx-[3.5rem]">
                 Hello,
               </h1>
 
               <form
                 onSubmit={formik.handleSubmit}
-                className="lg:h-[24rem] xl:h-[26rem] mxl:h-[35rem]  flex flex-col justify-between mxl:mt-[5rem]   lg:mx-10 xl:mx-[8rem] mxl:mx-[6rem]  2xl:mx-[10rem]"
+                className="lg:h-[24rem] xl:h-[26rem] mxl:h-[35rem]  flex flex-col justify-between mxl:mt-[2rem]   lg:mx-10 xl:mx-[8rem] mxl:mx-[6rem]  2xl:mx-[10rem]"
               >
                 <div class="relative z-0 mt-0">
                   <input
