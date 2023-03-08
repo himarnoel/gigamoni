@@ -24,7 +24,6 @@ const Login = () => {
     },
     validationSchema: loginValidate,
     onSubmit: (values) => {
-    
       window.scrollTo(0, 0);
       setload(true);
       axios
@@ -47,7 +46,7 @@ const Login = () => {
             e.response.data.detail == "Phone number has not been verified"
           ) {
             toast.error("Account has not been verified");
-         
+
             navigate(
               `/verify?id=${e.response.data.id}&key=${e.response.data.key}`
             );
@@ -59,7 +58,7 @@ const Login = () => {
   });
   return (
     <>
-      <div className="hidden lg:block">
+      <div className="hidden lg:block font-poppins">
         {load ? (
           <div className="absolute bg-cover bg-[#262626]/[0.8]  z-[20] h-screen w-screen flex  justify-center items-center text-3xl">
             <RingLoader color="#009186" size={90} />
@@ -70,20 +69,20 @@ const Login = () => {
 
         <div className="flex flex-col h-screen  ">
           <NavBar class="" />
-          <div className="grid md:grid-cols-2  flex-auto">
+          <div className="grid md:grid-cols-2  flex-auto ">
             <div className="w-full flex flex-col  ">
-              <div className=" xl:mt-5">
-                <h2 className="text-center text-[1.5rem]  font-medium text-[#262626] ">
+              <div className="lg:mt-4 xl:mt-5">
+                <h2 className="text-center text-[1.5rem] mxl:text-[2rem] mxl:mt-[2rem] font-medium text-[#262626] ">
                   Login
                 </h2>
-                <h1 className="text-[1.5rem] font-bold  lg:mx-10 xl:mx-[5rem] 2xl:mx-[10rem]">
+                <h1 className="text-[1.5rem] mxl:text-[2rem] mxl:mt-[3rem] font-bold  lg:mx-10 xl:mx-[6rem] 2xl:mx-[10rem]">
                   Welcome,
                 </h1>
               </div>
 
               <form
                 onSubmit={formik.handleSubmit}
-                className="lg:h-[33%] xl:h-[30%] xl:mt-4 flex flex-col justify-between   lg:mx-10 xl:mx-[8rem] 2xl:mx-[10rem]"
+                className="lg:h-[12rem] xl:h-[13rem] mxl:h-[16rem] lg:mt-[3rem] xl:mt-4 mxl:mt-10 flex flex-col justify-between   lg:mx-10 xl:mx-[8rem] 2xl:mx-[10rem]"
               >
                 <div class="relative z-0 ">
                   <input
@@ -92,8 +91,8 @@ const Login = () => {
                     name="email"
                     className={
                       formik.errors.email && formik.touched.email
-                        ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
-                        : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                        ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-base text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                        : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-base text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
                     }
                     placeholder=" "
                     onChange={formik.handleChange}
@@ -153,20 +152,20 @@ const Login = () => {
                 </div>{" "}
                 <button
                   type="submit"
-                  className="px-14 py-2 self-end  bg-[#009186] text-[#F8F8FF] rounded-[8px] font-semibold"
+                  className="px-14 py-3 self-end text-sm  bg-[#009186] text-[#F8F8FF] rounded-[8px] font-semibold"
                 >
                   Login
                 </button>
               </form>
 
-              <div className="xl:mt-5 text-center">
+              <div className="lg:mt-2 xl:mt-6 mxl:mt-8 text-center">
                 {" "}
-                <span className="flex items-center justify-end  lg:mx-10 xl:mx-[8rem] lg:mt-6 xl:mt-6 2xl:mx-[10rem] ">
+                <span className="flex items-center justify-center  lg:mx-10 xl:mx-[8rem]   2xl:mx-[10rem] ">
                   {" "}
                   <p className=" text-[#262626] mr-2">Don't have an account?</p>
                   <span className="text-[#009186]">Create account</span>
                 </span>
-                <span className=" flex items-center justify-center py-[0.5rem] border-2 mt-4 lg:mt-8 xl:mt-10 border-[#009186] border-solid rounded-[8px]   lg:mx-10 xl:mx-[8rem] 2xl:mx-[10rem]">
+                <span className=" flex items-center justify-center py-[0.5rem] border-2 mt-4 lg:mt-14 xl:mt-14 mxl:mt-20 border-[#009186] border-solid rounded-[8px]   lg:mx-10 xl:mx-[8rem] 2xl:mx-[10rem]">
                   {" "}
                   <p className="mr-2  text-[#009186]"> Continue with Google</p>
                   <img src={icon} alt="" className="object-contain w-5" />
@@ -175,7 +174,7 @@ const Login = () => {
             </div>
             <div className=" w-full  bg lg:px-10 xl:px-[8rem] 2xl:px-[10rem] flex justify-center items-center">
               <div className="w-full text-3xl px-[4.5rem] text-center font-semibold flex justify-center items-center bg-[#87ACA3]/[0.3] h-[20rem] rounded-[8px] text-[#87ACA3]">
-                <p className="leading-[1.2]">
+                <p className="leading-[1.2] mxl:leading-[1.6] text-3xl">
                   International Bulk Payment Solution Made Just For{" "}
                   <span className="text-[#F8F8FF]"> YOU</span>
                 </p>
@@ -194,11 +193,11 @@ const Login = () => {
         ) : (
           ""
         )}
-        <div className="bg  w-screen  h-screen sm:h-fit md:h-screen flex  flex-col md:pb-10">
+        <div className="bg  w-screen  h-screen sm:h-fit md:h-screen flex  flex-col md:pb-10 mt-[4.89rem]">
           <NavBar class="" />
-          <div className="px-2 xss:px-4 xs:px-6 sm:px-10 md:px-8 flex-auto  flex justify-around  flex-col md:h-full">
+          <div className="px-2 xss:px-4 xs:px-6 sm:px-10 md:px-20 flex-auto  flex justify-around  flex-col md:h-full">
             <div className="w-full  text-[1.5rem] xss:text-3xl px-[1rem]  text-center font-semibold flex justify-center items-center bg-[#87ACA3]/[0.5] h-[22%] rounded-[8px] text-[#87ACA3]">
-              <p className=" leading-[1.5] xss:leading-[1.5] text-xl md:text-3xl md:leading-[1.5]">
+              <p className=" leading-[1.5] xss:leading-[1.5] text-xl md:text-3xl md:leading-[2]">
                 <p> International Bulk</p>
                 <p>Payment Solution</p>
                 <p>
@@ -215,7 +214,10 @@ const Login = () => {
                 <h2 className=" font-bold  xs:text-[1.4rem] xs:mt-4 md:text-3xl">
                   Welcome,
                 </h2>
-                <form onSubmit={formik.handleSubmit} className="flex flex-col ">
+                <form
+                  onSubmit={formik.handleSubmit}
+                  className="flex flex-col h-[50%] justify-between "
+                >
                   <div class="relative z-0 ">
                     <input
                       type="text"

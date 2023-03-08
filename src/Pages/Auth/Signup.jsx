@@ -67,7 +67,7 @@ const Signup = () => {
         )}
 
         <div className="flex flex-col    font-poppins ">
-          <NavBar class="" />
+          <NavBar class="top-0 z-[90] fixed" />
           <div className="grid md:grid-cols-2  lg:mt-[3.7rem]  h-screen">
             <div className="w-full flex flex-col   ">
               <h2 className="text-center text-[1.3rem] lg:mt-[1.5rem] mxl:mt-[4rem] mxl:text-[2rem]  font-semibold text-[#262626] ">
