@@ -4,8 +4,10 @@ import img1 from "../../assets/Vector.svg";
 import { RingLoader } from "react-spinners";
 import axios from "axios";
 import { baseurl } from "../../Service/validate_and_api";
+import { useNavigate } from "react-router-dom";
 const RecoverPass = () => {
   const [load, setload] = useState(false);
+  const navigate = useNavigate();
   const Resender = () => {
     let email = localStorage.getItem("email");
     setload(true);
@@ -64,7 +66,11 @@ const RecoverPass = () => {
                 Resend Mail
               </button>
             </div>
-            <button className=" self-end bg-[#87ACA3] text-xs md:text-sm  text-[#262626] rounded-[8px] font-semibold mt-6 xss:mt-3 xs:mt-6 px-8 py-3">
+            <button
+              onClick={() => navigate("/login")}
+              s
+              className=" self-end bg-[#87ACA3] text-xs md:text-sm  text-[#262626] rounded-[8px] font-semibold mt-6 xss:mt-3 xs:mt-6 px-8 py-3"
+            >
               Back to Login
             </button>
           </div>

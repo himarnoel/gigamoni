@@ -141,7 +141,7 @@ const NewPassword = () => {
                 Reset Password
               </button>
             </form>
-            <button className="float-right bg-[#87ACA3] text-xs md:text-sm  text-[#262626] rounded-[8px] font-semibold mt-6 xss:mt-3 xs:mt-3 px-8 py-3  mxl:px-10 mxl:py-4 mxl:mt-8">
+            <button   onClick={() => navigate("/login")} className="float-right bg-[#87ACA3] text-xs md:text-sm  text-[#262626] rounded-[8px] font-semibold mt-6 xss:mt-3 xs:mt-3 px-8 py-3  mxl:px-10 mxl:py-4 mxl:mt-8">
               Back to Login
             </button>
           </div>

@@ -89,7 +89,9 @@ const Forgot = () => {
               </button>
             </form>
           </div>
-          <button className=" self-end bg-[#87ACA3] text-xs md:text-sm   float-right text-[#262626] rounded-[8px] font-semibold lg:mt-3 mt-5 xss:mt-3 xs:mt-6 px-12 py-3">
+          <button 
+            onClick={() => navigate("/login")}
+          className=" self-end bg-[#87ACA3] text-xs md:text-sm   float-right text-[#262626] rounded-[8px] font-semibold lg:mt-3 mt-5 xss:mt-3 xs:mt-6 px-12 py-3">
             Back to Login
           </button>
         </div>

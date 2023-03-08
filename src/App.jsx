@@ -15,6 +15,7 @@ import {
 } from "./Pages/Auth/index";
 import Dashboard from "./Pages/Dashboard";
 import Success from "./Pages/Auth/Success";
+import SetMobile from "./Pages/Auth/SetMobile";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -27,6 +28,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/check" element={<CheckMail />} />
+        <Route path="/mobile" element={<SetMobile />} />
         <Route path="/verify" element={<VerifyMail />} />
         <Route path="/forgot" element={<Forgot />} />
         <Route path="/recover" element={<RecoverPass />} />

@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import NavBar from "./../../Components/AppComponents/NavBar";
 import img1 from "../../assets/Vector.svg";
-import { useLocation, useSearchParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import RingLoader from "react-spinners/RingLoader";
 import { baseurl } from "../../Service/validate_and_api";
 import { toast } from "react-toastify";
 
 const CheckMail = () => {
+  const navigate = useNavigate();
   const [load, setload] = useState(false);
   const Resender = () => {
     let email = localStorage.getItem("email");
@@ -68,7 +69,10 @@ const CheckMail = () => {
                 Resend Mail
               </button>
             </div>
-            <button className=" self-end bg-[#87ACA3] text-xs md:text-sm  text-[#262626] rounded-[8px] font-semibold mt-6 xss:mt-3 xs:mt-6 px-8 py-3">
+            <button
+              onClick={() => navigate("/login")}
+              className=" self-end bg-[#87ACA3] text-xs md:text-sm  text-[#262626] rounded-[8px] font-semibold mt-6 xss:mt-3 xs:mt-6 px-8 py-3"
+            >
               Back to Login
             </button>
           </div>

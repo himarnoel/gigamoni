@@ -305,7 +305,9 @@ const Signup = () => {
                   <p className=" text-[#262626] mr-2">
                     Already have an account?
                   </p>
-                  <Link to="/login" className="text-[#009186]">Login</Link>
+                  <Link to="/login" className="text-[#009186]">
+                    Login
+                  </Link>
                 </span>
                 <span className=" flex items-center justify-center py-[0.5rem] border-2 mt-4 border-[#009186] border-solid rounded-[8px]   lg:mx-10 xl:mx-[8rem] 2xl:mx-[10rem]">
                   {" "}
@@ -579,7 +581,9 @@ const Signup = () => {
                   <p className=" text-[#262626] mr-2">
                     Already have an account?
                   </p>
-                  <span className="text-[#009186]">Login</span>
+                  <Link to="/login" className="text-[#009186]">
+                    Login
+                  </Link>
                 </span>
                 <span className=" flex items-center justify-center py-[0.5rem] md:mt-10 border-2 mt-8 border-[#009186] border-solid rounded-[8px]   lg:mx-10 xl:mx-[8rem] 2xl:mx-[10rem]">
                   {" "}

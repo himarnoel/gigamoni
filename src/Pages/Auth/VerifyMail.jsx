@@ -12,6 +12,7 @@ import { toast } from "react-toastify";
 
 const VerifyMail = () => {
   const [searchParams, setSearchParams] = useSearchParams();
+  const navigate = useNavigate();
   const [load, setload] = useState(false);
   const [deter, setDeter] = useState(true);
 
@@ -36,12 +37,10 @@ const VerifyMail = () => {
       });
   }, []);
 
-  const navigate = useNavigate();
   let currentOTPIndex = 0;
   let newOTP = [];
   const [otp, setOtp] = useState(new Array(6).fill(""));
   const [activeOTPIndex, setActiveOTPIndex] = useState(0);
-  const [bol, setbol] = useState(false);
   const [bool, setbool] = useState(false);
 
   const inputref = useRef(null);
@@ -86,8 +85,7 @@ const VerifyMail = () => {
     }
   };
 
-  const VerifyPhone = () => {
-
+  const VerifyPhoneNumber = () => {
     setload(true);
     const otpValues = otp.reduce((partialSum, a) => partialSum + a);
     let id = searchParams.get("id");
@@ -113,8 +111,7 @@ const VerifyMail = () => {
       });
   };
 
-  const VerifymobilePhone = () => {
-    setbol(true);
+  const Verifymobilescreen_PhoneNumber = () => {
     setload(true);
     const otpValues = otp.reduce((partialSum, a) => partialSum + a);
     let id = searchParams.get("id");
@@ -124,7 +121,7 @@ const VerifyMail = () => {
         console.log(res);
         setload(false);
         setDeter(true);
-        setbool(true);
+        navigate("/mobile");
       })
       .catch((e) => {
         console.log(e);
@@ -172,7 +169,7 @@ const VerifyMail = () => {
       ) : (
         ""
       )}
-
+      {/* Mobile view */}
       <div className="flex flex-col h-screen font-poppins justify-between text-[#262626] ">
         <NavBar />
 
@@ -214,13 +211,13 @@ const VerifyMail = () => {
               </div>
               <div className="flex flex-col xl:h-[40%] justify-between items-center mt-4 lg:mt-[1%] xl:mt-[4%] sm:mb-5 md:mb-0">
                 <button
-                  onClick={() => VerifyPhone()}
+                  onClick={() => VerifyPhoneNumber()}
                   className=" hidden md:block px-12 py-2 lg:py-3 lg:px-14 lg:mt-[5%] lg:text-xs self-end  xl:px-12 bg-[#009186] text-white rounded-[8px] text-sm mt-2"
                 >
                   Submit
                 </button>
                 <button
-                  onClick={() => VerifyPhone()}
+                  onClick={() => Verifymobilescreen_PhoneNumber()}
                   className=" md:hidden px-12 py-2 lg:py-3 lg:px-14 lg:mt-[5%] lg:text-xs self-end  xl:px-12 bg-[#009186] text-white rounded-[8px] text-sm mt-2"
                 >
                   Submit
@@ -236,7 +233,7 @@ const VerifyMail = () => {
                 </div>
               </div>
             </div>
-            <button className=" self-end bg-[#87ACA3] text-xs md:text-sm  float-right text-[#262626] rounded-[8px] font-semibold lg:mt-3 mt-5 xss:mt-3 xs:mt-6 px-12 py-3">
+            <button   onClick={() => navigate("/login")} className=" self-end bg-[#87ACA3] text-xs md:text-sm  float-right text-[#262626] rounded-[8px] font-semibold lg:mt-3 mt-5 xss:mt-3 xs:mt-6 px-12 py-3">
               Back to Login
             </button>
           </div>
