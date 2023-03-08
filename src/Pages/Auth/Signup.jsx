@@ -293,9 +293,9 @@ const Signup = () => {
                 </button>
               </form>
 
-              <div className=" lg:mt-[4rem] mxl:mt-[6rem] lg:mb-[3rem] mxl:mb-[0rem]">
+              <div className=" lg:mt-[4rem] mxl:mt-[7rem] lg:mb-[3rem] mxl:mb-[0rem]">
                 {" "}
-                <span className="flex items-center justify-center  lg:mx-10 xl:mx-[8rem] 2xl:mx-[10rem] ">
+                <span className="flex items-center justify-center   lg:mx-10 xl:mx-[8rem] mxl:text-base 2xl:mx-[10rem] ">
                   {" "}
                   <p className=" text-[#262626] mr-2">
                     Already have an account?
@@ -304,7 +304,7 @@ const Signup = () => {
                     Login
                   </Link>
                 </span>
-                <span className=" flex items-center justify-center py-[0.5rem] border-2 lg:mt-[2rem] mxl:mt-[3rem]  border-[#009186] border-solid rounded-[8px]   lg:mx-10 xl:mx-[8rem]  2xl:mx-[10rem]">
+                <span className=" flex items-center justify-center py-[0.5rem] border-2 lg:mt-[3rem] mxl:mt-[6rem]  border-[#009186] border-solid rounded-[8px]   lg:mx-10 xl:mx-[8rem]  2xl:mx-[10rem]">
                   {" "}
                   <p className="mr-2  text-[#009186]"> Continue with Google</p>
                   <img src={icon} alt="" className="object-contain w-5" />
