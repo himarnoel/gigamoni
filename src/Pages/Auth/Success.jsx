@@ -31,7 +31,7 @@ const Success = () => {
                 onClick={() => navigate("/login")}
                 className=" px-12 py-2 lg:py-3 lg:px-14 lg:mt-[5%]  xl:px-24 lg:text-xs  bg-[#009186] text-white rounded-[8px] text-sm mt-2"
               >
-                Submit
+                Login
               </button>
             </div>
           </div>
