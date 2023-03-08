@@ -81,6 +81,3 @@ select:focus ~ label {
 }
 
 
-.check{
-  overflow-y: hidden;
-}
