@@ -193,10 +193,10 @@ const Login = () => {
         ) : (
           ""
         )}
-        <div className="bg  w-screen  h-screen sm:h-screen    md:h-screen flex  flex-col md:pb-10 mt-[4rem]">
+        <div className="  w-screen  h-screen sm:h-screen    md:h-screen flex  flex-col md:pb-10 mt-[4rem]">
           <NavBar class="" />
-          <div className="px-2 xss:px-4 xs:px-6 sm:mt-10 sm:px-10 md:px-20 flex-auto  flex justify-around  flex-col md:h-full mt-3 ">
-            <div className="w-full  text-[1.5rem] xss:text-3xl px-[1rem]  text-center font-semibold flex justify-center items-center bg-[#87ACA3]/[0.5] h-[22%] rounded-[8px] text-[#87ACA3]">
+          <div className=" bg px-2 xss:px-4 xs:px-6 sm:mt-5 sm:px-10 md:px-20 flex-auto  flex justify-around  flex-col md:h-full mt-3   ">
+            <div className="w-full  text-[1.5rem] sm:mt-4 xss:text-3xl px-[1rem]  text-center font-semibold flex justify-center items-center bg-[#87ACA3]/[0.5] h-[22%] rounded-[8px] text-[#87ACA3]">
               <p className=" leading-[1.5] xss:leading-[1.5] text-xl md:text-3xl md:leading-[2]">
                 <p> International Bulk</p>
                 <p>Payment Solution</p>
@@ -205,7 +205,7 @@ const Login = () => {
                 </p>
               </p>
             </div>
-            <div className="xss:h-[72%]  h-[67%] sm:mt-20 sm:mb-10 md:h-[57%] bg-white rounded-[16px] xs:py-4 py-2 md:py-20  px-4 flex justify-between flex-col md:px-20">
+            <div className="xss:h-[70%]  h-[67%] sm:mt-5 sm:h-[40rem] sm:mb-10 md:h-[57%] bg-white rounded-[16px] xs:py-4 py-2 md:py-20  px-4 flex justify-between flex-col md:px-20">
               <h1 className="text-center font-semibold text-xl mt-2  md:text-2xl">
                 Login
               </h1>
