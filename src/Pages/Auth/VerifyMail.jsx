@@ -76,7 +76,7 @@ const VerifyMail = () => {
 
   const Verifymobilescreen_PhoneNumber = () => {
     let val = "";
-    otp.forEach((item, ind, arr) => {
+    otpm.forEach((item, ind, arr) => {
       if (arr[ind].length !== 0) {
         val += item;
       }
@@ -84,7 +84,7 @@ const VerifyMail = () => {
 
     if (val.toString().length == 6) {
       setload(true);
-      const otpValues = otp.reduce((partialSum, a) => partialSum + a);
+      const otpValues = otpm.reduce((partialSum, a) => partialSum + a);
       let id = searchParams.get("id");
       axios
         .get(`${baseurl}/phone/${id}/${otpValues}`)
@@ -113,10 +113,12 @@ const VerifyMail = () => {
   let currentOTPIndex = 0;
   let newOTP = [];
   const [otp, setOtp] = useState(new Array(6).fill(""));
+  const [otpm, setOtpm] = useState(new Array(6).fill(""));
   const [activeOTPIndex, setActiveOTPIndex] = useState(0);
   const [bool, setbool] = useState(false);
 
   const inputref = useRef(null);
+  const inputrefmobile = useRef(null);
 
   const handleOnChange = (e, i) => {
     const { value } = e.target;
@@ -185,6 +187,24 @@ const VerifyMail = () => {
       Verifymobilescreen_PhoneNumber("Enter");
     }
   };
+
+  const handleOnChangemobile = (e, i) => {
+    const { value } = e.target;
+    console.log(value);
+    newOTP = [...otpm];
+    newOTP[currentOTPIndex] = value.substring(value.length - 1);
+
+    if (!value) {
+      setActiveOTPIndex(currentOTPIndex - 1);
+    } else {
+      setActiveOTPIndex(currentOTPIndex + 1);
+    }
+    setOtpm(newOTP);
+  };
+  useEffect(() => {
+    inputref.current?.focus();
+  }, [activeOTPIndex]);
+
   return (
     <div className="font-poppins">
       {load ? (
@@ -263,17 +283,17 @@ const VerifyMail = () => {
                   ))}
                 </div>
                 <div className="flex lg:hidden justify-between mt-6 lg:mt-2 xl:mt-2 mxl:mt-[2rem]">
-                  {otp.map((arr, i) => (
+                  {otpm.map((arr, i) => (
                     <div className="" key={i}>
                       {" "}
                       <input
-                        ref={i === activeOTPIndex ? inputref : null}
+                        ref={i === activeOTPIndex ? inputrefmobile : null}
                         type="number"
                         pattern="[0-9]*"
                         className="h-16 w-8 xs:h-[3.5rem]  xs:w-[2.17rem] sm:w-[4rem] md:w-[4rem] md:h-[4rem]  lg:w-[3.5rem]   lg:h-[3.5rem]   mxl:w-[4.5rem] mxl:h-[4.5rem] border spin-button-none rounded-[8px] bg-transparent outline-none text-center font-semibold text-lg text-[#262626] font-poppins spin-button-none border-[#87ACA3] border-solid transition"
-                        onChange={(e) => handleOnChange(e, i)}
+                        onChange={(e) => handleOnChangemobile(e, i)}
                         onKeyDown={(e) => handleOnKeyDownmobile(e, i)}
-                        value={otp[i]}
+                        value={otpm[i]}
                       />
                     </div>
                   ))}
