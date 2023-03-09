@@ -16,26 +16,26 @@ const VerifyMail = () => {
   const [load, setload] = useState(false);
   const [deter, setDeter] = useState(true);
 
-  // useEffect(() => {
-  //   const id = searchParams.get("id");
-  //   const key = searchParams.get("key");
-  // setDeter(false)
-  //   setload(true);
-  //   axios
-  //     .get(`${baseurl}/verify/${id}/${key}`)
-  //     .then((res) => {
-  //       console.log(res);
-  //       setload(false);
-  //       setDeter(true);
-  //     })
-  //     .catch((e) => {
-  //       alert(failed);
-  //       console.log(e);
-  //       setload(false);
-  //       setDeter(false);
-  //       toast.error("An error occurred");
-  //     });
-  // }, []);
+  useEffect(() => {
+    const id = searchParams.get("id");
+    const key = searchParams.get("key");
+  setDeter(false)
+    setload(true);
+    axios
+      .get(`${baseurl}/verify/${id}/${key}`)
+      .then((res) => {
+        console.log(res);
+        setload(false);
+        setDeter(true);
+      })
+      .catch((e) => {
+        alert(failed);
+        console.log(e);
+        setload(false);
+        setDeter(false);
+        toast.error("An error occurred");
+      });
+  }, []);
 
   const VerifyPhoneNumber = () => {
     let val = "";
