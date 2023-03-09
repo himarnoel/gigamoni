@@ -16,26 +16,26 @@ const VerifyMail = () => {
   const [load, setload] = useState(false);
   const [deter, setDeter] = useState(true);
 
-  useEffect(() => {
-    const id = searchParams.get("id");
-    const key = searchParams.get("key");
-
-    setload(true);
-    axios
-      .get(`${baseurl}/verify/${id}/${key}`)
-      .then((res) => {
-        console.log(res);
-        setload(false);
-        setDeter(true);
-      })
-      .catch((e) => {
-        alert(failed);
-        console.log(e);
-        setload(false);
-        setDeter(false);
-        toast.error("An error occurred");
-      });
-  }, []);
+  // useEffect(() => {
+  //   const id = searchParams.get("id");
+  //   const key = searchParams.get("key");
+  // setDeter(false)
+  //   setload(true);
+  //   axios
+  //     .get(`${baseurl}/verify/${id}/${key}`)
+  //     .then((res) => {
+  //       console.log(res);
+  //       setload(false);
+  //       setDeter(true);
+  //     })
+  //     .catch((e) => {
+  //       alert(failed);
+  //       console.log(e);
+  //       setload(false);
+  //       setDeter(false);
+  //       toast.error("An error occurred");
+  //     });
+  // }, []);
 
   let currentOTPIndex = 0;
   let newOTP = [];
@@ -169,73 +169,78 @@ const VerifyMail = () => {
       ) : (
         ""
       )}
-      {/* Mobile view */}
+
       <div className="flex flex-col h-screen font-poppins justify-between text-[#262626] ">
         <NavBar />
 
         {!deter ? (
           <div className="bg flex-auto sm:flex  items-center lg:justify-around flex-col  px-2 xss:px-4 xs:px-6 lg:px-[19rem]  xl:px-[25rem]  mxl:px-[27rem]"></div>
         ) : (
-          <div className="bg flex-auto sm:flex  items-center lg:justify-around flex-col  px-2 xss:px-4 xs:px-6 lg:px-[19rem]  xl:px-[25rem]  mxl:px-[27rem]">
-            <p className="text-center text-[rgb(248,248,255)] text-base sm:text-2xl lg:text-xl xl:text-[1.3rem] font-semibold mt-4 sm:mt-8 lg:mt-8 xl:mt-2">
-              Verify Your Phone Number
-            </p>
-            <div className=" h-[72%] xs:h-[76%] sm:h-[80%] md:h-[50%] lg:h-[70%] xl:h-[76%] mxl:h-[37rem] shade  bg-[#F8F8FF] w-full  rounded-[11.8392px] mt-4 lg:mt-6  xl:mt-4 lg:px-8   px-4 xs:px-6 pt-2 lg:pt-0 ">
-              <span className="h-[4rem] w-[4rem] mx-auto  mt-5 xs:mt-2 lg:mt-[2rem] xl:mt-[1.4rem]  xs:h-[5rem] xs:w-[5rem] md:h-[6rem] md:w-[6rem]   lg:h-[4rem] lg:w-[4rem] xl:w-[5rem] xl:h-[5rem]  flex justify-center items-center rounded-full bg-[#00913E]/[0.1] ">
-                {" "}
-                <img
-                  src={mail}
-                  alt=""
-                  className="text-blue-700 h-[2rem] object-contain md:h-[2.5rem]  lg:h-[1.7rem] xl:h-[1.8rem]"
-                />
-              </span>
-              <p className="text-center mt-2 lg:mt-4 text-xs md:text-xl lg:text-sm  xl:text-base font-medium ">
-                Enter the verification code that was sent to your phone number
+          <div className="bg flex-auto sm:flex  items-center justify-center flex-col  ">
+            <div className="w-fit">
+              <p className="text-center text-[rgb(248,248,255)] text-base sm:text-2xl lg:text-xl xl:text-[1.3rem] mxl:text-3xl font-semibold mt-4 sm:mt-8 lg:mt-8 xl:mt-2">
+                Verify Your Phone Number
               </p>
+              <div className=" h-[72%] xs:h-[76%] sm:h-[80%] md:h-[50%] lg:h-[70%] xl:h-[76%] mxl:h-[37rem] shade  bg-[#F8F8FF] w-full  rounded-[11.8392px] mt-4 lg:mt-6  xl:mt-4 sm:w-[35rem]  md:w-[40rem] lg:w-[30rem] mxl:w-[40rem] px-4 py-2 sm:px-10 sm:py-8 md:px-20 md:py-14 lg:px-10 lg:py-10 pt-2 lg:pt-0 ">
+                <span className="h-[4rem] w-[4rem] mx-auto  mt-5 xs:mt-2 lg:mt-[2rem] xl:mt-[1.4rem]  xs:h-[5rem] xs:w-[5rem] md:h-[6rem] md:w-[6rem]   lg:h-[4rem] lg:w-[4rem] xl:w-[5rem] xl:h-[5rem]  flex justify-center items-center rounded-full bg-[#00913E]/[0.1] ">
+                  {" "}
+                  <img
+                    src={mail}
+                    alt=""
+                    className="text-blue-700 h-[2rem] object-contain md:h-[2.5rem]  lg:h-[1.7rem] xl:h-[1.8rem]"
+                  />
+                </span>
+                <p className="text-center mt-2 lg:mt-4 text-xs md:text-xl lg:text-sm  xl:text-base font-medium ">
+                  Enter the verification code that was sent to your phone number
+                </p>
 
-              <div className="flex  justify-evenly mt-6 lg:mt-2">
-                {otp.map((arr, i) => (
-                  <div className="" key={i}>
-                    {" "}
-                    <input
-                      ref={i === activeOTPIndex ? inputref : null}
-                      type="number"
-                      pattern="[0-9]*"
-                      className="h-16 w-8  xs:w-[2.17rem] sm:w-20 lg:w-12 lg:h-14 border spin-button-none rounded-[8px] bg-transparent outline-none text-center font-semibold text-lg text-[#262626] font-poppins spin-button-none border-[#87ACA3] border-solid transition"
-                      onChange={(e) => handleOnChange(e, i)}
-                      onKeyDown={(e) => handleOnKeyDown(e, i)}
-                      value={otp[i]}
-                    />
-                  </div>
-                ))}
-              </div>
-              <div className="flex flex-col xl:h-[40%] justify-between items-center mt-4 lg:mt-[1%] xl:mt-[4%] sm:mb-5 md:mb-0">
-                <button
-                  onClick={() => VerifyPhoneNumber()}
-                  className=" hidden md:block px-12 py-2 lg:py-3 lg:px-14 lg:mt-[5%] lg:text-xs self-end  xl:px-12 bg-[#009186] text-white rounded-[8px] text-sm mt-2"
-                >
-                  Submit
-                </button>
-                <button
-                  onClick={() => Verifymobilescreen_PhoneNumber()}
-                  className=" md:hidden px-12 py-2 lg:py-3 lg:px-14 lg:mt-[5%] lg:text-xs self-end  xl:px-12 bg-[#009186] text-white rounded-[8px] text-sm mt-2"
-                >
-                  Submit
-                </button>
-                <div className="">
-                  <p className="text-xs mt-16 sm:mt-2 md:mt-20 lg:mt-[8%] text-center xss:mt-10 xs:mt-14 md:text-sm xl:text-sm xl:mt-[6%]">
-                    Didn't receive code?
-                  </p>
-
-                  <button className="px-12 py-2 lg:py-3 lg:px-14 lg:mt-1 lg:text-xs  xl:mt-2  xl:px-12 border-[#009186] text-[#009186] border  rounded-[8px] text-sm mt-2">
-                    Resend Mail
+                <div className="flex  justify-between mt-6 lg:mt-2 mxl:mt-[2rem]">
+                  {otp.map((arr, i) => (
+                    <div className="" key={i}>
+                      {" "}
+                      <input
+                        ref={i === activeOTPIndex ? inputref : null}
+                        type="number"
+                        pattern="[0-9]*"
+                        className="h-16 w-8  xs:w-[2.17rem] sm:w-20  lg:w-12   lg:h-14 mxl:w-[4.5rem] mxl:h-[4.5rem] border spin-button-none rounded-[8px] bg-transparent outline-none text-center font-semibold text-lg text-[#262626] font-poppins spin-button-none border-[#87ACA3] border-solid transition"
+                        onChange={(e) => handleOnChange(e, i)}
+                        onKeyDown={(e) => handleOnKeyDown(e, i)}
+                        value={otp[i]}
+                      />
+                    </div>
+                  ))}
+                </div>
+                <div className="flex flex-col xl:h-[40%] justify-between items-center mt-4 lg:mt-[1%] xl:mt-[4%] sm:mb-5 md:mb-0">
+                  <button
+                    onClick={() => VerifyPhoneNumber()}
+                    className=" hidden md:block px-12 py-2 lg:py-3 lg:px-14 lg:mt-[5%] lg:text-xs self-end  xl:px-12 bg-[#009186] text-white rounded-[8px] text-sm mt-2"
+                  >
+                    Submit
                   </button>
+                  <button
+                    onClick={() => Verifymobilescreen_PhoneNumber()}
+                    className=" md:hidden px-12 py-2 lg:py-3 lg:px-14 lg:mt-[5%] lg:text-xs self-end  xl:px-12 bg-[#009186] text-white rounded-[8px] text-sm mt-2"
+                  >
+                    Submit
+                  </button>
+                  <div className="">
+                    <p className="text-xs mt-16 sm:mt-2 md:mt-20 lg:mt-[8%] text-center xss:mt-10 xs:mt-14 md:text-sm xl:text-sm xl:mt-[6%]">
+                      Didn't receive code?
+                    </p>
+
+                    <button className="px-12 py-2 lg:py-3 lg:px-14 lg:mt-1 lg:text-xs  xl:mt-2  xl:px-12 border-[#009186] text-[#009186] border  rounded-[8px] text-sm mt-2">
+                      Resend Mail
+                    </button>
+                  </div>
                 </div>
               </div>
+              <button
+                onClick={() => navigate("/login")}
+                className=" self-end bg-[#87ACA3] text-xs md:text-sm  float-right text-[#262626] rounded-[8px] font-semibold lg:mt-3 mt-5 xss:mt-3 xs:mt-6 px-12 py-3"
+              >
+                Back to Login
+              </button>
             </div>
-            <button   onClick={() => navigate("/login")} className=" self-end bg-[#87ACA3] text-xs md:text-sm  float-right text-[#262626] rounded-[8px] font-semibold lg:mt-3 mt-5 xss:mt-3 xs:mt-6 px-12 py-3">
-              Back to Login
-            </button>
           </div>
         )}
       </div>

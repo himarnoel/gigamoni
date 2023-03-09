@@ -9,7 +9,7 @@ const Success = () => {
       <div className="flex flex-col h-screen  font-poppins justify-between ">
         <NavBar />
         <div className="bg flex-auto sm:flex flex-col justify-center items-center   ">
-          <div className="w-full px-2 xss:px-4 xs:px-6 xsm:px-[5rem] sm:px-0 sm:w-fit  mx-auto mt-[8rem] sm:mt-0 md:mt-[-10rem]  mxl:mt-[-20rem] ">
+          <div className="w-full px-2 xss:px-4 xs:px-6 xsm:px-[5rem] sm:px-0 sm:w-fit   mx-auto mt-[9rem] sm:mt-0 md:mt-[-10rem]  mxl:mt-[-20rem] ">
             <h1 className="text-center text-[#F8F8FF] text-base sm:text-2xl lg:text-2xl xl:text-2xl mxl:text-3xl 2xl:text-3xl  sm:mt-8 lg:mt-[rem]  xl:mt-[0rem] mxl:mt-[0rem] mt-5 font-semibold ">
               Password Reset Successfully
             </h1>
