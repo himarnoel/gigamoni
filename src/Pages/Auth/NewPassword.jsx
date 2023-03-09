@@ -55,15 +55,15 @@ const NewPassword = () => {
       )}
       <div className="flex flex-col h-screen  font-poppins justify-between ">
         <NavBar />
-        <div className="bg flex-auto flex flex-col justify-between   ">
-          <div className="w-full px-2 xss:px-4 xs:px-6 xsm:px-[5rem] sm:px-0 sm:w-fit  mx-auto mxl:mt-[14rem]">
-            <h1 className="text-center text-[#F8F8FF] text-base sm:text-2xl lg:text-2xl xl:text-2xl mxl:text-3xl 2xl:text-3xl  sm:mt-8 lg:mt-[rem]  xl:mt-4 mt-5 mxl:mt-10 font-semibold ">
+        <div className="bg flex-auto flex flex-col justify-between">
+          <div className="w-full  h-fit px-2 xss:px-4 xs:px-6 xsm:px-[5rem] sm:px-0 sm:w-fit  mx-auto mt-[10rem] md:mt-[8rem] mxl:mt-[4rem]">
+            <h1 className="text-center text-[#F8F8FF] text-base sm:text-2xl lg:text-2xl xl:text-2xl mxl:text-3xl 2xl:text-3xl  sm:mt-0 md:mt-[2rem] lg:mt-[3rem]  xl:mt-4  mxl:mt-10 font-semibold ">
               Create new password
             </h1>
 
             <form
               onSubmit={formik.handleSubmit}
-              className="mx-auto bg-[#F8F8FF] w-full h-[87%]   sm:w-[35rem] sm:h-[20rem]  md:w-[40rem] md:h-[25rem] lg:h-[19rem] lg:w-[30rem] mxl:w-[40rem] mxl:h-[25rem] md:mt-[5rem] lg:mt-[3rem]  rounded-[11.8392px] shade px-4 py-2 sm:px-10 sm:py-8 md:px-20 md:py-14 lg:px-10 lg:py-10 flex flex-col justify-around  mt-5"
+              className="mx-auto bg-[#F8F8FF] w-full h-[87%]  sm:h-[20rem]   sm:w-[35rem]  md:w-[40rem] lg:w-[30rem] mxl:w-[40rem] md:h-[25rem] lg:h-[19rem]   mxl:h-[25rem] sm:mt-[3rem] md:mt-[4rem] lg:mt-[3rem] mxl:mt-[6rem]  rounded-[11.8392px] shade px-4 py-2 sm:px-10 sm:py-8 md:px-20 md:py-14 lg:px-10 lg:py-10 flex flex-col justify-around  mt-5"
             >
               <div class="relative z-0 ">
                 <input
@@ -141,7 +141,10 @@ const NewPassword = () => {
                 Reset Password
               </button>
             </form>
-            <button   onClick={() => navigate("/login")} className="float-right bg-[#87ACA3] text-xs md:text-sm  text-[#262626] rounded-[8px] font-semibold mt-6 xss:mt-3 xs:mt-3 px-8 py-3  mxl:px-10 mxl:py-4 mxl:mt-8">
+            <button
+              onClick={() => navigate("/login")}
+              className="float-right bg-[#87ACA3] text-xs md:text-sm  text-[#262626] rounded-[8px] font-semibold mt-6 xss:mt-3 xs:mt-3 sm:mt-8 px-8 py-3  mxl:px-10 mxl:py-4 mxl:mt-8"
+            >
               Back to Login
             </button>
           </div>

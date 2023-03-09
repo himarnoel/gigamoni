@@ -28,7 +28,7 @@ const CheckMail = () => {
       });
   };
   return (
-    <div className="check">
+    <div>
       {load ? (
         <div className="absolute bg-cover bg-[#262626]/[0.8]  z-[20] h-screen w-screen flex  justify-center items-center text-3xl">
           <RingLoader color="#009186" size={90} />
@@ -36,42 +36,48 @@ const CheckMail = () => {
       ) : (
         ""
       )}
-      <div className="flex flex-col h-screen  font-poppins justify-between ">
-        <NavBar />
-        <div className="bg flex-auto lg:flex  items-center flex-col justify-around lg:pb-[5%] lg:pt-[4%] x">
-          <p className="text-center text-[#F8F8FF] text-base sm:text-2xl lg:text-2xl xl:text-2xl 2xl:text-3xl font-semibold mt-4 sm:mt-8 lg:mt-0  xl:mt-0 ">
+      <div className="flex flex-col h-screen  font-poppins  bg  mt-[5rem]">
+        <NavBar class="fixed top-0" />
+        <div className="flex-auto md:flex  items-center  flex-col justify-center px-2 xs:px-4 sm:px-6 ">
+          <p className="text-center text-[#F8F8FF]  text-base sm:text-2xl lg:text-2xl xl:text-2xl mxl:text-3xl 2xl:text-3xl font-semibold mt-[6rem] sm:mt-8 md:mt-[1rem] lg:mt-[6rem]  xl:mt-[6rem] mxl:mt-[-4rem] ">
             Check your Email
           </p>
-          <div className="flex flex-col items-center w-full  h-[25rem] xss:h-[22rem] xs:h-[25rem] md:h-[29rem] lg:h-[28rem] xl:h-[30.8rem] mxl:h-[33rem]  px-2 xss:px-4 xs:px-6 xsm:px-[5rem] sm:px-[6rem]  md:px-[8rem] lg:px-[18rem] xl:px-[25rem] mxl:px-[29.6rem]   mx-auto mt-2 xss:mt-2 xs:mt-4  md:mt-6 lg:mt-6 xl:mt-5">
-            <div className="mx-auto text-[#262626] text-center flex flex-col   shade  items-center bg-[#F8F8FF]  px-2 xs:px-4 sm:px-6  xl:px-[2rem] xl:  rounded-[8px] md:rounded-[11.8392px] w-full h-full  shadow-[0_35px_60px_-15px_rgba(25,0,0,0.3)]">
-              <span className="h-[4rem]  w-[4rem] xs:h-[5rem] xs:w-[5rem] md:h-[6rem] md:w-[6rem]   lg:h-[5rem] lg:w-[5rem]   flex justify-center items-center rounded-full bg-[#00913E]/[0.1] mt-3 md:mt-[2rem] lg:mt-[2rem]">
+          <div
+            className="flex flex-col items-center justify-center
+          mx-auto mt-2 xss:mt-2 xs:mt-4  md:mt-12 lg:mt-6 xl:mt-[3rem] mxl:mt-[7rem]"
+          >
+            <div
+              className="mx-auto text-[#262626] text-center flex flex-col    shade  items-center bg-[#F8F8FF] w-full  rounded-[8px] md:rounded-[11.8392px] h-[25rem] xss:h-[19rem] xs:h-[25rem] md:h-[29rem] lg:h-[25rem] lg:w-[30rem] xl:h-[25rem] mxl:h-[36rem]
+           sm:w-[35rem]  md:w-[40rem]  mxl:w-[40.5rem]  "
+            >
+              <span className="h-[4rem]  w-[4rem] xs:h-[5rem] xs:w-[5rem] md:h-[6rem] md:w-[6rem]   lg:h-[5rem] lg:w-[5rem]  mxl:h-[6.4rem] mxl:w-[6.4rem]  flex justify-center items-center rounded-full bg-[#00913E]/[0.1] mt-[2rem] md:mt-[2rem] lg:mt-[2rem]">
                 {" "}
                 <img
                   src={img1}
                   alt=""
-                  className="text-blue-700 h-[2rem] object-contain md:h-[2.5rem] lg:h-[2rem]"
+                  className="text-blue-700 h-[2rem] object-contain md:h-[2.5rem] lg:h-[2rem] mxl:h-[3rem]"
                 />
               </span>
-              <p className="text-xs xs:text-[0.78rem] font-semibold sm:text-sm md:text-xl lg:text-sm xl:text-lg sm:font-medium mt-3 xl:mt-5 w">
+              <p className="text-xs xss:text-[0.78rem] font-semibold sm:text-sm md:text-xl lg:text-sm xl:text-lg sm:font-medium mt-3 xl:mt-5 mxl:text-xl">
                 We have sent a Verification link to your mail
               </p>
-              <p className="text-xs  mt-6 xss:mt-3  xs:mt-3 md:mt-3 md:text-sm lg:text-sm xl:mt-3">
+              <p className="text-xs xss:text-[0.rem]  mt-6 xss:mt-3  xs:mt-3 md:mt-3 md:text-sm lg:text-sm xl:mt-3 mxl:text-lg mxl:mt-6">
                 If you can’t find the email kindly check your spam folder
               </p>
-              <p className="text-xs mt-[4rem] xss:mt-[3rem] xs:mt-14 md:mt-20  md:text-sm xl:text-sm xl:mt-14 mxl:mt-16">
+              <p className="text-xs mt-[4rem] xss:mt-[3rem] xs:mt-14 md:mt-20  md:text-sm xl:text-sm xl:mt-14 mxl:mt-[8rem] mxl:text-sm">
                 Didn't receive email?
               </p>
 
               <button
                 onClick={() => Resender()}
-                className="px-12 py-[0.78rem] xss:py-[0.72rem] sm:py-3 lg:py-3  xl:px-12 bg-[#009186] text-white rounded-[8px] text-sm mt-2"
+                className="px-12 py-[0.78rem] xss:py-[0.72rem] sm:py-3 lg:py-3  xl:px-12 mxl:px-20 mxl:py-5 bg-[#009186] text-white rounded-[8px] text-sm mt-2"
               >
                 Resend Mail
               </button>
             </div>
             <button
               onClick={() => navigate("/login")}
-              className=" self-end bg-[#87ACA3] text-xs md:text-sm  text-[#262626] rounded-[8px] font-semibold mt-6 xss:mt-3 xs:mt-6 px-8 py-3"
+              className=" self-end bg-[#87ACA3] text-xs md:text-sm  text-[#262626] rounded-[8px] font-semibold mt-6 xss:mt-3 xs:mt-6 px-8 py-3 mxl:mt-[2.5rem] mxl:px-[5rem] mxl:py-[1.2rem]"
             >
               Back to Login
             </button>
