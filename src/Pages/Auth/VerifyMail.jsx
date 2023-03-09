@@ -203,6 +203,7 @@ const VerifyMail = () => {
   };
   useEffect(() => {
     inputref.current?.focus();
+    inputrefmobile.current?.focus();
   }, [activeOTPIndex]);
 
   return (
@@ -324,7 +325,7 @@ const VerifyMail = () => {
               </div>
               <button
                 onClick={() => navigate("/login")}
-                className=" self-end bg-[#87ACA3] text-xs md:text-sm  float-right text-[#262626] rounded-[8px] font-semibold lg:mt-3 mt-5 mb-8  xss:mt-3 xs:mt-3 px-12 py-3 mxl:py-5 xl:mt-3 mxl:mt-6 "
+                className=" self-end bg-[#87ACA3] text-xs md:text-sm  float-right text-[#262626] rounded-[8px] font-semibold lg:mt-3 mt-5 mb-8 lg:mb-5 mxl:mb-8  xss:mt-3 xs:mt-3 px-12 py-3 mxl:py-5 xl:mt-3 mxl:mt-6 "
               >
                 Back to Login
               </button>
