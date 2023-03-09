@@ -335,14 +335,17 @@ const Signup = () => {
         <div className="bg  w-screen  flex  flex-col md:pb-10">
           <NavBar class="" />
           <div className="px-2 xss:px-4 xs:px-6 sm:px-10 md:px-8 flex-auto  md:flex md:flex-col md:h-full mt-[6rem]">
-            <div className="w-full text-[1.5rem] xss:text-3xl px-[1rem]  text-center font-semibold flex justify-center items-center bg-[#87ACA3]/[0.5] h-[15rem] rounded-[8px] text-[#87ACA3]">
-              <p className=" leading-[1.5] xss:leading-[1.5]">
-                <p> International Bulk</p>
-                <p>Payment Solution</p>
-                <p>
-                  Made Just For <span className="text-[#F8F8FF]"> YOU</span>
+            <div className="px-5  sm:px-10">
+              {" "}
+              <div className="w-full text-[1.5rem] xss:text-xl px-[1rem]  text-center font-semibold flex justify-center items-center bg-[#87ACA3]/[0.5] h-[10rem] sm:h-[15rem] rounded-[8px] text-[#87ACA3]">
+                <p className=" leading-[1.5] xss:leading-[1.5]">
+                  <p> International Bulk</p>
+                  <p>Payment Solution</p>
+                  <p>
+                    Made Just For <span className="text-[#F8F8FF]"> YOU</span>
+                  </p>
                 </p>
-              </p>
+              </div>
             </div>
             <div className="w-full bg-white rounded-lg mt-5 pt-5 px-4 sm:px-10 md:py-10 md:mt-20  md:px-14">
               <div className="">
