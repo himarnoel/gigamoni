@@ -38,30 +38,40 @@ const VerifyMail = () => {
   // }, []);
 
   const VerifyPhoneNumber = () => {
-    alert("go");
-    setload(true);
-    const otpValues = otp.reduce((partialSum, a) => partialSum + a);
-    let id = searchParams.get("id");
-    axios
-      .get(`${baseurl}/phone/${id}/${otpValues}`)
-      .then((res) => {
-        console.log(res);
-        setload(false);
-        setDeter(true);
-        setbool(true);
-      })
-      .catch((e) => {
-        console.log(e);
-        setload(false);
-        setDeter(true);
-        if (e.response.data == "Request new OTP") {
-          toast.error("OTP expired, request for new OTP");
-        } else {
-          toast.error("Invalid OTP");
-        }
+    let val = "";
+    otp.forEach((item, ind, arr) => {
+      if (arr[ind].length !== 0) {
+        val += item;
+      }
+    });
 
-        setOtp(new Array(6).fill(""));
-      });
+    if (val.toString().length == 6) {
+      setload(true);
+      const otpValues = otp.reduce((partialSum, a) => partialSum + a);
+      let id = searchParams.get("id");
+      axios
+        .get(`${baseurl}/phone/${id}/${otpValues}`)
+        .then((res) => {
+          console.log(res);
+          setload(false);
+          setDeter(true);
+          setbool(true);
+        })
+        .catch((e) => {
+          console.log(e);
+          setload(false);
+          setDeter(true);
+          if (e.response.data == "Request new OTP") {
+            toast.error("OTP expired, request for new OTP");
+          } else {
+            toast.error("Invalid OTP");
+          }
+
+          setOtp(new Array(6).fill(""));
+        });
+    } else {
+      toast.warning("Fill  up the fields");
+    }
   };
 
   const Verifymobilescreen_PhoneNumber = () => {
@@ -139,7 +149,31 @@ const VerifyMail = () => {
       VerifyPhoneNumber("Enter");
     }
   };
-
+  const handleOnKeyDownmobile = (e, index) => {
+    currentOTPIndex = index;
+    if (
+      e.key == "e" ||
+      e.key == "+" ||
+      e.key == "-" ||
+      e.key == "/" ||
+      e.key == "."
+    ) {
+      e.preventDefault();
+      e.target.value = "";
+      newOTP[currentOTPIndex] = "";
+    }
+    if (e.key === "Tab") {
+      e.preventDefault();
+      setActiveOTPIndex(currentOTPIndex + 1);
+    }
+    if (e.key === "Backspace" && !e.target.value) {
+      e.preventDefault();
+      setActiveOTPIndex(currentOTPIndex - 1);
+    }
+    if (e.key === "Enter") {
+      Verifymobilescreen_PhoneNumber("Enter");
+    }
+  };
   return (
     <div className="font-poppins">
       {load ? (
@@ -179,17 +213,17 @@ const VerifyMail = () => {
         {!deter ? (
           <div className="bg flex-auto sm:flex  items-center lg:justify-around flex-col  px-2 xss:px-4 xs:px-6 lg:px-[19rem]  xl:px-[25rem]  mxl:px-[27rem]"></div>
         ) : (
-          <div className="bg flex-auto sm:flex  items-center  flex-col mt-[5rem]  px-2 xss:px-4 xs:px-6 md:px-0  sm:mt-[3.5rem] md:mt-[5rem]   xl:mt-[3rem] mxl:mt-[5rem]">
-            <div className="w-fit  mt-[2rem] sm:  md:mt-[5rem]   xl:mt-[3rem] mxl:mt-[10rem]">
-              <p className="text-center text-[rgb(248,248,255)] text-base sm:text-2xl lg:text-xl xl:text-[1.3rem] mxl:text-3xl font-semibold mt-4 sm:mt-8 lg:mt-8 xl:mt-2  ">
+          <div className="bg flex-auto sm:flex  items-center  flex-col mt-[5rem]  px-2 xss:px-4 xs:px-6 md:px-0  sm:mt-[3.5rem] md:mt-[5rem] lg:mt-[3rem]   xl:mt-[3rem] mxl:mt-[5rem]">
+            <div className="w-fit  mt-[2rem] sm:  md:mt-[5rem]  lg:mt-[2rem]  xl:mt-[3rem] mxl:mt-[10rem]">
+              <p className="text-center text-[rgb(248,248,255)] text-base sm:text-2xl lg:text-xl xl:text-[1.3rem] mxl:text-3xl font-semibold mt-4 sm:mt-8 lg:mt-2 xl:mt-2  ">
                 Verify Your Phone Number
               </p>
               <div
-                className=" h-[20rem] xs:h-[27rem] sm:h-[25rem] md:h-[35rem] lg:h-[70%] xl:h-[27rem] mxl:h-[36rem] shade  bg-[#F8F8FF] w-full  rounded-[11.8392px] mt-4 lg:mt-6 mxl:mt-[3rem] xl:mt-4 sm:w-[35rem]  md:w-[40rem] lg:w-[30rem] mxl:w-[40rem] px-4 py-2 sm:px-10 sm:py-8 md:px-20 md:py-14 lg:px-10 lg:py-10 lg:pt-[3rem] 
+                className=" h-[20rem] xs:h-[27rem] sm:h-[25rem] md:h-[35rem] lg:h-[27rem] xl:h-[27rem] mxl:h-[36rem] shade  bg-[#F8F8FF] w-full  rounded-[11.8392px] mt-4 lg:mt-6 mxl:mt-[3rem] xl:mt-4 sm:w-[35rem]  md:w-[40rem] lg:w-[30rem] mxl:w-[40rem] px-4 py-2 sm:px-10 sm:py-8 md:px-20 md:py-14 lg:px-10 lg:py-0 lg:pt-[1rem] 
                 xl:pt-[1rem]
                 mxl:pt-5 "
               >
-                <span className="h-[4rem] w-[4rem] mx-auto  mt-5 xs:mt-2 lg:mt-[2rem] xl:mt-[0rem]   xs:h-[5rem] xs:w-[5rem] md:h-[6rem] md:w-[6rem]   lg:h-[4rem] lg:w-[4rem] xl:w-[5rem] xl:h-[5rem] mxl:w-[6rem] mxl:h-[6rem]  flex justify-center items-center rounded-full bg-[#00913E]/[0.1] ">
+                <span className="h-[4rem] w-[4rem] mx-auto  mt-5 xs:mt-2 lg:mt-[1rem] xl:mt-[0rem]   xs:h-[5rem] xs:w-[5rem] md:h-[6rem] md:w-[6rem]   lg:h-[4rem] lg:w-[4rem] xl:w-[5rem] xl:h-[5rem] mxl:w-[6rem] mxl:h-[6rem]  flex justify-center items-center rounded-full bg-[#00913E]/[0.1] ">
                   {" "}
                   <img
                     src={mail}
@@ -201,7 +235,7 @@ const VerifyMail = () => {
                   Enter the verification code that was sent to your phone number
                 </p>
 
-                <div className="flex  justify-between mt-6 lg:mt-2 xl:mt-2 mxl:mt-[2rem]">
+                <div className=" hidden lg:flex justify-between mt-6 lg:mt-2 xl:mt-2 mxl:mt-[2rem]">
                   {otp.map((arr, i) => (
                     <div className="" key={i}>
                       {" "}
@@ -212,6 +246,22 @@ const VerifyMail = () => {
                         className="h-16 w-8 xs:h-[3.5rem]  xs:w-[2.17rem] sm:w-[4rem] md:w-[4rem] md:h-[4rem]  lg:w-[3.5rem]   lg:h-[3.5rem]   mxl:w-[4.5rem] mxl:h-[4.5rem] border spin-button-none rounded-[8px] bg-transparent outline-none text-center font-semibold text-lg text-[#262626] font-poppins spin-button-none border-[#87ACA3] border-solid transition"
                         onChange={(e) => handleOnChange(e, i)}
                         onKeyDown={(e) => handleOnKeyDown(e, i)}
+                        value={otp[i]}
+                      />
+                    </div>
+                  ))}
+                </div>
+                <div className="flex lg:hidden justify-between mt-6 lg:mt-2 xl:mt-2 mxl:mt-[2rem]">
+                  {otp.map((arr, i) => (
+                    <div className="" key={i}>
+                      {" "}
+                      <input
+                        ref={i === activeOTPIndex ? inputref : null}
+                        type="number"
+                        pattern="[0-9]*"
+                        className="h-16 w-8 xs:h-[3.5rem]  xs:w-[2.17rem] sm:w-[4rem] md:w-[4rem] md:h-[4rem]  lg:w-[3.5rem]   lg:h-[3.5rem]   mxl:w-[4.5rem] mxl:h-[4.5rem] border spin-button-none rounded-[8px] bg-transparent outline-none text-center font-semibold text-lg text-[#262626] font-poppins spin-button-none border-[#87ACA3] border-solid transition"
+                        onChange={(e) => handleOnChange(e, i)}
+                        onKeyDown={(e) => handleOnKeyDownmobile(e, i)}
                         value={otp[i]}
                       />
                     </div>
@@ -230,7 +280,7 @@ const VerifyMail = () => {
                   >
                     Submit
                   </button>
-                  <div className="">
+                  <div className=" lg:mt-4 ">
                     <p className="text-xs mt-16 sm:mt-2 md:mt-20 lg:mt-[8%] text-center xss:mt-10 xs:mt-14 md:text-sm xl:text-sm xl:mt-[6%]">
                       Didn't receive code?
                     </p>
