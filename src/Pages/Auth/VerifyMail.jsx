@@ -75,29 +75,40 @@ const VerifyMail = () => {
   };
 
   const Verifymobilescreen_PhoneNumber = () => {
-    setload(true);
-    const otpValues = otp.reduce((partialSum, a) => partialSum + a);
-    let id = searchParams.get("id");
-    axios
-      .get(`${baseurl}/phone/${id}/${otpValues}`)
-      .then((res) => {
-        console.log(res);
-        setload(false);
-        setDeter(true);
-        navigate("/mobile");
-      })
-      .catch((e) => {
-        console.log(e);
-        setload(false);
-        setDeter(true);
-        if (e.response.data == "Request new OTP") {
-          toast.error("OTP expired, request for new OTP");
-        } else {
-          toast.error("Invalid OTP");
-        }
+    let val = "";
+    otp.forEach((item, ind, arr) => {
+      if (arr[ind].length !== 0) {
+        val += item;
+      }
+    });
 
-        setOtp(new Array(6).fill(""));
-      });
+    if (val.toString().length == 6) {
+      setload(true);
+      const otpValues = otp.reduce((partialSum, a) => partialSum + a);
+      let id = searchParams.get("id");
+      axios
+        .get(`${baseurl}/phone/${id}/${otpValues}`)
+        .then((res) => {
+          console.log(res);
+          setload(false);
+          setDeter(true);
+          navigate("/mobile");
+        })
+        .catch((e) => {
+          console.log(e);
+          setload(false);
+          setDeter(true);
+          if (e.response.data == "Request new OTP") {
+            toast.error("OTP expired, request for new OTP");
+          } else {
+            toast.error("Invalid OTP");
+          }
+
+          setOtp(new Array(6).fill(""));
+        });
+    } else {
+      toast.warning("Fill  up the fields");
+    }
   };
   let currentOTPIndex = 0;
   let newOTP = [];
