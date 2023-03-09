@@ -33,9 +33,9 @@ const RecoverPass = () => {
       ) : (
         ""
       )}
-      <div className="flex flex-col h-screen ">
+      <div className="flex flex-col h-screen justify-between">
         <NavBar />
-        <div className="bg flex-auto flex  items-center flex-col justify-center   ">
+        <div className="bg flex-auto flex  items-center flex-col justify-center sm:mt-12  ">
           <p className="text-center text-[#F8F8FF] text-base sm:text-2xl lg:text-2xl xl:text-2xl mxl:text-3xl 2xl:text-3xl font-semibold mt-[3rem] sm:mt-8 lg:mt-4   xl:mt-4 mxl:mt-[-10rem]">
             Check your Email
           </p>
