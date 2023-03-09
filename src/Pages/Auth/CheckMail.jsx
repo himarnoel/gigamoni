@@ -36,15 +36,15 @@ const CheckMail = () => {
       ) : (
         ""
       )}
-      <div className="flex flex-col h-screen  font-poppins  bg  mt-[5rem]">
+      <div className="flex flex-col h-screen  font-poppins  bg  ">
         <NavBar class="fixed top-0" />
-        <div className="flex-auto md:flex  items-center  flex-col justify-center px-2 xs:px-4 sm:px-6 ">
-          <p className="text-center text-[#F8F8FF]  text-base sm:text-2xl lg:text-2xl xl:text-2xl mxl:text-3xl 2xl:text-3xl font-semibold mt-[6rem] sm:mt-8 md:mt-[1rem] lg:mt-[6rem]  xl:mt-[6rem] mxl:mt-[-4rem] ">
+        <div className="flex-auto sm:flex  items-center  flex-col justify-center px-2 xs:px-4 sm:px-6 ">
+          <p className="text-center text-[#F8F8FF]  text-base sm:text-2xl lg:text-2xl xl:text-2xl mxl:text-3xl 2xl:text-3xl font-semibold mt-[6rem] sm:mt-[-2rem] md:mt-[1rem] lg:mt-[6rem]  xl:mt-[6rem] mxl:mt-[-4rem] ">
             Check your Email
           </p>
           <div
             className="flex flex-col items-center justify-center
-          mx-auto mt-2 xss:mt-2 xs:mt-4  md:mt-12 lg:mt-6 xl:mt-[3rem] mxl:mt-[7rem]"
+          mx-auto mt-2 xss:mt-2 xs:mt-4 sm:mt-8  md:mt-12 lg:mt-6 xl:mt-[3rem] mxl:mt-[7rem]"
           >
             <div
               className="mx-auto text-[#262626] text-center flex flex-col    shade  items-center bg-[#F8F8FF] w-full  rounded-[8px] md:rounded-[11.8392px] h-[25rem] xss:h-[19rem] xs:h-[25rem] md:h-[29rem] lg:h-[25rem] lg:w-[30rem] xl:h-[25rem] mxl:h-[36rem]
