@@ -312,10 +312,11 @@ const Signup = () => {
               </div>
             </div>
             <div className=" w-full  bg lg:px-10 xl:px-[8rem] 2xl:px-[10rem] flex justify-center items-center">
-              <div className="w-full text-3xl px-[4.5rem] text-center font-semibold flex justify-center items-center bg-[#87ACA3]/[0.3] h-[20rem] rounded-[8px] text-[#87ACA3]">
-                <p className="leading-[1.2]">
-                  International Bulk Payment Solution Made Just For{" "}
-                  <span className="text-[#F8F8FF]"> YOU</span>
+              <div className="w-full text-3xl px-[2rem] text-center font-semibold flex justify-center items-center bg-[#87ACA3]/[0.3] h-[20rem] rounded-[8px] text-[#87ACA3]">
+                <p className="leading-[1.4] mxl:leading-[1.6] text-[1.8rem]">
+                  Bespoke
+                  <p> Transactions Just For </p>
+                  <p className="text-[#F8F8FF]"> YOU</p>
                 </p>
               </div>
             </div>

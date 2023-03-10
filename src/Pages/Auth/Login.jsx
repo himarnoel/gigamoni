@@ -174,7 +174,7 @@ const Login = () => {
             </div>
             <div className=" w-full  bg lg:px-10 xl:px-[8rem] 2xl:px-[10rem] flex justify-center items-center">
               <div className="w-full text-3xl px-[4.5rem] text-center font-semibold flex justify-center items-center bg-[#87ACA3]/[0.3] h-[20rem] rounded-[8px] text-[#87ACA3]">
-                <p className="leading-[1.2] mxl:leading-[1.6] text-3xl">
+                <p className="leading-[1.3] text-center mxl:leading-[1.6] text-[1.8rem]">
                   International Bulk Payment Solution Made Just For{" "}
                   <span className="text-[#F8F8FF]"> YOU</span>
                 </p>
