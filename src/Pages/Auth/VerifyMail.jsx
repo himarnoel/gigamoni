@@ -19,7 +19,7 @@ const VerifyMail = () => {
   useEffect(() => {
     const id = searchParams.get("id");
     const key = searchParams.get("key");
-  setDeter(false)
+    setDeter(false);
     setload(true);
     axios
       .get(`${baseurl}/verify/${id}/${key}`)
@@ -209,17 +209,17 @@ const VerifyMail = () => {
   return (
     <div className="font-poppins">
       {load ? (
-        <div className="absolute bg-cover bg-[#262626]/[0.8]  z-[20] h-screen w-screen flex  justify-center items-center text-3xl">
+        <div className="absolute bg-cover bg-[#262626]/[0.8]   z-[40] h-full w-full flex  justify-center items-center text-3xl">
           <RingLoader color="#009186" size={90} />
         </div>
       ) : (
         ""
       )}
       {bool ? (
-        <div className="hidden sm:block">
+        <div className="hidden sm:block ">
           <div
             onClick={() => setbool(false)}
-            className="bg-[#262626]/[0.8] h-screen w-screen absolute flex flex-col justify-center items-center  px-2 xss:px-4 xs:px-6 xsm:px-[5rem] sm:px-[6rem]  md:px-[8rem] lg:px-[18rem] xl:px-[25rem] "
+            className="bg-[#262626]/[0.8]   h-full w-full absolute flex flex-col justify-center items-center  px-2 xss:px-4 xs:px-6 xsm:px-[5rem] sm:px-[6rem]  md:px-[8rem] lg:px-[18rem] xl:px-[25rem] "
           >
             <div className="flex-col flex justify-evenly items-center px-2 lg:px-20 bg-[#F8F8FF] rounded-[11.8392px] h-[25rem] xss:h-[22rem] xs:h-[25rem] md:h-[29rem] lg:h-[28rem] xl:h-[32rem] w-full ">
               <p className="lg:text-2xl md:text-4xl font-medium ">
@@ -245,7 +245,11 @@ const VerifyMail = () => {
         {!deter ? (
           <div className="bg flex-auto sm:flex  items-center lg:justify-around flex-col  px-2 xss:px-4 xs:px-6 lg:px-[19rem]  xl:px-[25rem]  mxl:px-[27rem]"></div>
         ) : (
-          <div className="bg flex-auto sm:flex  items-center  flex-col mt-[5rem]  px-2 xss:px-4 xs:px-6 md:px-0  sm:mt-[3.5rem] md:mt-[5rem] lg:mt-[3rem]   xl:mt-[3rem] mxl:mt-[5rem]">
+          <div
+            className={`bg flex-auto sm:flex  ${
+              load ? "overflow-y-hidden" : "overflow-y-auto"
+            } items-center  flex-col mt-[5rem]  px-2 xss:px-4 xs:px-6 md:px-0  sm:mt-[3.5rem] md:mt-[5rem] lg:mt-[3rem]   xl:mt-[3rem] mxl:mt-[5rem] pb-10`}
+          >
             <div className="w-fit  mt-[2rem] sm:  md:mt-[5rem]  lg:mt-[2rem]  xl:mt-[3rem] mxl:mt-[10rem]">
               <p className="text-center text-[rgb(248,248,255)] text-base sm:text-2xl lg:text-xl xl:text-[1.3rem] mxl:text-3xl font-semibold mt-4 sm:mt-8 lg:mt-2 xl:mt-2  ">
                 Verify Your Phone Number

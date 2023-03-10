@@ -20,6 +20,7 @@ const RecoverPass = () => {
         setload(false);
       })
       .catch((e) => {
+        toast.error("an error occurred")
         console.log(e);
         setload(false);
       });
