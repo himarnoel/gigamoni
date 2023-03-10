@@ -36,9 +36,9 @@ const CheckMail = () => {
       ) : (
         ""
       )}
-      <div className="flex flex-col h-screen  font-poppins  bg  ">
+      <div className="flex flex-col h-screen  font-poppins   ">
         <NavBar class="fixed top-0" />
-        <div className="flex-auto sm:flex  items-center  flex-col justify-center px-2 xs:px-4 sm:px-6 ">
+        <div className="  bg flex-auto sm:flex  items-center  flex-col justify-center px-2 xs:px-4 sm:px-6 ">
           <p className="text-center text-[#F8F8FF]  text-base sm:text-2xl lg:text-2xl xl:text-2xl mxl:text-3xl 2xl:text-3xl font-semibold mt-[6rem] sm:mt-[-2rem] md:mt-[1rem] lg:mt-[6rem]  xl:mt-[6rem] mxl:mt-[-4rem] ">
             Check your Email
           </p>
