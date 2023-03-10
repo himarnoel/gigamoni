@@ -44,8 +44,8 @@ const RecoverPass = () => {
           mx-auto mt-2 xss:mt-2 xs:mt-4 sm:mt-8  md:mt-12 lg:mt-6 xl:mt-[3rem] mxl:mt-[7rem]"
           >
             <div
-              className="mx-auto text-[#262626] text-center flex flex-col px-6 sm:px-0    shade  items-center bg-[#F8F8FF] w-full  rounded-[8px] md:rounded-[11.8392px] h-[25rem] xss:h-[20rem] xs:h-[25rem] md:h-[29rem] lg:h-[25rem] lg:w-[30rem] xl:h-[25rem] mxl:h-[30rem]
-           sm:w-[35rem]  md:w-[32rem]  mxl:w-[40.5rem]  "
+              className="mx-auto text-[#262626] text-center flex flex-col px-6 sm:px-0    shade  items-center bg-[#F8F8FF] w-full  rounded-[8px] md:rounded-[11.8392px] h-[25rem] xss:h-[20rem] xs:h-[25rem] md:h-[29rem] lg:h-[25rem] xl:h-[25rem] mxl:h-[30rem]
+           sm:w-[35rem]  md:w-[32rem] lg:w-[30rem]  mxl:w-[40.5rem]  "
             >
               <span className="h-[4rem]  w-[4rem] xs:h-[5rem] xs:w-[5rem] md:h-[6rem] md:w-[6rem]   lg:h-[5rem] lg:w-[5rem]   flex justify-center items-center rounded-full bg-[#00913E]/[0.1] mt-3 md:mt-[2rem] lg:mt-[2rem]">
                 {" "}
