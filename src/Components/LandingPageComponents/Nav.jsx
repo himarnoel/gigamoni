@@ -22,7 +22,7 @@ const Nav = () => {
             <Link
               activeClass="active"
               className="cursor-pointer"
-              to="hiw"
+              to="works"
               spy={true}
               smooth={true}
               offset={-40}
@@ -37,7 +37,7 @@ const Nav = () => {
               to="faqs"
               spy={true}
               smooth={true}
-              offset={-20}
+              offset={-40}
               duration={2000}
               onClick={() => setbool(!bool)}
             >
@@ -81,7 +81,7 @@ const Nav = () => {
           {" "}
           <Link
             activeClass="active"
-            to="hiw"
+            to="works"
             spy={true}
             smooth={true}
             offset={-40}
