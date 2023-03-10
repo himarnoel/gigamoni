@@ -55,7 +55,7 @@ const Forgot = () => {
             </p>
             <form
               onSubmit={formik.handleSubmit}
-              className="dd mx-auto flex w-full  flex-col flex-auto  justify-center items-center mt-4"
+              className="mx-auto flex w-full  flex-col flex-auto  justify-center items-center mt-4"
             >
               <div class="relative z-0   w-full">
                 <input
