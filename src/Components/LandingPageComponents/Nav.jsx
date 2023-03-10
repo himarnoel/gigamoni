@@ -13,8 +13,8 @@ const Nav = () => {
 
   return (
     <div className=" ">
-      <div className="lg:block hidden">
-        <div className=" font-poppins font-semibold w-full bg-[#87ACA3]/[0.4] 2xl:px-[10rem] xl:px-[8rem] lg:px-10  absolute top-40 py-3  z-40 rounded-b-lg flex justify-between items-center">
+      <div className="lg:block hidden ">
+        <div className=" fixed top-0 font-poppins font-semibold w-full bg-[#87ACA3]/[0.4] 2xl:px-[10rem] xl:px-[8rem] lg:px-10  py-3  z-40 rounded-b-lg flex justify-between items-center">
           <Rlink to="/" onClick={() => setbool(!bool)}>
             <img src={logo} alt="" className="object-contain w-[9rem]" />
           </Rlink>

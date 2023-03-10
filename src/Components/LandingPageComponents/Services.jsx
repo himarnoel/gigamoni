@@ -25,7 +25,7 @@ const Services = () => {
             come with high interest rates.
           </p>
           <button className="absolute bottom-0  right-0 px-10 py-3  text-sm md:text-base bg-[#175873] rounded-tl-[4px] rounded-bl-[4px] rounded-br-[16px]  md:rounded-b-[16px] md:rounded-tl-[16px]  text-[#F8F8FF]">
-            Participate
+            COMING SOON
           </button>
         </div>
         <p className="flex justify-center items-center text-sm font-medium text-center  md:text-left leading-[1.5rem] md:pl-20  md:leading-[1.6rem]">
