@@ -59,7 +59,7 @@ const Signup = () => {
     <>
       <div className="hidden lg:block">
         {load ? (
-          <div className="absolute bg-cover bg-[#262626]/[0.8]  z-[20] h-screen w-screen flex  justify-center items-center text-3xl">
+          <div className="absolute top-0 bg-cover bg-[#262626]/[0.8]  z-[90] h-full overla w-full flex  justify-center items-center text-3xl">
             <RingLoader color="#009186" size={90} />
           </div>
         ) : (
@@ -67,7 +67,7 @@ const Signup = () => {
         )}
 
         <div className="flex flex-col    font-poppins ">
-          <NavBar class="top-0 z-[90] fixed" />
+          <NavBar class="top-0 z-[70] fixed" />
           <div className="grid md:grid-cols-2  lg:mt-[3.7rem]  h-screen">
             <div className="w-full flex flex-col   ">
               <h2 className="text-center text-[1.3rem] lg:mt-[1.5rem] mxl:mt-[4rem] mxl:text-[2rem]  font-semibold text-[#262626] ">
@@ -332,9 +332,9 @@ const Signup = () => {
         ) : (
           ""
         )}
-        <div className="bg  w-screen  flex  flex-col md:pb-10">
+        <div className=" w-screen  flex  flex-col md:pb-10">
           <NavBar class="" />
-          <div className="px-2 xss:px-4 xs:px-6 sm:px-10 md:px-8 flex-auto  md:flex md:flex-col md:h-full mt-[6rem]">
+          <div className="bg flex-auto px-2 xss:px-4 xs:px-6 sm:px-10 md:px-8 flex-auto  md:flex md:flex-col md:h-full mt-[6rem]">
             <div className="px-5  sm:px-10">
               {" "}
               <div className="w-full text-[1.5rem] xss:text-xl px-[1rem]  text-center font-semibold flex justify-center items-center bg-[#87ACA3]/[0.5] h-[10rem] sm:h-[15rem] rounded-[8px] text-[#87ACA3]">

@@ -33,10 +33,10 @@ const RecoverPass = () => {
       ) : (
         ""
       )}
-      <div className="flex flex-col h-screen justify-between">
-        <NavBar />
-        <div className="bg flex-auto flex  items-center flex-col justify-center sm:mt-12  ">
-          <p className="text-center text-[#F8F8FF] text-base sm:text-2xl lg:text-2xl xl:text-2xl mxl:text-3xl 2xl:text-3xl font-semibold mt-[3rem] sm:mt-8 lg:mt-4   xl:mt-4 mxl:mt-[-10rem]">
+      <div className="flex flex-col h-screen justify-between ">
+        <NavBar class="fixed top-0" />
+        <div className="  bg flex-auto sm:flex  items-center  flex-col justify-center px-2 xs:px-4 sm:px-6 lg:pb-36  ">
+          <p className="text-center text-[#F8F8FF]  text-base sm:text-2xl lg:text-2xl xl:text-2xl mxl:text-3xl 2xl:text-3xl font-semibold mt-[6rem] sm:mt-[-2rem] md:mt-[1rem] lg:mt-[6rem]  xl:mt-[6rem] mxl:mt-[-4rem] ">
             Check your Email
           </p>
           <div className="flex flex-col items-center w-full  h-[25rem] xss:h-[22rem] xs:h-[25rem] md:h-[29rem] lg:h-[28rem] xl:h-[32rem] px-2 xss:px-4 xs:px-6 xsm:px-[5rem] sm:px-[6rem]  md:px-[8rem] lg:px-[18rem] xl:px-[25rem]  mx-auto mt-2 xss:mt-2 xs:mt-4  md:mt-6 lg:mt-6 xl:mt-5">
@@ -69,7 +69,7 @@ const RecoverPass = () => {
             <button
               onClick={() => navigate("/login")}
               s
-              className=" self-end bg-[#87ACA3] text-xs md:text-sm  text-[#262626] rounded-[8px] font-semibold mt-6 xss:mt-3 xs:mt-6 px-8 py-3"
+              className=" self-end bg-[#87ACA3] text-xs md:text-sm  text-[#262626] rounded-[8px] font-semibold mt-6 xss:mt-3 xs:mt-6 px-8 py-3 md:mb-[20px]"
             >
               Back to Login
             </button>
