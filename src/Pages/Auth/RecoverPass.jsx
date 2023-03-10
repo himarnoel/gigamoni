@@ -33,14 +33,20 @@ const RecoverPass = () => {
       ) : (
         ""
       )}
-      <div className="flex flex-col h-screen ">
+      <div className="flex flex-col h-screen  font-poppins   ">
         <NavBar class="fixed top-0" />
-        <div className="  bg flex-auto sm:flex  items-center  flex-col justify-center px-2 xs:px-4 sm:px-6 lg:pb-14  ">
-          <p className="text-center text-[#F8F8FF]  text-base sm:text-2xl lg:text-2xl xl:text-2xl mxl:text-3xl 2xl:text-3xl font-semibold mt-[6rem] sm:mt-[-2rem] md:mt-[1rem] lg:mt-[6rem]  xl:mt-[6rem] mxl:mt-[-4rem] ">
+        <div className="  bg flex-auto sm:flex  items-center  flex-col  px-2 xs:px-4 sm:px-6  mt-[4rem] md:mt-[5rem] sm:mt-[4rem] lg:mt-5  xl:mt-[3rem] pb-10">
+          <p className="text-center text-[#F8F8FF]  text-base sm:text-2xl lg:text-2xl xl:text-2xl mxl:text-3xl 2xl:text-3xl font-semibold mt-[2rem] sm:mt-[2rem] md:mt-[4rem] lg:mt-[6rem]  xl:mt-[6rem] mxl:mt-[4rem] ">
             Check your Email
           </p>
-          <div className="flex flex-col items-center w-full  h-[25rem] xss:h-[22rem] xs:h-[25rem] md:h-[29rem] lg:h-[28rem] xl:h-[32rem] px-2 xss:px-4 xs:px-6 xsm:px-[5rem] sm:px-[6rem]  md:px-[8rem] lg:px-[18rem] xl:px-[25rem]  mx-auto mt-2 xss:mt-2 xs:mt-4  md:mt-6 lg:mt-6 xl:mt-5 mxl:mt-20">
-            <div className="mx-auto text-[#262626] text-center flex flex-col   shade  items-center bg-[#F8F8FF]  px-2 xs:px-4 sm:px-6  xl:px-[2rem]  rounded-[8px] md:rounded-[11.8392px] w-full h-full  shade ">
+          <div
+            className="flex flex-col items-center justify-center
+          mx-auto mt-2 xss:mt-2 xs:mt-4 sm:mt-8  md:mt-12 lg:mt-6 xl:mt-[3rem] mxl:mt-[7rem]"
+          >
+            <div
+              className="mx-auto text-[#262626] text-center flex flex-col px-6 sm:px-0    shade  items-center bg-[#F8F8FF] w-full  rounded-[8px] md:rounded-[11.8392px] h-[25rem] xss:h-[20rem] xs:h-[25rem] md:h-[29rem] lg:h-[25rem] lg:w-[30rem] xl:h-[25rem] mxl:h-[30rem]
+           sm:w-[35rem]  md:w-[32rem]  mxl:w-[40.5rem]  "
+            >
               <span className="h-[4rem]  w-[4rem] xs:h-[5rem] xs:w-[5rem] md:h-[6rem] md:w-[6rem]   lg:h-[5rem] lg:w-[5rem]   flex justify-center items-center rounded-full bg-[#00913E]/[0.1] mt-3 md:mt-[2rem] lg:mt-[2rem]">
                 {" "}
                 <img
