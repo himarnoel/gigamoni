@@ -28,11 +28,7 @@ const Reason = () => {
             <li className=" li">Competitive exchange rates.</li>{" "}
             <li className=" li">Easy and secure online transactions.</li>{" "}
             <li className=" lis leading-[1.2rem] mt-1 ">
-              Fast and reliable transfer of money across the globe.
-            </li>
-            <li className=" lis leading-[1.2rem] mt-2">
-              Access to funding for purchase orders from established suppliers
-              to  and grow your business.
+              Grow your business by crowdfunding your purchase orders
             </li>
           </ul>
         </div>

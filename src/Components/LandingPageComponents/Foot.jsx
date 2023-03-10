@@ -37,7 +37,7 @@ const Foot = () => {
       </div>
       {/* Mobile footer */}
       <div className="md:hidden  mt-20 text-left bg-[#004943] py-5 px-2 xss:px-4 xs:px-6  sm:px-10   text-white   items-start w-full  ">
-        <div className="grid  text-center text-[0.68rem] gap-y-6  items-center place-content-center">
+        <div className="grid   text-center text-[0.68rem] gap-y-6   items-center place-content-center">
           <Link to="/">
             <div className=" flex flex-col ">
               <img src={footlogo} alt="" className="object-contain w-[10rem]" />
