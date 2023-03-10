@@ -25,8 +25,8 @@ const Nav = () => {
               to="works"
               spy={true}
               smooth={true}
-              offset={-40}
-              duration={1000}
+              offset={-68}
+              duration={800}
               onClick={() => setbool(!bool)}
             >
               How it works
@@ -37,8 +37,8 @@ const Nav = () => {
               to="faqs"
               spy={true}
               smooth={true}
-              offset={-40}
-              duration={2000}
+              offset={-56}
+              duration={800}
               onClick={() => setbool(!bool)}
             >
               FAQs
