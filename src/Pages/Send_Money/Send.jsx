@@ -15,6 +15,8 @@ const Send = () => {
       phonenumber: "",
       country: "",
       receivingcountry: "",
+      sendingcurrency: "",
+      reciveingcurrency: ""
     },
     validationSchema: sendmoney,
     onSubmit: (values) => {},
@@ -166,8 +168,8 @@ const Send = () => {
                 for="country"
                 className={
                   formik.errors.country && formik.touched.country
-                    ? "absolute text-xs mxl:text-sm font-poppins text-red-500  duration-300 transform -translate-y-4 scale-25 top-7 focus:top-4  peer-focus:top-2 -z-10 origin-[0] peer-focus:left-2 peer-focus:text-[#009186] peer-aria-selected:scale-200 peer-aria-selected:scale-200 peer-aria-selected:translate-y-14 peer-focus:scale-75 peer-focus:-translate-y-6"
-                    : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-4 scale-25 top-7 focus:top-4  peer-focus:top-2 -z-10 origin-[0] peer-focus:left-2 peer-focus:text-[#009186] peer-aria-selected:scale-200 peer-aria-selected:scale-200 peer-aria-selected:translate-y-14 peer-focus:scale-75 peer-focus:-translate-y-6"
+                    ? "absolute text-xs xl:text-base mxl:text-sm font-poppins text-red-500  duration-300 transform -translate-y-4 scale-5 top-9   peer-focus:top-2 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-aria-selected:scale-100 peer-aria-selected:scale-200 peer-aria-selected:translate-y-14 peer-focus:scale-[0.6] peer-focus:-translate-y-6"
+                    : "absolute text-xs xl:text-base mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-4 scale-5 top-9   peer-focus:top-2 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-aria-selected:scale-100 peer-aria-selected:scale-200 peer-aria-selected:translate-y-14 peer-focus:scale-[0.6] peer-focus:-translate-y-6"
                 }
               >
                 Country
@@ -175,7 +177,7 @@ const Send = () => {
               <RiArrowDownSLine className="pointer-events-none cursor-pointer text-4xl absolute inset-y-0 right-0 flex items-center px-2 text-[#262626]" />
               {formik.errors.country && formik.touched.country ? (
                 <p className="text-red-500 text-xs font-poppins">
-                  {formik.errors.phonenumber}
+                  {formik.errors.country}
                 </p>
               ) : (
                 ""
@@ -184,44 +186,69 @@ const Send = () => {
             <div class="relative z-0 ">
               <select
                 type="text"
-                id="country"
+                id="receivingcountry"
                 className={
-                  formik.errors.country && formik.touched.country
+                  formik.errors.receivingcountry &&
+                  formik.touched.receivingcountry
                     ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
                     : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
                   //placeholder=" "
                 }
                 onChange={formik.handleChange}
-                value={formik.values.country}
+                value={formik.values.receivingcountry}
                 onBlur={formik.handleBlur}
-                placeholder="country"
+                placeholder="receivingcountry"
               >
                 <option value=""></option>
 
                 <option value="Nigeria">Nigeria</option>
               </select>
               <label
-                for="country"
+                for="receivingcountry"
                 className={
-                  formik.errors.country && formik.touched.country
-                    ? "absolute text-xs mxl:text-sm font-poppins text-red-500  duration-300 transform -translate-y-4 scale-25 top-7 focus:top-4  peer-focus:top-2 -z-10 origin-[0] peer-focus:left-2 peer-focus:text-[#009186] peer-aria-selected:scale-200 peer-aria-selected:scale-200 peer-aria-selected:translate-y-14 peer-focus:scale-75 peer-focus:-translate-y-6"
-                    : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-4 scale-25 top-7 focus:top-4  peer-focus:top-2 -z-10 origin-[0] peer-focus:left-2 peer-focus:text-[#009186] peer-aria-selected:scale-200 peer-aria-selected:scale-200 peer-aria-selected:translate-y-14 peer-focus:scale-75 peer-focus:-translate-y-6"
+                  formik.errors.receivingcountry &&
+                  formik.touched.receivingcountry
+                    ? "absolute text-xs xl:text-base mxl:text-sm font-poppins text-red-500 duration-300 transform -translate-y-4 scale-5 top-9   peer-focus:top-2 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-aria-selected:scale-100 peer-aria-selected:scale-200 peer-aria-selected:translate-y-14 peer-focus:scale-[0.6] peer-focus:-translate-y-6"
+                    : "absolute text-xs xl:text-base mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-4 scale-5 top-9   peer-focus:top-2 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-aria-selected:scale-0 peer-aria-selected:translate-y-14 peer-focus:scale-[0.6] peer-focus:-translate-y-6"
                 }
               >
-                Country
+                Receiving Country
               </label>
               <RiArrowDownSLine className="pointer-events-none cursor-pointer text-4xl absolute inset-y-0 right-0 flex items-center px-2 text-[#262626]" />
-              {formik.errors.country && formik.touched.country ? (
+              {formik.errors.receivingcountry &&
+              formik.touched.receivingcountry ? (
                 <p className="text-red-500 text-xs font-poppins">
-                  {formik.errors.phonenumber}
+                  {formik.errors.receivingcountry}
                 </p>
               ) : (
                 ""
               )}
             </div>{" "}
+            <p className="text-sm font-medium">Amount</p>
+            <div className="flex w-[10rem]">
+              <select
+                type="text"
+                id="receivingcountry"
+                className={
+                  formik.errors.receivingcountry &&
+                  formik.touched.receivingcountry
+                    ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                    : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                  //placeholder=" "
+                }
+                onChange={formik.handleChange}
+                value={formik.values.}
+                onBlur={formik.handleBlur}
+                placeholder="receivingcountry"
+              >
+                <option value="USD">USD</option>
+
+                <option value="Nigeria">Nigeria</option>
+              </select>
+            </div>
             <button
               onClick={() => navigate("/signup")}
-              className=" text-[#F8F8FF] rounded bg-[#009186] w-full"
+              className=" text-[#F8F8FF] rounded bg-[#009186] w-full mt-10"
             >
               continue
             </button>
