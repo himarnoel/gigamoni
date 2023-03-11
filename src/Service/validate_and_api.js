@@ -1,4 +1,7 @@
 import * as yup from "yup";
+
+export const baseurl = "https://gigamoni-backend.onrender.com/api/v1/accounts";
+
 export const loginValidate = yup.object().shape({
   email: yup
     .string()
@@ -42,7 +45,6 @@ export const forgotValidate = yup.object().shape({
     .string()
     .email("please enter a valid email")
     .required("Please fill up this field"),
-
 });
 
 export const newpasswordValidate = yup.object().shape({
@@ -55,11 +57,23 @@ export const newpasswordValidate = yup.object().shape({
     )
     .required("Please fill up this field"),
 
-    
   passwordConfirmation: yup
     .string()
     .oneOf([yup.ref("password"), null], "Passwords must match")
     .required("Please fill up this field"),
 });
 
-export const baseurl = "https://gigamoni-backend.onrender.com/api/v1/accounts";
+export const sendmoney = yup.object().shape({
+  name: yup.string().required("Please fill up this field"),
+  email: yup
+    .string()
+    .email("please enter a valid email")
+    .required("Please fill up this field"),
+  phonenumber: yup
+    .string()
+    .required("Please fill up this field")
+    .matches(phoneRegExp, "Phone number is not valid")
+    .max(15, "too long"),
+  country: yup.string().required("Please fill up this field"),
+  receivingcountry: yup.string().required("Please fill up this field"),
+});
