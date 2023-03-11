@@ -10,7 +10,7 @@ const Send = () => {
         sdfasd
             </div>{" "}
         <div className=" ">
-          dsfa
+        
         </div>
       </div>
     </div>
