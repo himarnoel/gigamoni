@@ -16,7 +16,7 @@ const Send = () => {
       country: "",
       receivingcountry: "",
       sendingcurrency: "",
-      reciveingcurrency: ""
+      reciveingcurrency: "",
     },
     validationSchema: sendmoney,
     onSubmit: (values) => {},
@@ -225,25 +225,48 @@ const Send = () => {
               )}
             </div>{" "}
             <p className="text-sm font-medium">Amount</p>
-            <div className="flex w-[10rem]">
+            <div className="flex justify-start items-center">
               <select
                 type="text"
-                id="receivingcountry"
+                id="sendingcurrency"
                 className={
-                  formik.errors.receivingcountry &&
-                  formik.touched.receivingcountry
-                    ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
-                    : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                  formik.errors.sendingcurrency &&
+                  formik.touched.sendingcurrency
+                    ? "block font-poppins   w-full pl-8 pb-0 pt-0 py-1 text-sm text-gray-900 bg-transparent rounded border-[1.5px] border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                    : "block font-poppins  w-full pl-8 pb-0 pt-0 py-1 text-sm text-gray-900 bg-transparent rounded border-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
                   //placeholder=" "
                 }
                 onChange={formik.handleChange}
-                value={formik.values.}
+                value={formik.values.sendingcurrency}
                 onBlur={formik.handleBlur}
                 placeholder="receivingcountry"
               >
-                <option value="USD">USD</option>
+                <option value="USD" selected>
+                  USD
+                </option>
 
-                <option value="Nigeria">Nigeria</option>
+                <option value="Pounds">Pounds</option>
+              </select>{" "}
+              <select
+                type="text"
+                id="sendingcurrency"
+                className={
+                  formik.errors.sendingcurrency &&
+                  formik.touched.sendingcurrency
+                    ? "block font-poppins   w-full pl-8 pb-0 pt-0 py-1 text-sm text-gray-900 bg-transparent rounded border-[1.5px] border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                    : "block font-poppins  w-full pl-8 pb-0 pt-0 py-1 text-sm text-gray-900 bg-transparent rounded border-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                  //placeholder=" "
+                }
+                onChange={formik.handleChange}
+                value={formik.values.sendingcurrency}
+                onBlur={formik.handleBlur}
+                placeholder="receivingcountry"
+              >
+                <option value="USD" selected>
+                  USD
+                </option>
+
+                <option value="Pounds">Pounds</option>
               </select>
             </div>
             <button
