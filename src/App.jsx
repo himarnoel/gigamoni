@@ -16,6 +16,7 @@ import {
 import Dashboard from "./Pages/Dashboard";
 import Success from "./Pages/Auth/Success";
 import SetMobile from "./Pages/Auth/SetMobile";
+import Send from "./Pages/Send_Money/Send";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -35,6 +36,7 @@ function App() {
         <Route path="/newpassword" element={<NewPassword />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/success" element={<Success />} />
+        <Route path="/send" element={<Send />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </div>
