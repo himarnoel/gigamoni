@@ -210,7 +210,7 @@ const Signup = () => {
                   <RiArrowDownSLine className="pointer-events-none cursor-pointer text-4xl absolute inset-y-0 right-0 flex items-center px-2 text-[#262626]" />
                   {formik.errors.country && formik.touched.country ? (
                     <p className="text-red-500 text-xs font-poppins">
-                      {formik.errors.phonenumber}
+                      {formik.errors.country}
                     </p>
                   ) : (
                     ""
