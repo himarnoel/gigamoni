@@ -311,35 +311,35 @@ const Send = () => {
         </div>
       </div>
       <div
-        className="bg-[#006159] w-full mt-[5rem] md:mt-[4rem] flex flex-col h-screen
+        className="bg-[#006159] lg:hidden w-full mt-[5rem] md:mt-[4rem] flex flex-col h-screen
       "
       >
         <div className="bg-[#2B7C85]">
-          <p className="text-[#F8F8FF] text-2xl md:text-3xl text-center font-semibold pt-1 md:pt-7">
+          <p className="text-[#F8F8FF] text-2xl sm:text-3xl text-center font-semibold pt-1 md:pt-7">
             Send Money
           </p>
           <span className="relative">
             {" "}
-            <span className=" absolute  text-white text-[1.8rem] text-center top-[2rem] md:top-[3rem] md:left-[14rem] font-semibold w-[25rem]  right-0 ">
+            <span className=" absolute  text-white text-[1.8rem] text-center top-[2rem] md:top-[3rem] sm:left-[9rem] md:left-[14rem] font-semibold w-[25rem]  right-0 ">
               A faster way to make international Payments
             </span>
             <img
               src={img1}
               alt=""
-              className="mt-3 object-contain w-[20rem] md:w-[28rem]  mx-auto"
+              className="mt-3 object-contain w-[20rem] sm:w-[27rem] md:w-[28rem]  mx-auto"
             />
           </span>
           <img
             src={img2}
             alt=""
-            className="mt-4 object-contain w-[9rem] mx-auto"
+            className="mt-4 object-contain w-[9rem] sm:w-[10rem] mx-auto"
           />
         </div>
-        <div className="w-full bg-[#006159]  px-2 xss:px-4 xs:px-6 sm:px-10 md:px-[4rem] flex-auto    ">
+        <div className="w-full bg-[#006159]  px-2 xss:px-4 xs:px-6 sm:px-[4rem] flex-auto    ">
           <form
             onSubmit={formik.handleSubmit}
-            className="bg-[#F8F8FF] rounded-lg px-4 md:px-10 py-8 w-full mxl:w-[32rem] gap-y-4  md:mt-10 mb-8 md:gap-y-10 flex-auto
-            mxl:gap-y-10
+            className="bg-[#F8F8FF] rounded-lg px-4 py-8 w-full mxl:w-[32rem] gap-y-4  sm:mt-10 mb-8 md:gap-y-10 flex-auto
+            mxl:gap-y-10 sm:px-10
             mx-auto mt-[1.2rem] text-[#262626] grid"
           >
             {" "}
