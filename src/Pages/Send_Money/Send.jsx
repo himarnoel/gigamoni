@@ -226,7 +226,7 @@ const Send = () => {
               )}
             </div>{" "}
             <p className="text-sm font-medium mt-3">Amount</p>
-            <div className="flex justify-between items-center mt-3">
+            <div className="flex justify-between items-center mt-2">
               <span>
                 <p className="text-[#175873] text-[0.59rem] ">They Receive</p>
                 <span className="flex ">
@@ -282,7 +282,7 @@ const Send = () => {
                     placeholder="receivingcountry"
                   >
                     <option value="USD" selected>
-                      USD
+                     NGN
                     </option>
 
                     <option value="Pounds">Pounds</option>
