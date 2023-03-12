@@ -26,7 +26,7 @@ const Send = () => {
     <div className="  flex flex-col h-screen font-poppins">
       <NavBar class="fixed top-0 z-[90]" />
       <div className=" flex  flex-auto bg-[#006159] lg:mt-[3.5rem]  mxl:mt-[5.6rem]">
-        <div className="lg:w-[50rem] xl:w-[480px] mxl:w-[622px]  bg-[#2B7C85] flex flex-col justify-between  items-center">
+        <div className="lg:w-[50rem] xl:w-[480px] mxl:w-[980px]  bg-[#2B7C85] flex flex-col justify-between  items-center">
           <div className="  relative xl:w-[30rem] mxl:w-full ">
             <img src={img1} alt="" className=" object-cover  " />
             <span className=" absolute mxl:top-[10rem] text-white text-[2.1rem] mxl:text-[3rem] top-[6rem] font-semibold w-[25rem] mxl:w-[33rem] right-0">
@@ -45,8 +45,9 @@ const Send = () => {
           </p>
           <form
             onSubmit={formik.handleSubmit}
-            className="bg-[#F8F8FF] rounded-xl pl-4 pr-10 p py-4 w-[28rem]
-            h-[30rem] mx-auto mt-[1rem] text-[#262626] grid"
+            className="bg-[#F8F8FF] rounded-lg pl-5 pr-10 p py-8 w-[28rem] mxl:w-[32rem] gap-y-4 mb-8 xl:gap-y-3
+            mxl:gap-y-10
+            mx-auto mt-[1rem] text-[#262626] grid"
           >
             <p>Transaction Details</p>
             <div className="relative z-0 mt-0">
@@ -277,11 +278,11 @@ const Send = () => {
                       //placeholder=" "
                     }
                     onChange={formik.handleChange}
-                    value={formik.values.sendingcurrency}
+                    value={formik.values.reciveingcurrency}
                     onBlur={formik.handleBlur}
                     placeholder="receivingcountry"
                   >
-                    <option value="USD" selected>
+                    <option value="NGN" selected>
                      NGN
                     </option>
 
@@ -297,7 +298,7 @@ const Send = () => {
             </div>
             <button
               onClick={() => navigate("/signup")}
-              className=" text-[#F8F8FF] rounded bg-[#009186] w-full mt-3"
+              className=" text-[#F8F8FF] rounded bg-[#009186] w-full mt-0 py-2" 
             >
               continue
             </button>
