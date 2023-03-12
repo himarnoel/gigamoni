@@ -334,7 +334,7 @@ const Signup = () => {
         )}
         <div className=" w-screen  flex  flex-col md:pb-10">
           <NavBar className="" />
-          <div className="bg flex-auto px-2 xss:px-4 xs:px-6 sm:px-10 md:px-8 flex-auto  md:flex md:flex-col md:h-full mt-[6rem]">
+          <div className="bg flex-auto px-2 xss:px-4 xs:px-6 sm:px-10 md:px-8  md:flex md:flex-col md:h-full mt-[6rem]">
             <div className="px-5  sm:px-10">
               {" "}
               <div className="w-full text-[1.5rem] xss:text-xl px-[1rem]  text-center font-semibold flex justify-center items-center bg-[#87ACA3]/[0.5] h-[10rem] sm:h-[15rem] rounded-[8px] text-[#87ACA3]">
