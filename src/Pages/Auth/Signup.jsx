@@ -67,7 +67,7 @@ const Signup = () => {
         )}
 
         <div className="flex flex-col    font-poppins ">
-          <NavBar class="top-0 z-[70] fixed" />
+          <NavBar className="top-0 z-[70] fixed" />
           <div className="grid md:grid-cols-2  lg:mt-[3.7rem]  h-screen">
             <div className="w-full flex flex-col   ">
               <h2 className="text-center text-[1.3rem] lg:mt-[1.5rem] mxl:mt-[4rem] mxl:text-[2rem]  font-semibold text-[#262626] ">
@@ -81,7 +81,7 @@ const Signup = () => {
                 onSubmit={formik.handleSubmit}
                 className="lg:h-[30rem] xl:h-[26rem] lg:mt-[1rem] xl:mt-[1rem]  mxl:h-[35rem]  flex flex-col justify-between mxl:mt-[2rem]   lg:mx-[4rem] xl:mx-[8rem] mxl:mx-[6rem]  2xl:mx-[10rem]"
               >
-                <div class="relative z-0 mt-0">
+                <div className="relative z-0 mt-0">
                   <input
                     type="text"
                     id="name"
@@ -113,7 +113,7 @@ const Signup = () => {
                     ""
                   )}
                 </div>
-                <div class="relative z-0 ">
+                <div className="relative z-0 ">
                   <input
                     type="email"
                     id="email"
@@ -146,7 +146,7 @@ const Signup = () => {
                     ""
                   )}
                 </div>{" "}
-                <div class="relative z-0 ">
+                <div className="relative z-0 ">
                   <input
                     type="text"
                     id="phonenumber"
@@ -178,7 +178,7 @@ const Signup = () => {
                     ""
                   )}
                 </div>{" "}
-                <div class="relative z-0 ">
+                <div className="relative z-0 ">
                   <select
                     type="text"
                     id="country"
@@ -216,7 +216,7 @@ const Signup = () => {
                     ""
                   )}
                 </div>{" "}
-                <div class="relative z-0 ">
+                <div className="relative z-0 ">
                   <input
                     type="password"
                     id="password"
@@ -249,7 +249,7 @@ const Signup = () => {
                     ""
                   )}
                 </div>{" "}
-                <div class="relative z-0 ">
+                <div className="relative z-0 ">
                   <input
                     type="password"
                     id="confirmpassword"
@@ -334,7 +334,7 @@ const Signup = () => {
           ""
         )}
         <div className=" w-screen  flex  flex-col md:pb-10">
-          <NavBar class="" />
+          <NavBar className="" />
           <div className="bg flex-auto px-2 xss:px-4 xs:px-6 sm:px-10 md:px-8 flex-auto  md:flex md:flex-col md:h-full mt-[6rem]">
             <div className="px-5  sm:px-10">
               {" "}
@@ -359,7 +359,7 @@ const Signup = () => {
                 onSubmit={formik.handleSubmit}
                 className="  mt-2  flex flex-col justify-between  h-[22rem] md:h-[30rem]"
               >
-                <div class="relative z-0 mt-0">
+                <div className="relative z-0 mt-0">
                   <input
                     type="text"
                     id="name"
@@ -391,7 +391,7 @@ const Signup = () => {
                     ""
                   )}
                 </div>
-                <div class="relative z-0 ">
+                <div className="relative z-0 ">
                   <input
                     type="email"
                     id="email"
@@ -424,7 +424,7 @@ const Signup = () => {
                     ""
                   )}
                 </div>{" "}
-                <div class="relative z-0 ">
+                <div className="relative z-0 ">
                   <input
                     type="text"
                     id="phonenumber"
@@ -456,7 +456,7 @@ const Signup = () => {
                     ""
                   )}
                 </div>{" "}
-                <div class="relative z-0 ">
+                <div className="relative z-0 ">
                   <select
                     type="text"
                     id="country"
@@ -497,7 +497,7 @@ const Signup = () => {
                     ""
                   )}
                 </div>{" "}
-                <div class="relative z-0 ">
+                <div className="relative z-0 ">
                   <input
                     type="password"
                     id="password"
@@ -530,7 +530,7 @@ const Signup = () => {
                     ""
                   )}
                 </div>{" "}
-                <div class="relative z-0 ">
+                <div className="relative z-0 ">
                   <input
                     type="password"
                     id="confirmpassword"

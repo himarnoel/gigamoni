@@ -6,6 +6,7 @@ import { sendmoney } from "../../Service/validate_and_api";
 import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
 import { RiArrowDownSLine } from "react-icons/ri";
+import { BiTransfer } from "react-icons/bi";
 const Send = () => {
   const navigate = useNavigate();
   const formik = useFormik({
@@ -23,7 +24,7 @@ const Send = () => {
   });
   return (
     <div className="  flex flex-col h-screen font-poppins">
-      <NavBar class="fixed top-0 z-[90]" />
+      <NavBar className="fixed top-0 z-[90]" />
       <div className=" flex  flex-auto bg-[#006159] lg:mt-[3.5rem]  mxl:mt-[5.6rem]">
         <div className="lg:w-[50rem] xl:w-[480px] mxl:w-[622px]  bg-[#2B7C85] flex flex-col justify-between  items-center">
           <div className="  relative xl:w-[30rem] mxl:w-full ">
@@ -48,7 +49,7 @@ const Send = () => {
             h-[30rem] mx-auto mt-[1rem] text-[#262626] grid"
           >
             <p>Transaction Details</p>
-            <div class="relative z-0 mt-0">
+            <div className="relative z-0 mt-0">
               <input
                 type="text"
                 id="name"
@@ -80,7 +81,7 @@ const Send = () => {
                 ""
               )}
             </div>
-            <div class="relative z-0 ">
+            <div className="relative z-0 ">
               <input
                 type="email"
                 id="email"
@@ -113,7 +114,7 @@ const Send = () => {
                 ""
               )}
             </div>{" "}
-            <div class="relative z-0 ">
+            <div className="relative z-0 ">
               <input
                 type="text"
                 id="phonenumber"
@@ -145,7 +146,7 @@ const Send = () => {
                 ""
               )}
             </div>{" "}
-            <div class="relative z-0 ">
+            <div className="relative z-0 ">
               <select
                 type="text"
                 id="country"
@@ -183,7 +184,7 @@ const Send = () => {
                 ""
               )}
             </div>
-            <div class="relative z-0 ">
+            <div className="relative z-0 ">
               <select
                 type="text"
                 id="receivingcountry"
@@ -225,53 +226,75 @@ const Send = () => {
               )}
             </div>{" "}
             <p className="text-sm font-medium">Amount</p>
-            <div className="flex justify-start items-center">
-              <select
-                type="text"
-                id="sendingcurrency"
-                className={
-                  formik.errors.sendingcurrency &&
-                  formik.touched.sendingcurrency
-                    ? "block font-poppins   w-full pl-8 pb-0 pt-0 py-1 text-sm text-gray-900 bg-transparent rounded border-[1.5px] border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
-                    : "block font-poppins  w-full pl-8 pb-0 pt-0 py-1 text-sm text-gray-900 bg-transparent rounded border-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
-                  //placeholder=" "
-                }
-                onChange={formik.handleChange}
-                value={formik.values.sendingcurrency}
-                onBlur={formik.handleBlur}
-                placeholder="receivingcountry"
-              >
-                <option value="USD" selected>
-                  USD
-                </option>
+            <div className="flex justify-between items-center">
+              <span>
+                <p className="text-[#175873] text-xs">They Receive</p>
+                <span className="flex ">
+                  <select
+                    type="text"
+                    id="sendingcurrency"
+                    className={
+                      formik.errors.sendingcurrency &&
+                      formik.touched.sendingcurrency
+                        ? " font-poppins  pl-8 pb-0 h-[52px] w-[85px] flex justify-center items-center  text-sm text-gray-900 mt-3 bg-transparent  rounded-r-none rounded border-[1.5px] border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                        : " font-poppins pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center  text-sm text-gray-900 mt-3 bg-transparent  rounded-r-none rounded border-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                      //placeholder=" "
+                    }
+                    onChange={formik.handleChange}
+                    value={formik.values.sendingcurrency}
+                    onBlur={formik.handleBlur}
+                    placeholder="receivingcountry"
+                  >
+                    <option value="USD" selected>
+                      USD
+                    </option>
 
-                <option value="Pounds">Pounds</option>
-              </select>{" "}
-              <select
-                type="text"
-                id="sendingcurrency"
-                className={
-                  formik.errors.sendingcurrency &&
-                  formik.touched.sendingcurrency
-                    ? "block font-poppins   w-full pl-8 pb-0 pt-0 py-1 text-sm text-gray-900 bg-transparent rounded border-[1.5px] border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
-                    : "block font-poppins  w-full pl-8 pb-0 pt-0 py-1 text-sm text-gray-900 bg-transparent rounded border-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
-                  //placeholder=" "
-                }
-                onChange={formik.handleChange}
-                value={formik.values.sendingcurrency}
-                onBlur={formik.handleBlur}
-                placeholder="receivingcountry"
-              >
-                <option value="USD" selected>
-                  USD
-                </option>
+                    <option value="Pounds">Pounds</option>
+                  </select>
+                  <input
+                    type="number"
+                    value="00000"
+                    className=" font-poppins pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center  text-sm text-gray-900 mt-3 bg-transparent rounded rounded-l-none border-l-0 border-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186]"
+                  />
+                </span>
+              </span>
+              <BiTransfer className="text-3xl text-[#009186] mt-6" />
+              <span>
+                <p className="text-[#175873] text-xs">They Receive</p>
+                <span className="relative z-0 ">
+                  {" "}
+                  <select
+                    type="text"
+                    id="reciveingcurrency"
+                    className={
+                      formik.errors.reciveingcurrency &&
+                      formik.touched.reciveingcurrency
+                        ?" font-poppins pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center  text-sm text-gray-900 mt-3 bg-transparent   rounded border-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                        : " font-poppins pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center  text-sm text-gray-900 mt-3 bg-transparent   rounded border-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                      //placeholder=" "
+                    }
+                    onChange={formik.handleChange}
+                    value={formik.values.sendingcurrency}
+                    onBlur={formik.handleBlur}
+                    placeholder="receivingcountry"
+                  >
+                    <option value="USD" selected>
+                      USD
+                    </option>
 
-                <option value="Pounds">Pounds</option>
-              </select>
+                    <option value="Pounds">Pounds</option>
+                  </select>
+                  <RiArrowDownSLine className="pointer-events-none cursor-pointer text-4xl absolute inset-y-2 right-0 flex items-center px-2 text-[#262626]" />
+                </span>
+              </span>
+              {/*
+               */}
+              {/*
+               */}
             </div>
             <button
               onClick={() => navigate("/signup")}
-              className=" text-[#F8F8FF] rounded bg-[#009186] w-full mt-10"
+              className=" text-[#F8F8FF] rounded bg-[#009186] w-full mt-4"
             >
               continue
             </button>
