@@ -24,7 +24,7 @@ const Send = () => {
   });
   return (
     <div className="  flex flex-col h-screen font-poppins">
-      <NavBar className="fixed top-0 z-[90]" />
+      <NavBar class="fixed top-0 z-[90]" />
       <div className=" flex  flex-auto bg-[#006159] lg:mt-[3.5rem]  mxl:mt-[5.6rem]">
         <div className="lg:w-[50rem] xl:w-[480px] mxl:w-[622px]  bg-[#2B7C85] flex flex-col justify-between  items-center">
           <div className="  relative xl:w-[30rem] mxl:w-full ">
