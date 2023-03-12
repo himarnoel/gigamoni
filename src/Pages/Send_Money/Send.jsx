@@ -318,7 +318,7 @@ const Send = () => {
           <p className="text-[#F8F8FF] text-2xl sm:text-3xl text-center font-semibold pt-1 md:pt-7">
             Send Money
           </p>
-          <span className="relative">
+          <span className="relative  mx-auto">
             {" "}
             <span className=" absolute  text-white text-[1.8rem] text-center top-[2rem] md:top-[3rem] sm:left-[9rem] md:left-[14rem] font-semibold w-[25rem]  right-0 left-0 z-[20]">
               A faster way to make international Payments
@@ -326,7 +326,7 @@ const Send = () => {
             <img
               src={img1}
               alt=""
-              className="mt-3 object-contain w-[20rem] sm:w-[27rem] md:w-[28rem]  mx-auto"
+              className="mt-3 object-contain w-[20rem] sm:w-[27rem] md:w-[28rem] "
             />
           </span>
           <img
