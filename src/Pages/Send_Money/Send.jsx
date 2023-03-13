@@ -339,6 +339,7 @@ const Send = () => {
                       </span>
                       <input
                         type="number"
+                        id="sendamount"
                         placeholder="00000"
                         className={
                           formik.errors.sendamount && formik.touched.sendamount
