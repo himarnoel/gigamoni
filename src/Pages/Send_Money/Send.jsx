@@ -312,7 +312,7 @@ const Send = () => {
       </div>
       {/* Mobile View */}
       <div
-        className="bg-[#006159] lg:hidden w-full mt-[5rem] md:mt-[4rem] flex flex-col h-screen
+        className="bg-[#006159] lg:hidden w-full mt-[5rem] md:mt-[4rem] flex flex-col h-screen 
       "
       >
         <div className="bg-[#2B7C85]">
@@ -327,7 +327,7 @@ const Send = () => {
             <img
               src={img1}
               alt=""
-              className="mt-3 object-contain w-[20rem] sm:w-[27rem] md:w-[28rem] mx-auto"
+              className="mt-3 object-contain w-[20rem] sm:w-[27rem] md:w-[28rem]"
             />
           </span>
           <img
