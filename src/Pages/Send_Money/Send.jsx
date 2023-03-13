@@ -316,7 +316,7 @@ const Send = () => {
       "
       >
         <div className="bg-[#2B7C85] w-full">
-          <p className="text-[#F8F8FF] text-2xl sm:text-3xl text-center font-semibold pt-1 md:pt-7">
+          <p className="text-[#F8F8FF] text-2xl sm:text-3xl text-center font-semibold pt-4 sm:pt-7">
             Send Money
           </p>
           <span className="relative">
