@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import NavBar from "./../../Components/AppComponents/NavBar";
 import img1 from "../../assets/Send_Money/map.svg";
 import img2 from "../../assets/Send_Money/hand.png";
@@ -7,8 +7,11 @@ import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
 import { RiArrowDownSLine } from "react-icons/ri";
 import { BiTransfer } from "react-icons/bi";
+import { RingLoader } from "react-spinners";
 const Send = () => {
   const navigate = useNavigate();
+  const [modal, setmodal] = useState(false);
+  const [load, setload] = useState(false);
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -18,14 +21,29 @@ const Send = () => {
       receivingcountry: "",
       sendingcurrency: "",
       reciveingcurrency: "",
+      sendamount: "",
     },
     validationSchema: sendmoney,
     onSubmit: (values) => {},
   });
   return (
     <div>
-      {" "}
-      <NavBar class="fixed top-0 z-[90]" />
+      {load ? (
+        <div className="absolute top-0 bg-cover bg-[#262626]/[0.8]  z-[90] h-full overla w-full flex  justify-center items-center text-3xl">
+          <RingLoader color="#009186" size={90} />
+        </div>
+      ) : (
+        ""
+      )}
+        {!modal ? (
+        <div className="absolute top-0 bg-cover bg-[#262626]/[0.8]  z-[90] h-full overla w-full flex  justify-center items-center text-3xl">
+          <div className="bg-[#F8F8FF] w-[26rem] rounded h-[26rem]"></div>
+        </div>
+      ) : (
+        ""
+      )}
+      <div>
+      <NavBar class="fixed top-0 z-[50]" />
       <div className=" hidden lg:flex flex-col h-screen font-poppins">
         <div className=" flex  flex-auto bg-[#006159] lg:mt-[3.5rem]  mxl:mt-[5.6rem]">
           <div className="lg:w-[50rem] xl:w-[480px] mxl:w-[980px]  bg-[#2B7C85] flex flex-col justify-between  items-center">
@@ -259,8 +277,15 @@ const Send = () => {
                     </span>
                     <input
                       type="number"
-                      value="00000"
-                      className=" font-poppins pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center shade  text-sm mt-3 bg-transparent text-[#009186]  rounded-[6px] border-solid border-[#009186] border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186]"
+                      placeholder="00000"
+                      className={
+                        formik.errors.sendamount && formik.touched.sendamount
+                          ? " font-poppins pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#009186] text-[#009186]  rounded-[6px] border-solid border-red-500 border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186]"
+                          : " font-poppins pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#009186] text-[#009186]  rounded-[6px] border-solid border-[#009186] border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186]"
+                      }
+                      onChange={formik.handleChange}
+                      value={formik.values.sendamount}
+                      onBlur={formik.handleBlur}
                     />
                   </span>
                 </span>
@@ -309,6 +334,7 @@ const Send = () => {
             </form>
           </div>
         </div>
+      </div>
       </div>
       {/* Mobile View */}
       <div
