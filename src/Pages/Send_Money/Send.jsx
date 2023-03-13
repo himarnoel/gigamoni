@@ -310,6 +310,7 @@ const Send = () => {
           </div>
         </div>
       </div>
+      {/* Mobile View */}
       <div
         className="bg-[#006159] lg:hidden w-full mt-[5rem] md:mt-[4rem] flex flex-col h-screen
       "
@@ -318,15 +319,15 @@ const Send = () => {
           <p className="text-[#F8F8FF] text-2xl sm:text-3xl text-center font-semibold pt-1 md:pt-7">
             Send Money
           </p>
-          <span className="relative  mx-auto">
+          <span className="relative">
             {" "}
-            <span className=" absolute  text-white text-[1.8rem] text-center top-[2rem] md:top-[3rem] sm:left-[9rem] md:left-[14rem] font-semibold w-[25rem]  right-0 left-0 z-[20]">
+            <span className=" absolute  text-white text-[1.8rem] text-center top-[2rem] md:top-[3rem] sm:left-[9rem] md:left-[14rem] font-semibold w-[25rem]  r z-[20]">
               A faster way to make international Payments
             </span>
             <img
               src={img1}
               alt=""
-              className="mt-3 object-contain w-[20rem] sm:w-[27rem] md:w-[28rem] "
+              className="mt-3 object-contain w-[20rem] sm:w-[27rem] md:w-[28rem] mx-auto"
             />
           </span>
           <img
