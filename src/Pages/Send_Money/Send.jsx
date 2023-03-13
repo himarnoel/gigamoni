@@ -316,12 +316,11 @@ const Send = () => {
       "
       >
         <div className="bg-[#2B7C85] w-full">
-          <p className="text-[#F8F8FF] text-2xl sm:text-3xl text-center font-semibold pt-4 sm:pt-7">
+          <p className="text-[#F8F8FF] text-2xl sm:text-3xl text-center font-semibold pt-1 md:pt-7">
             Send Money
           </p>
-          <span className="relative">
-            {" "}
-            <span className=" absolute  text-white text-[1.8rem] text-center top-[2rem] md:top-[3rem] sm:left-[9rem] md:left-[14rem] font-semibold w-[25rem]   z-[10]">
+          <div className="relative ">
+            <span className=" absolute  text-white text-[1.8rem] text-center top-[2rem] md:top-[3rem] sm:left-[9rem] md:left-[14rem] font-semibold w-[20rem]  left-5  right-5   z-[10]">
               A faster way to make international Payments
             </span>
             <img
@@ -329,7 +328,7 @@ const Send = () => {
               alt=""
               className="mt-3 object-contain w-[20rem] sm:w-[27rem] md:w-[28rem] mx-auto"
             />
-          </span>
+          </div>
           <img
             src={img2}
             alt=""
@@ -522,7 +521,7 @@ const Send = () => {
               )}
             </div>{" "}
             <p className="text-sm font-medium mt-3">Amount</p>
-            <div className="flex justify-between items-center mt-2">
+            <div className="flex justify-between items-center mt-2 flex-row-reverse">
               <span>
                 <p className="text-[#175873] text-[0.59rem] ">They Receive</p>
                 <span className="flex ">
@@ -533,8 +532,8 @@ const Send = () => {
                       className={
                         formik.errors.sendingcurrency &&
                         formik.touched.sendingcurrency
-                          ? " font-poppins  pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#009186]   rounded-[6px] border-solid border-red-500 border-[4px] rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186]"
-                          : " font-poppins pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#009186]   rounded-[6px] border-solid border-[#009186] border-[4px] rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186]"
+                          ? " font-poppins  pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-red-500 border-r  rounded-[6px] border-solid border-red-500 border-[4px] rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186]"
+                          : " font-poppins pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#009186] border-r  rounded-[6px] border-solid border-[#009186] border-[4px] rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186]"
                         //placeholder=" "
                       }
                       onChange={formik.handleChange}
@@ -557,10 +556,10 @@ const Send = () => {
                   />
                 </span>
               </span>
-              <BiTransfer className="text-3xl text-[#009186] mt-6" />
+              <BiTransfer className="text-lg sm:text-3xl text-[#009186] mt-6" />
               <span>
                 <p className="text-[#175873] text-[0.59rem] ">Local Currency</p>
-                <span className="relative z-0 ">
+                <div className="relative z-0 ">
                   {" "}
                   <select
                     type="text"
@@ -584,7 +583,7 @@ const Send = () => {
                     <option value="Pounds">Pounds</option>
                   </select>
                   <RiArrowDownSLine className="pointer-events-none cursor-pointer text-4xl absolute inset-y-2 right-0 flex items-center px-2 text-[#009186]" />
-                </span>
+                </div>
               </span>
               {/*
                */}
