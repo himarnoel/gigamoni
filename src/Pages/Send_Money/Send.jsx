@@ -3,15 +3,18 @@ import NavBar from "./../../Components/AppComponents/NavBar";
 import img1 from "../../assets/Send_Money/map.svg";
 import img2 from "../../assets/Send_Money/hand.png";
 import img3 from "../../assets/Send_Money/warning.png";
+import img4 from "../../assets/Send_Money/noacct.svg";
 import { sendmoney } from "../../Service/validate_and_api";
 import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
 import { RiArrowDownSLine } from "react-icons/ri";
 import { BiTransfer } from "react-icons/bi";
 import { RingLoader } from "react-spinners";
+import { IoIosCloseCircle } from "react-icons/io";
 const Send = () => {
   const navigate = useNavigate();
   const [modal, setmodal] = useState(false);
+  const [noacc, setnoacc] = useState(false);
   const [load, setload] = useState(false);
   const formik = useFormik({
     initialValues: {
@@ -36,17 +39,64 @@ const Send = () => {
       ) : (
         ""
       )}
-      {modal ? (
+      {!modal ? (
         <div className="absolute top-0 bg-cover bg-[#262626]/[0.8]  z-[90] h-full overla w-full flex  justify-center items-center text-3xl">
           <div
-            className="bg-[#F8F8FF] w-[26rem] rounded h-[26rem] flex flex-col items-center px-10
+            className="bg-[#F8F8FF] w-[26rem] relative rounded-md h-[26rem] flex flex-col items-center justify-around px-10
           "
           >
-            <img src={img3} alt="" className="object-contain w-[8rem]" />
-            <h4 className="text-sm w-[15rem]">
-              Your transfer amount is below <b>$100</b>. Amount needs to be $100 or
-              more
-            </h4>
+            <IoIosCloseCircle
+              onClick={() => setmodal(!modal)}
+              className="text-2xl right-3 absolute top-3 text-[#009186] cursor-pointer"
+            />
+            <div className="flex flex-col items-center">
+              <img src={img3} alt="" className="object-contain w-[8rem]" />
+
+              <h4 className="text-sm w-[19rem] text-center mt-4">
+                Your transfer amount is below <b>$100</b>. <br /> Amount needs
+                to be $100 or more
+              </h4>
+            </div>
+            <button
+              onClick={() => navigate("/signup")}
+              className=" text-[#F8F8FF] rounded text-sm bg-[#009186] w-full mt-0 py-2"
+            >
+              continue
+            </button>
+          </div>
+        </div>
+      ) : (
+        ""
+      )}
+      {!noacc ? (
+        <div
+          onClick={() => setnoacc(!noacc)}
+          className="absolute top-0 bg-cover bg-[#262626]/[0.8]  z-[90] h-full overla w-full flex  justify-center items-center text-3xl"
+        >
+          <div
+            className="bg-[#F8F8FF] w-[26rem] relative rounded-md h-[26rem] flex flex-col items-center justify-around px-10
+          "
+          >
+            <IoIosCloseCircle
+              onClick={() => setnoacc(!noacc)}
+              className="text-2xl right-3 absolute top-3 text-[#009186] cursor-pointer"
+            />
+            <div className="text-center">
+              <h4 className="text-sm w-full  font-medium  mt-4 ">
+                Do you want to create an account with already provided sender
+                details?
+              </h4>
+              <h4 className="text-xs w-[19rem] mt-6">
+                You do not have an account
+              </h4>
+            </div>
+            <img src={img4} alt="" className="object-contain w-[8rem]" />
+            <button
+              onClick={() => setnoacc(!noacc)}
+              className=" text-[#F8F8FF] rounded text-sm bg-[#009186] w-full mt-0 py-2"
+            >
+              continue
+            </button>
           </div>
         </div>
       ) : (
@@ -66,7 +116,7 @@ const Send = () => {
               <img
                 src={img2}
                 alt=""
-                className=" object-contain lg:w-[15rem] xl:w-[18rem] mxl:w-full "
+                className=" object-contain lg:w-[23rem] xl:w-[20rem] mxl:w-full "
               />
             </div>{" "}
             <div className="w-full  flex flex-col justify-center items-center">
