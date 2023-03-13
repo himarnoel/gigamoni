@@ -36,7 +36,7 @@ const Send = () => {
       ) : (
         ""
       )}
-      {!modal ? (
+      {modal ? (
         <div className="absolute top-0 bg-cover bg-[#262626]/[0.8]  z-[90] h-full overla w-full flex  justify-center items-center text-3xl">
           <div
             className="bg-[#F8F8FF] w-[26rem] rounded h-[26rem] flex flex-col items-center px-10
