@@ -321,9 +321,9 @@ const Send = () => {
           </p>
           <span className="relative">
             {" "}
-            <span className=" absolute  text-white text-[1.8rem] text-center top-[2rem] md:top-[3rem] sm:left-[9rem] md:left-[14rem] font-semibold w-[25rem]  r z-[20]">
+            {/* <span className=" absolute  text-white text-[1.8rem] text-center top-[2rem] md:top-[3rem] sm:left-[9rem] md:left-[14rem] font-semibold w-[25rem]  r z-[20]">
               A faster way to make international Payments
-            </span>
+            </span> */}
             {/* <img
               src={img1}
               alt=""
