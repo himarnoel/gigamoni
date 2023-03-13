@@ -521,7 +521,7 @@ const Send = () => {
               )}
             </div>{" "}
             <p className="text-sm font-medium mt-3">Amount</p>
-            <div className="flex justify-between items-center mt-2 flex-row-reverse">
+            <div className="flex justify-between items-center  flex-row-reverse">
               <span>
                 <p className="text-[#175873] text-[0.59rem] ">They Receive</p>
                 <span className="flex ">
