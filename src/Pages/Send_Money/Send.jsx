@@ -321,14 +321,14 @@ const Send = () => {
           </p>
           <span className="relative">
             {" "}
-            {/* <span className=" absolute  text-white text-[1.8rem] text-center top-[2rem] md:top-[3rem] sm:left-[9rem] md:left-[14rem] font-semibold w-[25rem]  r z-[20]">
+            <span className=" absolute  text-white text-[1.8rem] text-center top-[2rem] md:top-[3rem] sm:left-[9rem] md:left-[14rem] font-semibold w-[25rem]   z-[10]">
               A faster way to make international Payments
-            </span> */}
-            {/* <img
+            </span>
+            <img
               src={img1}
               alt=""
               className="mt-3 object-contain w-[20rem] sm:w-[27rem] md:w-[28rem] mx-auto"
-            /> */}
+            />
           </span>
           <img
             src={img2}
