@@ -315,15 +315,15 @@ const Send = () => {
         className="bg-[#006159] lg:hidden w-full mt-[5rem] md:mt-[4rem] flex flex-col h-screen 
       "
       >
-        <div className="bg-[#2B7C85]">
+        <div className="bg-[#2B7C85] w-full">
           <p className="text-[#F8F8FF] text-2xl sm:text-3xl text-center font-semibold pt-1 md:pt-7">
             Send Money
           </p>
           <div className="relative">
             {" "}
-            {/* <span className=" absolute  text-white text-[1.8rem] top-[2rem] md:top-[3rem] sm:left-[9rem] md:left-[14rem] font-semibold w-[25rem]   z-[10]">
+            <span className=" absolute  text-white text-[1.8rem] top-[2rem] md:top-[3rem] sm:left-[9rem] md:left-[14rem] font-semibold w-[25rem]   z-[10]">
               A faster way to make international Payments
-            </span> */}
+            </span>
             <img
               src={img1}
               alt=""
