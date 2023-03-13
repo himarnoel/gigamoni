@@ -43,7 +43,7 @@ const Send = () => {
           "
           >
             <img src={img3} alt="" className="object-contain w-[8rem]" />
-            <h4 className="text-sm">
+            <h4 className="text-sm w-[15rem]">
               Your transfer amount is below <b>$100</b>. Amount needs to be $100 or
               more
             </h4>
