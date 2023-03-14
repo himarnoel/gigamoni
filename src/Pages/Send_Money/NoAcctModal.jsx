@@ -1,16 +1,7 @@
 import React from "react";
 import NavBar from "../../Components/AppComponents/NavBar";
-import img1 from "../../assets/Send_Money/map.svg";
-import img2 from "../../assets/Send_Money/hand.png";
-import img3 from "../../assets/Send_Money/warning.png";
 import img4 from "../../assets/Send_Money/noacct.svg";
-import { sendmoney } from "../../Service/validate_and_api";
-import { useFormik } from "formik";
-import { useNavigate } from "react-router-dom";
-import { RiArrowDownSLine } from "react-icons/ri";
-import { BiTransfer } from "react-icons/bi";
-import { RingLoader } from "react-spinners";
-import { IoIosCloseCircle } from "react-icons/io";
+
 
 const NoAcctModal = () => {
   return (
@@ -24,18 +15,18 @@ const NoAcctModal = () => {
 "
           >
             <div className="flex flex-col items-center">
-              <img src={img3} alt="" className="object-contain w-[11rem]" />
+              <img src={img4} alt="" className="object-contain w-[11rem]" />
 
               <h4 className="text-sm w-[19rem] text-center mt-4">
-                Your transfer amount is below <b>$100</b>. <br /> Amount needs
-                to be $100 or more
+                Do you want to create an account with already provided sender
+                details?
               </h4>
             </div>
             <button
               onClick={() => setlessamount(!lessamount)}
               className=" text-[#F8F8FF] rounded-lg text-sm bg-[#009186] w-full mt-0 py-4"
             >
-              Go back
+              Continue
             </button>
           </div>
         </div>
