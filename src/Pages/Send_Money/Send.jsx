@@ -381,7 +381,7 @@ const Send = () => {
                     </span>
                   </span>
                   <BiTransfer className="text-3xl text-[#009186] mt-6" />
-                  <span>
+                  <div>
                     <p className="text-[#175873] text-[0.59rem] ">
                       Local Currency
                     </p>
@@ -409,7 +409,7 @@ const Send = () => {
                       </select>
                       <RiArrowDownSLine className="pointer-events-none cursor-pointer text-4xl absolute inset-y-2 right-0 flex items-center px-2 text-[#009186]" />
                     </span>
-                  </span>
+                  </div>
                 </div>
                 <button
                   type="submit"
