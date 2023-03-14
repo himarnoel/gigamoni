@@ -92,6 +92,11 @@ select:focus ~ label {
   appearance: none;
 }
 
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 .shade{
   box-shadow: 0px 3.10952px 3.10952px rgba(255, 255, 255, 0.1);
 }
