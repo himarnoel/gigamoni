@@ -32,9 +32,9 @@ const Send = () => {
     onSubmit: (values) => {
       if (navigater) {
         if (values.sendamount < 100) {
-          navigate("/");
+          navigate("/less");
         } else {
-          navigate("/");
+          navigate("/noacc");
         }
       } else {
         if (values.sendamount < 100) {
