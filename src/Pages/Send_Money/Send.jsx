@@ -34,7 +34,7 @@ const Send = () => {
         if (values.sendamount < 100) {
           navigate("/less");
         } else {
-          navigate("/noacc");
+          navigate("/noacct");
         }
       } else {
         if (values.sendamount < 100) {
