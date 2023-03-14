@@ -84,7 +84,7 @@ const Send = () => {
       ) : (
         ""
       )}
-      {noacc ? (
+      { noacc ? (
         <div
           onClick={() => setnoacc(!noacc)}
           className="absolute top-0 bg-cover bg-[#262626]/[0.8]  z-[90] h-full overla w-full flex  justify-center items-center text-3xl"
@@ -99,14 +99,10 @@ const Send = () => {
             />
             <div className="text-center">
               <h4 className="text-sm w-full  font-medium  mt-4 ">
-                Do you want to create an account with already provided sender
-                details?
-              </h4>
-              <h4 className="text-xs w-[19rem] mt-6">
-                You do not have an account
+                You have to create an Account in order to proceed
               </h4>
             </div>
-            <img src={img4} alt="" className="object-contain w-[8rem]" />
+            <img src={img4} alt="" className="object-contain w-[10rem]" />
             <button
               onClick={() => navigate("/signup")}
               className=" text-[#F8F8FF] rounded text-sm bg-[#009186] w-full mt-0 py-2"
