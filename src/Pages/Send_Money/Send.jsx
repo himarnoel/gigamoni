@@ -30,6 +30,7 @@ const Send = () => {
     },
     validationSchema: sendmoney,
     onSubmit: (values) => {
+      window.scrollTo(0, 0);
       if (navigater) {
         if (values.sendamount < 100) {
           navigate("/less");
