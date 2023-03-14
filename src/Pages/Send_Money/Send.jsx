@@ -16,7 +16,7 @@ const Send = () => {
   const [lessamount, setlessamount] = useState(false);
   const [noacc, setnoacc] = useState(false);
   const [load, setload] = useState(false);
-
+  const [navigater, setnavigater] = useState(false);
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -30,15 +30,19 @@ const Send = () => {
     },
     validationSchema: sendmoney,
     onSubmit: (values) => {
-      alert("hello");
-      
-       
+      if (navigater) {
+        if (values.sendamount < 100) {
+          navigate("/");
+        } else {
+          navigate("/");
+        }
+      } else {
         if (values.sendamount < 100) {
           setlessamount(true);
         } else {
           setnoacc(true);
         }
-     
+      }
     },
   });
   return (
@@ -408,7 +412,14 @@ const Send = () => {
                 </div>
                 <button
                   type="submit"
-                  className="  text-[#F8F8FF] rounded bg-[#009186] w-full mt-0 py-2"
+                  className=" hidden lg:block text-[#F8F8FF] rounded bg-[#009186] w-full mt-0 py-2"
+                >
+                  continue
+                </button>
+                <button
+                  type="submit"
+                  onClick={() => setnavigater(true)}
+                  className=" lg:hidden text-[#F8F8FF] rounded bg-[#009186] w-full mt-0 py-2"
                 >
                   continue
                 </button>
