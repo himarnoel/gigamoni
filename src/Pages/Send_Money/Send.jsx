@@ -13,7 +13,7 @@ import { RingLoader } from "react-spinners";
 import { IoIosCloseCircle } from "react-icons/io";
 const Send = () => {
   const navigate = useNavigate();
-  const [modal, setmodal] = useState(false);
+  const [lessamount, setlessamount] = useState(false);
   const [noacc, setnoacc] = useState(false);
   const [load, setload] = useState(false);
   const formik = useFormik({
@@ -23,12 +23,18 @@ const Send = () => {
       phonenumber: "",
       country: "",
       receivingcountry: "",
-      sendingcurrency: "",
-      reciveingcurrency: "",
+      sendingcurrency: "USD",
+      reciveingcurrency: "NGN",
       sendamount: "",
     },
     validationSchema: sendmoney,
-    onSubmit: (values) => {},
+    onSubmit: (values) => {
+      if (values.sendamount < 100) {
+        setlessamount(true);
+      } else {
+        setnoacc(true);
+      }
+    },
   });
   return (
     <div className="font-poppins">
@@ -39,14 +45,14 @@ const Send = () => {
       ) : (
         ""
       )}
-      {!modal ? (
+      {lessamount ? (
         <div className="absolute top-0 bg-cover bg-[#262626]/[0.8]  z-[90] h-full overla w-full flex  justify-center items-center text-3xl">
           <div
             className="bg-[#F8F8FF] w-[26rem] relative rounded-md h-[26rem] flex flex-col items-center justify-around px-10
           "
           >
             <IoIosCloseCircle
-              onClick={() => setmodal(!modal)}
+              onClick={() => setlessamount(!lessamount)}
               className="text-2xl right-3 absolute top-3 text-[#009186] cursor-pointer"
             />
             <div className="flex flex-col items-center">
@@ -58,7 +64,7 @@ const Send = () => {
               </h4>
             </div>
             <button
-              onClick={() => navigate("/signup")}
+              onClick={() => setlessamount(!lessamount)}
               className=" text-[#F8F8FF] rounded text-sm bg-[#009186] w-full mt-0 py-2"
             >
               continue
@@ -68,7 +74,7 @@ const Send = () => {
       ) : (
         ""
       )}
-      {!noacc ? (
+      {noacc ? (
         <div
           onClick={() => setnoacc(!noacc)}
           className="absolute top-0 bg-cover bg-[#262626]/[0.8]  z-[90] h-full overla w-full flex  justify-center items-center text-3xl"
@@ -92,7 +98,7 @@ const Send = () => {
             </div>
             <img src={img4} alt="" className="object-contain w-[8rem]" />
             <button
-              onClick={() => setnoacc(!noacc)}
+              onClick={() => navigate("/signup")}
               className=" text-[#F8F8FF] rounded text-sm bg-[#009186] w-full mt-0 py-2"
             >
               continue
@@ -116,7 +122,7 @@ const Send = () => {
               <img
                 src={img2}
                 alt=""
-                className=" object-contain lg:w-[23rem] xl:w-[20rem] mxl:w-full "
+                className=" object-contain lg:w-[23rem] xl:w-[20rem] mxl:w-[27rem] "
               />
             </div>{" "}
             <div className="w-full  flex flex-col justify-center items-center">
@@ -365,7 +371,7 @@ const Send = () => {
                         className={
                           formik.errors.reciveingcurrency &&
                           formik.touched.reciveingcurrency
-                            ? " font-poppins pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center shade text-sm  mt-3 bg-transparent text-[#009186]   rounded-[6px] border-solid border-[#009186] border-[4px]  appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                            ? " font-poppins pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center shade text-sm  mt-3 bg-transparent text-[#009186]   rounded-[6px] border-solid border-red-500 border-[4px]  appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
                             : " font-poppins pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center shade text-sm  mt-3 bg-transparent  text-[#009186]   rounded-[6px] border-solid border-[#009186] border-[4px]  appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
                           //placeholder=" "
                         }
@@ -389,7 +395,7 @@ const Send = () => {
                    */}
                 </div>
                 <button
-                  onClick={() => navigate("/signup")}
+                  type="submit"
                   className=" text-[#F8F8FF] rounded bg-[#009186] w-full mt-0 py-2"
                 >
                   continue
