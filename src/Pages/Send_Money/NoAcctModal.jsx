@@ -1,9 +1,11 @@
 import React from "react";
 import NavBar from "../../Components/AppComponents/NavBar";
 import img4 from "../../assets/Send_Money/noacct.svg";
-
+import { Navigate, useNavigate } from "react-router-dom";
 
 const NoAcctModal = () => {
+  const navigate = useNavigate();
+  
   return (
     <div>
       {" "}
@@ -23,7 +25,7 @@ const NoAcctModal = () => {
               </h4>
             </div>
             <button
-              onClick={() => setlessamount(!lessamount)}
+              onClick={() => navigate("/signup")}
               className=" text-[#F8F8FF] rounded-lg text-sm bg-[#009186] w-full mt-0 py-4"
             >
               Continue

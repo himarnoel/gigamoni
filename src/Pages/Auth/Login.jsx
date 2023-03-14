@@ -163,7 +163,9 @@ const Login = () => {
                 <span className="flex items-center justify-center  lg:mx-10 xl:mx-[8rem]   2xl:mx-[10rem] ">
                   {" "}
                   <p className=" text-[#262626] mr-2">Don't have an account?</p>
-                  <span className="text-[#009186]">Create account</span>
+                  <Link to="/signup" className="text-[#009186]">
+                    Create account
+                  </Link>
                 </span>
                 <span className=" flex items-center justify-center py-[0.5rem] border-2 mt-4 lg:mt-14 xl:mt-14 mxl:mt-20 border-[#009186] border-solid rounded-[8px]   lg:mx-10 xl:mx-[8rem] 2xl:mx-[10rem]">
                   {" "}
@@ -195,7 +197,7 @@ const Login = () => {
         )}
         <div className="  w-screen  h-screen sm:h-screen    md:h-screen flex  flex-col md:pb-10 mt-[4rem]">
           <NavBar class="" />
-          <div className=" bg px-2 xss:px-4 xs:px-6 sm:mt-5 sm:px-10 md:px-20 flex-auto  flex justify-around  flex-col md:h-full mt-3   ">
+          <div className=" bg px-2 xss:px-4 xs:px-6 sm:mt-5 sm:px-10 md:px-20 flex-auto  flex justify-around  flex-col md:h-full pt-[2rem]   ">
             <div className="w-full  text-[1.5rem] sm:mt-4 xss:text-3xl px-[1rem]  text-center font-semibold flex justify-center items-center bg-[#87ACA3]/[0.5] h-[22%] rounded-[8px] text-[#87ACA3]">
               <p className=" leading-[1.5] xss:leading-[1.5] text-xl md:text-3xl md:leading-[2]">
                 <p> International Bulk</p>
@@ -216,7 +218,7 @@ const Login = () => {
                 </h2>
                 <form
                   onSubmit={formik.handleSubmit}
-                  className="flex flex-col h-[50%] justify-between "
+                  className="flex flex-col h-[13rem] justify-between "
                 >
                   <div class="relative z-0 ">
                     <input

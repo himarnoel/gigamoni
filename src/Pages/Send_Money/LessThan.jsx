@@ -1,17 +1,10 @@
 import React from "react";
-import img1 from "../../assets/Send_Money/map.svg";
-import img2 from "../../assets/Send_Money/hand.png";
 import img3 from "../../assets/Send_Money/warning.png";
-import img4 from "../../assets/Send_Money/noacct.svg";
-import { sendmoney } from "../../Service/validate_and_api";
-import { useFormik } from "formik";
-import { useNavigate } from "react-router-dom";
-import { RiArrowDownSLine } from "react-icons/ri";
-import { BiTransfer } from "react-icons/bi";
-import { RingLoader } from "react-spinners";
-import { IoIosCloseCircle } from "react-icons/io";
 import NavBar from "./../../Components/AppComponents/NavBar";
+import { useNavigate } from "react-router-dom";
 const LessThan = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="h-screen flex flex-col font-poppins">
       <NavBar />
@@ -29,10 +22,10 @@ const LessThan = () => {
             </h4>
           </div>
           <button
-            onClick={() => setlessamount(!lessamount)}
+            onClick={() => navigate("/send")}
             className=" text-[#F8F8FF] rounded-lg text-sm bg-[#009186] w-full mt-0 py-4"
           >
-           Go back
+            Go back
           </button>
         </div>
       </div>

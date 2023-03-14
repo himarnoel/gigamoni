@@ -334,7 +334,7 @@ const Signup = () => {
         )}
         <div className=" w-screen  flex  flex-col md:pb-10">
           <NavBar className="" />
-          <div className="bg flex-auto px-2 xss:px-4 xs:px-6 sm:px-10 md:px-8  md:flex md:flex-col md:h-full mt-[6rem]">
+          <div className="bg flex-auto px-2 xss:px-4 xs:px-6 sm:px-10 md:px-8  md:flex md:flex-col md:h-full pt-[7rem]">
             <div className="px-5  sm:px-10">
               {" "}
               <div className="w-full text-[1.5rem] xss:text-xl px-[1rem]  text-center font-semibold flex justify-center items-center bg-[#87ACA3]/[0.5] h-[10rem] sm:h-[15rem] rounded-[8px] text-[#87ACA3]">
@@ -347,7 +347,7 @@ const Signup = () => {
                 </p>
               </div>
             </div>
-            <div className="w-full bg-white rounded-lg mt-5 pt-5 px-4 sm:px-10 md:py-10 md:mt-20  md:px-14">
+            <div className="w-full bg-white rounded-lg mt-10 pt-5 px-4 sm:px-10 md:py-10 md:mt-20  md:px-14">
               <div className="">
                 <h2 className="text-center text-[1.3rem] font-semibold text-[#262626] ">
                   Create Account
