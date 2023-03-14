@@ -385,7 +385,7 @@ const Send = () => {
                     <p className="text-[#175873] text-[0.59rem] ">
                       Local Currency
                     </p>
-                    <span className="relative z-0 ">
+                    <div className="relative z-0 ">
                       {" "}
                       <select
                         type="text"
@@ -408,7 +408,7 @@ const Send = () => {
                         <option value="Pounds">Pounds</option>
                       </select>
                       <RiArrowDownSLine className="pointer-events-none cursor-pointer text-4xl absolute inset-y-2 right-0 flex items-center px-2 text-[#009186]" />
-                    </span>
+                    </div>
                   </div>
                 </div>
                 <button
