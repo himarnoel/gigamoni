@@ -35,12 +35,14 @@ const Send = () => {
         if (values.sendamount < 100) {
           navigate("/less");
         } else {
+          localStorage.setItem("Send", JSON.stringify(values));
           navigate("/noacct");
         }
       } else {
         if (values.sendamount < 100) {
           setlessamount(true);
         } else {
+          localStorage.setItem("Send", JSON.stringify(values));
           setnoacc(true);
         }
       }
@@ -84,7 +86,7 @@ const Send = () => {
       ) : (
         ""
       )}
-      { noacc ? (
+      {noacc ? (
         <div
           onClick={() => setnoacc(!noacc)}
           className="absolute top-0 bg-cover bg-[#262626]/[0.8]  z-[90] h-full overla w-full flex  justify-center items-center text-3xl"

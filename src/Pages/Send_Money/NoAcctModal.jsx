@@ -5,7 +5,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 
 const NoAcctModal = () => {
   const navigate = useNavigate();
-  
+
   return (
     <div>
       {" "}
@@ -20,8 +20,7 @@ const NoAcctModal = () => {
               <img src={img4} alt="" className="object-contain w-[11rem]" />
 
               <h4 className="text-sm w-[19rem] text-center mt-4">
-                Do you want to create an account with already provided sender
-                details?
+                You have to create an Account in order to proceed
               </h4>
             </div>
             <button
