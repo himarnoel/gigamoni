@@ -13,15 +13,13 @@ const Signup = () => {
   const [selected, setSelected] = useState("");
   const [load, setload] = useState(false);
   const [phone, setphone] = useState("+234");
-  const [first, setfirst] = useState({})
+  const [first, setfirst] = useState({});
   const navigate = useNavigate();
   let fromSendMoney = {};
-    if (localStorage.Send) {
-      fromSendMoney = JSON.parse(localStorage.Send);
-     
-    }
 
-
+  if (localStorage.Send) {
+    fromSendMoney = JSON.parse(localStorage.Send);
+  }
 
   const formik = useFormik({
     initialValues: {
@@ -348,11 +346,9 @@ const Signup = () => {
               {" "}
               <div className="w-full text-[1.5rem] xss:text-xl px-[1rem]  text-center font-semibold flex justify-center items-center bg-[#87ACA3]/[0.5] h-[10rem] sm:h-[15rem] rounded-[8px] text-[#87ACA3]">
                 <p className=" leading-[1.5] xss:leading-[1.5]">
-                  <p> International Bulk</p>
-                  <p>Payment Solution</p>
-                  <p>
-                    Made Just For <span className="text-[#F8F8FF]"> YOU</span>
-                  </p>
+                  Bespoke
+                  <p> Transactions Just For </p>
+                  <p className="text-[#F8F8FF]"> YOU</p>
                 </p>
               </div>
             </div>

@@ -195,19 +195,23 @@ const Login = () => {
         ) : (
           ""
         )}
-        <div className="  w-screen  h-screen sm:h-screen    md:h-screen flex  flex-col md:pb-10 mt-[4rem]">
-          <NavBar class="" />
-          <div className=" bg px-2 xss:px-4 xs:px-6 sm:mt-5 sm:px-10 md:px-20 flex-auto  flex justify-around  flex-col md:h-full pt-[2rem]   ">
-            <div className="w-full  text-[1.5rem] sm:mt-4 xss:text-3xl px-[1rem]  text-center font-semibold flex justify-center items-center bg-[#87ACA3]/[0.5] h-[22%] rounded-[8px] text-[#87ACA3]">
-              <p className=" leading-[1.5] xss:leading-[1.5] text-xl md:text-3xl md:leading-[2]">
-                <p> International Bulk</p>
-                <p>Payment Solution</p>
-                <p>
-                  Made Just For <span className="text-[#F8F8FF]"> YOU</span>
+        <div className=" w-screen  flex  flex-col h-screen ">
+          <NavBar className="" />
+          <div className="bg flex-auto px-2 xss:px-4 xs:px-6 sm:px-10 md:px-14  md:flex md:flex-col md:h-full pt-[7rem] pb-10 justify-around">
+            <div className="px-5  sm:px-10">
+              {" "}
+              <div className="w-full text-[1.5rem] md:text-[1.8rem] xss:text-xl px-[1rem]  text-center font-semibold flex justify-center items-center bg-[#87ACA3]/[0.5] h-[10rem] sm:h-[15rem] rounded-[8px] text-[#87ACA3]">
+                <p className=" leading-[1.5] xss:leading-[1.5]">
+                  <p> International Bulk</p>
+                  <p>Payment Solution</p>
+                  <p>
+                    Made Just For <span className="text-[#F8F8FF]"> YOU</span>
+                  </p>
                 </p>
-              </p>
+              </div>
             </div>
-            <div className="xss:h-[70%]  h-[67%] sm:mt-5 sm:h-[40rem] sm:mb-10 md:h-[57%] bg-white rounded-[16px] xs:py-4 py-2 md:py-20  px-4 flex justify-between flex-col md:px-20">
+            <div></div>
+            <div className="xss:h-[30rem] xss:mt-14  h-[67%] sm:mt-5 sm:h-[40rem] sm:mb-10 md:h-[57%] md:mt-20 bg-white rounded-[16px] xs:py-4 py-2 md:py-20  px-4 flex sm:justify-between flex-col md:px-20">
               <h1 className="text-center font-semibold text-xl mt-2  md:text-2xl">
                 Login
               </h1>
@@ -218,7 +222,7 @@ const Login = () => {
                 </h2>
                 <form
                   onSubmit={formik.handleSubmit}
-                  className="flex flex-col h-[13rem] justify-between "
+                  className="flex flex-col h-[12rem] justify-between "
                 >
                   <div class="relative z-0 ">
                     <input
@@ -300,7 +304,7 @@ const Login = () => {
                     Create account
                   </Link>
                 </span>
-                <span className=" md:mt-0 text-xs  md:text-[1.2rem]  flex items-center justify-center py-[0.3rem] text-sm border-2 mt-4 lg:mt-8 xl:mt-10 border-[#009186] border-solid rounded-[8px]   lg:mx-10 xl:mx-[8rem] 2xl:mx-[10rem]">
+                <span className=" md:mt-0   md:text-[1.2rem]  flex items-center justify-center py-[0.3rem] md:py-[0.8rem] text-sm border-2 mt-4 lg:mt-8 xl:mt-10 border-[#009186] border-solid rounded-[8px]   lg:mx-10 xl:mx-[8rem] 2xl:mx-[10rem]">
                   {" "}
                   <p className="mr-2  text-[#009186] "> Continue with Google</p>
                   <img src={icon} alt="" className="object-contain w-5" />
