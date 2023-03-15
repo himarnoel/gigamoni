@@ -16,12 +16,11 @@ const Signup = () => {
   const [first, setfirst] = useState({})
   const navigate = useNavigate();
   let fromSendMoney = {};
-
     if (localStorage.Send) {
       fromSendMoney = JSON.parse(localStorage.Send);
      
     }
- 
+
 
 
   const formik = useFormik({
