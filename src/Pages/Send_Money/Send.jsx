@@ -151,9 +151,9 @@ const Send = () => {
               <form
                 onSubmit={formik.handleSubmit}
                 className="bg-[#F8F8FF] rounded-lg lg:pl-5 lg:pr-10  lg:py-8 lg:w-[28rem] mxl:w-[32rem] lg:gap-y-4  lg:mb-8 xl:gap-y-3
-            lg:mx-auto lg:mt-[1.2rem]  px-4 py-8 w-full gap-y-4  sm:mt-10 mb-8 md:gap-y-10 flex-auto
+            lg:mx-auto lg:mt-[1.2rem]  px-4 py-8 w-full gap-y-4  sm:mt-10 mb-8  md:gap-y-10 flex-auto
             mxl:gap-y-10 sm:px-10
-            mx-auto mt-[1.2rem] text-[#262626] grid"
+            mx-auto mt-[1.2rem] text-[#262626] grid lg:h-[37rem]"
               >
                 <p>Transaction Details</p>
                 <div className="relative z-0 mt-0">
