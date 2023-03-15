@@ -8,6 +8,7 @@ import axios from "axios";
 import RingLoader from "react-spinners/RingLoader";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import "./style.css";
 const Signup = () => {
   const [countries, setcountries] = useState(["Nigeria"]);
   const [selected, setSelected] = useState("");
@@ -260,38 +261,39 @@ const Signup = () => {
                 <div className="relative z-0 ">
                   <input
                     type="password"
-                    id="confirmpassword"
-                    name="passwordConfirmation"
+                    id="password"
+                    name="password"
                     className={
                       formik.errors.passwordConfirmation &&
                       formik.touched.passwordConfirmation
-                        ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500  focus:border-red-500  appearance-none   focus:outline-none focus:ring-0  peer"
+                        ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
                         : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
                     }
+                    placeholder=" "
                     onChange={formik.handleChange}
                     value={formik.values.passwordConfirmation}
                     onBlur={formik.handleBlur}
                   />
                   <label
-                    for="passwordConfirmation"
+                    for="password"
                     className={
                       formik.errors.passwordConfirmation &&
                       formik.touched.passwordConfirmation
-                        ? "absolute text-xs mxl:text-sm font-poppins text-red-500    duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                        ? "absolute text-xs mxl:text-sm font-poppins text-red-500  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                         : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                     }
                   >
-                    Password
+                    Confirm Password
                   </label>
                   {formik.errors.passwordConfirmation &&
                   formik.touched.passwordConfirmation ? (
                     <p className="text-red-500 text-xs font-poppins">
-                      {formik.errors.passwordConfirmation}
+                      {formik.errors.password}
                     </p>
                   ) : (
                     ""
                   )}
-                </div>
+                </div>{" "}
                 <button
                   type="submit"
                   className="px-5 py-2 mxl:py-4 mxl:px-8 self-end l bg-[#009186] text-[#F8F8FF] rounded-[8px] font-semibold"
@@ -431,7 +433,7 @@ const Signup = () => {
                 </div>{" "}
                 <div className="relative z-0 ">
                   <input
-                    type="text"
+                    type="tel"
                     id="phonenumber"
                     className={
                       formik.errors.phonenumber && formik.touched.phonenumber
@@ -488,8 +490,8 @@ const Signup = () => {
                     for="country"
                     className={
                       formik.errors.country && formik.touched.country
-                        ? "absolute text-xs mxl:text-sm font-poppins text-red-500  duration-300 transform -translate-y-4 scale-25 top-7 focus:top-4  peer-focus:top-6 -z-10 origin-[0] peer-focus:text-[#009186] peer-aria-selected:scale-200 peer-aria-selected:scale-200 peer-aria-selected:translate-y-14 peer-focus:scale-75 peer-focus:-translate-y-6"
-                        : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-4 scale-25 top-7 focus:top-4  peer-focus:top-6 -z-10 origin-[0] peer-focus:text-[#009186] peer-aria-selected:scale-200 peer-aria-selected:scale-200 peer-aria-selected:translate-y-14 peer-focus:scale-75 peer-focus:-translate-y-6"
+                        ? "absolute top-2   -z-1 origin-0  text-xs mxl:text-sm font-poppins text-red-500  duration-300  peer-focus:text-[#009186] "
+                        : "absolute top-2   -z-1 origin-0  text-xs mxl:text-sm font-poppins text-[#262626]  duration-300  peer-focus:text-[#009186] "
                     }
                   >
                     Country

@@ -11,6 +11,7 @@ import { RiArrowDownSLine } from "react-icons/ri";
 import { BiTransfer } from "react-icons/bi";
 import { RingLoader } from "react-spinners";
 import { IoIosCloseCircle } from "react-icons/io";
+import "./style.css";
 const Send = () => {
   const navigate = useNavigate();
   const [lessamount, setlessamount] = useState(false);
@@ -223,7 +224,7 @@ const Send = () => {
                 </div>{" "}
                 <div className="relative z-0 ">
                   <input
-                    type="text"
+                    type="tel"
                     id="phonenumber"
                     className={
                       formik.errors.phonenumber && formik.touched.phonenumber
@@ -277,8 +278,8 @@ const Send = () => {
                     for="country"
                     className={
                       formik.errors.country && formik.touched.country
-                        ? "absolute text-xs mxl:text-sm font-poppins text-red-500  duration-300 transform -translate-y-4 scale-25 top-7 focus:top-4  peer-focus:top-5 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-aria-selected:scale-200 peer-aria-selected:scale-200 peer-aria-selected:translate-y-14 peer-focus:scale-75 peer-focus:-translate-y-6"
-                        : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-4 scale-25 top-7 focus:top-4  peer-focus:top-[1.36rem] -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-aria-selected:scale-200   peer-aria-selected:translate-y-14 peer-focus:scale-75 peer-focus:-translate-y-6 "
+                        ? "absolute top-2   -z-1 origin-0  text-xs mxl:text-sm font-poppins text-[#262626]  duration-300  peer-focus:text-[#009186] "
+                        : "absolute top-2   -z-1 origin-0  text-xs mxl:text-sm font-poppins text-[#262626]  duration-300  peer-focus:text-[#009186] "
                     }
                   >
                     Country
@@ -318,8 +319,8 @@ const Send = () => {
                     className={
                       formik.errors.receivingcountry &&
                       formik.touched.receivingcountry
-                        ? "absolute text-xs mxl:text-sm font-poppins text-red-500  duration-300 transform -translate-y-4 scale-25 top-7 focus:top-4  peer-focus:top-6 -z-10 origin-[0] peer-focus:text-[#009186] peer-aria-selected:scale-200 peer-aria-selected:scale-200 peer-aria-selected:translate-y-14 peer-focus:scale-75 peer-focus:-translate-y-6"
-                        : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-4 scale-25 top-7 focus:top-4  peer-focus:top-6 -z-10 origin-[0]  peer-focus:text-[#009186] peer-aria-selected:scale-200 peer-aria-selected:scale-200 peer-aria-selected:translate-y-14 peer-focus:scale-75 peer-focus:-translate-y-6"
+                        ? "absolute top-2   -z-1 origin-0  text-xs mxl:text-sm font-poppins text-red-500  duration-300  peer-focus:text-[#009186] "
+                        : "absolute top-2   -z-1 origin-0  text-xs mxl:text-sm font-poppins text-[#262626]  duration-300  peer-focus:text-[#009186] "
                     }
                   >
                     Receiving Country

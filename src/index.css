@@ -48,7 +48,7 @@ body {
   transform-origin: 0%;
 }
 
-
+/* 
 select:not([value='']):valid ~ label {
   
   --tw-translate-x: 0;
@@ -61,10 +61,10 @@ select:not([value='']):valid ~ label {
       skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
     --tw-scale-x: 0.75;
     --tw-scale-y: 0.75;
-    --tw-translate-y: -2rem;
+    --tw-translate-y: -0.8rem;
 }
 
-/* select:focus ~ label{
+select:focus ~ label{
     
     --tw-translate-x: 0;
     --tw-translate-y: 0;
@@ -75,8 +75,8 @@ select:not([value='']):valid ~ label {
       skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
     --tw-scale-x: 0.75;
     --tw-scale-y: 0.75;
-    --tw-translate-y: -1.5rem;
-} */
+    --tw-translate-y: -0.8rem;
+}
 
 
 
@@ -85,7 +85,7 @@ select:focus ~ label {
   --tw-text-opacity: 1;
   color: rgba(0, 0, 0, var(--tw-text-opacity));
   left: 0px;
-}
+} */
 
 .spin-button-none::-webkit-outer-spin-button,
 .spin-button-none::-webkit-inner-spin-button{
