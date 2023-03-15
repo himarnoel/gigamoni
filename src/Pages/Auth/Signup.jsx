@@ -8,7 +8,7 @@ import axios from "axios";
 import RingLoader from "react-spinners/RingLoader";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import "./style.css";
+
 const Signup = () => {
   const [countries, setcountries] = useState(["Nigeria"]);
   const [selected, setSelected] = useState("");
@@ -211,7 +211,7 @@ const Signup = () => {
                     className={
                       formik.errors.country && formik.touched.country
                         ? "absolute top-2   -z-1 origin-0  text-xs mxl:text-sm font-poppins text-[#262626]  duration-300  peer-focus:text-[#009186] "
-                        : "absolute top-2   -z-1 origin-0  text-xs mxl:text-sm font-poppins text-[#262626]  duration-300  peer-focus:text-[#009186] "
+                        : "absolute top-2   -z-1 origin-0   text-xs mxl:text-sm font-poppins text-[#262626]  duration-300  peer-focus:text-[#009186] "
                     }
                   >
                     Country
