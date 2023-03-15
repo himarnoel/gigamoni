@@ -48,7 +48,6 @@ body {
   transform-origin: 0%;
 }
 
-/* 
 select:not([value='']):valid ~ label {
   
   --tw-translate-x: 0;
@@ -81,11 +80,11 @@ select:focus ~ label{
 
 
 select:focus ~ label {
- 
+
   --tw-text-opacity: 1;
   color: rgba(0, 0, 0, var(--tw-text-opacity));
   left: 0px;
-} */
+}
 
 .spin-button-none::-webkit-outer-spin-button,
 .spin-button-none::-webkit-inner-spin-button{
