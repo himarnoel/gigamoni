@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import NavBar from "./../../Components/AppComponents/NavBar";
 import icon from "./../../assets/google-icon.svg";
 import { RiArrowDownSLine } from "react-icons/ri";
@@ -14,12 +14,19 @@ const Signup = () => {
   const [load, setload] = useState(false);
   const [phone, setphone] = useState("+234");
   const navigate = useNavigate();
+  let fromSendMoney = {};
+
+  if (localStorage.Send) {
+    fromSendMoney = JSON.parse(localStorage.Send);
+    console.log(fromSendMoney);
+  }
+
   const formik = useFormik({
     initialValues: {
-      name: "",
-      email: "",
-      phonenumber: "",
-      country: "",
+      name: fromSendMoney.name ?? "",
+      email: fromSendMoney.email ?? "",
+      phonenumber: fromSendMoney.phonenumber ?? "",
+      country: fromSendMoney.country ?? "",
       password: "",
       passwordConfirmation: "",
     },
