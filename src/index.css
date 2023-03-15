@@ -50,21 +50,22 @@ body {
 
 
 select:not([value='']):valid ~ label {
-  /* @apply transform; scale-75; -translate-y-6; */
+  
   --tw-translate-x: 0;
-  --tw-translate-y: 0;
-  --tw-rotate: 0;
-  --tw-skew-x: 0;
-  --tw-skew-y: 0;
+  --tw-translate-x: 0;
+    --tw-translate-y: 0;
+    --tw-rotate: 0;
+    --tw-skew-x: 0;
+    --tw-skew-y: 0;
     transform: translateX(var(--tw-translate-x)) translateY(var(--tw-translate-y)) rotate(var(--tw-rotate))
-    skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-  --tw-scale-x: 0.75;
-  --tw-scale-y: 0.75;
-  --tw-translate-y: -1.5rem;
+      skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+    --tw-scale-x: 0.75;
+    --tw-scale-y: 0.75;
+    --tw-translate-y: -1.7rem;
 }
 
-select:focus ~ label{
-    /* @apply transform; scale-75; -translate-y-6; */
+/* select:focus ~ label{
+    
     --tw-translate-x: 0;
     --tw-translate-y: 0;
     --tw-rotate: 0;
@@ -75,16 +76,15 @@ select:focus ~ label{
     --tw-scale-x: 0.75;
     --tw-scale-y: 0.75;
     --tw-translate-y: -1.5rem;
-}
+} */
 
 
 
 select:focus ~ label {
-  /* @apply text-black; left-0; */
+ 
   --tw-text-opacity: 1;
   color: rgba(0, 0, 0, var(--tw-text-opacity));
   left: 0px;
-  top: 5rem;
 }
 
 .spin-button-none::-webkit-outer-spin-button,
