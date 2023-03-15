@@ -11,7 +11,7 @@ import { RiArrowDownSLine } from "react-icons/ri";
 import { BiTransfer } from "react-icons/bi";
 import { RingLoader } from "react-spinners";
 import { IoIosCloseCircle } from "react-icons/io";
-import "./style.css";
+
 const Send = () => {
   const navigate = useNavigate();
   const [lessamount, setlessamount] = useState(false);
