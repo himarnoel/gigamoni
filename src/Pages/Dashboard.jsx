@@ -6,6 +6,7 @@ import bell from "../assets/bell.svg";
 import { GrSearch } from "react-icons/gr";
 import search from "../assets/search.svg";
 import { RiArrowDownSLine } from "react-icons/ri";
+import card from "../assets/carddash.png";
 
 const Dashboard = () => {
   const [first, setfirst] = useState("");
@@ -21,7 +22,7 @@ const Dashboard = () => {
           <p className="font-semibold">Notifications</p>
         </span>
 
-        <div className="flex w-full">
+        <div className="flex w-full justify-between">
           <div className=" mt-10">
             <span className="flex">
               <p className="text-[#175873] font-medium text-base ">
@@ -56,14 +57,18 @@ const Dashboard = () => {
           </div>
           {/* for the secon part */}
           <div className="mt-10">
-            <div className="w-full bg-[#87ACA3]">
-              <p className="text-white">
-                International transactions has never been easier
-              </p>
-              <button className="px-[2.4rem] py-[0.7rem] rounded text-white bg-[#009186] flex items-center">
-                Account
-                <RiArrowDownSLine className="text-xl ml-2" />
-              </button>
+            <div className="w-[29rem] h-[8.5rem] flex items-center justify-between rounded-3xl bg-[#87ACA3] pl-2">
+              <span className="w-[17rem]">
+                <p className="text-white text-sm ">
+                  International transactions has never been easier
+                </p>
+                <button className="px-[2.4rem] py-[0.6rem] mt-4 text-sm rounded-lg text-white bg-[#009186] flex items-center">
+                  Account
+                  <RiArrowDownSLine className="text-xl ml-2" />
+                </button>
+               
+              </span>
+              <img src={card} alt="" className="object-contain w-[10rem] mt-[-1.2rem] mr-[-0.2rem]"/>
             </div>
           </div>
         </div>
