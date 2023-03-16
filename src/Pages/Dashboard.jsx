@@ -7,6 +7,7 @@ import { GrSearch } from "react-icons/gr";
 import search from "../assets/search.svg";
 import { RiArrowDownSLine } from "react-icons/ri";
 import card from "../assets/carddash.png";
+import { BiTransfer } from "react-icons/bi";
 
 const Dashboard = () => {
   const [first, setfirst] = useState("");
@@ -72,6 +73,74 @@ const Dashboard = () => {
                 alt=""
                 className="object-contain w-[12rem] mt-[-1.6rem] mr-[-0.3rem]"
               />
+            </div>
+            <div className="bg-[#C4C4C4] px-3 mt-20 rounded-lg py-10">
+              <div className="w-full text-[#707070] font-semibold bg-white py-2 text-center rounded-lg">
+                FX Rates Today
+              </div>
+              <div className=" flex items-center justify-between">
+                <span className="flex ">
+                  <span className="relative z-0">
+                    <select
+                      type="text"
+                      id="sendingcurrency"
+                      disabled
+                      className={
+                        " font-poppins pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070]   rounded-[6px] border-solid border-white border-[4px] rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#F8F8FF]"
+                        //placeholder=" "
+                      }
+                      placeholder="receivingcountry"
+                    >
+                      <option value="USD" selected>
+                        USD
+                      </option>
+
+                      <option value="Pounds">Pounds</option>
+                    </select>
+                    <RiArrowDownSLine className="pointer-events-none cursor-pointer text-4xl absolute inset-y-5 right-0 flex items-center px-2 text-[#707070]" />
+                  </span>
+                  <input
+                    type="number"
+                    id="sendamount"
+                    placeholder="00000"
+                    disabled
+                    className={
+                      " font-poppins spin-button-none  pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-[#F8F8FF] border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186]"
+                    }
+                  />
+                </span>
+                <BiTransfer className="text-3xl text-[#F8F8FF] mt-6" />
+                <span className="flex ">
+                  <span className="relative z-0">
+                    <select
+                      type="text"
+                      disabled
+                      id="sendingcurrency"
+                      className={
+                        " font-poppins pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070]   rounded-[6px] border-solid border-[#F8F8FF] border-[4px] rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#F8F8FF]"
+                        //placeholder=" "
+                      }
+                      placeholder="receivingcountry"
+                    >
+                      <option value="USD" selected>
+                        USD
+                      </option>
+
+                      <option value="Pounds">Pounds</option>
+                    </select>
+                    <RiArrowDownSLine className="pointer-events-none cursor-pointer text-4xl absolute inset-y-5 right-0 flex items-center px-2 text-[#707070]" />
+                  </span>
+                  <input
+                  disabled
+                    type="number"
+                    id="sendamount"
+                    placeholder="00000"
+                    className={
+                      " font-poppins spin-button-none  pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-[#F8F8FF] border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#F8F8FF]"
+                    }
+                  />
+                </span>
+              </div>
             </div>
           </div>
         </div>
