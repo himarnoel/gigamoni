@@ -30,7 +30,7 @@ const DashNav = (props) => {
       </div>
       {/* Mobile nav bar */}
 
-      <div className=" fixed top-0  shadow  px-2 xss:px-4 xs:px-6 sm:px-10 md:px-8  font-poppins w-full bg-white lg:hidden    py-5 flex  z-[70] rounded-b-lg justify-between">
+      <div className=" fixed top-0  shadow  px-2 xss:px-4 xs:px-6 sm:px-10 md:px-8  font-poppins w-full bg-[#F8F8FF] lg:hidden    py-5 flex  z-[70] rounded-b-lg justify-between">
         <Link to="/">
           {" "}
           <img src={logo} alt="" className="md:w-40 w-24 " />
