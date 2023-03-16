@@ -5,6 +5,7 @@ import DashNav from "../Components/DashBoardComponents/DashNav";
 import bell from "../assets/bell.svg";
 import { GrSearch } from "react-icons/gr";
 import search from "../assets/search.svg";
+import { RiArrowDownSLine } from "react-icons/ri";
 
 const Dashboard = () => {
   const [first, setfirst] = useState("");
@@ -26,25 +27,45 @@ const Dashboard = () => {
               <p className="text-[#175873] font-medium text-base ">
                 Recent Transactions
               </p>
-              <p className="text-[#009186] ml-[9rem] text-sm">Beneficiaries</p>
+              <p className="text-[#009186] ml-[10rem] text-sm">Beneficiaries</p>
             </span>
 
-            <div className="relative mt-4">
-              <input
-                type="text"
-                className=" pl-3 pr-10 py-2 placeholder:text-[#87ACA3] placeholder:text-xs rounded-[8px] border-[2px] border-[#009186] focus:border-[#009186] border-solid
+            <div className="flex items-center mt-8">
+              <div className="relative ">
+                <input
+                  type="text"
+                  className=" pl-3 pr-[15rem] py-3 text-sm placeholder:text-[#87ACA3] placeholder:text-xs rounded-[8px] border-[2px] focus:outline-none border-[#009186] focus:border-[#009186]  border-solid
             "
-                placeholder="Search transcations"
-              />
-              <img
-                src={search}
-                alt=""
-                className="object-contain w-[1.3rem] absolute top-3 right-[9rem]"
-              />
+                  placeholder="Search transcations"
+                />
+                <img
+                  src={search}
+                  alt=""
+                  className="object-contain w-[1.3rem] absolute inset-y-3 right-[1.2rem]"
+                />
+              </div>
+              <div className="relative ml-8">
+                <input
+                  type="text"
+                  className="w-[11rem] px-2  py-3 text-sm placeholder:text-[#87ACA3] placeholder:text-xs rounded-[8px] border-[2px] focus:outline-none border-[#009186] focus:border-[#009186]  border-solid
+            "
+                  placeholder="Search date"
+                />
+              </div>
             </div>
           </div>
           {/* for the secon part */}
-          <div className="mt-10"></div>
+          <div className="mt-10">
+            <div className="w-full bg-[#87ACA3]">
+              <p className="text-white">
+                International transactions has never been easier
+              </p>
+              <button className="px-[2.4rem] py-[0.7rem] rounded text-white bg-[#009186] flex items-center">
+                Account
+                <RiArrowDownSLine className="text-xl ml-2" />
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
