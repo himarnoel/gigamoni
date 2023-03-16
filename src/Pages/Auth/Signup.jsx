@@ -210,8 +210,8 @@ const Signup = () => {
                     for="country"
                     className={
                       formik.errors.country && formik.touched.country
-                        ? "absolute top-2   -z-1 origin-0  text-xs mxl:text-sm font-poppins text-[#262626]  duration-300  peer-focus:text-[#009186] "
-                        : "absolute top-2   -z-1 origin-0   text-xs mxl:text-sm font-poppins text-[#262626]  duration-300  peer-focus:text-[#009186] "
+                        ? "absolute top-4   -z-1 origin-0  text-xs mxl:text-sm font-poppins text-[#262626]  duration-300  peer-focus:text-[#009186] "
+                        : "absolute top-4   -z-1 origin-0   text-xs mxl:text-sm font-poppins text-[#262626]  duration-300  peer-focus:text-[#009186] "
                     }
                   >
                     Country
@@ -490,13 +490,13 @@ const Signup = () => {
                     for="country"
                     className={
                       formik.errors.country && formik.touched.country
-                        ? "absolute top-2   -z-1 origin-0  text-xs mxl:text-sm font-poppins text-[#262626]  duration-300  peer-focus:text-[#009186] "
-                        : "absolute top-2   -z-1 origin-0  text-xs mxl:text-sm font-poppins text-[#262626]  duration-300  peer-focus:text-[#009186] "
+                        ? "absolute top-4   -z-1 origin-0  text-xs mxl:text-sm font-poppins text-[#262626]  duration-300  peer-focus:text-[#009186] "
+                        : "absolute top-4   -z-1 origin-0  text-xs mxl:text-sm font-poppins text-[#262626]  duration-300  peer-focus:text-[#009186] "
                     }
                   >
                     Country
                   </label>
-                  <RiArrowDownSLine className="pointer-events-none cursor-pointer text-4xl absolute inset-y-0 right-0 flex items-center px-2 text-[#262626]" />
+                  <RiArrowDownSLine className="pointer-events-none cursor-pointer text-4xl absolute inset-y-2 right-0 flex items-center px-2 text-[#262626]" />
                   {formik.errors.country && formik.touched.country ? (
                     <p className="text-red-500 text-xs font-poppins">
                       {formik.errors.phonenumber}
