@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import logo from "../../assets/logo.svg";
 import { HiMenu } from "react-icons/hi";
+import { RiArrowDownSLine } from "react-icons/ri";
 import { Link, useNavigate } from "react-router-dom";
 const DashNav = (props) => {
   const [bool, setbool] = useState(false);
@@ -19,9 +20,10 @@ const DashNav = (props) => {
             <Link to="/login">Logout</Link>
             <button
               onClick={() => navigate("/dashboard")}
-              className="px-8 py-[0.7rem] rounded text-white bg-[#009186]"
+              className="px-[2.4rem] py-[0.7rem] rounded text-white bg-[#009186] flex items-center"
             >
               Account
+              <RiArrowDownSLine  className="text-xl ml-2"/>
             </button>
           </span>
         </div>
@@ -40,7 +42,7 @@ const DashNav = (props) => {
          rounded-[8px] bg-[#009186]  text-white mr-4"
           >
             {" "}
-            Account
+            Account <RiArrowDownSLine />
           </button>{" "}
           <HiMenu
             className="text-black text-xl sm:text-3xl md:text-4xl"
