@@ -12,7 +12,7 @@ const Hero = () => {
       <div className="">
         {/* global text */}
         <div
-          className="flex flex-col items-center mx-2 xss:mx-4 xs:mx-6  sm:mx-8 md:mx-1  xl:left-[10rem] 2xl:left-[10rem]  text-white z-40 text-2xl left-0 right-0  md:right-[16rem]  lg:right-[27rem] xl:right-[40rem]  xl:top-[18rem]   md:text-left sm:text-4xl   leading-loose absolute top-24  lg:top-[16rem] md:top-[10rem] md:left-8  lg:left-10 
+          className="flex flex-col  items-center mx-2 xss:mx-4 xs:mx-6  sm:mx-8 md:mx-1  xl:left-[10rem] 2xl:left-[10rem]  text-white z-40 text-2xl left-0 right-0  md:right-[16rem]  lg:right-[27rem] xl:right-[40rem]  xl:top-[18rem]   md:text-left sm:text-4xl   leading-loose absolute top-24  lg:top-[16rem] md:top-[10rem] md:left-8  lg:left-10 
   "
         >
           <div className="leading-[2] self-start ">

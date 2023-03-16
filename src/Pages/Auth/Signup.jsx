@@ -65,7 +65,7 @@ const Signup = () => {
 
   return (
     <>
-      <div className="hidden lg:block">
+      <div className="hidden lg:block font-poppins">
         {load ? (
           <div className="absolute top-0 bg-cover bg-[#262626]/[0.8]  z-[90] h-full overla w-full flex  justify-center items-center text-3xl">
             <RingLoader color="#009186" size={90} />

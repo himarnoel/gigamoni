@@ -2,7 +2,7 @@ import React from "react";
 import bg from "../../assets/Rectangle.png";
 const Services = () => {
   return (
-    <div className="bg-[#87ACA3] md:pb-10 w-full mt-20  px-2 xss:px-4 xs:px-6  sm:px-10  md:px-8  lg:px-10  xl:px-[10rem]  py-[1rem]">
+    <div className="bg-[#87ACA3]  md:pb-10 w-full mt-20  px-2 xss:px-4 xs:px-6  sm:px-10  md:px-8  lg:px-10  xl:px-[10rem]  py-[1rem]">
       <p className="text-center text-[#F8F8FF] text-3xl font-semibold mt-5 ">
         Explore our Services
       </p>
