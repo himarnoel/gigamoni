@@ -23,20 +23,24 @@ const Dashboard = () => {
         <div className="flex w-full">
           <div className=" mt-10">
             <span className="flex">
-              <p className="text-[#175873] font-medium text-sm ">
+              <p className="text-[#175873] font-medium text-base ">
                 Recent Transactions
               </p>
-              <p className="text-[#009186] ml-[9rem] text-xs">Beneficiaries</p>
+              <p className="text-[#009186] ml-[9rem] text-sm">Beneficiaries</p>
             </span>
 
             <div className="relative mt-4">
               <input
                 type="text"
-                className=" px-4 py-2 placeholder:text-[#87ACA3] placeholder:text-xs rounded-[8px] border-[2px] border-[#009186] border-solid
+                className=" pl-3 pr-10 py-2 placeholder:text-[#87ACA3] placeholder:text-xs rounded-[8px] border-[2px] border-[#009186] focus:border-[#009186] border-solid
             "
                 placeholder="Search transcations"
               />
-              <img src={search} alt="" />
+              <img
+                src={search}
+                alt=""
+                className="object-contain w-[1.3rem] absolute top-3 right-[9rem]"
+              />
             </div>
           </div>
           {/* for the secon part */}
