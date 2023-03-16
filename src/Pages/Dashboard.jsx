@@ -8,7 +8,7 @@ import search from "../assets/search.svg";
 import { RiArrowDownSLine } from "react-icons/ri";
 import card from "../assets/carddash.png";
 import { BiTransfer } from "react-icons/bi";
-import second from '../assets/Dashboard/caller.svg'
+import caller from "../assets/Dashboard/caller.svg";
 
 const Dashboard = () => {
   const [first, setfirst] = useState("");
@@ -75,7 +75,7 @@ const Dashboard = () => {
                 className="object-contain w-[12rem] mt-[-1.6rem] mr-[-0.3rem]"
               />
             </div>
-            <div className="bg-[#C4C4C4] px-6  mt-14 rounded-lg h-[13rem] py-2 relative">
+            <div className="bg-[#C4C4C4] px-6  mt-10 rounded-lg h-[13rem] py-2 relative">
               <div className="w-full text-[#707070] font-semibold bg-white py-3 text-center flex justify-center items-center rounded-lg mt-3">
                 FX Rates Today
               </div>
@@ -142,6 +142,11 @@ const Dashboard = () => {
                 COMING SOON
               </div>
             </div>
+
+            <button className="py-2 flex text-sm  justify-center items-center text-[#009186] mt-9   rounded-lg border-2 border-[#009186] w-full ">
+              Create Support
+              <img src={caller} alt="" className="ml-2" />
+            </button>
           </div>
         </div>
       </div>
