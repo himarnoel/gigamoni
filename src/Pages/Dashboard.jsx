@@ -15,7 +15,7 @@ const Dashboard = () => {
   return (
     <div className="font-poppins bg-[#F8F8FF]">
       <DashNav class="fixed top-0 w-full" />
-      <div className="2xl:px-[10rem] xl:px-[5rem] lg:px-10 mt-20 mxl:pt-14">
+      <div className="2xl:px-[10rem] xl:px-[5rem] lg:px-10 mt-20 mxl:pt-20">
         <span
           onClick={() => alert("Notification")}
           className="flex text-[#009186] float-right items-center cursor-pointer"
@@ -28,8 +28,8 @@ const Dashboard = () => {
           <p className="font-semibold mxl:text-xl">Notifications</p>
         </span>
 
-        <div className="flex w-full justify-between mxl:pt-16">
-          <div className=" mt-10">
+        <div className="flex w-full justify-between mxl:pt-20">
+          <div className=" mt-10 w-[34rem]">
             <span className="flex">
               <p className="text-[#175873] font-medium text-base ">
                 Recent Transactions
@@ -61,7 +61,7 @@ const Dashboard = () => {
               </div>
             </div>
 
-            <div className="bg-[#DAF2F1] overflow-auto rounded-lg w-full h-[22.6rem] mxl:h-[40rem] mt-8 px-4 border-[#009186]">
+            <div className="bg-[#DAF2F1] overflow-auto rounded-lg w-full h-[22.6rem] mxl:h-[42.8rem] mt-8 px-4 border-[#009186]">
               <div className="rounded-lg flex flex-col justify-between border-2 border-[#009186] text-sm mt-8 bg-[#F8F8FF] px-3 py-1 h-[6rem]">
                 <span className=" flex justify-between">
                   <p>01/01/2023 11:30am</p>
@@ -184,7 +184,7 @@ const Dashboard = () => {
                 className="object-contain w-[12rem] mxl:w-[18rem] mxl:mt-[-2.7rem] mt-[-1.6rem] mr-[-0.3rem]"
               />
             </div>
-            <div className="bg-[#C4C4C4] px-6  mt-10 rounded-lg h-[13rem]  mxl:h-[16rem] mxl:mt-[5rem] py-2 mxl:py-5 relative">
+            <div className="bg-[#C4C4C4] px-6  mt-10 rounded-lg h-[13rem]  mxl:h-[16rem] mxl:mt-[6rem] py-2 mxl:py-5 relative">
               <div className="w-full text-[#707070] font-semibold bg-white py-3 text-center flex justify-center items-center rounded-lg mt-3">
                 FX Rates Today
               </div>
@@ -252,9 +252,9 @@ const Dashboard = () => {
               </div>
             </div>
 
-            <button className="py-2 mxl:py-3  flex text-sm mxl:text-base   mxl:mt-[6rem] justify-center items-center text-[#009186] mt-9   rounded-lg border-2 border-[#009186] w-full ">
+            <button className="py-2 mxl:py-[12px] mxl:text-xl   flex text-sm   mxl:mt-[6rem] justify-center items-center text-[#009186] mt-9   rounded-lg border-2 border-[#009186] w-full ">
               Create Support
-              <img src={caller} alt="" className="ml-2" />
+              <img src={caller} alt="" className="ml-2 mxl:w-[2.8rem]" />
             </button>
           </div>
         </div>
