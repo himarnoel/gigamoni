@@ -15,16 +15,20 @@ const Dashboard = () => {
   return (
     <div className="font-poppins bg-[#F8F8FF]">
       <DashNav class="fixed top-0 w-full" />
-      <div className="2xl:px-[10rem] xl:px-[5rem] lg:px-10 mt-20">
+      <div className="2xl:px-[10rem] xl:px-[5rem] lg:px-10 mt-20 mxl:pt-14">
         <span
           onClick={() => alert("Notification")}
           className="flex text-[#009186] float-right items-center cursor-pointer"
         >
-          <img src={bell} alt="" className="object-contain w-[1.6rem] mr-3" />
-          <p className="font-semibold">Notifications</p>
+          <img
+            src={bell}
+            alt=""
+            className="object-contain w-[1.6rem] mxl:w-[2rem] mr-3"
+          />
+          <p className="font-semibold mxl:text-xl">Notifications</p>
         </span>
 
-        <div className="flex w-full justify-between">
+        <div className="flex w-full justify-between mxl:pt-16">
           <div className=" mt-10">
             <span className="flex">
               <p className="text-[#175873] font-medium text-base ">
@@ -56,12 +60,117 @@ const Dashboard = () => {
                 />
               </div>
             </div>
+
+            <div className="bg-[#DAF2F1] overflow-auto rounded-lg w-full h-[22.6rem] mxl:h-[40rem] mt-8 px-4 border-[#009186]">
+              <div className="rounded-lg flex flex-col justify-between border-2 border-[#009186] text-sm mt-8 bg-[#F8F8FF] px-3 py-1 h-[6rem]">
+                <span className=" flex justify-between">
+                  <p>01/01/2023 11:30am</p>
+                  <p>Lorem Ipsum University, London </p>
+                  <p>$ 2,000</p>
+                </span>
+                <div className=" flex w-full">
+                  <p className="mr-8">JPMorgan Chase Bank</p>
+                  <p className="self-center">12345678901234</p>
+                  {/* <p className="">12345678901234</p> */}
+                </div>
+                <span className="flex justify-between">
+                  <p className="text-[#FBBC05]">Inprogress</p>
+                  <p className="text-[#262626]">Card Payment</p>
+                  <p className="text-[#009186]">see more</p>
+                </span>
+              </div>
+              <div className="rounded-lg flex flex-col justify-between border-2 border-[#009186] text-sm mt-8 bg-[#F8F8FF] px-3 py-1 h-[6rem]">
+                <span className=" flex justify-between">
+                  <p>01/01/2023 11:30am</p>
+                  <p>Lorem Ipsum University, London </p>
+                  <p>$ 2,000</p>
+                </span>
+                <div className=" flex w-full">
+                  <p className="mr-8">JPMorgan Chase Bank</p>
+                  <p className="self-center">12345678901234</p>
+                  {/* <p className="">12345678901234</p> */}
+                </div>
+                <span className="flex justify-between">
+                  <p className="text-[#FBBC05]">Inprogress</p>
+                  <p className="text-[#262626]">Card Payment</p>
+                  <p className="text-[#009186]">see more</p>
+                </span>
+              </div>
+              <div className="rounded-lg flex flex-col justify-between border-2 border-[#009186] text-sm mt-8 bg-[#F8F8FF] px-3 py-1 h-[6rem]">
+                <span className=" flex justify-between">
+                  <p>01/01/2023 11:30am</p>
+                  <p>Lorem Ipsum University, London </p>
+                  <p>$ 2,000</p>
+                </span>
+                <div className=" flex w-full">
+                  <p className="mr-8">JPMorgan Chase Bank</p>
+                  <p className="self-center">12345678901234</p>
+                  {/* <p className="">12345678901234</p> */}
+                </div>
+                <span className="flex justify-between">
+                  <p className="text-[#FBBC05]">Inprogress</p>
+                  <p className="text-[#262626]">Card Payment</p>
+                  <p className="text-[#009186]">see more</p>
+                </span>
+              </div>
+              <div className="rounded-lg flex flex-col justify-between border-2 border-[#009186] text-sm mt-8 bg-[#F8F8FF] px-3 py-1 h-[6rem]">
+                <span className=" flex justify-between">
+                  <p>01/01/2023 11:30am</p>
+                  <p>Lorem Ipsum University, London </p>
+                  <p>$ 2,000</p>
+                </span>
+                <div className=" flex w-full">
+                  <p className="mr-8">JPMorgan Chase Bank</p>
+                  <p className="self-center">12345678901234</p>
+                  {/* <p className="">12345678901234</p> */}
+                </div>
+                <span className="flex justify-between">
+                  <p className="text-[#FBBC05]">Inprogress</p>
+                  <p className="text-[#262626]">Card Payment</p>
+                  <p className="text-[#009186]">see more</p>
+                </span>
+              </div>
+              <div className="rounded-lg flex flex-col justify-between border-2 border-[#009186] text-sm mt-8 bg-[#F8F8FF] px-3 py-1 h-[6rem]">
+                <span className=" flex justify-between">
+                  <p>01/01/2023 11:30am</p>
+                  <p>Lorem Ipsum University, London </p>
+                  <p>$ 2,000</p>
+                </span>
+                <div className=" flex w-full">
+                  <p className="mr-8">JPMorgan Chase Bank</p>
+                  <p className="self-center">12345678901234</p>
+                  {/* <p className="">12345678901234</p> */}
+                </div>
+                <span className="flex justify-between">
+                  <p className="text-[#FBBC05]">Inprogress</p>
+                  <p className="text-[#262626]">Card Payment</p>
+                  <p className="text-[#009186]">see more</p>
+                </span>
+              </div>
+              <div className="rounded-lg flex flex-col justify-between border-2 border-[#009186] text-sm mt-8 bg-[#F8F8FF] px-3 py-1 h-[6rem]">
+                <span className=" flex justify-between">
+                  <p>01/01/2023 11:30am</p>
+                  <p>Lorem Ipsum University, London </p>
+                  <p>$ 2,000</p>
+                </span>
+                <div className=" flex w-full">
+                  <p className="mr-8">JPMorgan Chase Bank</p>
+                  <p className="self-center">12345678901234</p>
+                  {/* <p className="">12345678901234</p> */}
+                </div>
+                <span className="flex justify-between">
+                  <p className="text-[#FBBC05]">Inprogress</p>
+                  <p className="text-[#262626]">Card Payment</p>
+                  <p className="text-[#009186]">see more</p>
+                </span>
+              </div>
+            </div>
           </div>
           {/* for the second part */}
           <div className="mt-10">
-            <div className="w-full h-[9.9rem] flex items-center justify-between rounded-3xl bg-[#87ACA3] pl-5">
-              <span className="w-[16rem]">
-                <p className="text-white text-sm font-medium ">
+            <div className="w-full mxl:w-[35rem] h-[9.9rem] mxl:h-[15rem] flex items-center justify-between rounded-3xl bg-[#87ACA3] pl-5">
+              <span className="w-[16rem] mxl:w-[18rem]">
+                <p className="text-white text-sm font-medium mxl:text-lg ">
                   International transactions has never been easier
                 </p>
                 <button className="px-[2rem] py-[0.6rem] mt-6 text-sm rounded-lg text-white bg-[#009186] flex items-center">
@@ -72,14 +181,14 @@ const Dashboard = () => {
               <img
                 src={card}
                 alt=""
-                className="object-contain w-[12rem] mt-[-1.6rem] mr-[-0.3rem]"
+                className="object-contain w-[12rem] mxl:w-[18rem] mxl:mt-[-2.7rem] mt-[-1.6rem] mr-[-0.3rem]"
               />
             </div>
-            <div className="bg-[#C4C4C4] px-6  mt-10 rounded-lg h-[13rem] py-2 relative">
+            <div className="bg-[#C4C4C4] px-6  mt-10 rounded-lg h-[13rem]  mxl:h-[16rem] mxl:mt-[5rem] py-2 mxl:py-5 relative">
               <div className="w-full text-[#707070] font-semibold bg-white py-3 text-center flex justify-center items-center rounded-lg mt-3">
                 FX Rates Today
               </div>
-              <div className=" flex items-center justify-between mt-4">
+              <div className=" flex items-center justify-between mt-4 mxl:mt-8">
                 <span className="flex ">
                   <span className="relative z-0">
                     <select
@@ -138,12 +247,12 @@ const Dashboard = () => {
                   />
                 </span>
               </div>
-              <div className="bg-[#175873] text-[#F8F8FF] py-2 font-medium  text-sm  px-5 rounded-b-lg rounded-tl-lg  absolute right-0 bottom-0">
+              <div className="bg-[#175873] text-[#F8F8FF] py-2 font-medium  text-sm mxl:px-10 mxl:py-4  px-5 rounded-b-lg rounded-tl-lg  absolute right-0 bottom-0">
                 COMING SOON
               </div>
             </div>
 
-            <button className="py-2 flex text-sm  justify-center items-center text-[#009186] mt-9   rounded-lg border-2 border-[#009186] w-full ">
+            <button className="py-2 mxl:py-3  flex text-sm mxl:text-base   mxl:mt-[6rem] justify-center items-center text-[#009186] mt-9   rounded-lg border-2 border-[#009186] w-full ">
               Create Support
               <img src={caller} alt="" className="ml-2" />
             </button>
