@@ -29,9 +29,9 @@ const Dashboard = () => {
         </span>
         <div className="w-full lg:hidden flex justify-between items-center mt-10">
           {" "}
-          <button className="py-2 sm:w-[20rem]  mxl:py-[12px] mxl:text-xl  flex text-sm   mxl:mt-[6rem] justify-center items-center text-[#009186]    rounded-lg border-2 border-[#009186]  ">
+          <button className="sm:py-2 py-1 px-10 text-sm sm:w-[20rem] lg:w-full  mxl:py-[12px] mxl:text-xl  flex    mxl:mt-[6rem] justify-center items-center text-[#009186]    rounded-lg border-2 border-[#009186]  ">
             Customer Support
-            <img src={caller} alt="" className="ml-2 mxl:w-[2.8rem]" />
+            <img src={caller} alt="" className="ml-2 w-[1.8rem] sm:w-[2rem] mxl:w-[2.8rem]" />
           </button>
           <img
             src={bell}
@@ -180,7 +180,7 @@ const Dashboard = () => {
           </div>
           {/* for the second part */}
           <div className="mt-10">
-            <div className="w-full sm:h-[14rem]  md:h-[15rem] mxl:w-[35rem] lg:h-[9.9rem] mxl:h-[15rem] flex items-center justify-between rounded-3xl bg-[#87ACA3] sm:pl-8 lg:pl-5">
+            <div className="w-full h-[14rem] sm:h-[14rem]  md:h-[15rem] mxl:w-[35rem] lg:h-[9.9rem] mxl:h-[15rem] flex items-center justify-between rounded-3xl bg-[#87ACA3] sm:pl-8 lg:pl-5">
               <span className="sm:w-[18rem] lg:w-[16rem] mxl:w-[18rem]">
                 <p className="text-white sm:text-lg lg:text-sm font-medium mxl:text-lg ">
                   International transactions has never been easier
@@ -193,7 +193,7 @@ const Dashboard = () => {
               <img
                 src={card}
                 alt=""
-                className="object-contain sm:w-[17rem] md:w-[18rem] lg:w-[12rem] mxl:w-[18rem]  mxl:mt-[-2.7rem]  sm:mt-[-2.4rem]  md:mt-[-2.7rem] lg:mt-[-1.6rem] mr-[-0.3rem]"
+                className="object-contain w-[2rem] sm:w-[17rem] md:w-[18rem] lg:w-[12rem] mxl:w-[18rem]  mxl:mt-[-2.7rem]  sm:mt-[-2.4rem]  md:mt-[-2.7rem] lg:mt-[-1.6rem] mr-[-0.3rem]"
               />
             </div>
             <div className="bg-[#C4C4C4] px-6  mt-10 rounded-lg sm:h-[15rem] lg:h-[13rem]  mxl:h-[16rem] mxl:mt-[6rem] py-2 mxl:py-5 relative">
