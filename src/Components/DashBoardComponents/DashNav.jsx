@@ -30,7 +30,7 @@ const DashNav = (props) => {
       </div>
       {/* Mobile nav bar */}
 
-      <div className=" fixed top-0  shadow  px-2 xss:px-4 xs:px-6 sm:px-10 md:px-8  font-poppins w-full bg-[#F8F8FF] lg:hidden    py-5 flex  z-[70] rounded-b-lg justify-between">
+      <div className=" fixed top-0  shadow  px-2 xss:px-4 xs:px-6 sm:px-10 md:px-20  font-poppins w-full bg-[#F8F8FF] lg:hidden    py-5 flex  z-[70] rounded-b-lg justify-between">
         <Link to="/">
           {" "}
           <img src={logo} alt="" className="md:w-40 w-24 " />
@@ -38,11 +38,11 @@ const DashNav = (props) => {
         <span className="flex ">
           <button
             onClick={() => navigate("/dashboard")}
-            className="sm:px-5 py-[0.5rem] px-2 xss:py-[0.5rem] xss:px-4 xs:py-[0.7rem] xs:px-7   sm:py-[0.7rem]  text-[0.7rem] xs:text-[0.8rem] sm:text-sm md:text-base
+            className="sm:px-5 py-[0.5rem] px-2 xss:py-[0.5rem] xss:px-4 xs:py-[0.7rem] xs:px-7 md:px-[3rem] flex items-center  sm:py-[0.7rem]  text-[0.7rem] xs:text-[0.8rem] sm:text-sm md:text-base
          rounded-[8px] bg-[#009186]  text-white mr-4"
           >
             {" "}
-            Account <RiArrowDownSLine />
+            Account <RiArrowDownSLine  className="ml-2"/>
           </button>{" "}
           <HiMenu
             className="text-black text-xl sm:text-3xl md:text-4xl"

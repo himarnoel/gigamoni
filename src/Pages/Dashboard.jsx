@@ -15,10 +15,10 @@ const Dashboard = () => {
   return (
     <div className="font-poppins bg-[#F8F8FF]">
       <DashNav class="fixed top-0 w-full" />
-      <div className="2xl:px-[10rem] xl:px-[5rem] lg:px-10 mt-20 mxl:pt-20">
+      <div className="2xl:px-[10rem] xl:px-[5rem]  px-2 xss:px-4 xs:px-6 sm:px-10 md:px-20   flex flex-col justify-center items-center gap-y-8 pb-8   lg:px-10 mt-20 mxl:pt-20">
         <span
           onClick={() => alert("Notification")}
-          className="flex text-[#009186] float-right items-center cursor-pointer"
+          className=" text-[#009186] self-end items-center cursor-pointer hidden lg:flex "
         >
           <img
             src={bell}
@@ -27,9 +27,21 @@ const Dashboard = () => {
           />
           <p className="font-semibold mxl:text-xl">Notifications</p>
         </span>
+        <div className="w-full lg:hidden flex justify-between items-center mt-10">
+          {" "}
+          <button className="py-2 md:w-[20rem]  mxl:py-[12px] mxl:text-xl  flex text-sm   mxl:mt-[6rem] justify-center items-center text-[#009186]    rounded-lg border-2 border-[#009186]  ">
+            Customer Support
+            <img src={caller} alt="" className="ml-2 mxl:w-[2.8rem]" />
+          </button>
+          <img
+            src={bell}
+            alt=""
+            className="object-contain w-[1.6rem] md:w-[2.5rem] "
+          />
+        </div>
 
-        <div className="flex w-full justify-between mxl:pt-20">
-          <div className=" mt-10 w-[34rem]">
+        <div className="flex  lg:flex-row flex-col-reverse w-full justify-between mxl:pt-20">
+          <div className=" mt-10 lg:w-[27rem] xl:w-[34rem]">
             <span className="flex">
               <p className="text-[#175873] font-medium text-base ">
                 Recent Transactions
@@ -41,7 +53,7 @@ const Dashboard = () => {
               <div className="relative ">
                 <input
                   type="text"
-                  className=" pl-3 pr-[10rem] py-3 text-sm placeholder:text-[#87ACA3] placeholder:text-xs rounded-[8px] border-[2px] focus:outline-none border-[#009186] focus:border-[#009186]  border-solid
+                  className=" pl-3 lg:pr-[5rem] xl:pr-[10rem] py-3 text-sm placeholder:text-[#87ACA3] placeholder:text-xs rounded-[8px] border-[2px] focus:outline-none border-[#009186] focus:border-[#009186]  border-solid
             "
                   placeholder="Search transcations"
                 />
@@ -54,7 +66,7 @@ const Dashboard = () => {
               <div className="relative ml-8">
                 <input
                   type="text"
-                  className="w-[11rem] px-2  py-3 text-sm placeholder:text-[#87ACA3] placeholder:text-xs rounded-[8px] border-[2px] focus:outline-none border-[#009186] focus:border-[#009186]  border-solid
+                  className=" lg:w-[8rem]  xl:w-[11rem] px-2  py-3 text-sm placeholder:text-[#87ACA3] placeholder:text-xs rounded-[8px] border-[2px] focus:outline-none border-[#009186] focus:border-[#009186]  border-solid
             "
                   placeholder="Search date"
                 />
@@ -168,12 +180,12 @@ const Dashboard = () => {
           </div>
           {/* for the second part */}
           <div className="mt-10">
-            <div className="w-full mxl:w-[35rem] h-[9.9rem] mxl:h-[15rem] flex items-center justify-between rounded-3xl bg-[#87ACA3] pl-5">
-              <span className="w-[16rem] mxl:w-[18rem]">
-                <p className="text-white text-sm font-medium mxl:text-lg ">
+            <div className="w-full  md:h-[15rem] mxl:w-[35rem] lg:h-[9.9rem] mxl:h-[15rem] flex items-center justify-between rounded-3xl bg-[#87ACA3] pl-5">
+              <span className="md:w-[18rem] lg:w-[16rem] mxl:w-[18rem]">
+                <p className="text-white md:text-lg lg:text-sm font-medium mxl:text-lg ">
                   International transactions has never been easier
                 </p>
-                <button className="px-[2rem] py-[0.6rem] mt-6 text-sm rounded-lg text-white bg-[#009186] flex items-center">
+                <button className="px-[3rem] py-[0.7rem] lg:px-[2rem] lg:py-[0.6rem] mt-6 text-sm rounded-lg text-white bg-[#009186] flex items-center">
                   Send Money
                   <RiArrowDownSLine className="text-xl ml-2" />
                 </button>
@@ -181,11 +193,11 @@ const Dashboard = () => {
               <img
                 src={card}
                 alt=""
-                className="object-contain w-[12rem] mxl:w-[18rem] mxl:mt-[-2.7rem] mt-[-1.6rem] mr-[-0.3rem]"
+                className="object-contain md:w-[18rem] lg:w-[12rem] mxl:w-[18rem] mxl:mt-[-2.7rem]  md:mt-[-2.7rem] lg:mt-[-1.6rem] mr-[-0.3rem]"
               />
             </div>
-            <div className="bg-[#C4C4C4] px-6  mt-10 rounded-lg h-[13rem]  mxl:h-[16rem] mxl:mt-[6rem] py-2 mxl:py-5 relative">
-              <div className="w-full text-[#707070] font-semibold bg-white py-3 text-center flex justify-center items-center rounded-lg mt-3">
+            <div className="bg-[#C4C4C4] px-6  mt-10 rounded-lg md:h-[15rem] lg:h-[13rem]  mxl:h-[16rem] mxl:mt-[6rem] py-2 mxl:py-5 relative">
+              <div className="w-full text-[#707070] font-semibold bg-white lg:py-3 text-center flex justify-center items-center rounded-lg mt-3">
                 FX Rates Today
               </div>
               <div className=" flex items-center justify-between mt-4 mxl:mt-8">
@@ -252,8 +264,8 @@ const Dashboard = () => {
               </div>
             </div>
 
-            <button className="py-2 mxl:py-[12px] mxl:text-xl   flex text-sm   mxl:mt-[6rem] justify-center items-center text-[#009186] mt-9   rounded-lg border-2 border-[#009186] w-full ">
-              Create Support
+            <button className="py-2  hidden  mxl:py-[12px] mxl:text-xl  lg:flex text-sm   mxl:mt-[6rem] justify-center items-center text-[#009186] mt-9   rounded-lg border-2 border-[#009186] w-full ">
+              Customer Support
               <img src={caller} alt="" className="ml-2 mxl:w-[2.8rem]" />
             </button>
           </div>
