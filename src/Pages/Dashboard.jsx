@@ -341,10 +341,10 @@ const Dashboard = () => {
               />
             </div>
             <div className="bg-[#C4C4C4] px-3 sm:px-6  mt-10 rounded-lg h-[15rem]  sm:h-[15rem] lg:h-[13rem]  mxl:h-[16rem] mxl:mt-[6rem] py-2 mxl:py-5 relative">
-              <div className="w-full px-4" >
-              <div className=" mx-auto sm:mx-0 sm:w-full text-[#707070] font-semibold bg-white py-3 sm:py-4 lg:py-3 text-center flex justify-center items-center rounded-lg mt-4 lg:mt-3">
-                FX Rates Today
-              </div>
+              <div className="w-full px-4">
+                <div className=" mx-auto sm:mx-0 sm:w-full text-[#707070] font-semibold bg-white py-3 sm:py-4 lg:py-3 text-center flex justify-center items-center rounded-lg mt-4 lg:mt-3">
+                  FX Rates Today
+                </div>
               </div>
               <div className=" flex items-center justify-between mt-5 sm:mt-6   lg:mt-4 mxl:mt-8">
                 <span className="flex ">
@@ -354,7 +354,7 @@ const Dashboard = () => {
                       id="sendingcurrency"
                       value="NGN"
                       className={
-                        " font-poppins pl-3 pb-0 h-[52px] w-[4.6rem] sm:w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070]   rounded-[6px] border-solid border-[#F8F8FF] border-[2px] sm:border-[4px] rounded-r-none border-r-2 appearance-none   focus:outline-none focus:ring-0 focus:border-[#F8F8FF]"
+                        " font-poppins pl-1 sm:pl-3 pb-0 h-[52px] w-[3.8rem] sm:w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070]   rounded-[6px] border-solid border-[#F8F8FF] border-[2px] sm:border-[4px] rounded-r-none border-r-2 appearance-none   focus:outline-none focus:ring-0 focus:border-[#F8F8FF]"
                         //placeholder=" "
                       }
                       placeholder="receivingcountry"
@@ -363,7 +363,7 @@ const Dashboard = () => {
                         NGN
                       </option>
                     </select>
-                    <RiArrowDownSLine className="pointer-events-none cursor-pointer text-4xl absolute inset-y-5 right-0 flex items-center px-2 text-[#707070]" />
+                    <RiArrowDownSLine className="pointer-events-none cursor-pointer text-xl sm:text-4xl absolute  inset-y-7  sm:inset-y-5 right-0 flex items-center pr-1 sm:px-2 text-[#707070]" />
                   </span>
                   <input
                     type="number"
@@ -371,7 +371,7 @@ const Dashboard = () => {
                     placeholder="00000"
                     disabled
                     className={
-                      " font-poppins spin-button-none  pl-3 pb-0 h-[52px] w-[4rem] sm:w-[85px] flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-[#F8F8FF] border-[2px] sm:border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186]"
+                      " font-poppins spin-button-none  pl-1 sm:pl-3 pb-0 h-[52px] w-[3.5rem] sm:w-[85px] flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-[#F8F8FF] border-[2px] sm:border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186]"
                     }
                   />
                 </span>
@@ -381,26 +381,26 @@ const Dashboard = () => {
                     <select
                       type="text"
                       id="sendingcurrency"
-                      value="USD"
+                      value="NGN"
                       className={
-                        " font-poppins pl-3 pb-0  h-[52px] w-[4.6rem] sm:w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070]   rounded-[6px] border-solid border-[#F8F8FF] border-[2px] sm:border-[4px] rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#F8F8FF]"
+                        " font-poppins pl-1 sm:pl-3 pb-0 h-[52px] w-[3.8rem] sm:w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070]   rounded-[6px] border-solid border-[#F8F8FF] border-[2px] sm:border-[4px] rounded-r-none border-r-2 appearance-none   focus:outline-none focus:ring-0 focus:border-[#F8F8FF]"
                         //placeholder=" "
                       }
                       placeholder="receivingcountry"
                     >
-                      <option value="USD" disabled>
-                        USD
+                      <option value="NGN" disabled>
+                        NGN
                       </option>
                     </select>
-                    <RiArrowDownSLine className="pointer-events-none cursor-pointer text-4xl absolute inset-y-5 right-0 flex items-center px-2 text-[#707070]" />
+                    <RiArrowDownSLine className="pointer-events-none cursor-pointer text-xl sm:text-4xl absolute  inset-y-7  sm:inset-y-5 right-0 flex items-center pr-1 sm:px-2 text-[#707070]" />
                   </span>
                   <input
-                    disabled
                     type="number"
                     id="sendamount"
                     placeholder="00000"
+                    disabled
                     className={
-                      " font-poppins spin-button-none  pl-3 pb-0  h-[52px] w-[4rem] sm:w-[85px] flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-[#F8F8FF] border-[2px] sm:border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#F8F8FF]"
+                      " font-poppins spin-button-none  pl-1 sm:pl-3 pb-0 h-[52px] w-[3.5rem] sm:w-[85px] flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-[#F8F8FF] border-[2px] sm:border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186]"
                     }
                   />
                 </span>
