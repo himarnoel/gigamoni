@@ -9,6 +9,7 @@ import { RiArrowDownSLine } from "react-icons/ri";
 import card from "../assets/carddash.png";
 import { BiTransfer } from "react-icons/bi";
 import caller from "../assets/Dashboard/caller.svg";
+import cardformobilescreen from "../assets/Dashboard/mobilecard.svg";
 
 const Dashboard = () => {
   const [first, setfirst] = useState("");
@@ -31,7 +32,11 @@ const Dashboard = () => {
           {" "}
           <button className="sm:py-2 py-1 px-10 text-sm sm:w-[20rem] lg:w-full  mxl:py-[12px] mxl:text-xl  flex    mxl:mt-[6rem] justify-center items-center text-[#009186]    rounded-lg border-2 border-[#009186]  ">
             Customer Support
-            <img src={caller} alt="" className="ml-2 w-[1.8rem] sm:w-[2rem] mxl:w-[2.8rem]" />
+            <img
+              src={caller}
+              alt=""
+              className="ml-2 w-[1.8rem] sm:w-[2rem] mxl:w-[2.8rem]"
+            />
           </button>
           <img
             src={bell}
@@ -42,14 +47,16 @@ const Dashboard = () => {
 
         <div className="flex  lg:flex-row flex-col-reverse w-full justify-between mxl:pt-20">
           <div className=" mt-10 lg:w-[27rem] xl:w-[34rem]">
-            <span className="flex">
-              <p className="text-[#175873] font-medium text-base ">
+            <span className="flex justify-between sm:justify-start">
+              <p className="text-[#175873] font-medium text-xs sm:text-base ">
                 Recent Transactions
               </p>
-              <p className="text-[#009186] ml-[10rem] lg:ml-[5rem] text-sm">Beneficiaries</p>
+              <p className="text-[#009186] sm:ml-[10rem] lg:ml-[5rem] text-sm">
+                Beneficiaries
+              </p>
             </span>
 
-            <div className="flex items-center sm:mt-5 lg:mt-8 sm:w-full  sm:justify-between lg:w-fit">
+            <div className="flex items-center mt-5 lg:mt-8 sm:w-full  justify-between lg:w-fit">
               <div className="relative  ">
                 <input
                   type="text"
@@ -66,7 +73,7 @@ const Dashboard = () => {
               <div className="relative lg:ml-8">
                 <input
                   type="text"
-                  className=" lg:w-[8rem]  xl:w-[11rem] px-2  py-3 text-sm placeholder:text-[#87ACA3] placeholder:text-xs rounded-[8px] border-[2px] focus:outline-none border-[#009186] focus:border-[#009186]  border-solid
+                  className="w-[5rem] sm:w-[8rem] md:w-[10rem] lg:w-full px-2  py-3 text-sm placeholder:text-[#87ACA3] placeholder:text-xs rounded-[8px] border-[2px] focus:outline-none border-[#009186] focus:border-[#009186]  border-solid
             "
                   placeholder="Search date"
                 />
@@ -193,14 +200,15 @@ const Dashboard = () => {
               <img
                 src={card}
                 alt=""
-                className="object-contain w-[2rem] sm:w-[17rem] md:w-[18rem] lg:w-[12rem] mxl:w-[18rem]  mxl:mt-[-2.7rem]  sm:mt-[-2.4rem]  md:mt-[-2.7rem] lg:mt-[-1.6rem] mr-[-0.3rem]"
+                className="object-contain sm:block hidden  sm:w-[17rem] md:w-[18rem] lg:w-[12rem] mxl:w-[18rem]  mxl:mt-[-2.7rem]  sm:mt-[-2.4rem]  md:mt-[-2.7rem] lg:mt-[-1.6rem] mr-[-0.3rem]"
               />
+              <img src={cardformobilescreen} alt="" className="sm:hidden" />
             </div>
-            <div className="bg-[#C4C4C4] px-6  mt-10 rounded-lg sm:h-[15rem] lg:h-[13rem]  mxl:h-[16rem] mxl:mt-[6rem] py-2 mxl:py-5 relative">
-              <div className="w-full text-[#707070] font-semibold bg-white sm:py-4 lg:py-3 text-center flex justify-center items-center rounded-lg mt-4 lg:mt-3">
+            <div className="bg-[#C4C4C4] px-3 sm:px-6  mt-10 rounded-lg h-[15rem]  sm:h-[15rem] lg:h-[13rem]  mxl:h-[16rem] mxl:mt-[6rem] py-2 mxl:py-5 relative">
+              <div className="w-[20rem] mx-auto sm:mx-0 sm:w-full text-[#707070] font-semibold bg-white py-3 sm:py-4 lg:py-3 text-center flex justify-center items-center rounded-lg mt-4 lg:mt-3">
                 FX Rates Today
               </div>
-              <div className=" flex items-center justify-between sm:mt-6   lg:mt-4 mxl:mt-8">
+              <div className=" flex items-center justify-between mt-5 sm:mt-6   lg:mt-4 mxl:mt-8">
                 <span className="flex ">
                   <span className="relative z-0">
                     <select
@@ -208,7 +216,7 @@ const Dashboard = () => {
                       id="sendingcurrency"
                       value="NGN"
                       className={
-                        " font-poppins pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070]   rounded-[6px] border-solid border-[#F8F8FF] border-[4px] rounded-r-none border-r-2 appearance-none   focus:outline-none focus:ring-0 focus:border-[#F8F8FF]"
+                        " font-poppins pl-3 pb-0 h-[52px] w-[4.6rem] sm:w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070]   rounded-[6px] border-solid border-[#F8F8FF] border-[2px] sm:border-[4px] rounded-r-none border-r-2 appearance-none   focus:outline-none focus:ring-0 focus:border-[#F8F8FF]"
                         //placeholder=" "
                       }
                       placeholder="receivingcountry"
@@ -225,11 +233,11 @@ const Dashboard = () => {
                     placeholder="00000"
                     disabled
                     className={
-                      " font-poppins spin-button-none  pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-[#F8F8FF] border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186]"
+                      " font-poppins spin-button-none  pl-3 pb-0 h-[52px] w-[4rem] sm:w-[85px] flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-[#F8F8FF] border-[2px] sm:border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186]"
                     }
                   />
                 </span>
-                <BiTransfer className="text-3xl text-[#F8F8FF] mt-6" />
+                <BiTransfer className="text-3xl text-[#F8F8FF] mt-4 sm:mt-6" />
                 <span className="flex ">
                   <span className="relative z-0">
                     <select
@@ -237,7 +245,7 @@ const Dashboard = () => {
                       id="sendingcurrency"
                       value="USD"
                       className={
-                        " font-poppins pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070]   rounded-[6px] border-solid border-[#F8F8FF] border-[4px] rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#F8F8FF]"
+                        " font-poppins pl-3 pb-0  h-[52px] w-[4.6rem] sm:w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070]   rounded-[6px] border-solid border-[#F8F8FF] border-[2px] sm:border-[4px] rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#F8F8FF]"
                         //placeholder=" "
                       }
                       placeholder="receivingcountry"
@@ -254,7 +262,7 @@ const Dashboard = () => {
                     id="sendamount"
                     placeholder="00000"
                     className={
-                      " font-poppins spin-button-none  pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-[#F8F8FF] border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#F8F8FF]"
+                      " font-poppins spin-button-none  pl-3 pb-0  h-[52px] w-[4rem] sm:w-[85px] flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-[#F8F8FF] border-[2px] sm:border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#F8F8FF]"
                     }
                   />
                 </span>
