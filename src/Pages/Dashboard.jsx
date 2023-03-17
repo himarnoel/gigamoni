@@ -29,7 +29,7 @@ const Dashboard = () => {
         </span>
         <div className="w-full lg:hidden flex justify-between items-center mt-10">
           {" "}
-          <button className="py-2 md:w-[20rem]  mxl:py-[12px] mxl:text-xl  flex text-sm   mxl:mt-[6rem] justify-center items-center text-[#009186]    rounded-lg border-2 border-[#009186]  ">
+          <button className="py-2 sm:w-[20rem]  mxl:py-[12px] mxl:text-xl  flex text-sm   mxl:mt-[6rem] justify-center items-center text-[#009186]    rounded-lg border-2 border-[#009186]  ">
             Customer Support
             <img src={caller} alt="" className="ml-2 mxl:w-[2.8rem]" />
           </button>
