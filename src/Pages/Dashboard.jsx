@@ -29,14 +29,14 @@ const Dashboard = () => {
         </span>
         <div className="w-full lg:hidden flex justify-between items-center mt-10">
           {" "}
-          <button className="py-2 md:w-[20rem]  mxl:py-[12px] mxl:text-xl  flex text-sm   mxl:mt-[6rem] justify-center items-center text-[#009186]    rounded-lg border-2 border-[#009186]  ">
+          <button className="py-2 sm:w-[20rem]  mxl:py-[12px] mxl:text-xl  flex text-sm   mxl:mt-[6rem] justify-center items-center text-[#009186]    rounded-lg border-2 border-[#009186]  ">
             Customer Support
             <img src={caller} alt="" className="ml-2 mxl:w-[2.8rem]" />
           </button>
           <img
             src={bell}
             alt=""
-            className="object-contain w-[1.6rem] md:w-[2.5rem] "
+            className="object-contain w-[1.6rem] sm:w-[2.3rem] md:w-[2.5rem] "
           />
         </div>
 
@@ -46,14 +46,14 @@ const Dashboard = () => {
               <p className="text-[#175873] font-medium text-base ">
                 Recent Transactions
               </p>
-              <p className="text-[#009186] ml-[5rem] text-sm">Beneficiaries</p>
+              <p className="text-[#009186] ml-[10rem] lg:ml-[5rem] text-sm">Beneficiaries</p>
             </span>
 
-            <div className="flex items-center mt-8">
-              <div className="relative ">
+            <div className="flex items-center sm:mt-5 lg:mt-8 sm:w-full  sm:justify-between lg:w-fit">
+              <div className="relative  ">
                 <input
                   type="text"
-                  className=" pl-3 lg:pr-[5rem] xl:pr-[10rem] py-3 text-sm placeholder:text-[#87ACA3] placeholder:text-xs rounded-[8px] border-[2px] focus:outline-none border-[#009186] focus:border-[#009186]  border-solid
+                  className="sm:w-[26rem] lg:w-fit  pl-3 lg:pr-[5rem] xl:pr-[10rem] py-3 text-sm placeholder:text-[#87ACA3] placeholder:text-xs rounded-[8px] border-[2px] focus:outline-none border-[#009186] focus:border-[#009186]  border-solid
             "
                   placeholder="Search transcations"
                 />
@@ -63,7 +63,7 @@ const Dashboard = () => {
                   className="object-contain w-[1.3rem] absolute inset-y-3 right-[1.2rem]"
                 />
               </div>
-              <div className="relative ml-8">
+              <div className="relative lg:ml-8">
                 <input
                   type="text"
                   className=" lg:w-[8rem]  xl:w-[11rem] px-2  py-3 text-sm placeholder:text-[#87ACA3] placeholder:text-xs rounded-[8px] border-[2px] focus:outline-none border-[#009186] focus:border-[#009186]  border-solid
@@ -73,7 +73,7 @@ const Dashboard = () => {
               </div>
             </div>
 
-            <div className="bg-[#DAF2F1] overflow-auto rounded-lg w-full h-[22.6rem] mxl:h-[42.8rem] mt-8 px-4 border-[#009186]">
+            <div className="bg-[#DAF2F1] overflow-auto rounded-lg w-full sm:h-[30rem] lg:h-[22.6rem] mxl:h-[42.8rem] mt-8 px-4 border-[#009186]">
               <div className="rounded-lg flex flex-col justify-between border-2 border-[#009186] text-sm mt-8 bg-[#F8F8FF] px-3 py-1 h-[6rem]">
                 <span className=" flex justify-between">
                   <p>01/01/2023 11:30am</p>
@@ -180,9 +180,9 @@ const Dashboard = () => {
           </div>
           {/* for the second part */}
           <div className="mt-10">
-            <div className="w-full  md:h-[15rem] mxl:w-[35rem] lg:h-[9.9rem] mxl:h-[15rem] flex items-center justify-between rounded-3xl bg-[#87ACA3] pl-5">
-              <span className="md:w-[18rem] lg:w-[16rem] mxl:w-[18rem]">
-                <p className="text-white md:text-lg lg:text-sm font-medium mxl:text-lg ">
+            <div className="w-full sm:h-[14rem]  md:h-[15rem] mxl:w-[35rem] lg:h-[9.9rem] mxl:h-[15rem] flex items-center justify-between rounded-3xl bg-[#87ACA3] sm:pl-8 lg:pl-5">
+              <span className="sm:w-[18rem] lg:w-[16rem] mxl:w-[18rem]">
+                <p className="text-white sm:text-lg lg:text-sm font-medium mxl:text-lg ">
                   International transactions has never been easier
                 </p>
                 <button className="px-[3rem] py-[0.7rem] lg:px-[2rem] lg:py-[0.6rem] mt-6 text-sm rounded-lg text-white bg-[#009186] flex items-center">
@@ -193,14 +193,14 @@ const Dashboard = () => {
               <img
                 src={card}
                 alt=""
-                className="object-contain md:w-[18rem] lg:w-[12rem] mxl:w-[18rem] mxl:mt-[-2.7rem]  md:mt-[-2.7rem] lg:mt-[-1.6rem] mr-[-0.3rem]"
+                className="object-contain sm:w-[17rem] md:w-[18rem] lg:w-[12rem] mxl:w-[18rem]  mxl:mt-[-2.7rem]  sm:mt-[-2.4rem]  md:mt-[-2.7rem] lg:mt-[-1.6rem] mr-[-0.3rem]"
               />
             </div>
-            <div className="bg-[#C4C4C4] px-6  mt-10 rounded-lg md:h-[15rem] lg:h-[13rem]  mxl:h-[16rem] mxl:mt-[6rem] py-2 mxl:py-5 relative">
-              <div className="w-full text-[#707070] font-semibold bg-white lg:py-3 text-center flex justify-center items-center rounded-lg mt-3">
+            <div className="bg-[#C4C4C4] px-6  mt-10 rounded-lg sm:h-[15rem] lg:h-[13rem]  mxl:h-[16rem] mxl:mt-[6rem] py-2 mxl:py-5 relative">
+              <div className="w-full text-[#707070] font-semibold bg-white sm:py-4 lg:py-3 text-center flex justify-center items-center rounded-lg mt-4 lg:mt-3">
                 FX Rates Today
               </div>
-              <div className=" flex items-center justify-between mt-4 mxl:mt-8">
+              <div className=" flex items-center justify-between sm:mt-6   lg:mt-4 mxl:mt-8">
                 <span className="flex ">
                   <span className="relative z-0">
                     <select
@@ -259,7 +259,7 @@ const Dashboard = () => {
                   />
                 </span>
               </div>
-              <div className="bg-[#175873] text-[#F8F8FF] py-2 font-medium  text-sm mxl:px-10 mxl:py-4  px-5 rounded-b-lg rounded-tl-lg  absolute right-0 bottom-0">
+              <div className="bg-[#175873] text-[#F8F8FF] py-3 px-6 lg:py-2  lg:px-5 font-medium  text-sm mxl:px-10 mxl:py-4  rounded-b-lg rounded-tl-lg  absolute right-0 bottom-0">
                 COMING SOON
               </div>
             </div>
