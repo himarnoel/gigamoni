@@ -60,7 +60,7 @@ const Dashboard = () => {
               <div className="relative  ">
                 <input
                   type="text"
-                  className="sm:w-[26rem] lg:w-fit  pl-3 lg:pr-[5rem] xl:pr-[10rem] py-3 text-sm placeholder:text-[#87ACA3] placeholder:text-xs rounded-[8px] border-[2px] focus:outline-none border-[#009186] focus:border-[#009186]  border-solid
+                  className="w-[12rem] sm:w-[26rem] lg:w-fit  pl-3 lg:pr-[5rem] xl:pr-[10rem] py-3 text-sm placeholder:text-[#87ACA3] placeholder:text-xs rounded-[8px] border-[2px] focus:outline-none border-[#009186] focus:border-[#009186]  border-solid
             "
                   placeholder="Search transcations"
                 />
@@ -73,24 +73,59 @@ const Dashboard = () => {
               <div className="relative lg:ml-8">
                 <input
                   type="text"
-                  className="w-[5rem] sm:w-[8rem] md:w-[10rem] lg:w-full px-2  py-3 text-sm placeholder:text-[#87ACA3] placeholder:text-xs rounded-[8px] border-[2px] focus:outline-none border-[#009186] focus:border-[#009186]  border-solid
+                  className="w-[7rem] sm:w-[8rem] md:w-[10rem] lg:w-full px-2  py-3 text-sm placeholder:text-[#87ACA3] placeholder:text-xs rounded-[8px] border-[2px] focus:outline-none border-[#009186] focus:border-[#009186]  border-solid
             "
                   placeholder="Search date"
                 />
               </div>
             </div>
 
-            <div className="bg-[#DAF2F1] overflow-auto rounded-lg w-full sm:h-[30rem] lg:h-[22.6rem] mxl:h-[42.8rem] mt-8 px-4 border-[#009186]">
-              <div className="rounded-lg flex flex-col justify-between border-2 border-[#009186] text-sm mt-8 bg-[#F8F8FF] px-3 py-1 h-[6rem]">
+            <div className="bg-[#DAF2F1]   overflow-auto rounded-lg w-full sm:h-[30rem] lg:h-[22.6rem] mxl:h-[42.8rem] mt-8 px-4 border-[#009186]">
+              <div className="rounded-lg  flex flex-col justify-between border-2 border-[#009186] text-sm mt-8 bg-[#F8F8FF] px-3 py-1 min-h-[12rem] sm:min-h-[6rem]">
+                <span className="hidden sm:flex justify-between">
+                  <p>01/01/2023 11:30am</p>
+                  <p>Lorem Ipsum University, London </p>
+                  <p>$ 2,000</p>
+                </span>
+                <div className="hidden  sm:flex  w-full justify-between ">
+                  <p className="">JPMorgan Chase Bank</p>
+                  <p className="self-center">12345678901234</p>
+                  <p className="text-[#F8F8FF]">12345678901234</p>
+                </div>
+                <span className="hidden sm:flex  justify-between">
+                  <p className="text-[#FBBC05]">Inprogress</p>
+                  <p className="text-[#262626]">Card Payment</p>
+                  <p className="text-[#009186]">see more</p>
+                </span>
+                {/* FOR MOBILE SCREEN */}
+                <span className="text-[#175873] flex sm:hidden">
+                  01/01/2023 11:30am
+                </span>
+                <span className="text-[#175873] font-semibold flex sm:hidden  justify-between">
+                  <p>Lorem Ipsum University, London </p>
+                  <p>$2,000</p>
+                </span>
+                <span className="flex sm:hidden justify-between">
+                  <p className="ss">JPMorgan Chase Bank</p>
+                  <p>12345678901234</p>
+                </span>
+                <span className="flex sm:hidden justify-between">
+                  <p className="text-[#FBBC05]">Inprogress</p>
+                  <p className="ss">Card Payment</p>
+                </span>
+                <p className="flex sm:hidden">see more</p>
+                {/* The end for the Mobile screen */}
+              </div>
+              <div className="rounded-lg flex flex-col justify-between border-2 border-[#009186] text-sm mt-8 bg-[#F8F8FF] px-3 py-1 min-h-[6rem]">
                 <span className=" flex justify-between">
                   <p>01/01/2023 11:30am</p>
                   <p>Lorem Ipsum University, London </p>
                   <p>$ 2,000</p>
                 </span>
-                <div className=" flex w-full">
-                  <p className="mr-8">JPMorgan Chase Bank</p>
+                <div className=" flex w-full justify-between">
+                  <p className="">JPMorgan Chase Bank</p>
                   <p className="self-center">12345678901234</p>
-                  {/* <p className="">12345678901234</p> */}
+                  <p className="text-[#F8F8FF]">12345678901234</p>
                 </div>
                 <span className="flex justify-between">
                   <p className="text-[#FBBC05]">Inprogress</p>
@@ -104,10 +139,10 @@ const Dashboard = () => {
                   <p>Lorem Ipsum University, London </p>
                   <p>$ 2,000</p>
                 </span>
-                <div className=" flex w-full">
-                  <p className="mr-8">JPMorgan Chase Bank</p>
+                <div className=" flex w-full justify-between">
+                  <p className="">JPMorgan Chase Bank</p>
                   <p className="self-center">12345678901234</p>
-                  {/* <p className="">12345678901234</p> */}
+                  <p className="text-[#F8F8FF]">12345678901234</p>
                 </div>
                 <span className="flex justify-between">
                   <p className="text-[#FBBC05]">Inprogress</p>
@@ -121,10 +156,10 @@ const Dashboard = () => {
                   <p>Lorem Ipsum University, London </p>
                   <p>$ 2,000</p>
                 </span>
-                <div className=" flex w-full">
-                  <p className="mr-8">JPMorgan Chase Bank</p>
+                <div className=" flex w-full justify-between">
+                  <p className="">JPMorgan Chase Bank</p>
                   <p className="self-center">12345678901234</p>
-                  {/* <p className="">12345678901234</p> */}
+                  <p className="text-[#F8F8FF]">12345678901234</p>
                 </div>
                 <span className="flex justify-between">
                   <p className="text-[#FBBC05]">Inprogress</p>
@@ -138,27 +173,10 @@ const Dashboard = () => {
                   <p>Lorem Ipsum University, London </p>
                   <p>$ 2,000</p>
                 </span>
-                <div className=" flex w-full">
-                  <p className="mr-8">JPMorgan Chase Bank</p>
+                <div className=" flex w-full justify-between">
+                  <p className="">JPMorgan Chase Bank</p>
                   <p className="self-center">12345678901234</p>
-                  {/* <p className="">12345678901234</p> */}
-                </div>
-                <span className="flex justify-between">
-                  <p className="text-[#FBBC05]">Inprogress</p>
-                  <p className="text-[#262626]">Card Payment</p>
-                  <p className="text-[#009186]">see more</p>
-                </span>
-              </div>
-              <div className="rounded-lg flex flex-col justify-between border-2 border-[#009186] text-sm mt-8 bg-[#F8F8FF] px-3 py-1 h-[6rem]">
-                <span className=" flex justify-between">
-                  <p>01/01/2023 11:30am</p>
-                  <p>Lorem Ipsum University, London </p>
-                  <p>$ 2,000</p>
-                </span>
-                <div className=" flex w-full">
-                  <p className="mr-8">JPMorgan Chase Bank</p>
-                  <p className="self-center">12345678901234</p>
-                  {/* <p className="">12345678901234</p> */}
+                  <p className="text-[#F8F8FF]">12345678901234</p>
                 </div>
                 <span className="flex justify-between">
                   <p className="text-[#FBBC05]">Inprogress</p>
