@@ -25,7 +25,7 @@ const Send = () => {
       phonenumber: "",
       country: "",
       receivingcountry: "",
-      sendingcurrency: "USD",
+      receivingcurrency: "USD",
       localcurrency: "NGN",
       sendamount: 0,
     },
@@ -345,16 +345,16 @@ const Send = () => {
                       <span className="relative z-0">
                         <select
                           type="text"
-                          id="sendingcurrency"
+                          id="receivingcurrency"
                           className={
-                            formik.errors.sendingcurrency &&
-                            formik.touched.sendingcurrency
+                            formik.errors.receivingcurrency &&
+                            formik.touched.receivingcurrency
                               ? " font-poppins  pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#009186]   rounded-[6px] border-solid border-red-500 border-[4px] rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186]"
                               : " font-poppins pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#009186]   rounded-[6px] border-solid border-[#009186] border-[4px] rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186]"
                             //placeholder=" "
                           }
                           onChange={formik.handleChange}
-                          value={formik.values.sendingcurrency}
+                          value={formik.values.receivingcurrency}
                           onBlur={formik.handleBlur}
                           placeholder="receivingcountry"
                         >
