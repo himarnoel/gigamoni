@@ -59,20 +59,28 @@ const Signup = () => {
         .catch((e) => {
           console.log(e);
           setload(false);
-          if (e.response.data.phoneNumber[0] == 400) {
-            toast.error("user with this email already exist");
+          if (
+            e.response.data.email[0] ==
+              "user with this email already exists." &&
+            e.response.data.phoneNumber[0] ==
+              "user with this phoneNumber already exists."
+          ) {
+            toast.error("user details already exists");
+          } else if (
+            e.response.data.email[0] == "user with this email already exists."
+          ) {
+            toast.error("Email already exist");
+          } else if (
+            e.response.data.phoneNumber[0] ==
+            "user with this phoneNumber already exists."
+          ) {
+            toast.error("Phone number already exist");
           } else {
-            toast.error("user with this email already exist");
+            toast.error("An error occurred");
           }
         });
     },
   });
-  console.log(
-    (phone + formik.values.phonenumber.toString().substring(1))
-      .toString()
-      .split(" ")
-      .join("")
-  );
 
   return (
     <>
