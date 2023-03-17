@@ -98,14 +98,14 @@ const Dashboard = () => {
                   <p className="text-[#009186]">see more</p>
                 </span>
                 {/* FOR MOBILE SCREEN */}
-                <span className="text-[#175873] flex sm:hidden">
+                <span className="text-[#175873] flex sm:hidden mt-3">
                   01/01/2023 11:30am
                 </span>
                 <span className="text-[#175873] font-semibold flex sm:hidden  justify-between">
                   <p>Lorem Ipsum University, London </p>
                   <p>$2,000</p>
                 </span>
-                <span className="flex sm:hidden justify-between">
+                <span className="flex sm:hidden justify-between text-[#262626]">
                   <p className="ss">JPMorgan Chase Bank</p>
                   <p>12345678901234</p>
                 </span>
@@ -113,7 +113,7 @@ const Dashboard = () => {
                   <p className="text-[#FBBC05]">Inprogress</p>
                   <p className="ss">Card Payment</p>
                 </span>
-                <p className="flex sm:hidden">see more</p>
+                <p className="flex sm:hidden text-[#009186]">see more</p>
                 {/* The end for the Mobile screen */}
               </div>
               <div className="rounded-lg flex flex-col justify-between border-2 border-[#009186] text-sm mt-8 bg-[#F8F8FF] px-3 py-1 min-h-[6rem]">
