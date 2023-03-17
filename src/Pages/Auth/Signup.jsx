@@ -37,8 +37,8 @@ const Signup = () => {
       setload(true);
       axios
         .post(`${baseurl}/signup/`, {
-          currSent: fromSendMoney.sendingcurrency.trim(),
-          currRecvd: fromSendMoney.reciveingcurrency.trim(),
+          currSent: fromSendMoney.localcurrency.trim(),
+          currRecvd: fromSendMoney.sendingcurrency.trim(),
           amtRecvd: fromSendMoney.sendamount.toString().trim(),
           password: values.password.trim(),
           fullname: values.name.trim(),
