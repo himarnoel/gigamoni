@@ -341,8 +341,10 @@ const Dashboard = () => {
               />
             </div>
             <div className="bg-[#C4C4C4] px-3 sm:px-6  mt-10 rounded-lg h-[15rem]  sm:h-[15rem] lg:h-[13rem]  mxl:h-[16rem] mxl:mt-[6rem] py-2 mxl:py-5 relative">
-              <div className="w-[20rem] mx-auto sm:mx-0 sm:w-full text-[#707070] font-semibold bg-white py-3 sm:py-4 lg:py-3 text-center flex justify-center items-center rounded-lg mt-4 lg:mt-3">
+              <div className="w-full px-4" >
+              <div className=" mx-auto sm:mx-0 sm:w-full text-[#707070] font-semibold bg-white py-3 sm:py-4 lg:py-3 text-center flex justify-center items-center rounded-lg mt-4 lg:mt-3">
                 FX Rates Today
+              </div>
               </div>
               <div className=" flex items-center justify-between mt-5 sm:mt-6   lg:mt-4 mxl:mt-8">
                 <span className="flex ">
