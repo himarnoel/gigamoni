@@ -265,8 +265,8 @@ const Signup = () => {
                 <div className="relative z-0 ">
                   <input
                     type="password"
-                    id="password"
-                    name="password"
+                    id="passwordConfirmation"
+                    name="passwordConfirmation"
                     className={
                       formik.errors.passwordConfirmation &&
                       formik.touched.passwordConfirmation
@@ -292,7 +292,7 @@ const Signup = () => {
                   {formik.errors.passwordConfirmation &&
                   formik.touched.passwordConfirmation ? (
                     <p className="text-red-500 text-xs font-poppins">
-                      {formik.errors.password}
+                      {formik.errors.passwordConfirmation}
                     </p>
                   ) : (
                     ""
