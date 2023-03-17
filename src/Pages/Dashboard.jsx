@@ -237,7 +237,7 @@ const Dashboard = () => {
                 </p>
                 {/* The end for the Mobile screen */}
               </div>
-              <div className="rounded-lg  flex flex-col justify-between border-2 border-[#009186] text-sm mt-8 bg-[#F8F8FF] px-3 py-1 min-h-[12rem] sm:min-h-[6rem]">
+              <div className="rounded-lg font-poppins flex flex-col justify-between border-2 border-[#009186] text-sm mt-8 bg-[#F8F8FF] px-3 py-1 min-h-[12rem] sm:min-h-[6rem]">
                 <span className="hidden sm:flex justify-between">
                   <p>01/01/2023 11:30am</p>
                   <p>Lorem Ipsum University, London </p>
@@ -318,7 +318,7 @@ const Dashboard = () => {
             </div>
           </div>
           {/* for the second part */}
-          <div className="mt-10">
+          <div className="mt-10 ">
             <div className="w-full min-h-[12rem] sm:h-[14rem]  md:h-[15rem] mxl:w-[35rem] lg:h-[9.9rem] mxl:h-[15rem] flex sm:items-center justify-between rounded-2xl sm:rounded-3xl bg-[#87ACA3] pl-3 sm:pl-8 lg:pl-5">
               <span className=" sm:w-[18rem] lg:w-[16rem] mxl:w-[18rem] mt-5 sm:mt-0">
                 <p className="text-white text-sm sm:text-lg lg:text-sm sm:font-medium mxl:text-lg ">
@@ -354,7 +354,7 @@ const Dashboard = () => {
                       id="sendingcurrency"
                       value="NGN"
                       className={
-                        " font-poppins pl-1 sm:pl-3 pb-0 h-[52px] w-[3.8rem] sm:w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070]   rounded-[6px] border-solid border-[#F8F8FF] border-[2px] sm:border-[4px] rounded-r-none border-r-2 appearance-none   focus:outline-none focus:ring-0 focus:border-[#F8F8FF]"
+                        " font-poppins pl-1 sm:pl-3 pb-0 h-[52px] w-[3.8rem] sm:w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070]   rounded-[6px] border-solid border-[#F8F8FF] border-[2px] sm:border-[4px] rounded-r-none  sm:border-r-2 border-r-2 appearance-none   focus:outline-none focus:ring-0 focus:border-[#F8F8FF]"
                         //placeholder=" "
                       }
                       placeholder="receivingcountry"
@@ -371,7 +371,7 @@ const Dashboard = () => {
                     placeholder="00000"
                     disabled
                     className={
-                      " font-poppins spin-button-none  pl-1 sm:pl-3 pb-0 h-[52px] w-[3.5rem] sm:w-[85px] flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-[#F8F8FF] border-[2px] sm:border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186]"
+                      " font-poppins spin-button-none  pl-1 sm:pl-3 pb-0 h-[52px] w-[3.5rem] sm:w-[85px] flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-[#F8F8FF] border-[2px] sm:border-[4px] rounded-l-none border-l-0 sm:border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186]"
                     }
                   />
                 </span>
@@ -383,7 +383,7 @@ const Dashboard = () => {
                       id="sendingcurrency"
                       value="NGN"
                       className={
-                        " font-poppins pl-1 sm:pl-3 pb-0 h-[52px] w-[3.8rem] sm:w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070]   rounded-[6px] border-solid border-[#F8F8FF] border-[2px] sm:border-[4px] rounded-r-none border-r-2 appearance-none   focus:outline-none focus:ring-0 focus:border-[#F8F8FF]"
+                        " font-poppins pl-1 sm:pl-3 pb-0 h-[52px] w-[3.8rem] sm:w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070]   rounded-[6px] border-solid border-[#F8F8FF] border-[2px] sm:border-[4px] rounded-r-none border-r-2 sm:border-r-2 appearance-none   focus:outline-none focus:ring-0 focus:border-[#F8F8FF]"
                         //placeholder=" "
                       }
                       placeholder="receivingcountry"
@@ -400,7 +400,7 @@ const Dashboard = () => {
                     placeholder="00000"
                     disabled
                     className={
-                      " font-poppins spin-button-none  pl-1 sm:pl-3 pb-0 h-[52px] w-[3.5rem] sm:w-[85px] flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-[#F8F8FF] border-[2px] sm:border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186]"
+                      " font-poppins spin-button-none  pl-1 sm:pl-3 pb-0 h-[52px] w-[3.5rem] sm:w-[85px] flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-[#F8F8FF] border-[2px] sm:border-[4px] rounded-l-none border-l-0 sm:border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186]"
                     }
                   />
                 </span>
