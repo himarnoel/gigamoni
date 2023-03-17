@@ -319,7 +319,7 @@ const Dashboard = () => {
           </div>
           {/* for the second part */}
           <div className="mt-10">
-            <div className="w-full h-[12rem] sm:h-[14rem]  md:h-[15rem] mxl:w-[35rem] lg:h-[9.9rem] mxl:h-[15rem] flex sm:items-center justify-between rounded-2xl sm:rounded-3xl bg-[#87ACA3] pl-3 sm:pl-8 lg:pl-5">
+            <div className="w-full min-h-[12rem] sm:h-[14rem]  md:h-[15rem] mxl:w-[35rem] lg:h-[9.9rem] mxl:h-[15rem] flex sm:items-center justify-between rounded-2xl sm:rounded-3xl bg-[#87ACA3] pl-3 sm:pl-8 lg:pl-5">
               <span className=" sm:w-[18rem] lg:w-[16rem] mxl:w-[18rem] mt-5 sm:mt-0">
                 <p className="text-white text-sm sm:text-lg lg:text-sm sm:font-medium mxl:text-lg ">
                   International transactions has never been easier
