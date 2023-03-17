@@ -81,216 +81,23 @@ const Dashboard = () => {
             </div>
 
             <div className="bg-[#DAF2F1]   overflow-auto rounded-lg w-full sm:h-[30rem] lg:h-[22.6rem] mxl:h-[42.8rem] mt-8 px-4 border-[#009186]">
-              <div className="rounded-lg  flex flex-col justify-between border-2 border-[#009186] text-sm mt-8 bg-[#F8F8FF] px-3 py-1 min-h-[12rem] sm:min-h-[6rem]">
-                <span className="hidden sm:flex justify-between">
-                  <p>01/01/2023 11:30am</p>
-                  <p>Lorem Ipsum University, London </p>
-                  <p>$ 2,000</p>
+              <div className="rounded-lg lg:py-1 lg:px-3   flex flex-col justify-between border-2 border-[#009186] text-sm mt-8 bg-[#F8F8FF] px-3 py-1 min-h-[12rem] sm:min-h-[7rem]">
+                <span className="hidden sm:flex justify-between mt-2">
+                  <p className=" text-[#175873] text-xs">01/01/2023 11:30am</p>
+                  <p className="text-[#175873] font-semibold">
+                    Lorem Ipsum University, London{" "}
+                  </p>
+                  <p className="text-[#175873] font-semibold">$ 2,000</p>
                 </span>
                 <div className="hidden  sm:flex  w-full justify-between ">
-                  <p className="">JPMorgan Chase Bank</p>
-                  <p className="self-center">12345678901234</p>
+                  <p className="text-xs">JPMorgan Chase Bank</p>
+                  <p className="text-xs">12345678901234</p>
                   <p className="text-[#F8F8FF]">12345678901234</p>
                 </div>
-                <span className="hidden sm:flex  justify-between">
-                  <p className="text-[#FBBC05]">Inprogress</p>
-                  <p className="text-[#262626]">Card Payment</p>
-                  <p className="text-[#009186]">see more</p>
-                </span>
-                {/* FOR MOBILE SCREEN */}
-                <span className="text-[#175873] flex sm:hidden mt-3">
-                  01/01/2023 11:30am
-                </span>
-                <span className="text-[#175873] font-semibold flex sm:hidden  justify-between">
-                  <p>Lorem Ipsum University, London </p>
-                  <p>$2,000</p>
-                </span>
-                <span className="flex sm:hidden text-xs justify-between text-[#262626]">
-                  <p className="ss">JPMorgan Chase Bank</p>
-                  <p>12345678901234</p>
-                  <p className="text-white text-xs">Cw224</p>
-                </span>
-                <span className="flex sm:hidden justify-between text-xs">
-                  <p className="text-[#FBBC05]">Inprogress</p>
-                  <p className="ss">Card Payment</p>
-                  <p className="text-white text-xs">Card Payment</p>
-                </span>
-                <p className="flex sm:hidden text-[#009186] text-xs">
-                  see more
-                </p>
-                {/* The end for the Mobile screen */}
-              </div>
-              <div className="rounded-lg  flex flex-col justify-between border-2 border-[#009186] text-sm mt-8 bg-[#F8F8FF] px-3 py-1 min-h-[12rem] sm:min-h-[6rem]">
-                <span className="hidden sm:flex justify-between">
-                  <p>01/01/2023 11:30am</p>
-                  <p>Lorem Ipsum University, London </p>
-                  <p>$ 2,000</p>
-                </span>
-                <div className="hidden  sm:flex  w-full justify-between ">
-                  <p className="">JPMorgan Chase Bank</p>
-                  <p className="self-center">12345678901234</p>
-                  <p className="text-[#F8F8FF]">12345678901234</p>
-                </div>
-                <span className="hidden sm:flex  justify-between">
-                  <p className="text-[#FBBC05]">Inprogress</p>
-                  <p className="text-[#262626]">Card Payment</p>
-                  <p className="text-[#009186]">see more</p>
-                </span>
-                {/* FOR MOBILE SCREEN */}
-                <span className="text-[#175873] flex sm:hidden mt-3">
-                  01/01/2023 11:30am
-                </span>
-                <span className="text-[#175873] font-semibold flex sm:hidden  justify-between">
-                  <p>Lorem Ipsum University, London </p>
-                  <p>$2,000</p>
-                </span>
-                <span className="flex sm:hidden text-xs justify-between text-[#262626]">
-                  <p className="ss">JPMorgan Chase Bank</p>
-                  <p>12345678901234</p>
-                  <p className="text-white text-xs">Cw224</p>
-                </span>
-                <span className="flex sm:hidden justify-between text-xs">
-                  <p className="text-[#FBBC05]">Inprogress</p>
-                  <p className="ss">Card Payment</p>
-                  <p className="text-white text-xs">Card Payment</p>
-                </span>
-                <p className="flex sm:hidden text-[#009186] text-xs">
-                  see more
-                </p>
-                {/* The end for the Mobile screen */}
-              </div>
-              <div className="rounded-lg  flex flex-col justify-between border-2 border-[#009186] text-sm mt-8 bg-[#F8F8FF] px-3 py-1 min-h-[12rem] sm:min-h-[6rem]">
-                <span className="hidden sm:flex justify-between">
-                  <p>01/01/2023 11:30am</p>
-                  <p>Lorem Ipsum University, London </p>
-                  <p>$ 2,000</p>
-                </span>
-                <div className="hidden  sm:flex  w-full justify-between ">
-                  <p className="">JPMorgan Chase Bank</p>
-                  <p className="self-center">12345678901234</p>
-                  <p className="text-[#F8F8FF]">12345678901234</p>
-                </div>
-                <span className="hidden sm:flex  justify-between">
-                  <p className="text-[#FBBC05]">Inprogress</p>
-                  <p className="text-[#262626]">Card Payment</p>
-                  <p className="text-[#009186]">see more</p>
-                </span>
-                {/* FOR MOBILE SCREEN */}
-                <span className="text-[#175873] flex sm:hidden mt-3">
-                  01/01/2023 11:30am
-                </span>
-                <span className="text-[#175873] font-semibold flex sm:hidden  justify-between">
-                  <p>Lorem Ipsum University, London </p>
-                  <p>$2,000</p>
-                </span>
-                <span className="flex sm:hidden text-xs justify-between text-[#262626]">
-                  <p className="ss">JPMorgan Chase Bank</p>
-                  <p>12345678901234</p>
-                  <p className="text-white text-xs">Cw224</p>
-                </span>
-                <span className="flex sm:hidden justify-between text-xs">
-                  <p className="text-[#FBBC05]">Inprogress</p>
-                  <p className="ss">Card Payment</p>
-                  <p className="text-white text-xs">Card Payment</p>
-                </span>
-                <p className="flex sm:hidden text-[#009186] text-xs">
-                  see more
-                </p>
-                {/* The end for the Mobile screen */}
-              </div>
-              <div className="rounded-lg  flex flex-col justify-between border-2 border-[#009186] text-sm mt-8 bg-[#F8F8FF] px-3 py-1 min-h-[12rem] sm:min-h-[6rem]">
-                <span className="hidden sm:flex justify-between">
-                  <p>01/01/2023 11:30am</p>
-                  <p>Lorem Ipsum University, London </p>
-                  <p>$ 2,000</p>
-                </span>
-                <div className="hidden  sm:flex  w-full justify-between ">
-                  <p className="">JPMorgan Chase Bank</p>
-                  <p className="self-center">12345678901234</p>
-                  <p className="text-[#F8F8FF]">12345678901234</p>
-                </div>
-                <span className="hidden sm:flex  justify-between">
-                  <p className="text-[#FBBC05]">Inprogress</p>
-                  <p className="text-[#262626]">Card Payment</p>
-                  <p className="text-[#009186]">see more</p>
-                </span>
-                {/* FOR MOBILE SCREEN */}
-                <span className="text-[#175873] flex sm:hidden mt-3">
-                  01/01/2023 11:30am
-                </span>
-                <span className="text-[#175873] font-semibold flex sm:hidden  justify-between">
-                  <p>Lorem Ipsum University, London </p>
-                  <p>$2,000</p>
-                </span>
-                <span className="flex sm:hidden text-xs justify-between text-[#262626]">
-                  <p className="ss">JPMorgan Chase Bank</p>
-                  <p>12345678901234</p>
-                  <p className="text-white text-xs">Cw224</p>
-                </span>
-                <span className="flex sm:hidden justify-between text-xs">
-                  <p className="text-[#FBBC05]">Inprogress</p>
-                  <p className="ss">Card Payment</p>
-                  <p className="text-white text-xs">Card Payment</p>
-                </span>
-                <p className="flex sm:hidden text-[#009186] text-xs">
-                  see more
-                </p>
-                {/* The end for the Mobile screen */}
-              </div>
-              <div className="rounded-lg font-poppins flex flex-col justify-between border-2 border-[#009186] text-sm mt-8 bg-[#F8F8FF] px-3 py-1 min-h-[12rem] sm:min-h-[6rem]">
-                <span className="hidden sm:flex justify-between">
-                  <p>01/01/2023 11:30am</p>
-                  <p>Lorem Ipsum University, London </p>
-                  <p>$ 2,000</p>
-                </span>
-                <div className="hidden  sm:flex  w-full justify-between ">
-                  <p className="">JPMorgan Chase Bank</p>
-                  <p className="self-center">12345678901234</p>
-                  <p className="text-[#F8F8FF]">12345678901234</p>
-                </div>
-                <span className="hidden sm:flex  justify-between">
-                  <p className="text-[#FBBC05]">Inprogress</p>
-                  <p className="text-[#262626]">Card Payment</p>
-                  <p className="text-[#009186]">see more</p>
-                </span>
-                {/* FOR MOBILE SCREEN */}
-                <span className="text-[#175873] flex sm:hidden mt-3">
-                  01/01/2023 11:30am
-                </span>
-                <span className="text-[#175873] font-semibold flex sm:hidden  justify-between">
-                  <p>Lorem Ipsum University, London </p>
-                  <p>$2,000</p>
-                </span>
-                <span className="flex sm:hidden text-xs justify-between text-[#262626]">
-                  <p className="ss">JPMorgan Chase Bank</p>
-                  <p>12345678901234</p>
-                  <p className="text-white text-xs">Cw224</p>
-                </span>
-                <span className="flex sm:hidden justify-between text-xs">
-                  <p className="text-[#FBBC05]">Inprogress</p>
-                  <p className="ss">Card Payment</p>
-                  <p className="text-white text-xs">Card Payment</p>
-                </span>
-                <p className="flex sm:hidden text-[#009186] text-xs">
-                  see more
-                </p>
-                {/* The end for the Mobile screen */}
-              </div>
-              <div className="rounded-lg  flex flex-col justify-between border-2 border-[#009186] text-sm mt-8 bg-[#F8F8FF] px-3 py-1 min-h-[12rem] sm:min-h-[6rem]">
-                <span className="hidden sm:flex justify-between">
-                  <p>01/01/2023 11:30am</p>
-                  <p>Lorem Ipsum University, London </p>
-                  <p>$ 2,000</p>
-                </span>
-                <div className="hidden  sm:flex  w-full justify-between ">
-                  <p className="">JPMorgan Chase Bank</p>
-                  <p className="self-center">12345678901234</p>
-                  <p className="text-[#F8F8FF]">12345678901234</p>
-                </div>
-                <span className="hidden sm:flex  justify-between">
-                  <p className="text-[#FBBC05]">Inprogress</p>
-                  <p className="text-[#262626]">Card Payment</p>
-                  <p className="text-[#009186]">see more</p>
+                <span className="hidden sm:flex text-xs justify-between">
+                  <p className="text-[#FBBC05] ">Inprogress</p>
+                  <p className="text-[#262626] ">Card Payment</p>
+                  <p className="text-[#009186] ">see more</p>
                 </span>
                 {/* FOR MOBILE SCREEN */}
                 <span className="text-[#175873] flex sm:hidden mt-3">

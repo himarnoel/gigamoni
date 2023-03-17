@@ -37,11 +37,15 @@ const Signup = () => {
       setload(true);
       axios
         .post(`${baseurl}/signup/`, {
-          password: values.password,
-          fullname: values.name,
-          email: values.email,
-          phoneNumber: phone + values.phonenumber.toString().substring(1),
-          country: values.country,
+          currSent: fromSendMoney.sendingcurrency.trim(),
+          currRecvd: fromSendMoney.reciveingcurrency.trim(),
+          amtRecvd: fromSendMoney.sendamount.toString().trim(),
+          password: values.password.trim(),
+          fullname: values.name.trim(),
+          email: values.email.trim(),
+          phoneNumber:
+            phone + values.phonenumber.toString().substring(1).trim(),
+          country: values.country.trim(),
         })
         .then((res) => {
           console.log(res);

@@ -26,7 +26,7 @@ const Send = () => {
       country: "",
       receivingcountry: "",
       sendingcurrency: "USD",
-      reciveingcurrency: "NGN",
+      localcurrency: "NGN",
       sendamount: 0,
     },
     validationSchema: sendmoney,
@@ -312,7 +312,7 @@ const Send = () => {
                   >
                     <option value=""></option>
 
-                    <option value="Nigeria">Nigeria</option>
+                    <option value="Canada">Canada</option>
                   </select>
                   <label
                     for="receivingcountry"
@@ -390,15 +390,15 @@ const Send = () => {
                       {" "}
                       <select
                         type="text"
-                        id="reciveingcurrency"
+                        id="localcurrency"
                         className={
-                          formik.errors.reciveingcurrency &&
-                          formik.touched.reciveingcurrency
+                          formik.errors.localcurrency &&
+                          formik.touched.localcurrency
                             ? " font-poppins pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center shade text-sm  mt-3 bg-transparent text-[#009186]   rounded-[6px] border-solid border-red-500 border-[4px]  appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
                             : " font-poppins pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center shade text-sm  mt-3 bg-transparent  text-[#009186]   rounded-[6px] border-solid border-[#009186] border-[4px]  appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
                         }
                         onChange={formik.handleChange}
-                        value={formik.values.reciveingcurrency}
+                        value={formik.values.localcurrency}
                         onBlur={formik.handleBlur}
                         placeholder="receivingcountry"
                       >

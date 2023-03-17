@@ -77,6 +77,6 @@ export const sendmoney = yup.object().shape({
   country: yup.string().required("Please fill up this field"),
   receivingcountry: yup.string().required("Please fill up this field"),
   sendingcurrency: yup.string().required("Please fill up this field"),
-  reciveingcurrency: yup.string().required("Please fill up this field"),
+  localcurrency: yup.string().required("Please fill up this field"),
   sendamount: yup.number().required("Please fill up this field"),
 });
