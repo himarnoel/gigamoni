@@ -17,15 +17,15 @@ import Dashboard from "./Pages/Dashboard";
 import Success from "./Pages/Auth/Success";
 import SetMobile from "./Pages/Auth/SetMobile";
 import Send from "./Pages/Send_Money/Send";
-import LessThan from './Pages/Send_Money/LessThan';
-import NoAcctModal from './Pages/Send_Money/NoAcctModal';
+import LessThan from "./Pages/Send_Money/LessThan";
+import NoAcctModal from "./Pages/Send_Money/NoAcctModal";
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <div>
-      <ToastContainer />
+      <ToastContainer position="top-center" autoClose={2000}/>
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<Login />} />
@@ -40,7 +40,7 @@ function App() {
         <Route path="/success" element={<Success />} />
         <Route path="/send" element={<Send />} />
         <Route path="/less" element={<LessThan />} />
-        <Route path="/noacct" element={<NoAcctModal/>} />
+        <Route path="/noacct" element={<NoAcctModal />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </div>

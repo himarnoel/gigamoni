@@ -37,15 +37,16 @@ const Signup = () => {
       setload(true);
       axios
         .post(`${baseurl}/signup/`, {
-          currSent: fromSendMoney.localcurrency.trim(),
-          currRecvd: fromSendMoney.receivingcurrency.trim(),
-          amtRecvd: fromSendMoney.sendamount.toString().trim(),
-          password: values.password.trim(),
-          fullname: values.name.trim(),
-          email: values.email.trim(),
+          currSent: fromSendMoney.localcurrency.split(" ").join(""),
+          currRecvd: fromSendMoney.receivingcurrency.split(" ").join(""),
+          amtRecvd: fromSendMoney.sendamount.toString().split(" ").join(""),
+          password: values.password.split(" ").join(""),
+          fullname: values.name.split(" ").join(""),
+          email: values.email.split(" ").join(""),
           phoneNumber:
-            phone + values.phonenumber.toString().substring(1).trim(),
-          country: values.country.trim(),
+            phone +
+            values.phonenumber.toString().substring(1).split(" ").join(""),
+          country: values.country.split(" ").join(""),
         })
         .then((res) => {
           console.log(res);
@@ -58,14 +59,20 @@ const Signup = () => {
         .catch((e) => {
           console.log(e);
           setload(false);
-          if (e.response.status == 400) {
+          if (e.response.data.phoneNumber[0] == 400) {
             toast.error("user with this email already exist");
           } else {
-            toast.error("An error occurred");
+            toast.error("user with this email already exist");
           }
         });
     },
   });
+  console.log(
+    (phone + formik.values.phonenumber.toString().substring(1))
+      .toString()
+      .split(" ")
+      .join("")
+  );
 
   return (
     <>
