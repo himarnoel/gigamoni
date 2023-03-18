@@ -14,7 +14,7 @@ const CheckMail = () => {
     let email = localStorage.getItem("email");
     setload(true);
     axios
-      .post(`${baseurl}/request/`, {
+      .post(`${baseurl}/accounts/request/`, {
         email,
       })
       .then((res) => {

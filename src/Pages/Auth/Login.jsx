@@ -13,6 +13,7 @@ import RingLoader from "react-spinners/RingLoader";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 const Login = () => {
+  
   const [countries, setcountries] = useState(["Nigeria"]);
   const [selected, setSelected] = useState("");
   const [load, setload] = useState(false);
@@ -27,13 +28,14 @@ const Login = () => {
       window.scrollTo(0, 0);
       setload(true);
       axios
-        .post(`${baseurl}/login/`, {
+        .post(`${baseurl}/accounts/login/`, {
           password: values.password,
           email: values.email,
         })
         .then((res) => {
           console.log(res);
           setload(false);
+          localStorage.setItem("token", )
           navigate("/dashboard");
         })
         .catch((e) => {

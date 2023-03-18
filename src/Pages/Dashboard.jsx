@@ -10,9 +10,20 @@ import card from "../assets/carddash.png";
 import { BiTransfer } from "react-icons/bi";
 import caller from "../assets/Dashboard/caller.svg";
 import cardformobilescreen from "../assets/Dashboard/mobilecard.svg";
+import axios from "axios";
+import { baseurl } from './../Service/validate_and_api';
 
 const Dashboard = () => {
   const [first, setfirst] = useState("");
+
+  useEffect(() => {
+    axios.get(`${baseurl}/transactions/`).then(
+      (res)=>{
+console.log(res);
+      }
+    ).catch();
+  }, []);
+
   return (
     <div className="font-poppins bg-[#F8F8FF]">
       <DashNav class="fixed top-0 w-full" />

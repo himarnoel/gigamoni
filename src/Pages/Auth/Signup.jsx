@@ -33,10 +33,11 @@ const Signup = () => {
     },
     validationSchema: signupValidate,
     onSubmit: (values) => {
+      
       window.scrollTo(0, 0);
       setload(true);
       axios
-        .post(`${baseurl}/signup/`, {
+        .post(`${baseurl}/accounts/signup/`, {
           currSent: fromSendMoney.localcurrency.split(" ").join(""),
           currRecvd: fromSendMoney.receivingcurrency.split(" ").join(""),
           amtRecvd: fromSendMoney.sendamount.toString().split(" ").join(""),

@@ -25,7 +25,7 @@ const NewPassword = () => {
       window.scrollTo(0, 0);
       setload(true);
       axios
-        .post(`${baseurl}/new-password/`, {
+        .post(`${baseurl}/accounts/new-password/`, {
           password: values.password,
           token: key.substring(0, key.length - 1),
           uidb64: id,

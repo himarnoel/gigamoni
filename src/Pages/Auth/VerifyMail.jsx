@@ -22,7 +22,7 @@ const VerifyMail = () => {
     setDeter(false);
     setload(true);
     axios
-      .get(`${baseurl}/verify/${id}/${key}`)
+      .get(`${baseurl}/accounts/verify/${id}/${key}`)
       .then((res) => {
         console.log(res);
         setload(false);
@@ -87,7 +87,7 @@ const VerifyMail = () => {
       const otpValues = otpm.reduce((partialSum, a) => partialSum + a);
       let id = searchParams.get("id");
       axios
-        .get(`${baseurl}/phone/${id}/${otpValues}`)
+        .get(`${baseurl}/accounts/phone/${id}/${otpValues}`)
         .then((res) => {
           console.log(res);
           setload(false);
