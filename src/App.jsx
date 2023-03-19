@@ -4,6 +4,7 @@ import LandingPage from "./Pages/LandingPage";
 import { Navigate, Route, Routes } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
+import "react-datepicker/dist/react-datepicker.css";  
 import {
   Login,
   Signup,

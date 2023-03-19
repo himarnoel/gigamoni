@@ -109,3 +109,15 @@ select[disabled] > option {
   color: graytext;
   border-color: rgb(255, 255, 255) !important;
 }
+
+
+/* input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+} */
+
+
+input[type=date]:invalid::-webkit-datetime-edit {
+  color: red ;
+}

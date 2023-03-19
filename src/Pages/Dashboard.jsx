@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { RiNotification2Fill } from "react-icons/ri";
 import DashNav from "../Components/DashBoardComponents/DashNav";
@@ -11,17 +11,30 @@ import { BiTransfer } from "react-icons/bi";
 import caller from "../assets/Dashboard/caller.svg";
 import cardformobilescreen from "../assets/Dashboard/mobilecard.svg";
 import axios from "axios";
-import { baseurl } from './../Service/validate_and_api';
+import { baseurl } from "./../Service/validate_and_api";
+import { BsFillCalendar2Fill } from "react-icons/bs";
+import DatePicker from "react-datepicker";
 
 const Dashboard = () => {
   const [first, setfirst] = useState("");
-
+  const [trans, Settrans] = useState([]);
+  const [startDate, setStartDate] = useState(null);
+  const [date, setdate] = useState(false);
+  const [openDate, setopenDate] = useState(false);
   useEffect(() => {
-    axios.get(`${baseurl}/transactions/`).then(
-      (res)=>{
-console.log(res);
-      }
-    ).catch();
+    axios
+      .get(`${baseurl}/transactions/`, {
+        headers: {
+          Authorization: `Token ${localStorage.getItem("LoggedIntoken")}`,
+        },
+      })
+      .then((res) => {
+        console.log(res.data);
+        Settrans(res.data);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   }, []);
 
   return (
@@ -82,57 +95,69 @@ console.log(res);
                 />
               </div>
               <div className="relative lg:ml-8">
-                <input
-                  type="text"
-                  className="w-[7rem] sm:w-[8rem] md:w-[10rem] lg:w-full px-2  py-3 text-sm placeholder:text-[#87ACA3] placeholder:text-xs rounded-[8px] border-[2px] focus:outline-none border-[#009186] focus:border-[#009186]  border-solid
-            "
-                  placeholder="Search date"
+                <DatePicker
+                  open={openDate}
+                  className="w-[7rem] sm:w-[8rem] md:w-[10rem] lg:w-full px-2  py-3 text-sm placeholder:text-[#87ACA3] placeholder:text-xs rounded-[8px] border-[2px] focus:outline-none border-[#009186] focus:border-[#009186]  border-solid"
+                  placeholderText="Date range"
+                  selected={startDate}
+                  onChange={(date) => setStartDate(date)}
+                  onClickOutside={() => setopenDate(!openDate)}
+                />
+                <BsFillCalendar2Fill
+                  onClick={() => setopenDate(!openDate)}
+                  className="text-[#009186] inset-y-4 absolute right-3 bg-white"
                 />
               </div>
             </div>
 
             <div className="bg-[#DAF2F1]   overflow-auto rounded-lg w-full sm:h-[30rem] lg:h-[22.6rem] mxl:h-[42.8rem] mt-8 px-4 border-[#009186]">
-              <div className="rounded-lg lg:py-1 lg:px-3   flex flex-col justify-between border-2 border-[#009186] text-sm mt-8 bg-[#F8F8FF] px-3 py-1 min-h-[12rem] sm:min-h-[7rem]">
-                <span className="hidden sm:flex justify-between mt-2">
-                  <p className=" text-[#175873] text-xs">01/01/2023 11:30am</p>
-                  <p className="text-[#175873] font-semibold">
-                    Lorem Ipsum University, London{" "}
+              {trans.map((arr, i) => (
+                <div className="rounded-lg lg:py-1 lg:px-[0.24rem]   flex flex-col justify-between border-2 border-[#009186] text-sm mt-8 bg-[#F8F8FF] px-3  xl:px-3  py-1 min-h-[12rem] sm:min-h-[7rem]">
+                  <span className="hidden sm:flex items-center justify-between mt-2">
+                    <p className=" text-[#175873] text-xs">
+                      01/01/2023 11:30am
+                    </p>
+                    <p className="text-[#175873] font-semibold">
+                      Lorem Ipsum University, London{" "}
+                    </p>
+                    <p className="text-[#175873] font-semibold">
+                      ${arr.amountReceived}
+                    </p>
+                  </span>
+                  <div className="hidden  sm:flex  w-full justify-between items-center ">
+                    <p className="text-xs">JPMorgan Chase Bank</p>
+                    <p className="text-xs">12345678901234</p>
+                    <p className="text-[#F8F8FF]">12345678901234</p>
+                  </div>
+                  <span className="hidden sm:flex text-xs justify-between items-center">
+                    <p className={`text-[#FBBC05]`}>{arr.status}</p>
+                    <p className="text-[#262626] ">{arr.paymentMethod}</p>
+                    <p className="text-[#009186] ">see more</p>
+                  </span>
+                  {/* FOR MOBILE SCREEN */}
+                  <span className="text-[#175873] flex sm:hidden mt-3">
+                    01/01/2023 11:30am
+                  </span>
+                  <span className="text-[#175873] font-semibold flex sm:hidden  justify-between">
+                    <p>Lorem Ipsum University, London </p>
+                    <p> ${arr.amountReceived}</p>
+                  </span>
+                  <span className="flex sm:hidden text-xs justify-between text-[#262626]">
+                    <p className="ss">JPMorgan Chase Bank</p>
+                    <p>12345678901234</p>
+                    <p className="text-white text-xs">Cw224</p>
+                  </span>
+                  <span className="flex sm:hidden justify-between text-xs">
+                    <p className="text-[#FBBC05]">{arr.status}</p>
+                    <p className="ss">{arr.paymentMethod}</p>
+                    <p className="text-white text-xs">Card Payment</p>
+                  </span>
+                  <p className="flex sm:hidden text-[#009186] text-xs">
+                    see more
                   </p>
-                  <p className="text-[#175873] font-semibold">$ 2,000</p>
-                </span>
-                <div className="hidden  sm:flex  w-full justify-between ">
-                  <p className="text-xs">JPMorgan Chase Bank</p>
-                  <p className="text-xs">12345678901234</p>
-                  <p className="text-[#F8F8FF]">12345678901234</p>
+                  {/* The end for the Mobile screen */}
                 </div>
-                <span className="hidden sm:flex text-xs justify-between">
-                  <p className="text-[#FBBC05] ">Inprogress</p>
-                  <p className="text-[#262626] ">Card Payment</p>
-                  <p className="text-[#009186] ">see more</p>
-                </span>
-                {/* FOR MOBILE SCREEN */}
-                <span className="text-[#175873] flex sm:hidden mt-3">
-                  01/01/2023 11:30am
-                </span>
-                <span className="text-[#175873] font-semibold flex sm:hidden  justify-between">
-                  <p>Lorem Ipsum University, London </p>
-                  <p>$2,000</p>
-                </span>
-                <span className="flex sm:hidden text-xs justify-between text-[#262626]">
-                  <p className="ss">JPMorgan Chase Bank</p>
-                  <p>12345678901234</p>
-                  <p className="text-white text-xs">Cw224</p>
-                </span>
-                <span className="flex sm:hidden justify-between text-xs">
-                  <p className="text-[#FBBC05]">Inprogress</p>
-                  <p className="ss">Card Payment</p>
-                  <p className="text-white text-xs">Card Payment</p>
-                </span>
-                <p className="flex sm:hidden text-[#009186] text-xs">
-                  see more
-                </p>
-                {/* The end for the Mobile screen */}
-              </div>
+              ))}
             </div>
           </div>
           {/* for the second part */}
