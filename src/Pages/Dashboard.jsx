@@ -21,6 +21,7 @@ const Dashboard = () => {
   const [startDate, setStartDate] = useState(null);
   const [date, setdate] = useState(false);
   const [openDate, setopenDate] = useState(false);
+  const [buttons, setbuttons] = useState(false);
   useEffect(() => {
     axios
       .get(`${baseurl}/transactions/`, {
@@ -101,6 +102,7 @@ const Dashboard = () => {
                   placeholderText="Date range"
                   selected={startDate}
                   onChange={(date) => setStartDate(date)}
+                  calendarClassName="rounded-md shadow-xl"
                   onClickOutside={() => setopenDate(!openDate)}
                 />
                 <BsFillCalendar2Fill
@@ -162,7 +164,7 @@ const Dashboard = () => {
           </div>
           {/* for the second part */}
           <div className="mt-10 ">
-            <div className="w-full min-h-[12rem] sm:h-[14rem]  md:h-[15rem] mxl:w-[35rem] lg:h-[9.9rem] mxl:h-[15rem] flex sm:items-center justify-between rounded-2xl sm:rounded-3xl bg-[#87ACA3] pl-3 sm:pl-8 lg:pl-5">
+            <div className="relative  w-full min-h-[12rem] sm:h-[14rem]  md:h-[15rem] xl:h-[0rem] mxl:w-[35rem] lg:h-[9.9rem] mxl:h-[15rem] flex sm:items-center justify-between rounded-2xl sm:rounded-3xl bg-[#87ACA3] pl-3 sm:pl-8 lg:pl-5">
               <span className=" sm:w-[18rem] lg:w-[16rem] mxl:w-[18rem] mt-5 sm:mt-0">
                 <p className="text-white text-sm sm:text-lg lg:text-sm sm:font-medium mxl:text-lg ">
                   International transactions has never been easier
@@ -175,13 +177,21 @@ const Dashboard = () => {
               <img
                 src={card}
                 alt=""
-                className="object-contain sm:block hidden  sm:w-[17rem] md:w-[18rem] lg:w-[12rem] mxl:w-[18rem]  mxl:mt-[-2.7rem]  sm:mt-[-2.4rem]  md:mt-[-2.7rem] lg:mt-[-1.6rem] mr-[-0.3rem]"
+                className="object-contain sm:block hidden  sm:w-[17rem] md:w-[18rem] lg:w-[12rem]   mxl:w-[18rem]  mxl:mt-[-2.7rem]  sm:mt-[-2.4rem] xl:w-[14.3rem] xl:mt-[-2rem]  md:mt-[-2.7rem] lg:mt-[-1.6rem] mr-[-0.3rem]"
               />
               <img
                 src={cardformobilescreen}
                 alt=""
                 className="sm:hidden object-contain w-[10rem] mt-[1rem]"
               />
+              <div className=" absolute bg-[#F8F8FF] shadow h-[9rem] flex justify-around flex-col px-4  w-[18rem] rounded-lg left-1 bottom-[-6rem] z-[20]">
+                <button className="px-[1rem] py-[0.8rem] w-full  rounded-lg text-[#009186] border-2 font-semibold border-[#009186]">
+                  Saved Beneficiary
+                </button>
+                <button className="px-[1rem] py-[0.8rem] w-full  rounded-lg text-[#009186] border-2 font-semibold border-[#009186]">
+                  New Receiver
+                </button>
+              </div>
             </div>
             <div className="bg-[#C4C4C4] px-3 sm:px-6  mt-10 rounded-lg h-[15rem]  sm:h-[15rem] lg:h-[13rem]  mxl:h-[16rem] mxl:mt-[6rem] py-2 mxl:py-5 relative">
               <div className="w-full px-4">
