@@ -14,6 +14,7 @@ import axios from "axios";
 import { baseurl } from "./../Service/validate_and_api";
 import { BsFillCalendar2Fill } from "react-icons/bs";
 import DatePicker from "react-datepicker";
+import { RiCloseCircleFill } from "react-icons/ri";
 
 const Dashboard = () => {
   const [first, setfirst] = useState("");
@@ -41,8 +42,9 @@ const Dashboard = () => {
   return (
     <div className="font-poppins bg-[#F8F8FF] overflow-y-hidden">
       <div className="absolute h-screen w-full top-0 bg-[#262626]/[0.8] z-[50] md:flex items-center justify-center hidden ">
-        <div className="xl:w-[30rem] mxl:w-[40rem] mxl:h-[40rem] xl:h-[29rem] bg-[#DAF2F1] rounded-lg px-3 flex  flex-col justify-between py-4 mxl:py-10  ">
-          <p className="text-[#262626] font-semibold text-center text-lg">
+        <div className="relative xl:w-[30rem] mxl:w-[40rem] mxl:h-[40rem] xl:h-[29rem] bg-[#DAF2F1] rounded-lg px-3 flex  flex-col justify-between py-4 mxl:py-10  ">
+          <RiCloseCircleFill className="absolute top-3 right-4 cursor-pointer text-[#009186] text-xl" />
+          <p className="text-[#262626] font-semibold text-center text-lg mt-5">
             Beneficiaries
           </p>
           <div className="h-[86%]  overflow-auto mt-5 px-8 bg-">
