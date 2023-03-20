@@ -15,7 +15,7 @@ import { baseurl } from "../../Service/validate_and_api";
 import { BsFillCalendar2Fill } from "react-icons/bs";
 import DatePicker from "react-datepicker";
 import { RiCloseCircleFill } from "react-icons/ri";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
   const [first, setfirst] = useState("");
@@ -25,6 +25,7 @@ const Dashboard = () => {
   const [openDate, setopenDate] = useState(false);
   const [buttons, setbuttons] = useState(false);
   const [beneficiaries, setbeneficiaries] = useState(false);
+  const navigate = useNavigate();
   useEffect(() => {
     axios
       .get(`${baseurl}/transactions/`, {
@@ -41,8 +42,16 @@ const Dashboard = () => {
       });
   }, []);
 
+  const funcontrol = () => {
+    setbuttons(false);
+    setbeneficiaries(true);
+  };
+  const mobilefuncontrol = () => {
+    setbuttons(false);
+    navigate("/beneficiary");
+  };
   return (
-    <div className="font-poppins bg-[#F8F8FF] overflow-y-hidden">
+    <div className="font-poppins bg-[#F8F8FF] overflow-y-hidden ">
       <div
         onClick={() => setbeneficiaries(false)}
         className={
@@ -221,14 +230,14 @@ const Dashboard = () => {
                   }
                 >
                   <button
-                    onClick={() => setbeneficiaries(true)}
+                    onClick={() => funcontrol()}
                     className="px-[1rem] hidden sm:block py-[0.5rem] text-xs sm:text-base sm:py-[0.6rem]  md:py-[0.5rem] lg:py-[0.5rem] mxl:py-[0.8rem] w-full  rounded-lg text-[#009186] border-2 font-semibold border-[#009186]"
                   >
                     Saved Beneficiary
                   </button>
                   {/* Mobile */}
                   <button
-                    onClick={() =>navigate("/")}
+                    onClick={() => mobilefuncontrol()}
                     className="px-[1rem] sm:hidden py-[0.5rem] text-xs sm:text-base sm:py-[0.6rem]  md:py-[0.5rem] lg:py-[0.5rem] mxl:py-[0.8rem] w-full  rounded-lg text-[#009186] border-2 font-semibold border-[#009186]"
                   >
                     Saved Beneficiary
