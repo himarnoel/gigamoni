@@ -22,21 +22,21 @@ const Dashboard = () => {
   const [date, setdate] = useState(false);
   const [openDate, setopenDate] = useState(false);
   const [buttons, setbuttons] = useState(false);
-  // useEffect(() => {
-  //   axios
-  //     .get(`${baseurl}/transactions/`, {
-  //       headers: {
-  //         Authorization: `Token ${localStorage.getItem("LoggedIntoken")}`,
-  //       },
-  //     })
-  //     .then((res) => {
-  //       console.log(res.data);
-  //       Settrans(res.data);
-  //     })
-  //     .catch((e) => {
-  //       console.log(e);
-  //     });
-  // }, []);
+  useEffect(() => {
+    axios
+      .get(`${baseurl}/transactions/`, {
+        headers: {
+          Authorization: `Token ${localStorage.getItem("LoggedIntoken")}`,
+        },
+      })
+      .then((res) => {
+        console.log(res.data);
+        Settrans(res.data);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  }, []);
 
   return (
     <div className="font-poppins bg-[#F8F8FF]">
