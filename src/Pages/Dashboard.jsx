@@ -22,25 +22,25 @@ const Dashboard = () => {
   const [date, setdate] = useState(false);
   const [openDate, setopenDate] = useState(false);
   const [buttons, setbuttons] = useState(false);
-  useEffect(() => {
-    axios
-      .get(`${baseurl}/transactions/`, {
-        headers: {
-          Authorization: `Token ${localStorage.getItem("LoggedIntoken")}`,
-        },
-      })
-      .then((res) => {
-        console.log(res.data);
-        Settrans(res.data);
-      })
-      .catch((e) => {
-        console.log(e);
-      });
-  }, []);
+  // useEffect(() => {
+  //   axios
+  //     .get(`${baseurl}/transactions/`, {
+  //       headers: {
+  //         Authorization: `Token ${localStorage.getItem("LoggedIntoken")}`,
+  //       },
+  //     })
+  //     .then((res) => {
+  //       console.log(res.data);
+  //       Settrans(res.data);
+  //     })
+  //     .catch((e) => {
+  //       console.log(e);
+  //     });
+  // }, []);
 
   return (
     <div className="font-poppins bg-[#F8F8FF]">
-      <DashNav class="fixed top-0 w-full" />
+      <DashNav class="fixed top-0 w-full z-[100]" />
       <div className="2xl:px-[10rem] xl:px-[5rem]  px-2 xss:px-4 xs:px-6 sm:px-10 md:px-20   flex flex-col justify-center items-center gap-y-8 pb-8   lg:px-10 mt-20 mxl:pt-20">
         <span
           onClick={() => alert("Notification")}
@@ -101,8 +101,8 @@ const Dashboard = () => {
                   className="w-[7rem] sm:w-[8rem] md:w-[10rem] lg:w-full px-2  py-3 text-sm placeholder:text-[#87ACA3] placeholder:text-xs rounded-[8px] border-[2px] focus:outline-none border-[#009186] focus:border-[#009186]  border-solid"
                   placeholderText="Date range"
                   selected={startDate}
+                  onInputClick={() => setopenDate(!openDate)}
                   onChange={(date) => setStartDate(date)}
-                  calendarClassName="rounded-md shadow-xl"
                   onClickOutside={() => setopenDate(!openDate)}
                 />
                 <BsFillCalendar2Fill
@@ -164,12 +164,15 @@ const Dashboard = () => {
           </div>
           {/* for the second part */}
           <div className="mt-10 ">
-            <div className="relative  w-full min-h-[12rem] sm:h-[14rem]  md:h-[15rem] xl:h-[0rem] mxl:w-[35rem] lg:h-[9.9rem] mxl:h-[15rem] flex sm:items-center justify-between rounded-2xl sm:rounded-3xl bg-[#87ACA3] pl-3 sm:pl-8 lg:pl-5">
+            <div className="relative  z-[10] w-full h-[12rem] sm:h-[14rem]  md:h-[15rem] mxl:w-[35rem] lg:h-[9.9rem] mxl:h-[15rem] flex sm:items-center justify-between rounded-2xl sm:rounded-3xl bg-[#87ACA3] pl-3 sm:pl-8 lg:pl-5">
               <span className=" sm:w-[18rem] lg:w-[16rem] mxl:w-[18rem] mt-5 sm:mt-0">
                 <p className="text-white text-sm sm:text-lg lg:text-sm sm:font-medium mxl:text-lg ">
                   International transactions has never been easier
                 </p>
-                <button className="px-[1rem] py-[0.6rem] sm:px-[3rem] sm:py-[0.7rem] lg:px-[2rem] lg:py-[0.6rem] mt-8 text-xs sm:mt-6 sm:text-sm rounded-lg text-white bg-[#009186] flex items-center">
+                <button
+                  onClick={() => setbuttons(!buttons)}
+                  className="px-[1rem] py-[0.6rem] sm:px-[3rem] sm:py-[0.7rem] lg:px-[2rem] lg:py-[0.6rem] mt-8 text-xs sm:mt-6 sm:text-sm rounded-lg text-white bg-[#009186] flex items-center"
+                >
                   Send Money
                   <RiArrowDownSLine className="text-xl ml-2" />
                 </button>
@@ -177,18 +180,24 @@ const Dashboard = () => {
               <img
                 src={card}
                 alt=""
-                className="object-contain sm:block hidden  sm:w-[17rem] md:w-[18rem] lg:w-[12rem]   mxl:w-[18rem]  mxl:mt-[-2.7rem]  sm:mt-[-2.4rem] xl:w-[14.3rem] xl:mt-[-2rem]  md:mt-[-2.7rem] lg:mt-[-1.6rem] mr-[-0.3rem]"
+                className="object-contain sm:block hidden  sm:w-[17rem] md:w-[18rem] lg:w-[12rem] mxl:w-[18rem]  mxl:mt-[-2.7rem]  sm:mt-[-2.4rem]  md:mt-[-2.7rem] lg:mt-[-1.6rem] mr-[-0.3rem]"
               />
               <img
                 src={cardformobilescreen}
                 alt=""
                 className="sm:hidden object-contain w-[10rem] mt-[1rem]"
               />
-              <div className=" absolute bg-[#F8F8FF] shadow h-[9rem] flex justify-around flex-col px-4  w-[18rem] rounded-lg left-1 bottom-[-6rem] z-[20]">
-                <button className="px-[1rem] py-[0.8rem] w-full  rounded-lg text-[#009186] border-2 font-semibold border-[#009186]">
+              <div
+                className={
+                  buttons
+                    ? ` duration-700 ease-in-out absolute bg-[#F8F8FF] shadow lg:h-[8rem] xl:h-[9rem] mxl:h-[13.4rem] lg:bottom-[-6rem] xl:bottom-[-6rem] mxl:bottom-[-9.9rem]  w-[18rem] flex justify-around flex-col px-4  rounded-lg left-1  z-[20]`
+                    : " hidden "
+                }
+              >
+                <button className="px-[1rem] lg:py-[0.5rem] xl:py-[0.8rem] w-full  rounded-lg text-[#009186] border-2 font-semibold border-[#009186]">
                   Saved Beneficiary
                 </button>
-                <button className="px-[1rem] py-[0.8rem] w-full  rounded-lg text-[#009186] border-2 font-semibold border-[#009186]">
+                <button className="px-[1rem] lg:py-[0.5rem] xl:py-[0.8rem] w-full  rounded-lg text-[#009186] border-2 font-semibold border-[#009186]">
                   New Receiver
                 </button>
               </div>
