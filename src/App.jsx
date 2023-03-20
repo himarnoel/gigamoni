@@ -20,6 +20,7 @@ import SetMobile from "./Pages/Auth/SetMobile";
 import Send from "./Pages/Send_Money/Send";
 import LessThan from "./Pages/Send_Money/LessThan";
 import NoAcctModal from "./Pages/Send_Money/NoAcctModal";
+import BeneficiaryMobile from "./Pages/Main_Pages/BeneficiaryMobile";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -42,6 +43,7 @@ function App() {
         <Route path="/send" element={<Send />} />
         <Route path="/less" element={<LessThan />} />
         <Route path="/noacct" element={<NoAcctModal />} />
+        <Route path="/beneficiary" element={<BeneficiaryMobile />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </div>
