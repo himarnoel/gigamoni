@@ -41,12 +41,46 @@ const Dashboard = () => {
   return (
     <div className="font-poppins bg-[#F8F8FF]">
       <div className="absolute h-screen w-full top-0 bg-[#262626]/[0.8] z-[50] flex items-center justify-center ">
-        <div className="w-[30rem] h-[29rem] bg-[#DAF2F1] rounded-lg px-10  ">
+        <div className="w-[30rem] h-[29rem] bg-[#DAF2F1] rounded-lg px-10 flex  flex-col justify-between py-4  ">
           <p className="text-[#262626] font-semibold text-center">
             Beneficiaries
           </p>
-          <div className="h-[86%] bg-white overflow-auto">
-            <div className="h-16 border-2 border-[#009186] rounded-lg"></div>
+          <div className="h-[86%]  overflow-auto mt-5 px-4 bg-blue-400">
+            <div className="h-[6rem] border-2 border-[#009186] rounded-lg bg-white mt-5 text-base  justify-between pt-5 pb-3 px-2 flex flex-col">
+              <p className="text-[#175873] font-semibold">Beneficiary Name</p>
+              <div className="flex font-[#262626] text-xs">
+                <p className="mr-4">JPMorgan Chase Bank</p>
+                <p>12345678901234</p>
+              </div>
+            </div>
+            <div className="h-[6rem] border-2 border-[#009186] rounded-lg bg-white mt-5 text-base  justify-between pt-5 pb-3 px-2 flex flex-col">
+              <p className="text-[#175873] font-semibold">Beneficiary Name</p>
+              <div className="flex font-[#262626] text-xs">
+                <p className="mr-4">JPMorgan Chase Bank</p>
+                <p>12345678901234</p>
+              </div>
+            </div>
+            <div className="h-[6rem] border-2 border-[#009186] rounded-lg bg-white mt-5 text-base  justify-between pt-5 pb-3 px-2 flex flex-col">
+              <p className="text-[#175873] font-semibold">Beneficiary Name</p>
+              <div className="flex font-[#262626] text-xs">
+                <p className="mr-4">JPMorgan Chase Bank</p>
+                <p>12345678901234</p>
+              </div>
+            </div>
+            <div className="h-[6rem] border-2 border-[#009186] rounded-lg bg-white mt-5 text-base  justify-between pt-5 pb-3 px-2 flex flex-col">
+              <p className="text-[#175873] font-semibold">Beneficiary Name</p>
+              <div className="flex font-[#262626] text-xs">
+                <p className="mr-4">JPMorgan Chase Bank</p>
+                <p>12345678901234</p>
+              </div>
+            </div>
+            <div className="h-[6rem] border-2 border-[#009186] rounded-lg bg-white mt-5 text-base  justify-between pt-5 pb-3 px-2 flex flex-col">
+              <p className="text-[#175873] font-semibold">Beneficiary Name</p>
+              <div className="flex font-[#262626] text-xs">
+                <p className="mr-4">JPMorgan Chase Bank</p>
+                <p>12345678901234</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
