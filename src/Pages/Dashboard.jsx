@@ -211,19 +211,19 @@ const Dashboard = () => {
                 <div
                   className={
                     buttons
-                      ? ` duration-700 ease-in-out  bg-[#F8F8FF] shadow sm:h-[9rem] sm:mb-[-9rem]  xl:h-[9rem]   xl:mb-[-9rem] mxl:mb-[-12.9rem]  sm:w-[18rem]  mxl:h-[13rem] mxl:w-[17rem] flex justify-around flex-col px-4  rounded-lg left-1  `
+                      ? ` duration-700 ease-in-out  bg-[#F8F8FF] shadow h-[8rem] sm:h-[9rem] sm:mb-[-9rem] md:h-[10rem] md:mb-[-10rem] xl:h-[9rem]   xl:mb-[-9rem] mxl:mb-[-12.9rem]  sm:w-[17rem]  mxl:h-[13rem] mxl:w-[17rem] flex justify-around flex-col px-4  rounded-lg left-1  `
                       : " hidden "
                   }
                 >
                   <button
                     onClick={() => setbuttons(false)}
-                    className="px-[1rem] py-[0.5rem] sm:py-[0.6rem]  md:py-[0.5rem] lg:py-[0.5rem] mxl:py-[0.8rem] w-full  rounded-lg text-[#009186] border-2 font-semibold border-[#009186]"
+                    className="px-[1rem] py-[0.5rem] text-xs sm:text-base sm:py-[0.6rem]  md:py-[0.5rem] lg:py-[0.5rem] mxl:py-[0.8rem] w-full  rounded-lg text-[#009186] border-2 font-semibold border-[#009186]"
                   >
                     Saved Beneficiary
                   </button>
                   <button
                     onClick={() => setbuttons(false)}
-                    className="px-[1rem] py-[0.5rem] sm:py-[0.6rem]  md:py-[0.5rem] lg:py-[0.5rem] mxl:py-[0.8rem] w-full  rounded-lg text-[#009186] border-2 font-semibold border-[#009186]"
+                    className="px-[1rem] py-[0.5rem] text-xs sm:text-base sm:py-[0.6rem]  md:py-[0.5rem] lg:py-[0.5rem] mxl:py-[0.8rem] w-full  rounded-lg text-[#009186] border-2 font-semibold border-[#009186]"
                   >
                     New Receiver
                   </button>
