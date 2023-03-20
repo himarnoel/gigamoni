@@ -40,7 +40,17 @@ const Dashboard = () => {
 
   return (
     <div className="font-poppins bg-[#F8F8FF]">
-      <DashNav class="fixed top-0 w-full z-[100]" />
+      <div className="absolute h-screen w-full top-0 bg-[#262626]/[0.8] z-[50] flex items-center justify-center ">
+        <div className="w-[30rem] h-[29rem] bg-[#DAF2F1] rounded-lg px-10  ">
+          <p className="text-[#262626] font-semibold text-center">
+            Beneficiaries
+          </p>
+          <div className="h-[86%] bg-white overflow-auto">
+            <div className="h-16 border-2 border-[#009186] rounded-lg"></div>
+          </div>
+        </div>
+      </div>
+      <DashNav class="fixed top-0 w-full z-[30]" />
       <div className="2xl:px-[10rem] xl:px-[5rem]  px-2 xss:px-4 xs:px-6 sm:px-10 md:px-20   flex flex-col justify-center items-center gap-y-8 pb-8   lg:px-10 mt-20 mxl:pt-20">
         <span
           onClick={() => alert("Notification")}
