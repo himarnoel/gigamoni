@@ -179,7 +179,7 @@ const Dashboard = () => {
                 <div
                   className={
                     buttons
-                      ? ` duration-700 ease-in-out  bg-[#F8F8FF] shadow  xl:h-[9rem]   xl:mb-[-9rem] mxl:bottom-[-9.9rem]  sm:w-[18rem] flex justify-around flex-col px-4  rounded-lg left-3  z-[20]`
+                      ? ` duration-700 ease-in-out  bg-[#F8F8FF] shadow  xl:h-[9rem]   xl:mb-[-9rem] mxl:mb-[-12.9rem]  sm:w-[18rem]  mxl:h-[13rem] mxl:w-[17rem] flex justify-around flex-col px-4  rounded-lg left-1  `
                       : " hidden "
                   }
                 >
