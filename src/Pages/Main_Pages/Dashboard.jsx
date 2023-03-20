@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import { RiNotification2Fill } from "react-icons/ri";
-import DashNav from "../Components/DashBoardComponents/DashNav";
+import DashNav from "../../Components/DashBoardComponents/DashNav";
 import bell from "../assets/bell.svg";
 import { GrSearch } from "react-icons/gr";
 import search from "../assets/search.svg";
@@ -11,7 +11,7 @@ import { BiTransfer } from "react-icons/bi";
 import caller from "../assets/Dashboard/caller.svg";
 import cardformobilescreen from "../assets/Dashboard/mobilecard.svg";
 import axios from "axios";
-import { baseurl } from "./../Service/validate_and_api";
+import { baseurl } from "../../Service/validate_and_api";
 import { BsFillCalendar2Fill } from "react-icons/bs";
 import DatePicker from "react-datepicker";
 import { RiCloseCircleFill } from "react-icons/ri";
