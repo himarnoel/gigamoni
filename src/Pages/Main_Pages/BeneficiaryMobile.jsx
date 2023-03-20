@@ -26,6 +26,17 @@ const BeneficiaryMobile = () => {
           />
         </div>
         <p className="text-center mt-10">Beneficiaries</p>
+        <div className="mt-4 bg-[#DAF2F1] w-full h-[20rem] rounded-lg px-4  overflow-y-auto ">
+          <div className="w-full border-2 border-[#009186] border-solid min-h-[5rem] rounded-lg mt-5 px-2 pt-5 bg-white  pb-3">
+            <p className="text-xs font-semibold text-[#175873]">
+              Beneficiary Name
+            </p>
+            <div className="flex text-[#262626] text-xs mt-5">
+              <p className="mr-5">JPMorgan Chase Bank</p>
+              <p className="">12345678901234 </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
