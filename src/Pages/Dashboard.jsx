@@ -22,27 +22,27 @@ const Dashboard = () => {
   const [date, setdate] = useState(false);
   const [openDate, setopenDate] = useState(false);
   const [buttons, setbuttons] = useState(false);
-  useEffect(() => {
-    axios
-      .get(`${baseurl}/transactions/`, {
-        headers: {
-          Authorization: `Token ${localStorage.getItem("LoggedIntoken")}`,
-        },
-      })
-      .then((res) => {
-        console.log(res.data);
-        Settrans(res.data);
-      })
-      .catch((e) => {
-        console.log(e);
-      });
-  }, []);
+  // useEffect(() => {
+  //   axios
+  //     .get(`${baseurl}/transactions/`, {
+  //       headers: {
+  //         Authorization: `Token ${localStorage.getItem("LoggedIntoken")}`,
+  //       },
+  //     })
+  //     .then((res) => {
+  //       console.log(res.data);
+  //       Settrans(res.data);
+  //     })
+  //     .catch((e) => {
+  //       console.log(e);
+  //     });
+  // }, []);
 
   return (
     <div className="font-poppins bg-[#F8F8FF] overflow-y-hidden">
       <div className="absolute h-screen w-full top-0 bg-[#262626]/[0.8] z-[50] md:flex items-center justify-center hidden ">
-        <div className="xl:w-[30rem] mxl:w-[40rem] xl:h-[29rem] bg-[#DAF2F1] rounded-lg px-3 flex  flex-col justify-between py-4  ">
-          <p className="text-[#262626] font-semibold text-center">
+        <div className="xl:w-[30rem] mxl:w-[40rem] mxl:h-[40rem] xl:h-[29rem] bg-[#DAF2F1] rounded-lg px-3 flex  flex-col justify-between py-4 mxl:py-10  ">
+          <p className="text-[#262626] font-semibold text-center text-lg">
             Beneficiaries
           </p>
           <div className="h-[86%]  overflow-auto mt-5 px-8 bg-">
@@ -60,8 +60,6 @@ const Dashboard = () => {
                 <p>12345678901234</p>
               </div>
             </div>
-           
-           
           </div>
         </div>
       </div>
