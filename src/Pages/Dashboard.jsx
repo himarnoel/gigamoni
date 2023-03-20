@@ -171,11 +171,25 @@ const Dashboard = () => {
                 </p>
                 <button
                   onClick={() => setbuttons(!buttons)}
-                  className="px-[1rem] py-[0.6rem] sm:px-[3rem] sm:py-[0.7rem] lg:px-[2rem] lg:py-[0.6rem] mt-8 text-xs sm:mt-6 sm:text-sm rounded-lg text-white bg-[#009186] flex items-center"
+                  className="px-[1rem] py-[0.6rem]   sm:px-[3rem] sm:py-[0.7rem] lg:px-[2rem] lg:py-[0.6rem] mt-8 text-xs sm:mt-6 sm:text-sm rounded-lg text-white bg-[#009186] flex items-center"
                 >
                   Send Money
-                  <RiArrowDownSLine className="text-xl ml-2" />
+                  <RiArrowDownSLine className="text-xl ml-2 " />
                 </button>
+                <div
+                  className={
+                    buttons
+                      ? ` duration-700 ease-in-out  bg-[#F8F8FF] shadow  xl:h-[9rem]   xl:mb-[-9rem] mxl:bottom-[-9.9rem]  sm:w-[18rem] flex justify-around flex-col px-4  rounded-lg left-3  z-[20]`
+                      : " hidden "
+                  }
+                >
+                  <button className="px-[1rem] py-[0.5rem] sm:py-[0.6rem]  md:py-[0.5rem] lg:py-[0.5rem] mxl:py-[0.8rem] w-full  rounded-lg text-[#009186] border-2 font-semibold border-[#009186]">
+                    Saved Beneficiary
+                  </button>
+                  <button className="px-[1rem] py-[0.5rem] sm:py-[0.6rem]  md:py-[0.5rem] lg:py-[0.5rem] mxl:py-[0.8rem] w-full  rounded-lg text-[#009186] border-2 font-semibold border-[#009186]">
+                    New Receiver
+                  </button>
+                </div>
               </span>
               <img
                 src={card}
@@ -187,20 +201,6 @@ const Dashboard = () => {
                 alt=""
                 className="sm:hidden object-contain w-[10rem] mt-[1rem]"
               />
-              <div
-                className={
-                  buttons
-                    ? ` duration-700 ease-in-out absolute bg-[#F8F8FF] shadow lg:h-[8rem] xl:h-[9rem] mxl:h-[13.4rem] lg:bottom-[-6rem] xl:bottom-[-6rem] mxl:bottom-[-9.9rem]  w-[18rem] flex justify-around flex-col px-4  rounded-lg left-1  z-[20]`
-                    : " hidden "
-                }
-              >
-                <button className="px-[1rem] lg:py-[0.5rem] xl:py-[0.8rem] w-full  rounded-lg text-[#009186] border-2 font-semibold border-[#009186]">
-                  Saved Beneficiary
-                </button>
-                <button className="px-[1rem] lg:py-[0.5rem] xl:py-[0.8rem] w-full  rounded-lg text-[#009186] border-2 font-semibold border-[#009186]">
-                  New Receiver
-                </button>
-              </div>
             </div>
             <div className="bg-[#C4C4C4] px-3 sm:px-6  mt-10 rounded-lg h-[15rem]  sm:h-[15rem] lg:h-[13rem]  mxl:h-[16rem] mxl:mt-[6rem] py-2 mxl:py-5 relative">
               <div className="w-full px-4">
