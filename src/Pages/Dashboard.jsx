@@ -24,37 +24,41 @@ const Dashboard = () => {
   const [openDate, setopenDate] = useState(false);
   const [buttons, setbuttons] = useState(false);
   const [beneficiaries, setbeneficiaries] = useState(false);
-  // useEffect(() => {
-  //   axios
-  //     .get(`${baseurl}/transactions/`, {
-  //       headers: {
-  //         Authorization: `Token ${localStorage.getItem("LoggedIntoken")}`,
-  //       },
-  //     })
-  //     .then((res) => {
-  //       console.log(res.data);
-  //       Settrans(res.data);
-  //     })
-  //     .catch((e) => {
-  //       console.log(e);
-  //     });
-  // }, []);
+  useEffect(() => {
+    axios
+      .get(`${baseurl}/transactions/`, {
+        headers: {
+          Authorization: `Token ${localStorage.getItem("LoggedIntoken")}`,
+        },
+      })
+      .then((res) => {
+        console.log(res.data);
+        Settrans(res.data);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  }, []);
 
   return (
     <div className="font-poppins bg-[#F8F8FF] overflow-y-hidden">
       <div
+        onClick={() => setbeneficiaries(false)}
         className={
           beneficiaries
-            ? `absolute h-screen w-full top-0 bg-[#262626]/[0.8] z-[50] md:flex items-center justify-center hidden`
+            ? `absolute h-screen  w-full top-0 bg-[#262626]/[0.8] z-[90] sm:flex items-center justify-center hidden`
             : "hidden"
         }
       >
-        <div className="relative xl:w-[30rem] mxl:w-[40rem] mxl:h-[40rem] xl:h-[29rem] bg-[#DAF2F1] rounded-lg px-3 flex  flex-col justify-between py-4 mxl:py-10  ">
-          <RiCloseCircleFill className="absolute top-3 right-4 cursor-pointer text-[#009186] text-xl" />
+        <div className="relative xl:w-[30rem] mxl:w-[40rem] sm:h-[30rem] sm:w-[30rem] md:h-[35rem] md:w-[33rem] mxl:h-[40rem]  xl:h-[29rem] bg-[#DAF2F1] rounded-lg px-3 flex  flex-col justify-between py-4 mxl:py-10  ">
+          <RiCloseCircleFill
+            onClick={() => setbeneficiaries(false)}
+            className="absolute top-3 right-4 cursor-pointer text-[#009186] text-xl "
+          />
           <p className="text-[#262626] font-semibold text-center text-lg mt-5">
             Beneficiaries
           </p>
-          <div className="h-[86%]  overflow-auto mt-5 px-8 bg-">
+          <div className="   h-[86%]  overflow-auto mt-5 px-8 bg-">
             <div className="h-[6rem] border-2 border-[#009186] rounded-lg bg-white mt-5 text-base  justify-between pt-5 pb-3 px-2 flex flex-col">
               <p className="text-[#175873] font-semibold">Beneficiary Name</p>
               <div className="flex font-[#262626] text-xs">
@@ -130,7 +134,7 @@ const Dashboard = () => {
               <div className="relative lg:ml-8">
                 <DatePicker
                   open={openDate}
-                  className="w-[7rem] sm:w-[8rem] md:w-[10rem] lg:w-full px-2  py-3 text-sm placeholder:text-[#87ACA3] placeholder:text-xs rounded-[8px] border-[2px] focus:outline-none border-[#009186] focus:border-[#009186]  border-solid"
+                  className="w-[5rem] xs:w-[7rem] sm:w-[8rem] md:w-[10rem] lg:w-full px-2  py-3 text-sm placeholder:text-[#87ACA3] placeholder:text-xs rounded-[8px] border-[2px] focus:outline-none border-[#009186] focus:border-[#009186]  border-solid"
                   placeholderText="Date range"
                   selected={startDate}
                   onInputClick={() => setopenDate(!openDate)}
@@ -144,7 +148,7 @@ const Dashboard = () => {
               </div>
             </div>
 
-            <div className="bg-[#DAF2F1]   overflow-auto rounded-lg w-full sm:h-[30rem] lg:h-[22.6rem] mxl:h-[42.8rem] mt-8 px-4 border-[#009186]">
+            <div className="bg-[#DAF2F1]   overflow-auto rounded-lg w-full h-[20rem] sm:h-[30rem] lg:h-[22.6rem] mxl:h-[42.8rem] mt-8 px-4 border-[#009186]">
               {trans.map((arr, i) => (
                 <div className="rounded-lg lg:py-1 lg:px-[0.24rem]   flex flex-col justify-between border-2 border-[#009186] text-sm mt-8 bg-[#F8F8FF] px-3  xl:px-3  py-1 min-h-[12rem] sm:min-h-[7rem]">
                   <span className="hidden sm:flex items-center justify-between mt-2">
@@ -216,7 +220,7 @@ const Dashboard = () => {
                   }
                 >
                   <button
-                    onClick={() => setbuttons(false)}
+                    onClick={() => setbeneficiaries(true)}
                     className="px-[1rem] py-[0.5rem] text-xs sm:text-base sm:py-[0.6rem]  md:py-[0.5rem] lg:py-[0.5rem] mxl:py-[0.8rem] w-full  rounded-lg text-[#009186] border-2 font-semibold border-[#009186]"
                   >
                     Saved Beneficiary
