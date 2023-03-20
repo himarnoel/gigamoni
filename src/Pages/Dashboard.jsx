@@ -23,6 +23,7 @@ const Dashboard = () => {
   const [date, setdate] = useState(false);
   const [openDate, setopenDate] = useState(false);
   const [buttons, setbuttons] = useState(false);
+  const [beneficiaries, setbeneficiaries] = useState(false);
   // useEffect(() => {
   //   axios
   //     .get(`${baseurl}/transactions/`, {
@@ -41,7 +42,13 @@ const Dashboard = () => {
 
   return (
     <div className="font-poppins bg-[#F8F8FF] overflow-y-hidden">
-      <div className="absolute h-screen w-full top-0 bg-[#262626]/[0.8] z-[50] md:flex items-center justify-center hidden ">
+      <div
+        className={
+          beneficiaries
+            ? `absolute h-screen w-full top-0 bg-[#262626]/[0.8] z-[50] md:flex items-center justify-center hidden`
+            : "hidden"
+        }
+      >
         <div className="relative xl:w-[30rem] mxl:w-[40rem] mxl:h-[40rem] xl:h-[29rem] bg-[#DAF2F1] rounded-lg px-3 flex  flex-col justify-between py-4 mxl:py-10  ">
           <RiCloseCircleFill className="absolute top-3 right-4 cursor-pointer text-[#009186] text-xl" />
           <p className="text-[#262626] font-semibold text-center text-lg mt-5">
@@ -204,14 +211,20 @@ const Dashboard = () => {
                 <div
                   className={
                     buttons
-                      ? ` duration-700 ease-in-out  bg-[#F8F8FF] shadow  xl:h-[9rem]   xl:mb-[-9rem] mxl:mb-[-12.9rem]  sm:w-[18rem]  mxl:h-[13rem] mxl:w-[17rem] flex justify-around flex-col px-4  rounded-lg left-1  `
+                      ? ` duration-700 ease-in-out  bg-[#F8F8FF] shadow sm:h-[9rem] sm:mb-[-9rem]  xl:h-[9rem]   xl:mb-[-9rem] mxl:mb-[-12.9rem]  sm:w-[18rem]  mxl:h-[13rem] mxl:w-[17rem] flex justify-around flex-col px-4  rounded-lg left-1  `
                       : " hidden "
                   }
                 >
-                  <button className="px-[1rem] py-[0.5rem] sm:py-[0.6rem]  md:py-[0.5rem] lg:py-[0.5rem] mxl:py-[0.8rem] w-full  rounded-lg text-[#009186] border-2 font-semibold border-[#009186]">
+                  <button
+                    onClick={() => setbuttons(false)}
+                    className="px-[1rem] py-[0.5rem] sm:py-[0.6rem]  md:py-[0.5rem] lg:py-[0.5rem] mxl:py-[0.8rem] w-full  rounded-lg text-[#009186] border-2 font-semibold border-[#009186]"
+                  >
                     Saved Beneficiary
                   </button>
-                  <button className="px-[1rem] py-[0.5rem] sm:py-[0.6rem]  md:py-[0.5rem] lg:py-[0.5rem] mxl:py-[0.8rem] w-full  rounded-lg text-[#009186] border-2 font-semibold border-[#009186]">
+                  <button
+                    onClick={() => setbuttons(false)}
+                    className="px-[1rem] py-[0.5rem] sm:py-[0.6rem]  md:py-[0.5rem] lg:py-[0.5rem] mxl:py-[0.8rem] w-full  rounded-lg text-[#009186] border-2 font-semibold border-[#009186]"
+                  >
                     New Receiver
                   </button>
                 </div>
