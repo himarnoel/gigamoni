@@ -50,7 +50,7 @@ const VerifyMail = () => {
       const otpValues = otp.reduce((partialSum, a) => partialSum + a);
       let id = searchParams.get("id");
       axios
-        .get(`${baseurl}/phone/${id}/${otpValues}`)
+        .get(`${baseurl}/accounts/phone/${id}/${otpValues}`)
         .then((res) => {
           console.log(res);
           setload(false);
