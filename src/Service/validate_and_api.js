@@ -13,7 +13,7 @@ export const loginValidate = yup.object().shape({
 const phoneRegExp =
   /^((\+[0-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 const passwordRegExp =
-  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$/;
+  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#;])[A-Za-z\d@$!%*?&#;]{8,}$/;
 export const signupValidate = yup.object().shape({
   name: yup.string().required("Please fill up this field"),
   email: yup
