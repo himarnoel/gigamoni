@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-
-import { RiNotification2Fill } from "react-icons/ri";
 import DashNav from "../../Components/DashBoardComponents/DashNav";
 import bell from "../../assets/bell.svg";
 import { GrSearch } from "react-icons/gr";

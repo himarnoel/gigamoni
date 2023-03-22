@@ -33,7 +33,6 @@ const LandingPage = () => {
       <Contact />
       <Faqs />
       <Foot />
-
     </div>
   );
 };

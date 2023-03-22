@@ -33,7 +33,6 @@ const Signup = () => {
     },
     validationSchema: signupValidate,
     onSubmit: (values) => {
-      
       window.scrollTo(0, 0);
       setload(true);
       axios
