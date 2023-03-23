@@ -28,9 +28,9 @@ const Pending = () => {
   console.log(formik.values);
   return (
     <div className=" bg-[#F8F8FF] font-poppins ">
-      <NavBar />
-      <div className=" 2xl:px-[10rem] xl:px-[5rem] lg:px-10 w-full  pt-6">
-        <div className="flex justify-between items-center">
+      <NavBar class="fixed top-0 z-[2]" />
+      <div className=" 2xl:px-[10rem] xl:px-[5rem] lg:px-10 w-full  pt-20 mxl:pt-32">
+        <div className="flex justify-between items-center mxl:mt-10">
           <button className=" lg:px-[4rem] lg:py-[0.7rem] rounded-lg bg-[#87ACA3]">
             Back
           </button>
@@ -46,7 +46,7 @@ const Pending = () => {
             <p className="font-semibold mxl:text-xl">Notifications</p>
           </div>
         </div>
-        <div className="flex justify-between w-full pr-10 mt-8">
+        <div className="flex justify-between w-full pr-10 mt-8 mxl:mt-20">
           <div className=" w-[32rem] flex flex-col justify-between  h-[4rem]">
             {" "}
             <div className="flex justify-between">
@@ -62,7 +62,7 @@ const Pending = () => {
               {/* <p className="ss">Service Fee: $10</p> */}
             </div>
           </div>
-          <div className="flex flex-row-reverse lg:flex-row justify-between items-center">
+          <div className="flex flex-row-reverse lg:flex-row justify-between items-center ">
             <span>
               <p className="text-[#175873] text-[0.59rem] ">Local Currency</p>
               <span className="flex ">
@@ -154,9 +154,13 @@ const Pending = () => {
             </span>
           </div>
         </div>
-        <form action="" onSubmit={formik.handleSubmit}>
+        <form
+          className="mb-20 mxl:mt-32"
+          action=""
+          onSubmit={formik.handleSubmit}
+        >
           <div className="flex gap-x-20  mt-10">
-            <div className="w-full flex-col flex gap-y-8">
+            <div className="w-full flex-col flex gap-y-8 mxl:gap-y-16">
               <div className="relative z-0 mt-0">
                 <input
                   type="text"
@@ -360,7 +364,7 @@ const Pending = () => {
                 )}
               </div>{" "}
             </div>
-            <div className="w-full  grid  gap-y-8">
+            <div className="w-full  grid  gap-y-8 mxl:gap-y-16">
               <div className="relative z-0 mt-0">
                 <input
                   type="text"
@@ -460,30 +464,30 @@ const Pending = () => {
               <div className="relative z-0 mt-0">
                 <input
                   type="text"
-                  id="name"
+                  id="swiftCode"
                   className={
-                    formik.errors.receivername && formik.touched.receivername
+                    formik.errors.swiftCode && formik.touched.swiftCode
                       ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
                       : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
                   }
                   placeholder=" "
                   onChange={formik.handleChange}
-                  value={formik.values.receivername}
+                  value={formik.values.swiftCode}
                   onBlur={formik.handleBlur}
                 />
                 <label
                   for="name"
                   className={
-                    formik.errors.receivername && formik.touched.receivername
+                    formik.errors.swiftCode && formik.touched.swiftCode
                       ? "absolute text-xs mxl:text-sm font-poppins text-red-500  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                       : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                   }
                 >
-                  Swift Code
+                  SwiftCode
                 </label>
-                {formik.errors.receivername && formik.touched.receivername ? (
+                {formik.errors.swiftCode && formik.touched.swiftCode ? (
                   <p className="text-red-500 text-xs font-poppins">
-                    {formik.errors.receivername}
+                    {formik.errors.swiftCode}
                   </p>
                 ) : (
                   ""
@@ -495,10 +499,16 @@ const Pending = () => {
                   name=""
                   id=""
                   cols="30"
-                  className="w-full border-[#262626] placeholder:text-xs px-2 pt-2 placeholder:text-[#262626]  bg-transparent h-[6rem] rounded-lg border"
+                  className={
+                    formik.errors.tractionDescription &&
+                    formik.touched.tractionDescription
+                      ? "w-full border-[#262626] placeholder:text-xs px-2 pt-2 placeholder:text-[#262626]  bg-transparent h-[6rem] rounded-lg border"
+                      : "w-full border-[#262626] placeholder:text-xs px-2 pt-2 placeholder:text-[#262626]  bg-transparent h-[6rem] rounded-lg border"
+                  }
                 ></textarea>
 
-                {formik.errors.receivername && formik.touched.receivername ? (
+                {formik.errors.tractionDescription &&
+                formik.touched.tractionDescription ? (
                   <p className="text-red-500 text-xs font-poppins">
                     {formik.errors.receivername}
                   </p>
@@ -508,7 +518,10 @@ const Pending = () => {
               </div>{" "}
             </div>
           </div>
-          <button className="p-6 bg-[]"></button>
+
+          <button className="p-6 bg-[#009186] rounded-lg px-14 text-sm py-3 float-right mt-5 text-[#F8F8FF]">
+            Pay Now
+          </button>
         </form>
       </div>
     </div>
