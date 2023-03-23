@@ -29,6 +29,7 @@ const OrderSummary = () => {
   console.log(formik.values);
   return (
     <div className="font-poppins">
+        
       <NavBar class="fixed  top-0 z-[10]" />
       <div className="w-full pt-20">
         <p className="text-[#175873] text-3xl font-semibold  text-center">
@@ -106,7 +107,7 @@ const OrderSummary = () => {
                       // formik.errors.receivingcurrency &&
                       // formik.touched.receivingcurrency
                       //   ? " font-poppins  pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#009186]   rounded-[6px] border-solid border-red-500 border-[4px] border-r  rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186]"
-                      //   :
+                      //   :    
                       " font-poppins pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070]   rounded-[6px] border-solid border-[#707070] border-[4px] border-r rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
                       //placeholder=" "
                     }
