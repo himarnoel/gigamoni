@@ -1,12 +1,56 @@
-import React from "react";
+import React, { useState } from "react";
 import NavBar from "./../../Components/AppComponents/NavBar";
 import bell from "../../assets/bell.svg";
 import { BiTransfer } from "react-icons/bi";
 import { RiArrowDownSLine } from "react-icons/ri";
 import { Formik, useFormik } from "formik";
 import { pendingValidate } from "../../Service/validate_and_api";
-
+import { useRef } from "react";
+import img1 from "../../assets/overlayimage/one.svg";
+import img2 from "../../assets/overlayimage/vector.svg";
 const OrderSummary = () => {
+  const [bool, setbool] = useState(false);
+  const safeDocument = typeof document !== "undefined" ? document : {};
+  const scrollBlocked = useRef();
+  const html = safeDocument.documentElement;
+  const { body } = safeDocument;
+
+  const blockScroll = () => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+    setbool(true);
+    if (!body || !body.style || scrollBlocked.current) return;
+    const scrollBarWidth = window.innerWidth - html.clientWidth;
+    const bodyPaddingRight =
+      parseInt(
+        window.getComputedStyle(body).getPropertyValue("padding-right")
+      ) || 0;
+
+    /**
+     * 1. Fixes a bug in iOS and desktop Safari whereby setting
+     *    `overflow: hidden` on the html/body does not prevent scrolling.
+     * 2. Fixes a bug in desktop Safari where `overflowY` does not prevent
+     *    scroll if an `overflow-x` style is also applied to the body.
+     */
+    html.style.position = "relative"; /* [1] */
+    html.style.overflow = "hidden"; /* [2] */
+    body.style.position = "relative"; /* [1] */
+    body.style.overflow = "hidden"; /* [2] */
+    body.style.paddingRight = `${bodyPaddingRight + scrollBarWidth}px`;
+    scrollBlocked.current = true;
+  };
+  const allowScroll = () => {
+    setbool(false);
+    if (!body || !body.style || !scrollBlocked.current) return;
+
+    html.style.position = "";
+    html.style.overflow = "";
+    body.style.position = "";
+    body.style.overflow = "";
+    body.style.paddingRight = "";
+
+    scrollBlocked.current = false;
+  };
+
   const formik = useFormik({
     initialValues: {
       receivername: "",
@@ -28,10 +72,35 @@ const OrderSummary = () => {
   });
   console.log(formik.values);
   return (
-    <div className="font-poppins">
-        
+    <div className="font-poppins  min-h-full over">
       <NavBar class="fixed  top-0 z-[10]" />
-      <div className="w-full pt-20">
+      <div
+        onClick={() => allowScroll()}
+        className={
+          bool
+            ? "absolute top-0   bg-[#262626]/[0.8]   z-[90] h-screen w-full flex  justify-center items-center"
+            : "hidden"
+        }
+      >
+        <div
+          className={
+            "bg-[#F8F8FF] h-[16rem] rounded-[11.8392px] text-xs mxl:text-sm w-[26rem] mxl:h-[20rem] mxl:w-[30rem] py-8 px-10  font-semibold"
+          }
+        >
+          <p className="text-center">Select Mode Of Payment</p>
+          <div className="flex pl-3 pb-3 mt-8 mxl:mt-14 items-center border-b border-[#87ACA3] text-[#000000]">
+            {" "}
+            <img src={img2} alt="" />
+            <p className="ml-2">Pay with Bank Transfer</p>
+          </div>
+          <div className="flex pl-3 pb-3 mt-8 mxl:mt-12 items-center border-b border-[#87ACA3] text-[#000000]">
+            {" "}
+            <img src={img1} alt="" />
+            <p className="ml-2">Pay with debit card</p>
+          </div>
+        </div>
+      </div>
+      <div className="w-full  pt-20 mxl:pt-32">
         <p className="text-[#175873] text-3xl font-semibold  text-center">
           Order Summary
         </p>
@@ -107,7 +176,7 @@ const OrderSummary = () => {
                       // formik.errors.receivingcurrency &&
                       // formik.touched.receivingcurrency
                       //   ? " font-poppins  pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#009186]   rounded-[6px] border-solid border-red-500 border-[4px] border-r  rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186]"
-                      //   :    
+                      //   :
                       " font-poppins pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070]   rounded-[6px] border-solid border-[#707070] border-[4px] border-r rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
                       //placeholder=" "
                     }
@@ -314,7 +383,6 @@ const OrderSummary = () => {
               <select
                 type="text"
                 id="receivingCountry"
-                required
                 className={
                   formik.errors.receivingCountry &&
                   formik.touched.receivingCountry
@@ -511,7 +579,10 @@ const OrderSummary = () => {
           <button className="p-6 bg-[#87ACA3] rounded-lg px-14 text-sm py-3 float-right mt-5 text-[#262626] font-medium">
             Back
           </button>
-          <button className="p-6 bg-[#009186] rounded-lg px-14 text-sm py-3 float-right mt-5 text-[#F8F8FF] font-medium">
+          <button
+            onClick={() => blockScroll()}
+            className="p-6 bg-[#009186] rounded-lg px-14 text-sm py-3 float-right mt-5 text-[#F8F8FF] font-medium"
+          >
             Pay Now
           </button>
         </div>
