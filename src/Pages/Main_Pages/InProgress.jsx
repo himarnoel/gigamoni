@@ -8,10 +8,10 @@ import { pendingValidate } from "../../Service/validate_and_api";
 const InProgress = () => {
   return (
     <div className=" font-poppins">
-      <NavBar />
-      <div className="flex justify-between">
+      <NavBar  class="fixed top-0 "/>
+      <div className="flex justify-between items-center 2xl:px-[10rem] xl:px-[5rem] lg:px-10  px-2 xss:px-4 xs:px-6 sm:px-10 md:px-8">
         {" "}
-        <button className="p-6 bg-[#87ACA3] rounded-lg px-14 text-sm py-3 float-right mt-5 text-[#262626] font-medium">
+        <button className="p-6 bg-[#87ACA3] rounded-md px-20 text-sm py-3 float-right  text-[#262626] font-medium">
           Back
         </button>
         <div
