@@ -320,29 +320,29 @@ const Pending = () => {
               <div className="relative z-0 ">
                 <select
                   type="text"
-                  id="receivingcountry"
+                  id="receivingCountry"
                   required
                   className={
-                    formik.errors.receivingcountry &&
-                    formik.touched.receivingcountry
+                    formik.errors.receivingCountry &&
+                    formik.touched.receivingCountry
                       ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
                       : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
                     //placeholder=" "
                   }
                   onChange={formik.handleChange}
-                  value={formik.values.receivingcountry}
+                  value={formik.values.receivingCountry}
                   onBlur={formik.handleBlur}
-                  placeholder="receivingcountry"
+                  placeholder="receivingCountry"
                 >
                   <option value=""></option>
 
                   <option value="Canada">Canada</option>
                 </select>
                 <label
-                  for="receivingcountry"
+                  for="receivingCountry"
                   className={
-                    formik.errors.receivingcountry &&
-                    formik.touched.receivingcountry
+                    formik.errors.receivingCountry &&
+                    formik.touched.receivingCountry
                       ? "absolute top-4   -z-1 origin-0  text-xs mxl:text-sm font-poppins text-red-500  duration-300  peer-focus:text-[#009186] "
                       : "absolute top-4   -z-1 origin-0  text-xs mxl:text-sm font-poppins text-[#262626]  duration-300  peer-focus:text-[#009186] "
                   }
@@ -350,10 +350,10 @@ const Pending = () => {
                   Receiving Country
                 </label>
                 <RiArrowDownSLine className="pointer-events-none cursor-pointer text-4xl absolute inset-y-0 right-0 flex items-center px-2 text-[#262626]" />
-                {formik.errors.receivingcountry &&
-                formik.touched.receivingcountry ? (
+                {formik.errors.receivingCountry &&
+                formik.touched.receivingCountry ? (
                   <p className="text-red-500 text-xs font-poppins">
-                    {formik.errors.receivingcountry}
+                    {formik.errors.receivingCountry}
                   </p>
                 ) : (
                   ""
@@ -364,30 +364,30 @@ const Pending = () => {
               <div className="relative z-0 mt-0">
                 <input
                   type="text"
-                  id="name"
+                  id="bankName"
                   className={
-                    formik.errors.receivername && formik.touched.receivername
+                    formik.errors.bankName && formik.touched.bankName
                       ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
                       : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
                   }
                   placeholder=" "
                   onChange={formik.handleChange}
-                  value={formik.values.receivername}
+                  value={formik.values.bankName}
                   onBlur={formik.handleBlur}
                 />
                 <label
                   for="name"
                   className={
-                    formik.errors.receivername && formik.touched.receivername
+                    formik.errors.bankName && formik.touched.bankName
                       ? "absolute text-xs mxl:text-sm font-poppins text-red-500  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                       : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                   }
                 >
                   Bank Name
                 </label>
-                {formik.errors.receivername && formik.touched.receivername ? (
+                {formik.errors.bankName && formik.touched.bankName ? (
                   <p className="text-red-500 text-xs font-poppins">
-                    {formik.errors.receivername}
+                    {formik.errors.bankName}
                   </p>
                 ) : (
                   ""
