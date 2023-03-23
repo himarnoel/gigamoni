@@ -32,7 +32,8 @@ const InProgress = () => {
             <div className="flex">
               <p className="pr-8">Transaction ID :1234567890987</p>
               <p className="flex">
-                <p> Status:</p> <p className="text-[#FBBC05] ml-1"> In progress</p>
+                <p> Status:</p>{" "}
+                <p className="text-[#FBBC05] ml-1"> In progress</p>
               </p>
             </div>
             <div className="flex mt-8">
@@ -49,6 +50,97 @@ const InProgress = () => {
             <p className="ml-4 text-[#009186] mt-6">Upload proof of payment</p>
           </div>
         </div>
+      </div>
+      <div className="flex flex-row-reverse lg:flex-row justify-between items-center ">
+        <span>
+          <p className="text-[#175873] text-[0.59rem] ">Local Currency</p>
+          <span className="flex mr-4">
+            <span className="relative z-0 ">
+              <select
+                type="text"
+                id="receivingcurrency"
+                className={
+                  // formik.errors.receivingcurrency &&
+                  // formik.touched.receivingcurrency
+                  //   ? " font-poppins  pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#009186]   rounded-[6px] border-solid border-red-500 border-[4px] rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186]"
+                  //   :
+                  " font-poppins pl-3  pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070] border-r   rounded-[6px] border-solid border-[#707070] border-[4px] rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
+                  //placeholder=" "
+                }
+                //   onChange={formik.handleChange}
+                //   value={formik.values.receivingcurrency}
+                //   onBlur={formik.handleBlur}
+                placeholder="receivingcountry"
+              >
+                <option value="NGN" selected>
+                  NGN
+                </option>
+
+                <option value="Pounds">Pounds</option>
+              </select>
+              <RiArrowDownSLine className="pointer-events-none cursor-pointer text-4xl absolute inset-y-5 right-0 flex items-center px-2 text-[#707070]" />
+            </span>
+            <input
+              type="number"
+              id="sendamount"
+              placeholder="00000"
+              className={
+                //   formik.errors.sendamount && formik.touched.sendamount
+                //     ? " font-poppins spin-button-none pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#009186] text-[#009186]  rounded-[6px] border-solid border-red-500 border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186]"
+                //     :
+                " font-poppins spin-button-none  pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-[#707070] border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
+              }
+              //   onChange={formik.handleChange}
+              //   value={formik.values.sendamount}
+              //   onBlur={formik.handleBlur}
+            />
+          </span>
+        </span>
+        <BiTransfer className="text-3xl text-[#707070] mt-6 mr-4" />
+        <span>
+          <p className="text-[#175873] text-[0.59rem] ">They Receive</p>
+          <span className="flex ">
+            <span className="relative z-0">
+              <select
+                type="text"
+                id="receivingcurrency"
+                className={
+                  // formik.errors.receivingcurrency &&
+                  // formik.touched.receivingcurrency
+                  //   ? " font-poppins  pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#009186]   rounded-[6px] border-solid border-red-500 border-[4px] border-r  rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186]"
+                  //   :
+                  " font-poppins pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070]   rounded-[6px] border-solid border-[#707070] border-[4px] border-r rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
+                  //placeholder=" "
+                }
+                //   onChange={formik.handleChange}
+                //   value={formik.values.receivingcurrency}
+                //   onBlur={formik.handleBlur}
+                placeholder="receivingcountry"
+              >
+                <option value="USD" selected>
+                  USD
+                </option>
+
+                <option value="Pounds">Pounds</option>
+              </select>
+              <RiArrowDownSLine className="pointer-events-none cursor-pointer  text-4xl absolute inset-y-5 right-0 flex items-center px-2 text-[#707070]" />
+            </span>
+            <input
+              type="number"
+              id="sendamount"
+              placeholder="00000"
+              className={
+                //   formik.errors.sendamount && formik.touched.sendamount
+                //     ? " font-poppins spin-button-none pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#009186] text-[#009186]  rounded-[6px] border-solid border-red-500 border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186]"
+                //     :
+                " font-poppins spin-button-none  pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-[#707070] border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
+              }
+              //   onChange={formik.handleChange}
+              //   value={formik.values.sendamount}
+              //   onBlur={formik.handleBlur}
+            />
+          </span>
+        </span>
       </div>
     </div>
   );

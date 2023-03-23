@@ -119,6 +119,7 @@ const OrderSummary = () => {
               <p className="ss">Service Fee: $10</p>
             </div>
           </div>
+          {/* dddd */}
           <div className="flex flex-row-reverse lg:flex-row justify-between items-center ">
             <span>
               <p className="text-[#175873] text-[0.59rem] ">Local Currency</p>
