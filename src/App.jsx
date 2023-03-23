@@ -22,6 +22,7 @@ import LessThan from "./Pages/Send_Money/LessThan";
 import NoAcctModal from "./Pages/Send_Money/NoAcctModal";
 import BeneficiaryMobile from "./Pages/Main_Pages/BeneficiaryMobile";
 import Pending from "./Pages/Main_Pages/Pending";
+import OrderSummary from "./Pages/Main_Pages/OrderSummary";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -46,6 +47,7 @@ function App() {
         <Route path="/noacct" element={<NoAcctModal />} />
         <Route path="/beneficiary" element={<BeneficiaryMobile />} />
         <Route path="/pending" element={<Pending />} />
+        <Route path="/summary" element={<OrderSummary />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </div>

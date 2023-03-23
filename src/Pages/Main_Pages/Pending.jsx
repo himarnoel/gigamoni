@@ -49,14 +49,14 @@ const Pending = () => {
         <div className="flex justify-between w-full pr-10 mt-8 mxl:mt-20">
           <div className=" w-[32rem] flex flex-col justify-between  h-[4rem]">
             {" "}
-            <div className="flex justify-between">
-              <p className="dfas">Transaction ID: 1234567890987</p>
+            <div className="flex justify-between font-medium">
+              <p className="">Transaction ID: 1234567890987</p>
               <p className="flex">
                 <span className="mr-1"> Status:</span>{" "}
                 <span className="text-[#5D5FEF]">Pending</span>
               </p>
             </div>
-            <div className="flex justify-between ">
+            <div className="flex justify-between font-medium ">
               {" "}
               <p className="d">Date: 01/01/2023 11:30am</p>
               {/* <p className="ss">Service Fee: $10</p> */}
@@ -65,8 +65,8 @@ const Pending = () => {
           <div className="flex flex-row-reverse lg:flex-row justify-between items-center ">
             <span>
               <p className="text-[#175873] text-[0.59rem] ">Local Currency</p>
-              <span className="flex ">
-                <span className="relative z-0">
+              <span className="flex mr-4">
+                <span className="relative z-0 ">
                   <select
                     type="text"
                     id="receivingcurrency"
@@ -75,7 +75,7 @@ const Pending = () => {
                       // formik.touched.receivingcurrency
                       //   ? " font-poppins  pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#009186]   rounded-[6px] border-solid border-red-500 border-[4px] rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186]"
                       //   :
-                      " font-poppins pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070] border-r   rounded-[6px] border-solid border-[#707070] border-[4px] rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
+                      " font-poppins pl-3  pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070] border-r   rounded-[6px] border-solid border-[#707070] border-[4px] rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
                       //placeholder=" "
                     }
                     //   onChange={formik.handleChange}
@@ -107,7 +107,7 @@ const Pending = () => {
                 />
               </span>
             </span>
-            <BiTransfer className="text-3xl text-[#707070] mt-6" />
+            <BiTransfer className="text-3xl text-[#707070] mt-6 mr-4" />
             <span>
               <p className="text-[#175873] text-[0.59rem] ">They Receive</p>
               <span className="flex ">
@@ -134,7 +134,7 @@ const Pending = () => {
 
                     <option value="Pounds">Pounds</option>
                   </select>
-                  <RiArrowDownSLine className="pointer-events-none cursor-pointer text-4xl absolute inset-y-5 right-0 flex items-center px-2 text-[#707070]" />
+                  <RiArrowDownSLine className="pointer-events-none cursor-pointer  text-4xl absolute inset-y-5 right-0 flex items-center px-2 text-[#707070]" />
                 </span>
                 <input
                   type="number"
