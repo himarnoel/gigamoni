@@ -81,22 +81,16 @@ export const sendmoney = yup.object().shape({
   sendamount: yup.number().required("Please fill up this field"),
 });
 
-
-
 export const pendingValidate = yup.object().shape({
-  name: yup.string().required("Please fill up this field"),
-  email: yup
-    .string()
-    .email("please enter a valid email")
-    .required("Please fill up this field"),
-  phonenumber: yup
-    .string()
-    .required("Please fill up this field")
-    .matches(phoneRegExp, "Phone number is not valid")
-    .max(15, "too long"),
-  country: yup.string().required("Please fill up this field"),
-  receivingcountry: yup.string().required("Please fill up this field"),
-  receivingcurrency: yup.string().required("Please fill up this field"),
-  localcurrency: yup.string().required("Please fill up this field"),
-  sendamount: yup.number().required("Please fill up this field"),
+  receivername: yup.string().required("Please fill up this field"),
+  bankName: yup.string().required("Please fill up this field"),
+  phoneNumber: yup.string().required("Please fill up this field"),
+  bankAddress: yup.string().required("Please fill up this field"),
+  emailAddress: yup.string().required("Please fill up this field"),
+  iban: yup.string().required("Please fill up this field"),
+  accountName: yup.string().required("Please fill up this field"),
+  swiftCode: yup.string().required("Please fill up this field"),
+  accountNumber: yup.string().required("Please fill up this field"),
+  receivingCountry: yup.string().required("Please fill up this field"),
+  tractionDescription: yup.string().required("Please fill up this field"),
 });

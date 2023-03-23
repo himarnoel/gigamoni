@@ -8,12 +8,17 @@ import { pendingValidate } from "../../Service/validate_and_api";
 const Pending = () => {
   const formik = useFormik({
     initialValues: {
-      name: "",
-      email: "",
-      phonenumber: "",
-      country: "",
-      password: "",
-      passwordConfirmation: "",
+      receivername: "",
+      bankName: "",
+      phoneNumber: "",
+      bankAddress: "",
+      emailAddress: "",
+      iban: "",
+      accountName: "",
+      swiftCode: "",
+      accountNumber: "",
+      receivingCountry: "",
+      tractionDescription: "",
     },
     validationSchema: pendingValidate,
     onSubmit: (values) => {
@@ -152,359 +157,380 @@ const Pending = () => {
         <form
           action=""
           onSubmit={formik.handleSubmit}
-          className="grid lg:grid-cols-2 gap-x-20 gap-y-6 mt-10"
+          className="flex gap-x-20  mt-10"
         >
-          <div className="relative z-0 mt-0">
-            <input
-              type="text"
-              id="name"
-              className={
-                formik.errors.name && formik.touched.name
-                  ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
-                  : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
-              }
-              placeholder=" "
-              onChange={formik.handleChange}
-              value={formik.values.name}
-              onBlur={formik.handleBlur}
-            />
-            <label
-              for="name"
-              className={
-                formik.errors.name && formik.touched.name
-                  ? "absolute text-xs mxl:text-sm font-poppins text-red-500  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                  : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-              }
-            >
-              Name
-            </label>
-            {formik.errors.name && formik.touched.name ? (
-              <p className="text-red-500 text-xs font-poppins">
-                {formik.errors.name}
-              </p>
-            ) : (
-              ""
-            )}
-          </div>{" "}
-          <div className="relative z-0 mt-0">
-            <input
-              type="text"
-              id="name"
-              className={
-                formik.errors.name && formik.touched.name
-                  ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
-                  : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
-              }
-              placeholder=" "
-              onChange={formik.handleChange}
-              value={formik.values.name}
-              onBlur={formik.handleBlur}
-            />
-            <label
-              for="name"
-              className={
-                formik.errors.name && formik.touched.name
-                  ? "absolute text-xs mxl:text-sm font-poppins text-red-500  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                  : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-              }
-            >
-              Bank Name
-            </label>
-            {formik.errors.name && formik.touched.name ? (
-              <p className="text-red-500 text-xs font-poppins">
-                {formik.errors.name}
-              </p>
-            ) : (
-              ""
-            )}
-          </div>{" "}
-          <div className="relative z-0 mt-0">
-            <input
-              type="text"
-              id="name"
-              className={
-                formik.errors.name && formik.touched.name
-                  ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
-                  : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
-              }
-              placeholder=" "
-              onChange={formik.handleChange}
-              value={formik.values.name}
-              onBlur={formik.handleBlur}
-            />
-            <label
-              for="name"
-              className={
-                formik.errors.name && formik.touched.name
-                  ? "absolute text-xs mxl:text-sm font-poppins text-red-500  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                  : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-              }
-            >
-              Name
-            </label>
-            {formik.errors.name && formik.touched.name ? (
-              <p className="text-red-500 text-xs font-poppins">
-                {formik.errors.name}
-              </p>
-            ) : (
-              ""
-            )}
-          </div>{" "}
-          <div className="relative z-0 mt-0">
-            <input
-              type="text"
-              id="name"
-              className={
-                formik.errors.name && formik.touched.name
-                  ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
-                  : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
-              }
-              placeholder=" "
-              onChange={formik.handleChange}
-              value={formik.values.name}
-              onBlur={formik.handleBlur}
-            />
-            <label
-              for="name"
-              className={
-                formik.errors.name && formik.touched.name
-                  ? "absolute text-xs mxl:text-sm font-poppins text-red-500  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                  : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-              }
-            >
-              Name
-            </label>
-            {formik.errors.name && formik.touched.name ? (
-              <p className="text-red-500 text-xs font-poppins">
-                {formik.errors.name}
-              </p>
-            ) : (
-              ""
-            )}
-          </div>{" "}
-          <div className="relative z-0 mt-0">
-            <input
-              type="text"
-              id="name"
-              className={
-                formik.errors.name && formik.touched.name
-                  ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
-                  : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
-              }
-              placeholder=" "
-              onChange={formik.handleChange}
-              value={formik.values.name}
-              onBlur={formik.handleBlur}
-            />
-            <label
-              for="name"
-              className={
-                formik.errors.name && formik.touched.name
-                  ? "absolute text-xs mxl:text-sm font-poppins text-red-500  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                  : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-              }
-            >
-              Name
-            </label>
-            {formik.errors.name && formik.touched.name ? (
-              <p className="text-red-500 text-xs font-poppins">
-                {formik.errors.name}
-              </p>
-            ) : (
-              ""
-            )}
-          </div>{" "}
-          <div className="relative z-0 mt-0">
-            <input
-              type="text"
-              id="name"
-              className={
-                formik.errors.name && formik.touched.name
-                  ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
-                  : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
-              }
-              placeholder=" "
-              onChange={formik.handleChange}
-              value={formik.values.name}
-              onBlur={formik.handleBlur}
-            />
-            <label
-              for="name"
-              className={
-                formik.errors.name && formik.touched.name
-                  ? "absolute text-xs mxl:text-sm font-poppins text-red-500  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                  : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-              }
-            >
-              Name
-            </label>
-            {formik.errors.name && formik.touched.name ? (
-              <p className="text-red-500 text-xs font-poppins">
-                {formik.errors.name}
-              </p>
-            ) : (
-              ""
-            )}
-          </div>{" "}
-          <div className="relative z-0 mt-0">
-            <input
-              type="text"
-              id="name"
-              className={
-                formik.errors.name && formik.touched.name
-                  ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
-                  : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
-              }
-              placeholder=" "
-              onChange={formik.handleChange}
-              value={formik.values.name}
-              onBlur={formik.handleBlur}
-            />
-            <label
-              for="name"
-              className={
-                formik.errors.name && formik.touched.name
-                  ? "absolute text-xs mxl:text-sm font-poppins text-red-500  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                  : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-              }
-            >
-              Name
-            </label>
-            {formik.errors.name && formik.touched.name ? (
-              <p className="text-red-500 text-xs font-poppins">
-                {formik.errors.name}
-              </p>
-            ) : (
-              ""
-            )}
-          </div>{" "}
-          <div className="relative z-0 mt-0">
-            <input
-              type="text"
-              id="name"
-              className={
-                formik.errors.name && formik.touched.name
-                  ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
-                  : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
-              }
-              placeholder=" "
-              onChange={formik.handleChange}
-              value={formik.values.name}
-              onBlur={formik.handleBlur}
-            />
-            <label
-              for="name"
-              className={
-                formik.errors.name && formik.touched.name
-                  ? "absolute text-xs mxl:text-sm font-poppins text-red-500  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                  : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-              }
-            >
-              Name
-            </label>
-            {formik.errors.name && formik.touched.name ? (
-              <p className="text-red-500 text-xs font-poppins">
-                {formik.errors.name}
-              </p>
-            ) : (
-              ""
-            )}
-          </div>{" "}
-          <div className="relative z-0 mt-0">
-            <input
-              type="text"
-              id="name"
-              className={
-                formik.errors.name && formik.touched.name
-                  ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
-                  : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
-              }
-              placeholder=" "
-              onChange={formik.handleChange}
-              value={formik.values.name}
-              onBlur={formik.handleBlur}
-            />
-            <label
-              for="name"
-              className={
-                formik.errors.name && formik.touched.name
-                  ? "absolute text-xs mxl:text-sm font-poppins text-red-500  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                  : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-              }
-            >
-              Name
-            </label>
-            {formik.errors.name && formik.touched.name ? (
-              <p className="text-red-500 text-xs font-poppins">
-                {formik.errors.name}
-              </p>
-            ) : (
-              ""
-            )}
-          </div>{" "}
-          <div className="relative z-0 mt-0">
-            <input
-              type="text"
-              id="name"
-              className={
-                formik.errors.name && formik.touched.name
-                  ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
-                  : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
-              }
-              placeholder=" "
-              onChange={formik.handleChange}
-              value={formik.values.name}
-              onBlur={formik.handleBlur}
-            />
-            <label
-              for="name"
-              className={
-                formik.errors.name && formik.touched.name
-                  ? "absolute text-xs mxl:text-sm font-poppins text-red-500  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                  : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-              }
-            >
-              Name
-            </label>
-            {formik.errors.name && formik.touched.name ? (
-              <p className="text-red-500 text-xs font-poppins">
-                {formik.errors.name}
-              </p>
-            ) : (
-              ""
-            )}
-          </div>{" "}
-          <div className="relative z-0 mt-0">
-            <input
-              type="text"
-              id="name"
-              className={
-                formik.errors.name && formik.touched.name
-                  ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
-                  : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
-              }
-              placeholder=" "
-              onChange={formik.handleChange}
-              value={formik.values.name}
-              onBlur={formik.handleBlur}
-            />
-            <label
-              for="name"
-              className={
-                formik.errors.name && formik.touched.name
-                  ? "absolute text-xs mxl:text-sm font-poppins text-red-500  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                  : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-              }
-            >
-              Name
-            </label>
-            {formik.errors.name && formik.touched.name ? (
-              <p className="text-red-500 text-xs font-poppins">
-                {formik.errors.name}
-              </p>
-            ) : (
-              ""
-            )}
+          <div className="w-full flex-col flex gap-10">
+            <div className="relative z-0 mt-0">
+              <input
+                type="text"
+                id="name"
+                className={
+                  formik.errors.receivername && formik.touched.receivername
+                    ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                    : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                }
+                placeholder=" "
+                onChange={formik.handleChange}
+                value={formik.values.receivername}
+                onBlur={formik.handleBlur}
+              />
+              <label
+                for="name"
+                className={
+                  formik.errors.receivername && formik.touched.receivername
+                    ? "absolute text-xs mxl:text-sm font-poppins text-red-500  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                    : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                }
+              >
+                Receiver’s Name
+              </label>
+              {formik.errors.receivername && formik.touched.receivername ? (
+                <p className="text-red-500 text-xs font-poppins">
+                  {formik.errors.receivername}
+                </p>
+              ) : (
+                ""
+              )}
+            </div>{" "}
+            <div className="relative z-0 mt-0">
+              <input
+                type="text"
+                id="name"
+                className={
+                  formik.errors.receivername && formik.touched.receivername
+                    ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                    : "block font-poppins   w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                }
+                placeholder=" "
+                onChange={formik.handleChange}
+                value={formik.values.receivername}
+                onBlur={formik.handleBlur}
+              />
+              <label
+                for="name"
+                className={
+                  formik.errors.receivername && formik.touched.receivername
+                    ? "absolute text-xs mxl:text-sm font-poppins text-red-500  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                    : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                }
+              >
+                Phone Number
+              </label>
+              {formik.errors.receivername && formik.touched.receivername ? (
+                <p className="text-red-500 text-xs font-poppins">
+                  {formik.errors.receivername}
+                </p>
+              ) : (
+                ""
+              )}
+            </div>{" "}
+            <div className="relative z-0 mt-0">
+              <input
+                type="text"
+                id="name"
+                className={
+                  formik.errors.receivername && formik.touched.receivername
+                    ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                    : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                }
+                placeholder=" "
+                onChange={formik.handleChange}
+                value={formik.values.receivername}
+                onBlur={formik.handleBlur}
+              />
+              <label
+                for="name"
+                className={
+                  formik.errors.receivername && formik.touched.receivername
+                    ? "absolute text-xs mxl:text-sm font-poppins text-red-500  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                    : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                }
+              >
+                Email Address
+              </label>
+              {formik.errors.receivername && formik.touched.receivername ? (
+                <p className="text-red-500 text-xs font-poppins">
+                  {formik.errors.receivername}
+                </p>
+              ) : (
+                ""
+              )}
+            </div>{" "}
+            <div className="relative z-0 mt-0">
+              <input
+                type="text"
+                id="name"
+                className={
+                  formik.errors.receivername && formik.touched.receivername
+                    ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                    : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                }
+                placeholder=" "
+                onChange={formik.handleChange}
+                value={formik.values.receivername}
+                onBlur={formik.handleBlur}
+              />
+              <label
+                for="name"
+                className={
+                  formik.errors.receivername && formik.touched.receivername
+                    ? "absolute text-xs mxl:text-sm font-poppins text-red-500  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                    : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                }
+              >
+                Account Name
+              </label>
+              {formik.errors.receivername && formik.touched.receivername ? (
+                <p className="text-red-500 text-xs font-poppins">
+                  {formik.errors.receivername}
+                </p>
+              ) : (
+                ""
+              )}
+            </div>{" "}
+            <div className="relative z-0 mt-0">
+              <input
+                type="text"
+                id="name"
+                className={
+                  formik.errors.receivername && formik.touched.receivername
+                    ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                    : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                }
+                placeholder=" "
+                onChange={formik.handleChange}
+                value={formik.values.receivername}
+                onBlur={formik.handleBlur}
+              />
+              <label
+                for="name"
+                className={
+                  formik.errors.receivername && formik.touched.receivername
+                    ? "absolute text-xs mxl:text-sm font-poppins text-red-500  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                    : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                }
+              >
+               Account Number
+              </label>
+              {formik.errors.receivername && formik.touched.receivername ? (
+                <p className="text-red-500 text-xs font-poppins">
+                  {formik.errors.receivername}
+                </p>
+              ) : (
+                ""
+              )}
+            </div>{" "}
+            <div className="relative z-0 mt-0">
+              <input
+                type="text"
+                id="name"
+                className={
+                  formik.errors.receivername && formik.touched.receivername
+                    ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                    : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                }
+                placeholder=" "
+                onChange={formik.handleChange}
+                value={formik.values.receivername}
+                onBlur={formik.handleBlur}
+              />
+              <label
+                for="name"
+                className={
+                  formik.errors.receivername && formik.touched.receivername
+                    ? "absolute text-xs mxl:text-sm font-poppins text-red-500  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                    : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                }
+              >
+               Account Number
+              </label>
+              {formik.errors.receivername && formik.touched.receivername ? (
+                <p className="text-red-500 text-xs font-poppins">
+                  {formik.errors.receivername}
+                </p>
+              ) : (
+                ""
+              )}
+            </div>{" "}
+            <div className="relative z-0 mt-0">
+              <input
+                type="text"
+                id="name"
+                className={
+                  formik.errors.receivername && formik.touched.receivername
+                    ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                    : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                }
+                placeholder=" "
+                onChange={formik.handleChange}
+                value={formik.values.receivername}
+                onBlur={formik.handleBlur}
+              />
+              <label
+                for="name"
+                className={
+                  formik.errors.receivername && formik.touched.receivername
+                    ? "absolute text-xs mxl:text-sm font-poppins text-red-500  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                    : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                }
+              >
+               Account Number
+              </label>
+              {formik.errors.receivername && formik.touched.receivername ? (
+                <p className="text-red-500 text-xs font-poppins">
+                  {formik.errors.receivername}
+                </p>
+              ) : (
+                ""
+              )}
+            </div>{" "}
+          </div>
+          <div className="w-full  grid  gap-6">
+            <div className="relative z-0 mt-0">
+              <input
+                type="text"
+                id="name"
+                className={
+                  formik.errors.receivername && formik.touched.receivername
+                    ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                    : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                }
+                placeholder=" "
+                onChange={formik.handleChange}
+                value={formik.values.receivername}
+                onBlur={formik.handleBlur}
+              />
+              <label
+                for="name"
+                className={
+                  formik.errors.receivername && formik.touched.receivername
+                    ? "absolute text-xs mxl:text-sm font-poppins text-red-500  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                    : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                }
+              >
+                Bank Name
+              </label>
+              {formik.errors.receivername && formik.touched.receivername ? (
+                <p className="text-red-500 text-xs font-poppins">
+                  {formik.errors.receivername}
+                </p>
+              ) : (
+                ""
+              )}
+            </div>{" "}
+            <div className="relative z-0 mt-0">
+              <input
+                type="text"
+                id="name"
+                className={
+                  formik.errors.receivername && formik.touched.receivername
+                    ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                    : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                }
+                placeholder=" "
+                onChange={formik.handleChange}
+                value={formik.values.receivername}
+                onBlur={formik.handleBlur}
+              />
+              <label
+                for="name"
+                className={
+                  formik.errors.receivername && formik.touched.receivername
+                    ? "absolute text-xs mxl:text-sm font-poppins text-red-500  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                    : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                }
+              >
+                Bank Address
+              </label>
+              {formik.errors.receivername && formik.touched.receivername ? (
+                <p className="text-red-500 text-xs font-poppins">
+                  {formik.errors.receivername}
+                </p>
+              ) : (
+                ""
+              )}
+            </div>{" "}
+            <div className="relative z-0 mt-0">
+              <input
+                type="text"
+                id="name"
+                className={
+                  formik.errors.receivername && formik.touched.receivername
+                    ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                    : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                }
+                placeholder=" "
+                onChange={formik.handleChange}
+                value={formik.values.receivername}
+                onBlur={formik.handleBlur}
+              />
+              <label
+                for="name"
+                className={
+                  formik.errors.receivername && formik.touched.receivername
+                    ? "absolute text-xs mxl:text-sm font-poppins text-red-500  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                    : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                }
+              >
+                IBAN
+              </label>
+              {formik.errors.receivername && formik.touched.receivername ? (
+                <p className="text-red-500 text-xs font-poppins">
+                  {formik.errors.receivername}
+                </p>
+              ) : (
+                ""
+              )}
+            </div>{" "}
+            <div className="relative z-0 mt-0">
+              <input
+                type="text"
+                id="name"
+                className={
+                  formik.errors.receivername && formik.touched.receivername
+                    ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                    : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                }
+                placeholder=" "
+                onChange={formik.handleChange}
+                value={formik.values.receivername}
+                onBlur={formik.handleBlur}
+              />
+              <label
+                for="name"
+                className={
+                  formik.errors.receivername && formik.touched.receivername
+                    ? "absolute text-xs mxl:text-sm font-poppins text-red-500  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                    : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                }
+              >
+                Swift Code
+              </label>
+              {formik.errors.receivername && formik.touched.receivername ? (
+                <p className="text-red-500 text-xs font-poppins">
+                  {formik.errors.receivername}
+                </p>
+              ) : (
+                ""
+              )}
+            </div>{" "}
+            <div className="relative z-0 mt-4 row-span-2">
+              <textarea
+                placeholder="Enter traction description "
+                name=""
+                id=""
+                cols="30"
+                className="w-full border-[#262626] placeholder:text-xs px-2 pt-2 placeholder:text-[#262626]  bg-transparent h-[6rem] rounded-lg border"
+              ></textarea>
+
+              {formik.errors.receivername && formik.touched.receivername ? (
+                <p className="text-red-500 text-xs font-poppins">
+                  {formik.errors.receivername}
+                </p>
+              ) : (
+                ""
+              )}
+            </div>{" "}
           </div>
         </form>
       </div>
