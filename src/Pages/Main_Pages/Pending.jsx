@@ -256,30 +256,30 @@ const Pending = () => {
               <div className="relative z-0 mt-0">
                 <input
                   type="text"
-                  id="name"
+                  id="accountName"
                   className={
-                    formik.errors.receivername && formik.touched.receivername
+                    formik.errors.accountName && formik.touched.accountName
                       ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
                       : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
                   }
                   placeholder=" "
                   onChange={formik.handleChange}
-                  value={formik.values.receivername}
+                  value={formik.values.accountName}
                   onBlur={formik.handleBlur}
                 />
                 <label
                   for="name"
                   className={
-                    formik.errors.receivername && formik.touched.receivername
+                    formik.errors.accountName && formik.touched.accountName
                       ? "absolute text-xs mxl:text-sm font-poppins text-red-500  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                       : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                   }
                 >
                   Account Name
                 </label>
-                {formik.errors.receivername && formik.touched.receivername ? (
+                {formik.errors.accountName && formik.touched.accountName ? (
                   <p className="text-red-500 text-xs font-poppins">
-                    {formik.errors.receivername}
+                    {formik.errors.accountName}
                   </p>
                 ) : (
                   ""
@@ -288,30 +288,30 @@ const Pending = () => {
               <div className="relative z-0 mt-0">
                 <input
                   type="text"
-                  id="name"
+                  id="accountNumber"
                   className={
-                    formik.errors.receivername && formik.touched.receivername
+                    formik.errors.accountNumber && formik.touched.accountNumber
                       ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
                       : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
                   }
                   placeholder=" "
                   onChange={formik.handleChange}
-                  value={formik.values.receivername}
+                  value={formik.values.accountNumber}
                   onBlur={formik.handleBlur}
                 />
                 <label
                   for="name"
                   className={
-                    formik.errors.receivername && formik.touched.receivername
+                    formik.errors.accountNumber && formik.touched.accountNumber
                       ? "absolute text-xs mxl:text-sm font-poppins text-red-500  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                       : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                   }
                 >
                   Account Number
                 </label>
-                {formik.errors.receivername && formik.touched.receivername ? (
+                {formik.errors.accountNumber && formik.touched.accountNumber ? (
                   <p className="text-red-500 text-xs font-poppins">
-                    {formik.errors.receivername}
+                    {formik.errors.accountNumber}
                   </p>
                 ) : (
                   ""
