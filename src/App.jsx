@@ -50,6 +50,7 @@ function App() {
         <Route path="/pending" element={<Pending />} />
         <Route path="/summary" element={<OrderSummary />} />
         <Route path="/progress" element={<InProgress />} />
+        <Route path="/upload" element={<UploadProof />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </div>
