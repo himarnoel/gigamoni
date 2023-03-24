@@ -1,7 +1,9 @@
 import React from "react";
 
 const UploadProof = () => {
-  return <div>UploadProof</div>;
+  return <div>
+    <div className="ss"></div>
+  </div>;
 };
 
 export default UploadProof;
