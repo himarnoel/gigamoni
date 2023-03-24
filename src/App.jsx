@@ -24,6 +24,7 @@ import BeneficiaryMobile from "./Pages/Main_Pages/BeneficiaryMobile";
 import Pending from "./Pages/Main_Pages/Pending";
 import OrderSummary from "./Pages/Main_Pages/OrderSummary";
 import InProgress from "./Pages/Main_Pages/InProgress";
+import UploadProof from "./Pages/Main_Pages/UploadProof";
 
 function App() {
   const [count, setCount] = useState(0);

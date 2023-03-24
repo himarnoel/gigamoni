@@ -6,7 +6,9 @@ import { RiArrowDownSLine } from "react-icons/ri";
 import { Formik, useFormik } from "formik";
 import { pendingValidate } from "../../Service/validate_and_api";
 import trans from "../../assets/overlayimage/icon.svg";
+import { useNavigate } from "react-router-dom";
 const InProgress = () => {
+  const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
       receivername: "",
@@ -68,7 +70,12 @@ const InProgress = () => {
               <p className="text-[#D80010] ml-2 "> Not uploaded</p>
             </p>
             <p className="ml-3 mt-6">Mode of payment: Card Payment</p>
-            <p className="ml-4 text-[#009186] mt-6">Upload proof of payment</p>
+            <p
+              onClick={() => navigate("/upload")}
+              className="ml-4 text-[#009186] mt-6 cursor-pointer"
+            >
+              Upload proof of payment
+            </p>
           </div>
         </div>
         <div className="flex flex-row-reverse lg:flex-row justify-between items-center w-[22rem] mt-6">
@@ -515,7 +522,7 @@ const InProgress = () => {
                     formik.touched.tractionDescription
                       ? "w-full placeholder:text-xs px-2 pt-2 placeholder:text-[#262626] border-red-500  focus:border-[#009186]  bg-transparent h-[6rem] rounded-lg border"
                       : "w-full placeholder:text-xs px-2 pt-2 placeholder:text-[#262626] border-[#262626]  focus:border-[#009186]  bg-transparent h-[6rem] mxl:h-[9rem] rounded-lg border"
-                  } 
+                  }
                 ></textarea>
 
                 {formik.errors.tractionDescription &&
