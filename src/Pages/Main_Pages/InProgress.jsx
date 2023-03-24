@@ -504,7 +504,7 @@ const InProgress = () => {
                   ""
                 )}
               </div>{" "}
-              <div className="relative z-0 mt-4 row-span-2">
+              <div className="relative z-0  row-span-2">
                 <textarea
                   placeholder="Enter traction description "
                   name=""
@@ -513,9 +513,9 @@ const InProgress = () => {
                   className={
                     formik.errors.tractionDescription &&
                     formik.touched.tractionDescription
-                      ? "w-full border-[#262626] placeholder:text-xs px-2 pt-2 placeholder:text-[#262626]  bg-transparent h-[6rem] rounded-lg border"
-                      : "w-full border-[#262626] placeholder:text-xs px-2 pt-2 placeholder:text-[#262626]  bg-transparent h-[6rem] rounded-lg border"
-                  }
+                      ? "w-full placeholder:text-xs px-2 pt-2 placeholder:text-[#262626] border-red-500  focus:border-[#009186]  bg-transparent h-[6rem] rounded-lg border"
+                      : "w-full placeholder:text-xs px-2 pt-2 placeholder:text-[#262626] border-[#262626]  focus:border-[#009186]  bg-transparent h-[6rem] mxl:h-[9rem] rounded-lg border"
+                  } 
                 ></textarea>
 
                 {formik.errors.tractionDescription &&
@@ -529,7 +529,7 @@ const InProgress = () => {
               </div>{" "}
             </div>
           </div>
-          <button className="p-6 border-2 border-[#009186] rounded-lg px-14 text-sm py-3 float-left ml-[-6rem] mt-8 text-[#009186] font-medium">
+          <button className="p-6 border-2 border-[#009186] rounded-lg px-14 text-sm py-3 float-left ml-[-6rem] mxl:ml-[-5rem] mt-8 mxl:mt-16 text-[#009186] font-medium">
             Initiate Dispute
           </button>
         </form>
