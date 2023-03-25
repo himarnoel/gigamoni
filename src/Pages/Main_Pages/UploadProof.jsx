@@ -37,6 +37,11 @@ const UploadProof = () => {
     setoverlayUpload(true);
   };
 
+  const preventOpeningFile = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    // alert("helloq");
+  };
   const fileDrop = (e) => {
     e.preventDefault();
     setoverlayUpload(false);
@@ -46,7 +51,12 @@ const UploadProof = () => {
 
   return (
     <div>
-      <div className=" font-poppins">
+      <div
+        onDragOver={preventOpeningFile}
+        onDragLeave={preventOpeningFile}
+        onDrop={preventOpeningFile}
+        className=" font-poppins"
+      >
         <NavBar class="top-0 fixed z-[20]" />
         <div className="pt-20 flex justify-between mxl:pt-32 2xl:px-[10rem] xl:px-[5rem] lg:px-10  px-2 xss:px-4 xs:px-6 sm:px-10 md:px-8">
           <button className=" lg:px-[4rem] lg:py-[0.7rem] rounded-lg bg-[#87ACA3] font-semibold">
@@ -85,6 +95,7 @@ const UploadProof = () => {
             }
           >
             <div
+              onDragLeave={dragLeave}
               className={
                 overlayUpload
                   ? "absolute top-0  w-full bg-[#87ACA3]/[0.8] h-full"
