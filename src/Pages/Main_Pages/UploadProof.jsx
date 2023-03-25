@@ -32,8 +32,8 @@ const UploadProof = () => {
         <p className="text-[1.7rem] font-semibold text-center mt-6">
           Upload Proof of payment
         </p>
-        <div className="w-full px-20 mt-10">
-          <div className="h-[20rem] border-2 mxl:border-4 mx-auto border-dashed border-[#87ACA3] w-[40rem] rounded-[11.8392px]">
+        <div className="w-full px-[19rem] mt-10 ">
+          <div className="h-[20rem] border-2 mxl:border-4 mx-auto border-dashed border-[#87ACA3] w-full rounded-[11.8392px]">
             <span className="flex justify-center items-center rounded-full bg-[#87ACA3] h-14 w-14 mx-auto mt-5">
               <IoMdCloudUpload className="text-3xl text-[#2B7C85]" />
             </span>
@@ -45,7 +45,7 @@ const UploadProof = () => {
               <span className="flex flex-col">
                 <p className="font-medium">Images </p>
                 <p className="flex mt-3">
-                  <BiImageAlt />
+                  <BiImageAlt className="text-[#2B7C85]" />
                   <p className="text-sm ml-3 mr-2">JPEG</p>
                   <p className="text-sm">PNG</p>
                 </p>
@@ -60,6 +60,16 @@ const UploadProof = () => {
               </span>
             </div>
           </div>
+          <div className="">
+            <input
+              type="text"
+              placeholder="Enter transaction ID"
+              className="border-2 border-[#87ACA3] placeholder:text-[#87ACA3] text-xs w-[20rem] px-4 py-3 mt-8 rounded-lg focus:outline-none focus:ring-0 focus:border-[#87ACA3]"
+            />
+          </div>
+          <button className=" lg:px-[4rem] lg:py-[0.7rem] rounded-lg bg-[#C4C4C4] font-semibold mt-4 mb-32 float-right">
+            Done
+          </button>
         </div>
       </div>
     </div>
