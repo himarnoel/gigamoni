@@ -1,6 +1,8 @@
 import React from "react";
 import NavBar from "../../Components/AppComponents/NavBar";
 import bell from "../../assets/bell.svg";
+import { IoMdCloudUpload } from "react-icons/io";
+import { BiImageAlt } from "react-icons/bi";
 const UploadProof = () => {
   return (
     <div>
@@ -27,11 +29,37 @@ const UploadProof = () => {
             </div>
           </div>
         </div>
-        <p className="text-[30px] font-semibold text-center mt-10">
+        <p className="text-[1.7rem] font-semibold text-center mt-6">
           Upload Proof of payment
         </p>
-        <div className="bg-red-100 w-full px-20">
-          <div className="h-[20rem] border-"></div>
+        <div className="w-full px-20 mt-10">
+          <div className="h-[20rem] border-2 mxl:border-4 mx-auto border-dashed border-[#87ACA3] w-[40rem] rounded-[11.8392px]">
+            <span className="flex justify-center items-center rounded-full bg-[#87ACA3] h-14 w-14 mx-auto mt-5">
+              <IoMdCloudUpload className="text-3xl text-[#2B7C85]" />
+            </span>
+            <p className="mt-4 flex justify-center">
+              <span> Drag and drop file here </span>
+              <span className="text-[#009186]">-or- Upload</span>
+            </p>
+            <div className="flex justify-center mt-20">
+              <span className="flex flex-col">
+                <p className="font-medium">Images </p>
+                <p className="flex mt-3">
+                  <BiImageAlt />
+                  <p className="text-sm ml-3 mr-2">JPEG</p>
+                  <p className="text-sm">PNG</p>
+                </p>
+              </span>
+              <span className="flex flex-col ml-10">
+                <p className="font-medium">Documents </p>
+                <p className="flex mt-3">
+                  <BiImageAlt />
+                  <p className="text-sm ml-3 mr-2">JPEG</p>
+                  <p className="text-sm">PNG</p>
+                </p>
+              </span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
