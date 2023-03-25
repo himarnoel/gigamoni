@@ -3,6 +3,10 @@ import NavBar from "../../Components/AppComponents/NavBar";
 import bell from "../../assets/bell.svg";
 import { IoMdCloudUpload } from "react-icons/io";
 import { BiImageAlt } from "react-icons/bi";
+import { MdDeleteForever } from "react-icons/md";
+import pdf from "../../assets/overlayimage/pdf.svg";
+import pin from "../../assets/overlayimage/pin.svg";
+
 const UploadProof = () => {
   return (
     <div>
@@ -44,18 +48,17 @@ const UploadProof = () => {
             <div className="flex justify-center mt-20">
               <span className="flex flex-col">
                 <p className="font-medium">Images </p>
-                <p className="flex mt-3">
-                  <BiImageAlt className="text-[#2B7C85]" />
-                  <p className="text-sm ml-3 mr-2">JPEG</p>
-                  <p className="text-sm">PNG</p>
+                <p className="flex mt-3 items-center">
+                  <BiImageAlt className="text-[#2B7C85] text-2xl" />
+                  <p className=" ml-3 mr-2 text-xs">JPEG</p>
+                  <p className="text-xs">PNG</p>
                 </p>
               </span>
               <span className="flex flex-col ml-10">
                 <p className="font-medium">Documents </p>
-                <p className="flex mt-3">
-                  <BiImageAlt />
-                  <p className="text-sm ml-3 mr-2">JPEG</p>
-                  <p className="text-sm">PNG</p>
+                <p className="flex mt-3 items-center">
+                  <img src={pdf} alt="" className="w-[1.2rem]" />
+                  <p className="text-xs ml-3 mr-2">PDF</p>
                 </p>
               </span>
             </div>
@@ -67,9 +70,18 @@ const UploadProof = () => {
               className="border-2 border-[#87ACA3] placeholder:text-[#87ACA3] text-xs w-[20rem] px-4 py-3 mt-8 rounded-lg focus:outline-none focus:ring-0 focus:border-[#87ACA3]"
             />
           </div>
-          <button className=" lg:px-[4rem] lg:py-[0.7rem] rounded-lg bg-[#C4C4C4] font-semibold mt-4 mb-32 float-right">
-            Done
-          </button>
+          <div className="flex justify-between items-center mb-32 mt-10">
+            <div className={"flex items-center"}>
+              <button className="border-2 rounded-lg px-8  py-2  text-sm border-[#87ACA3] text-[#87ACA3] mr-5">
+                <img src={pin} alt="" /> File 1234576
+              </button>
+              <MdDeleteForever className="text-[#D80010] text-lg cursor-pointer" />
+            </div>
+
+            <button className=" lg:px-[4rem] lg:py-[0.7rem] rounded-lg bg-[#C4C4C4] font-semibold text-sm">
+              Done
+            </button>
+          </div>
         </div>
       </div>
     </div>

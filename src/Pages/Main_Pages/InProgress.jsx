@@ -8,7 +8,7 @@ import { pendingValidate } from "../../Service/validate_and_api";
 import trans from "../../assets/overlayimage/icon.svg";
 import { useNavigate } from "react-router-dom";
 const InProgress = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate;
   const formik = useFormik({
     initialValues: {
       receivername: "",
