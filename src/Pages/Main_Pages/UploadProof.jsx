@@ -72,8 +72,9 @@ const UploadProof = () => {
           </div>
           <div className="flex justify-between items-center mb-32 mt-10">
             <div className={"flex items-center"}>
-              <button className="border-2 rounded-lg px-8  py-2  text-sm border-[#87ACA3] text-[#87ACA3] mr-5">
-                <img src={pin} alt="" /> File 1234576
+              <button className="border-2 rounded-lg px-8  py-2 flex  text-sm border-[#87ACA3] text-[#87ACA3] mr-5">
+                <img src={pin} alt="" className="object-contain w-[20rem]" />{" "}
+                <span>File 1234576</span>
               </button>
               <MdDeleteForever className="text-[#D80010] text-lg cursor-pointer" />
             </div>
