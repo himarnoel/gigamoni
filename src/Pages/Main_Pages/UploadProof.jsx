@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import NavBar from "../../Components/AppComponents/NavBar";
 import bell from "../../assets/bell.svg";
 import { IoMdCloudUpload } from "react-icons/io";
@@ -8,6 +8,42 @@ import pdf from "../../assets/overlayimage/pdf.svg";
 import pin from "../../assets/overlayimage/pin.svg";
 
 const UploadProof = () => {
+  const wrapperRef = useRef();
+  const hiddenFileInput = useRef(null);
+  const [overlayUpload, setoverlayUpload] = useState(false);
+  const handleClick = () => {
+    hiddenFileInput.current.click();
+  };
+  const handleChange = (event) => {
+    let fileUploaded = event.target.files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(fileUploaded);
+    reader.onload = () => {
+      usequestionFile(reader.result);
+    };
+  };
+
+  const dragOver = (e) => {
+    e.preventDefault();
+    setoverlayUpload(true);
+  };
+  const dragLeave = (e) => {
+    e.preventDefault();
+    setoverlayUpload(false);
+  };
+
+  const dragEnter = (e) => {
+    e.preventDefault();
+    setoverlayUpload(true);
+  };
+
+  const fileDrop = (e) => {
+    e.preventDefault();
+    setoverlayUpload(false);
+    const files = e.dataTransfer.files;
+    console.log(files);
+  };
+
   return (
     <div>
       <div className=" font-poppins">
@@ -37,15 +73,38 @@ const UploadProof = () => {
           Upload Proof of payment
         </p>
         <div className="w-full px-[19rem] mt-10 ">
-          <div className="h-[20rem] border-2 mxl:border-4 mx-auto border-dashed border-[#87ACA3] w-full rounded-[11.8392px]">
-            <span className="flex justify-center items-center rounded-full bg-[#87ACA3] h-14 w-14 mx-auto mt-5">
+          <div
+            onClick={() => handleClick()}
+            ref={wrapperRef}
+            onDragOver={dragOver}
+            onDragEnter={dragEnter}
+            // onDragLeave={dragLeave}
+            onDrop={fileDrop}
+            className={
+              "h-[20rem] border-2 mxl:border-4 mx-auto border-dashed border-[#87ACA3] relative w-full rounded-[11.8392px]"
+            }
+          >
+            <div
+              className={
+                overlayUpload
+                  ? "absolute top-0  w-full bg-[#87ACA3]/[0.8] h-full"
+                  : "hidden"
+              }
+            ></div>
+            <span className="flex justify-center items-center rounded-full bg-[#87ACA3] h-14 w-14 mx-auto mt-8">
               <IoMdCloudUpload className="text-3xl text-[#2B7C85]" />
             </span>
+            <input
+              type="file"
+              style={{ display: "none" }}
+              ref={hiddenFileInput}
+              onChange={handleChange}
+            />
             <p className="mt-4 flex justify-center">
               <span> Drag and drop file here </span>
               <span className="text-[#009186]">-or- Upload</span>
             </p>
-            <div className="flex justify-center mt-20">
+            <div className="flex justify-center mt-24">
               <span className="flex flex-col">
                 <p className="font-medium">Images </p>
                 <p className="flex mt-3 items-center">
@@ -72,8 +131,12 @@ const UploadProof = () => {
           </div>
           <div className="flex justify-between items-center mb-32 mt-10">
             <div className={"flex items-center"}>
-              <button className="border-2 rounded-lg px-8  py-2 flex  text-sm border-[#87ACA3] text-[#87ACA3] mr-5">
-                <img src={pin} alt="" className="object-contain w-[20rem]" />{" "}
+              <button className="border-2 rounded-lg px-8  py-2 flex  text-sm items-center border-[#87ACA3] text-[#87ACA3] mr-5">
+                <img
+                  src={pin}
+                  alt=""
+                  className="object-contain w-[0.9rem] mr-2"
+                />{" "}
                 <span>File 1234576</span>
               </button>
               <MdDeleteForever className="text-[#D80010] text-lg cursor-pointer" />
