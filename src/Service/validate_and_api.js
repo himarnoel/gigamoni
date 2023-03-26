@@ -94,3 +94,8 @@ export const pendingValidate = yup.object().shape({
   receivingCountry: yup.string().required("Please fill up this field"),
   tractionDescription: yup.string().required("Please fill up this field"),
 });
+
+export const uploadfileValidate = yup.object().shape({
+  transactionID: yup.string().required("Please fill up this field"),
+  file: yup.string().required("Please fill up this field"),
+});

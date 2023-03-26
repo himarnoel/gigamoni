@@ -6,20 +6,26 @@ import { BiImageAlt } from "react-icons/bi";
 import { MdDeleteForever } from "react-icons/md";
 import pdf from "../../assets/overlayimage/pdf.svg";
 import pin from "../../assets/overlayimage/pin.svg";
+import { useFormik } from "formik";
+import { uploadfileValidate } from "../../Service/validate_and_api";
 
 const UploadProof = () => {
   const wrapperRef = useRef();
   const hiddenFileInput = useRef(null);
   const [overlayUpload, setoverlayUpload] = useState(false);
+  const [filename, setFilename] = useState("");
+  const [file, setFile] = useState("");
   const handleClick = () => {
     hiddenFileInput.current.click();
   };
   const handleChange = (event) => {
     let fileUploaded = event.target.files[0];
+    console.log(fileUploaded);
     const reader = new FileReader();
     reader.readAsDataURL(fileUploaded);
     reader.onload = () => {
-      usequestionFile(reader.result);
+      console.log(reader.result);
+      setFile(reader.result.toString());
     };
   };
 
@@ -40,14 +46,27 @@ const UploadProof = () => {
   const preventOpeningFile = (e) => {
     e.preventDefault();
     e.stopPropagation();
-    // alert("helloq");
   };
   const fileDrop = (e) => {
     e.preventDefault();
     setoverlayUpload(false);
-    const files = e.dataTransfer.files;
-    console.log(files);
+    const file = e.dataTransfer.files;
+    console.log(file[0].name);
+    setFilename(file[0].name);
+    const reader = new FileReader();
+    reader.readAsDataURL(file[0]);
+    reader.onload = () => {
+      console.log(reader.result.toString());
+      setFile(reader.result.toString());
+    };
   };
+  const formik = useFormik({
+    initialValues: { transactionID: "", file: "" },
+    validationSchema: uploadfileValidate,
+    onSubmit: (values) => {
+      console.log(values);
+    },
+  });
 
   return (
     <div>
@@ -82,7 +101,10 @@ const UploadProof = () => {
         <p className="text-[1.7rem] font-semibold text-center mt-6">
           Upload Proof of payment
         </p>
-        <div className="w-full px-[19rem] mt-10 ">
+        <form
+          onSubmit={formik.handleSubmit}
+          className="w-full px-[19rem] mt-10 "
+        >
           <div
             onClick={() => handleClick()}
             ref={wrapperRef}
@@ -135,29 +157,42 @@ const UploadProof = () => {
           </div>
           <div className="">
             <input
+              id="transactionID"
               type="text"
               placeholder="Enter transaction ID"
               className="border-2 border-[#87ACA3] placeholder:text-[#87ACA3] text-xs w-[20rem] px-4 py-3 mt-8 rounded-lg focus:outline-none focus:ring-0 focus:border-[#87ACA3]"
+              onChange={formik.handleChange}
+              value={formik.values.transactionID}
             />
           </div>
           <div className="flex justify-between items-center mb-32 mt-10">
-            <div className={"flex items-center"}>
-              <button className="border-2 rounded-lg px-8  py-2 flex  text-sm items-center border-[#87ACA3] text-[#87ACA3] mr-5">
-                <img
-                  src={pin}
-                  alt=""
-                  className="object-contain w-[0.9rem] mr-2"
-                />{" "}
-                <span>File 1234576</span>
-              </button>
-              <MdDeleteForever className="text-[#D80010] text-lg cursor-pointer" />
-            </div>
+            {filename ? (
+              <div className={"flex items-center"}>
+                <button className="border-2 rounded-lg px-8  py-2 flex  text-sm items-center border-[#87ACA3] text-[#87ACA3] mr-5">
+                  <img
+                    src={pin}
+                    alt=""
+                    className="object-contain w-[0.9rem] mr-2"
+                  />{" "}
+                  <span>{filename}</span>
+                </button>
 
-            <button className=" lg:px-[4rem] lg:py-[0.7rem] rounded-lg bg-[#C4C4C4] font-semibold text-sm">
+                <MdDeleteForever className="text-[#D80010] text-lg cursor-pointer" />
+              </div>
+            ) : (
+              ""
+            )}
+            <button
+              className={
+                formik.isValid
+                  ? " lg:px-[4rem] lg:py-[0.7rem] rounded-lg bg-[#C4C4C4] font-semibold text-sm"
+                  : " lg:px-[4rem] lg:py-[0.7rem] rounded-lg bg-[#009186] font-semibold text-sm"
+              }
+            >
               Done
             </button>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   );

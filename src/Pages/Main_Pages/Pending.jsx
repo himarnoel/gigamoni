@@ -325,7 +325,6 @@ const Pending = () => {
                 <select
                   type="text"
                   id="receivingCountry"
-                  required
                   className={
                     formik.errors.receivingCountry &&
                     formik.touched.receivingCountry
@@ -519,7 +518,14 @@ const Pending = () => {
             </div>
           </div>
 
-          <button className="p-6 bg-[#009186] rounded-lg px-14 text-sm py-3 float-right mt-5 text-[#F8F8FF]">
+          <button
+            // disabled={formik.isValidating}
+            className={
+              formik.isValidating
+                ? "p-6 bg-[#009186] rounded-lg px-14 text-sm py-3 float-right mt-5 text-[#F8F8FF] font-medium"
+                : "p-6 bg-[#C4C4C4] rounded-lg px-14 text-sm py-3 float-right mt-5 text-[#444444] font-medium"
+            }
+          >
             Pay Now
           </button>
         </form>
