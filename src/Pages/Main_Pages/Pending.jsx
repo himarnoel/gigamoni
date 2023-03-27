@@ -5,6 +5,7 @@ import { BiTransfer } from "react-icons/bi";
 import { RiArrowDownSLine } from "react-icons/ri";
 import { Formik, useFormik } from "formik";
 import { pendingValidate } from "../../Service/validate_and_api";
+import trans from "../../assets/overlayimage/iconic.svg";
 const Pending = () => {
   const formik = useFormik({
     initialValues: {
@@ -29,7 +30,7 @@ const Pending = () => {
   return (
     <div className=" bg-[#F8F8FF] font-poppins ">
       <NavBar class="fixed top-0 z-[2]" />
-      <div className=" 2xl:px-[10rem] xl:px-[5rem]  xss:px-4 xs:px-6 sm:px-10 md:px-8 pr-10 md:pr-24 lg:pr-0 lg:px-10 w-full pt-28 sm:pt-32 lg:pt-20 mxl:pt-32">
+      <div className=" 2xl:px-[10rem] xl:px-[5rem]  xss:pl-4  xss:pr-10   xs:pl-6 xs:pr-12 sm:px-10 md:pl-8 md:pr-28 lg:pr-0 lg:px-10 w-full pt-28 sm:pt-32 lg:pt-20 mxl:pt-32">
         <div className="flex justify-between items-center mxl:mt-10">
           <button className=" text-sm px-[4rem] py-[0.7rem]  lg:px-[4rem] lg:py-[0.7rem] rounded-lg bg-[#87ACA3]">
             Back
@@ -46,23 +47,23 @@ const Pending = () => {
             <p className="font-semibold mxl:text-xl">Notifications</p>
           </div>
         </div>
-        <div className="flex flex-col lg:flex-row justify-between w-full lg:pr-8 xl:pr-10 mt-4   mxl:mt-20">
+        <div className="flex flex-col lg:flex-row justify-between w-full sm:w-[20rem] md:w-[30rem] lg:w-full lg:pr-8 xl:pr-10 mt-4   mxl:mt-20">
           <div className="lg:w-[26rem] xl:w-[32rem] flex flex-col justify-between  h-[4rem] text-sm">
             {" "}
             <div className="flex flex-col justify-between font-medium">
               <p className="">Transaction ID: 1234567890987</p>
-              <p className="flex  mt-4 sm:mt-0">
+              <p className="flex  mt-4 lg:mt-4">
                 <span className="mr-1"> Status:</span>{" "}
                 <span className="text-[#5D5FEF]">Pending</span>
               </p>
             </div>
-            <div className="flex justify-between font-medium mt-4 sm:mt-0 ">
+            <div className="flex  justify-between font-medium mt-4 lg:mt-4 ">
               {" "}
               <p className="d">Date: 01/01/2023 11:30am</p>
               {/* <p className="ss">Service Fee: $10</p> */}
             </div>
           </div>
-          <div className="flex  flex-row-reverse  justify-between items-center mt-12  sm:mt-8">
+          <div className="flex  flex-row-reverse   justify-between items-center mt-12 lg:w-[27rem] sm:mt-14 lg:mt-4">
             <span>
               <p className="text-[#175873] text-[0.59rem] ">Local Currency</p>
               <span className="flex mr-4">
@@ -107,7 +108,10 @@ const Pending = () => {
                 />
               </span>
             </span>
-            <BiTransfer className="text-3xl text-[#707070] mt-6 " />
+            <img
+              src={trans}
+              className="object-contain w-[1.4rem] text-[#707070] mt-6 "
+            />
             <span float-left>
               <p className="text-[#175873] text-[0.59rem] ">They Receive</p>
               <span className="flex ">
@@ -120,7 +124,7 @@ const Pending = () => {
                       // formik.touched.receivingcurrency
                       //   ? " font-poppins  pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#009186]   rounded-[6px] border-solid border-red-500 border-[4px] border-r  rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186]"
                       //   :
-                      " font-poppins pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070]   rounded-[6px] border-solid border-[#707070] border-[4px]  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
+                      " font-poppins pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070]   rounded-[6px] lg:rounded-r-none border-solid border-[#707070] border-[4px]  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
                       //placeholder=" "
                     }
                     //   onChange={formik.handleChange}
@@ -523,8 +527,8 @@ const Pending = () => {
             type="submit"
             className={
               formik.isValidating
-                ? "p-6 bg-[#009186] rounded-lg px-14 text-sm py-3 float-left sm:float-right mt-5 text-[#F8F8FF] font-medium"
-                : "p-6 bg-[#C4C4C4] rounded-lg px-14 text-sm py-3 float-left sm:float-right mt-5 text-[#444444] font-medium"
+                ? "p-6 bg-[#009186] rounded-lg px-14 text-sm py-3 float-left lg:float-right mt-5 text-[#F8F8FF] font-medium"
+                : "p-6 bg-[#C4C4C4] rounded-lg px-14 text-sm py-3 float-left lg:float-right mt-5 text-[#444444] font-medium"
             }
           >
             Pay Now
