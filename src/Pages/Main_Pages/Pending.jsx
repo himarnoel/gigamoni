@@ -29,9 +29,9 @@ const Pending = () => {
   return (
     <div className=" bg-[#F8F8FF] font-poppins ">
       <NavBar class="fixed top-0 z-[2]" />
-      <div className=" 2xl:px-[10rem] xl:px-[5rem] lg:px-10 w-full  pt-20 mxl:pt-32">
+      <div className=" 2xl:px-[10rem] xl:px-[5rem]  xss:px-4 xs:px-6 sm:px-10 md:px-8 pr-10 md:pr-24 lg:pr-0 lg:px-10 w-full pt-32 lg:pt-20 mxl:pt-32">
         <div className="flex justify-between items-center mxl:mt-10">
-          <button className=" lg:px-[4rem] lg:py-[0.7rem] rounded-lg bg-[#87ACA3]">
+          <button className="px-[4rem] py-[0.7rem]  lg:px-[4rem] lg:py-[0.7rem] rounded-lg bg-[#87ACA3]">
             Back
           </button>
           <div
@@ -46,8 +46,8 @@ const Pending = () => {
             <p className="font-semibold mxl:text-xl">Notifications</p>
           </div>
         </div>
-        <div className="flex justify-between w-full pr-10 mt-8 mxl:mt-20">
-          <div className=" w-[32rem] flex flex-col justify-between  h-[4rem]">
+        <div className="flex md:flex-col lg:flex-row justify-between w-full lg:pr-8 xl:pr-10 mt-8  mxl:mt-20">
+          <div className="lg:w-[26rem] xl:w-[32rem] flex flex-col justify-between  h-[4rem]">
             {" "}
             <div className="flex justify-between font-medium">
               <p className="">Transaction ID: 1234567890987</p>
@@ -62,7 +62,7 @@ const Pending = () => {
               {/* <p className="ss">Service Fee: $10</p> */}
             </div>
           </div>
-          <div className="flex flex-row-reverse lg:flex-row justify-between items-center ">
+          <div className="flex  flex-row-reverse  justify-between items-center  mt-8">
             <span>
               <p className="text-[#175873] text-[0.59rem] ">Local Currency</p>
               <span className="flex mr-4">
@@ -159,7 +159,7 @@ const Pending = () => {
           action=""
           onSubmit={formik.handleSubmit}
         >
-          <div className="flex gap-x-20  mt-10">
+          <div className="flex flex-col lg:flex-row gap-x-20  mt-10">
             <div className="w-full flex-col flex gap-y-8 mxl:gap-y-16">
               <div className="relative z-0 mt-0">
                 <input
@@ -363,7 +363,7 @@ const Pending = () => {
                 )}
               </div>{" "}
             </div>
-            <div className="w-full  grid  gap-y-8 mxl:gap-y-16">
+            <div className="w-full  grid md:mt-5  gap-y-8 mxl:gap-y-16">
               <div className="relative z-0 mt-0">
                 <input
                   type="text"
@@ -519,7 +519,8 @@ const Pending = () => {
           </div>
 
           <button
-            // disabled={formik.isValidating}
+            disabled={false}
+            type="submit"
             className={
               formik.isValidating
                 ? "p-6 bg-[#009186] rounded-lg px-14 text-sm py-3 float-right mt-5 text-[#F8F8FF] font-medium"

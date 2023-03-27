@@ -14,18 +14,23 @@ const UploadProof = () => {
   const hiddenFileInput = useRef(null);
   const [overlayUpload, setoverlayUpload] = useState(false);
   const [filename, setFilename] = useState("");
-  const [file, setFile] = useState("");
+
   const handleClick = () => {
     hiddenFileInput.current.click();
   };
   const handleChange = (event) => {
     let fileUploaded = event.target.files[0];
     console.log(fileUploaded);
+    setFilename(fileUploaded.name);
     const reader = new FileReader();
     reader.readAsDataURL(fileUploaded);
     reader.onload = () => {
       console.log(reader.result);
-      setFile(reader.result.toString());
+
+      formik.setValues({
+        transactionID: formik.values.transactionID,
+        file: reader.result.toString(),
+      });
     };
   };
 
@@ -47,6 +52,7 @@ const UploadProof = () => {
     e.preventDefault();
     e.stopPropagation();
   };
+
   const fileDrop = (e) => {
     e.preventDefault();
     setoverlayUpload(false);
@@ -57,7 +63,12 @@ const UploadProof = () => {
     reader.readAsDataURL(file[0]);
     reader.onload = () => {
       console.log(reader.result.toString());
-      setFile(reader.result.toString());
+      reader.result.toString();
+
+      formik.setValues({
+        transactionID: formik.values.transactionID,
+        file: reader.result.toString(),
+      });
     };
   };
   const formik = useFormik({
@@ -67,7 +78,14 @@ const UploadProof = () => {
       console.log(values);
     },
   });
-
+  const remove = () => {
+    formik.setValues({
+      transactionID: formik.values.transactionID,
+      file: "",
+    });
+    setFilename("");
+  };
+  console.log(formik.values);
   return (
     <div>
       <div
@@ -165,7 +183,11 @@ const UploadProof = () => {
               value={formik.values.transactionID}
             />
           </div>
-          <div className="flex justify-between items-center mb-32 mt-10">
+          <div
+            className={`flex ${
+              formik.values.file.length == 0 ? "justify-end" : "justify-between"
+            } items-center mb-32 mt-10`}
+          >
             {filename ? (
               <div className={"flex items-center"}>
                 <button className="border-2 rounded-lg px-8  py-2 flex  text-sm items-center border-[#87ACA3] text-[#87ACA3] mr-5">
@@ -177,16 +199,21 @@ const UploadProof = () => {
                   <span>{filename}</span>
                 </button>
 
-                <MdDeleteForever className="text-[#D80010] text-lg cursor-pointer" />
+                <MdDeleteForever
+                  onClick={() => remove()}
+                  className="text-[#D80010] text-lg cursor-pointer"
+                />
               </div>
             ) : (
               ""
             )}
             <button
+              type="submit"
               className={
-                formik.isValid
-                  ? " lg:px-[4rem] lg:py-[0.7rem] rounded-lg bg-[#C4C4C4] font-semibold text-sm"
-                  : " lg:px-[4rem] lg:py-[0.7rem] rounded-lg bg-[#009186] font-semibold text-sm"
+                formik.values.file.length == 0 ||
+                formik.values.transactionID.length == 0
+                  ? " lg:px-[4rem] lg:py-[0.7rem] rounded-lg bg-[#C4C4C4] font-semibold text-sm "
+                  : " lg:px-[4rem] lg:py-[0.7rem] rounded-lg bg-[#009186] text-[#F8F8FF] font-semibold text-sm"
               }
             >
               Done
