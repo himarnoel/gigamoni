@@ -29,7 +29,7 @@ const Pending = () => {
   return (
     <div className=" bg-[#F8F8FF] font-poppins ">
       <NavBar class="fixed top-0 z-[2]" />
-      <div className=" 2xl:px-[10rem] xl:px-[5rem]  xss:px-4 xs:px-6 sm:px-10 md:px-8 pr-10 md:pr-24 lg:pr-0 lg:px-10 w-full pt-20 sm:pt-32 lg:pt-20 mxl:pt-32">
+      <div className=" 2xl:px-[10rem] xl:px-[5rem]  xss:px-4 xs:px-6 sm:px-10 md:px-8 pr-10 md:pr-24 lg:pr-0 lg:px-10 w-full pt-28 sm:pt-32 lg:pt-20 mxl:pt-32">
         <div className="flex justify-between items-center mxl:mt-10">
           <button className=" text-sm px-[4rem] py-[0.7rem]  lg:px-[4rem] lg:py-[0.7rem] rounded-lg bg-[#87ACA3]">
             Back
