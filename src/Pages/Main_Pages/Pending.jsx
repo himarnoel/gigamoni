@@ -29,9 +29,9 @@ const Pending = () => {
   return (
     <div className=" bg-[#F8F8FF] font-poppins ">
       <NavBar class="fixed top-0 z-[2]" />
-      <div className=" 2xl:px-[10rem] xl:px-[5rem]  xss:px-4 xs:px-6 sm:px-10 md:px-8 pr-10 md:pr-24 lg:pr-0 lg:px-10 w-full pt-32 lg:pt-20 mxl:pt-32">
+      <div className=" 2xl:px-[10rem] xl:px-[5rem]  xss:px-4 xs:px-6 sm:px-10 md:px-8 pr-10 md:pr-24 lg:pr-0 lg:px-10 w-full pt-20 sm:pt-32 lg:pt-20 mxl:pt-32">
         <div className="flex justify-between items-center mxl:mt-10">
-          <button className="px-[4rem] py-[0.7rem]  lg:px-[4rem] lg:py-[0.7rem] rounded-lg bg-[#87ACA3]">
+          <button className=" text-sm px-[4rem] py-[0.7rem]  lg:px-[4rem] lg:py-[0.7rem] rounded-lg bg-[#87ACA3]">
             Back
           </button>
           <div
@@ -47,22 +47,22 @@ const Pending = () => {
           </div>
         </div>
         <div className="flex flex-col lg:flex-row justify-between w-full lg:pr-8 xl:pr-10 mt-8  mxl:mt-20">
-          <div className="lg:w-[26rem] xl:w-[32rem] flex flex-col justify-between  h-[4rem]">
+          <div className="lg:w-[26rem] xl:w-[32rem] flex flex-col justify-between  h-[4rem] text-sm">
             {" "}
-            <div className="flex justify-between font-medium">
+            <div className="flex flex-col justify-between font-medium">
               <p className="">Transaction ID: 1234567890987</p>
-              <p className="flex">
+              <p className="flex  mt-2">
                 <span className="mr-1"> Status:</span>{" "}
                 <span className="text-[#5D5FEF]">Pending</span>
               </p>
             </div>
-            <div className="flex justify-between font-medium ">
+            <div className="flex justify-between font-medium mt-2 ">
               {" "}
               <p className="d">Date: 01/01/2023 11:30am</p>
               {/* <p className="ss">Service Fee: $10</p> */}
             </div>
           </div>
-          <div className="flex  flex-row-reverse  justify-between items-center  mt-8">
+          <div className="flex  flex-row-reverse  justify-between items-center mt-8  sm:mt-8">
             <span>
               <p className="text-[#175873] text-[0.59rem] ">Local Currency</p>
               <span className="flex mr-4">
