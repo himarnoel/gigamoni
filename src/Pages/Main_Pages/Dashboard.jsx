@@ -48,6 +48,10 @@ const Dashboard = () => {
     setbuttons(false);
     navigate("/beneficiary");
   };
+  const newReceiver = () => {
+    setbuttons(false);
+    navigate("/pending");
+  };
   return (
     <div className="font-poppins bg-[#F8F8FF] overflow-y-hidden ">
       <div
@@ -241,7 +245,7 @@ const Dashboard = () => {
                     Saved Beneficiary
                   </button>
                   <button
-                    onClick={() => setbuttons(false)}
+                    onClick={() => newReceiver()}
                     className="px-[1rem] py-[0.5rem] text-xs sm:text-base sm:py-[0.6rem]  md:py-[0.5rem] lg:py-[0.5rem] mxl:py-[0.8rem] w-full  rounded-lg text-[#009186] border-2 font-semibold border-[#009186]"
                   >
                     New Receiver

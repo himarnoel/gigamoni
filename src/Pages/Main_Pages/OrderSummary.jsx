@@ -8,6 +8,7 @@ import { pendingValidate } from "../../Service/validate_and_api";
 import { useRef } from "react";
 import img1 from "../../assets/overlayimage/one.svg";
 import img2 from "../../assets/overlayimage/vector.svg";
+import trans from "../../assets/overlayimage/iconic.svg";
 const OrderSummary = () => {
   const [bool, setbool] = useState(false);
   const safeDocument = typeof document !== "undefined" ? document : {};
@@ -25,12 +26,6 @@ const OrderSummary = () => {
         window.getComputedStyle(body).getPropertyValue("padding-right")
       ) || 0;
 
-    /**
-     * 1. Fixes a bug in iOS and desktop Safari whereby setting
-     *    `overflow: hidden` on the html/body does not prevent scrolling.
-     * 2. Fixes a bug in desktop Safari where `overflowY` does not prevent
-     *    scroll if an `overflow-x` style is also applied to the body.
-     */
     html.style.position = "relative"; /* [1] */
     html.style.overflow = "hidden"; /* [2] */
     body.style.position = "relative"; /* [1] */
@@ -72,7 +67,7 @@ const OrderSummary = () => {
   });
   console.log(formik.values);
   return (
-    <div className="font-poppins  min-h-full over">
+    <div className="font-poppins  min-h-full over  ">
       <NavBar class="fixed  top-0 z-[10]" />
       <div
         onClick={() => allowScroll()}
@@ -82,11 +77,7 @@ const OrderSummary = () => {
             : "hidden"
         }
       >
-        <div
-          className={
-            "bg-[#F8F8FF] h-[16rem] rounded-[11.8392px] text-xs mxl:text-sm w-[26rem] mxl:h-[20rem] mxl:w-[30rem] py-8 px-10  font-semibold"
-          }
-        >
+        <div className="bg-[#F8F8FF] h-[16rem] rounded-[11.8392px] text-xs mxl:text-sm w-[26rem] mxl:h-[20rem] mxl:w-[30rem] py-8 px-10  font-semibold">
           <p className="text-center">Select Mode Of Payment</p>
           <div className="flex pl-3 pb-3 mt-8 mxl:mt-14 items-center border-b border-[#87ACA3] text-[#000000]">
             {" "}
@@ -100,30 +91,30 @@ const OrderSummary = () => {
           </div>
         </div>
       </div>
-      <div className="w-full  pt-20 mxl:pt-32">
+      <div className="w-full pt-32 lg:pt-20 mxl:pt-32 ">
         <p className="text-[#175873] text-3xl font-semibold  text-center">
           Order Summary
         </p>
         <p className="text-center text-lg font-semibold mt-7">
           You are all set, Kindly confirm your details before proceeding.{" "}
         </p>
-        <div className="flex justify-between w-full px-20 mt-8 mxl:mt-20  ">
+        <div className="flex flex-col lg:flex-row justify-between w-full  xss:pl-4  xss:pr-10   xs:pl-6 xs:pr-12 sm:px-10 md:pl-8 md:pr-28 lg:pr-0 lg:px-10  mt-8 mxl:mt-20  ">
           <div className=" w-[32rem] flex flex-col justify-between  ">
             {" "}
-            <div className="flex justify-between font-medium  text-sm">
+            <div className="flex justify-between font-medium  text-sm  mt-4 lg:mt-0 ">
               Transaction ID: 1234567890987
             </div>
-            <div className="flex justify-between font-medium  text-sm">
+            <div className="flex justify-between font-medium  text-sm mt-4 lg:mt-0">
               {" "}
               {/* <p className="d">Date: 01/01/2023 11:30am</p> */}
               <p className="ss">Service Fee: $10</p>
             </div>
           </div>
           {/* dddd */}
-          <div className="flex flex-row-reverse lg:flex-row justify-between items-center ">
+          <div className="flex flex-row-reverse  lg:flex-row sm:w-[25rem] lg:w-[25rem] justify-between items-center  mt-4 lg:mt-0 ">
             <span>
               <p className="text-[#175873] text-[0.59rem] ">Local Currency</p>
-              <span className="flex mr-4">
+              <span className="flex">
                 <span className="relative z-0 ">
                   <select
                     type="text"
@@ -165,7 +156,10 @@ const OrderSummary = () => {
                 />
               </span>
             </span>
-            <BiTransfer className="text-3xl text-[#707070] mt-6 mr-4" />
+            <img
+              src={trans}
+              className="object-contain w-[1.4rem] text-[#707070] mt-6 "
+            />
             <span>
               <p className="text-[#175873] text-[0.59rem] ">They Receive</p>
               <span className="flex ">
@@ -214,11 +208,11 @@ const OrderSummary = () => {
         </div>
       </div>
       <form
-        className="mb-20 mxl:mt-32 px-20"
+        className="mb-20 mxl:mt-32 xss:pl-4  xss:pr-10   xs:pl-6 xs:pr-12 sm:px-10 md:pl-8 md:pr-28 lg:pr-0 lg:px-10 "
         action=""
         onSubmit={formik.handleSubmit}
       >
-        <div className="flex gap-x-20  mt-10">
+        <div className=" flex-col lg:flex-row flex gap-x-20  mt-10">
           <div className="w-full flex-col flex gap-y-8 mxl:gap-y-16">
             <div className="relative z-0 mt-0">
               <input
@@ -422,7 +416,7 @@ const OrderSummary = () => {
               )}
             </div>{" "}
           </div>
-          <div className="w-full  grid  gap-y-8 mxl:gap-y-16">
+          <div className="w-full  grid  gap-y-8 mxl:gap-y-16 mt-5">
             <div className="relative z-0 mt-0">
               <input
                 type="text"
