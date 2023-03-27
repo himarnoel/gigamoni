@@ -46,7 +46,7 @@ const Pending = () => {
             <p className="font-semibold mxl:text-xl">Notifications</p>
           </div>
         </div>
-        <div className="flex md:flex-col lg:flex-row justify-between w-full lg:pr-8 xl:pr-10 mt-8  mxl:mt-20">
+        <div className="flex flex-col lg:flex-row justify-between w-full lg:pr-8 xl:pr-10 mt-8  mxl:mt-20">
           <div className="lg:w-[26rem] xl:w-[32rem] flex flex-col justify-between  h-[4rem]">
             {" "}
             <div className="flex justify-between font-medium">
@@ -120,7 +120,7 @@ const Pending = () => {
                       // formik.touched.receivingcurrency
                       //   ? " font-poppins  pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#009186]   rounded-[6px] border-solid border-red-500 border-[4px] border-r  rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186]"
                       //   :
-                      " font-poppins pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070]   rounded-[6px] border-solid border-[#707070] border-[4px] border-r rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
+                      " font-poppins pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070]   rounded-[6px] border-solid border-[#707070] border-[4px]  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
                       //placeholder=" "
                     }
                     //   onChange={formik.handleChange}
@@ -144,7 +144,7 @@ const Pending = () => {
                     //   formik.errors.sendamount && formik.touched.sendamount
                     //     ? " font-poppins spin-button-none pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#009186] text-[#009186]  rounded-[6px] border-solid border-red-500 border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186]"
                     //     :
-                    " font-poppins spin-button-none  pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-[#707070] border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
+                    " font-poppins spin-button-none  pl-3 pb-0 h-[52px] w-[85px] hidden md:flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-[#707070] border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
                   }
                   //   onChange={formik.handleChange}
                   //   value={formik.values.sendamount}
@@ -363,7 +363,7 @@ const Pending = () => {
                 )}
               </div>{" "}
             </div>
-            <div className="w-full  grid md:mt-5  gap-y-8 mxl:gap-y-16">
+            <div className="w-full  grid mt-5 lg:mt-0  gap-y-8 mxl:gap-y-16">
               <div className="relative z-0 mt-0">
                 <input
                   type="text"
