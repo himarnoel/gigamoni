@@ -46,23 +46,23 @@ const Pending = () => {
             <p className="font-semibold mxl:text-xl">Notifications</p>
           </div>
         </div>
-        <div className="flex flex-col lg:flex-row justify-between w-full lg:pr-8 xl:pr-10 mt-8  mxl:mt-20">
+        <div className="flex flex-col lg:flex-row justify-between w-full lg:pr-8 xl:pr-10 mt-4   mxl:mt-20">
           <div className="lg:w-[26rem] xl:w-[32rem] flex flex-col justify-between  h-[4rem] text-sm">
             {" "}
             <div className="flex flex-col justify-between font-medium">
               <p className="">Transaction ID: 1234567890987</p>
-              <p className="flex  mt-2">
+              <p className="flex  mt-4 sm:mt-0">
                 <span className="mr-1"> Status:</span>{" "}
                 <span className="text-[#5D5FEF]">Pending</span>
               </p>
             </div>
-            <div className="flex justify-between font-medium mt-2 ">
+            <div className="flex justify-between font-medium mt-4 sm:mt-0 ">
               {" "}
               <p className="d">Date: 01/01/2023 11:30am</p>
               {/* <p className="ss">Service Fee: $10</p> */}
             </div>
           </div>
-          <div className="flex  flex-row-reverse  justify-between items-center mt-8  sm:mt-8">
+          <div className="flex  flex-row-reverse  justify-between items-center mt-12  sm:mt-8">
             <span>
               <p className="text-[#175873] text-[0.59rem] ">Local Currency</p>
               <span className="flex mr-4">
@@ -108,7 +108,7 @@ const Pending = () => {
               </span>
             </span>
             <BiTransfer className="text-3xl text-[#707070] mt-6 " />
-            <span>
+            <span float-left>
               <p className="text-[#175873] text-[0.59rem] ">They Receive</p>
               <span className="flex ">
                 <span className="relative z-0">
@@ -523,8 +523,8 @@ const Pending = () => {
             type="submit"
             className={
               formik.isValidating
-                ? "p-6 bg-[#009186] rounded-lg px-14 text-sm py-3 float-right mt-5 text-[#F8F8FF] font-medium"
-                : "p-6 bg-[#C4C4C4] rounded-lg px-14 text-sm py-3 float-right mt-5 text-[#444444] font-medium"
+                ? "p-6 bg-[#009186] rounded-lg px-14 text-sm py-3 float-left sm:float-right mt-5 text-[#F8F8FF] font-medium"
+                : "p-6 bg-[#C4C4C4] rounded-lg px-14 text-sm py-3 float-left sm:float-right mt-5 text-[#444444] font-medium"
             }
           >
             Pay Now
