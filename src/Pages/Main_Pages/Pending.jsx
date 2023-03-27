@@ -107,7 +107,7 @@ const Pending = () => {
                 />
               </span>
             </span>
-            <BiTransfer className="text-3xl text-[#707070] mt-6 mr-4" />
+            <BiTransfer className="text-3xl text-[#707070] mt-6 " />
             <span>
               <p className="text-[#175873] text-[0.59rem] ">They Receive</p>
               <span className="flex ">
