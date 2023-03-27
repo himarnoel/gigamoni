@@ -5,7 +5,7 @@ import { BiTransfer } from "react-icons/bi";
 import { RiArrowDownSLine } from "react-icons/ri";
 import { Formik, useFormik } from "formik";
 import { pendingValidate } from "../../Service/validate_and_api";
-import trans from "../../assets/overlayimage/icon.svg";
+import trans from "../../assets/overlayimage/iconic.svg";
 import { useNavigate } from "react-router-dom";
 const InProgress = () => {
   const navigate = useNavigate;
