@@ -9,12 +9,15 @@ import { useRef } from "react";
 import img1 from "../../assets/overlayimage/one.svg";
 import img2 from "../../assets/overlayimage/vector.svg";
 import trans from "../../assets/overlayimage/iconic.svg";
+import { useNavigate } from "react-router-dom";
 const OrderSummary = () => {
   const [bool, setbool] = useState(false);
+  const [checkmobile, setcheckmobile] = useState(false);
   const safeDocument = typeof document !== "undefined" ? document : {};
   const scrollBlocked = useRef();
   const html = safeDocument.documentElement;
   const { body } = safeDocument;
+  const navigate = useNavigate();
 
   const blockScroll = () => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
@@ -62,10 +65,14 @@ const OrderSummary = () => {
     },
     validationSchema: pendingValidate,
     onSubmit: (values) => {
-      console.log(values);
+      if (checkmobile) {
+        navigate("/pay");
+      } else {
+        console.log(values);
+      }
     },
   });
-  console.log(formik.values);
+  // console.log(formik.values);
   return (
     <div className="font-poppins  min-h-full over  ">
       <NavBar class="fixed  top-0 z-[10]" />
@@ -549,20 +556,23 @@ const OrderSummary = () => {
               <textarea
                 placeholder="Enter traction description "
                 name=""
-                id=""
+                id="tractionDescription"
                 cols="30"
                 className={
                   formik.errors.tractionDescription &&
                   formik.touched.tractionDescription
-                    ? "w-full border-[#262626] placeholder:text-xs px-2 pt-2 placeholder:text-[#262626]  bg-transparent h-[6rem] rounded-lg border"
+                    ? "w-full border-red-500 placeholder:text-xs px-2 pt-2 placeholder:text-[#262626]  bg-transparent h-[6rem] rounded-lg border"
                     : "w-full border-[#262626] placeholder:text-xs px-2 pt-2 placeholder:text-[#262626]  bg-transparent h-[6rem] rounded-lg border"
                 }
+                onChange={formik.handleChange}
+                value={formik.values.tractionDescription}
+                onBlur={formik.handleBlur}
               ></textarea>
 
               {formik.errors.tractionDescription &&
               formik.touched.tractionDescription ? (
                 <p className="text-red-500 text-xs font-poppins">
-                  {formik.errors.receivername}
+                  {formik.errors.tractionDescription}
                 </p>
               ) : (
                 ""
@@ -574,13 +584,21 @@ const OrderSummary = () => {
           <button className="p-6 hidden lg:block bg-[#87ACA3] rounded-lg px-14 text-sm py-3 float-right mt-5 text-[#262626] font-medium">
             Back
           </button>
+
           <button
             onClick={() => blockScroll()}
-            className="p-6 bg-[#009186] mr-[-1.6rem] lg:mr-0 rounded-lg px-14 text-sm py-3 float-right mt-5 text-[#F8F8FF] font-medium"
+            className="p-6 bg-[#009186] hidden lg:block rounded-lg px-14 text-sm py-3 float-right mt-5 text-[#F8F8FF] font-medium"
           >
             Pay Now
           </button>
         </div>
+        <button
+          type="submit"
+          onClick={() => setcheckmobile(true)}
+          className="p-6 bg-[#009186] mr-[-1.6rem] lg:hidden rounded-lg px-14 text-sm py-3 float-right mt-5 text-[#F8F8FF] font-medium"
+        >
+          Pay Now
+        </button>
       </form>
     </div>
   );
