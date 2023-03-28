@@ -570,13 +570,13 @@ const OrderSummary = () => {
             </div>{" "}
           </div>
         </div>
-        <div className="w-full flex justify-between items-center">
-          <button className="p-6 bg-[#87ACA3] rounded-lg px-14 text-sm py-3 float-right mt-5 text-[#262626] font-medium">
+        <div className="w-full lg:flex  lg:justify-between lg:items-center">
+          <button className="p-6 hidden lg:block bg-[#87ACA3] rounded-lg px-14 text-sm py-3 float-right mt-5 text-[#262626] font-medium">
             Back
           </button>
           <button
             onClick={() => blockScroll()}
-            className="p-6 bg-[#009186] rounded-lg px-14 text-sm py-3 float-right mt-5 text-[#F8F8FF] font-medium"
+            className="p-6 bg-[#009186] mr-[-1.6rem] lg:mr-0 rounded-lg px-14 text-sm py-3 float-right mt-5 text-[#F8F8FF] font-medium"
           >
             Pay Now
           </button>
