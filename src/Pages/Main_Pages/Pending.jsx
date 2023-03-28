@@ -30,7 +30,7 @@ const Pending = () => {
   return (
     <div className=" bg-[#F8F8FF] font-poppins ">
       <NavBar class="fixed top-0 z-[2]" />
-      <div className=" 2xl:px-[10rem] xl:px-[5rem]  xss:pl-4  xss:pr-10   xs:pl-6 xs:pr-12 sm:px-10 md:pl-8 md:pr-28 lg:pr-0 lg:px-10 w-full pt-28 sm:pt-32 lg:pt-20 mxl:pt-32">
+      <div className=" 2xl:px-[10rem] xl:px-[5rem]  xss:pl-4  xss:pr-10   xs:pl-6 xs:pr-12 sm:pl-10 sm:pr-28 md:pl-8 md:pr-28 lg:px-10 w-full mt-28 sm:mt-26  lg:mt-20  mxl:pt-32">
         <div className="flex justify-between items-center mxl:mt-10">
           <button className=" text-sm px-[4rem] py-[0.7rem]  lg:px-[4rem] lg:py-[0.7rem] rounded-lg bg-[#87ACA3]">
             Back
@@ -63,7 +63,7 @@ const Pending = () => {
               {/* <p className="ss">Service Fee: $10</p> */}
             </div>
           </div>
-          <div className="flex  flex-row-reverse   justify-between items-center mt-12 w-[19rem] lg:w-[27rem] sm:mt-14 lg:mt-4">
+          <div className="flex  flex-row-reverse   justify-between items-center mt-12 w-[19rem] sm:w-[20rem] md:w-[30rem] lg:w-[27rem] sm:mt-14 lg:mt-4">
             <span>
               <p className="text-[#175873] text-[0.59rem] ">Local Currency</p>
               <span className="flex mr-4">
@@ -159,6 +159,7 @@ const Pending = () => {
           </div>
         </div>
         <form
+        
           className="mb-20 mxl:mt-32"
           action=""
           onSubmit={formik.handleSubmit}
@@ -500,20 +501,23 @@ const Pending = () => {
                 <textarea
                   placeholder="Enter traction description "
                   name=""
-                  id=""
+                  id="tractionDescription"
                   cols="30"
                   className={
                     formik.errors.tractionDescription &&
                     formik.touched.tractionDescription
-                      ? "w-full border-[#262626] placeholder:text-xs px-2 pt-2 placeholder:text-[#262626]  bg-transparent h-[6rem] rounded-lg border"
+                      ? "w-full border-red-500 placeholder:text-xs px-2 pt-2 placeholder:text-[#262626]   bg-transparent h-[6rem] rounded-lg border"
                       : "w-full border-[#262626] placeholder:text-xs px-2 pt-2 placeholder:text-[#262626]  bg-transparent h-[6rem] rounded-lg border"
                   }
+                  onChange={formik.handleChange}
+                  value={formik.values.tractionDescription}
+                  onBlur={formik.handleBlur}
                 ></textarea>
 
                 {formik.errors.tractionDescription &&
                 formik.touched.tractionDescription ? (
                   <p className="text-red-500 text-xs font-poppins">
-                    {formik.errors.receivername}
+                    {formik.errors.tractionDescription}
                   </p>
                 ) : (
                   ""
@@ -523,10 +527,11 @@ const Pending = () => {
           </div>
 
           <button
-            disabled={false}
+          
+            onClick={() => console.log(formik.isValid)}
             type="submit"
             className={
-              formik.isValidating
+              formik.isValid
                 ? "p-6 bg-[#009186] rounded-lg px-14 text-sm py-3 float-left lg:float-right mt-5 text-[#F8F8FF] font-medium"
                 : "p-6 bg-[#C4C4C4] rounded-lg px-14 text-sm py-3 float-left lg:float-right mt-5 text-[#444444] font-medium"
             }
