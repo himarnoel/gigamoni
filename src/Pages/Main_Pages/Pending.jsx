@@ -159,7 +159,6 @@ const Pending = () => {
           </div>
         </div>
         <form
-        
           className="mb-20 mxl:mt-32"
           action=""
           onSubmit={formik.handleSubmit}
@@ -527,13 +526,22 @@ const Pending = () => {
           </div>
 
           <button
-          
-            onClick={() => console.log(formik.isValid)}
+            onClick={() => alert(formik.isValid)}
             type="submit"
             className={
-              formik.isValid
+              formik.values.accountName &&
+              formik.values.accountNumber &&
+              formik.values.bankAddress &&
+              formik.values.bankName &&
+              formik.values.emailAddress &&
+              formik.values.iban &&
+              formik.values.phoneNumber &&
+              formik.values.receivername &&
+              formik.values.receivingCountry &&
+              formik.values.swiftCode &&
+              formik.values.tractionDescription
                 ? "p-6 bg-[#009186] rounded-lg px-14 text-sm py-3 float-left lg:float-right mt-5 text-[#F8F8FF] font-medium"
-                : "p-6 bg-[#C4C4C4] rounded-lg px-14 text-sm py-3 float-left lg:float-right mt-5 text-[#444444] font-medium"
+                : "p-6 bg-[#C4C4C4]  rounded-lg px-14 text-sm py-3 float-left lg:float-right mt-5 text-[#444444] font-medium"
             }
           >
             Pay Now
