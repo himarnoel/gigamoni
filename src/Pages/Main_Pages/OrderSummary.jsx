@@ -92,14 +92,14 @@ const OrderSummary = () => {
         </div>
       </div>
       <div className="w-full pt-32 lg:pt-20 mxl:pt-32 ">
-        <p className="text-[#175873] text-3xl font-semibold  text-center">
+        <p className="text-[#175873] text-lg sm:text-3xl font-semibold  text-center">
           Order Summary
         </p>
-        <p className="text-center text-lg font-semibold mt-7">
+        <p className="text-center text-sm sm:text-lg font-semibold mt-7">
           You are all set, Kindly confirm your details before proceeding.{" "}
         </p>
-        <div className="flex flex-col lg:flex-row justify-between w-full  xss:pl-4  xss:pr-10   xs:pl-6 xs:pr-12 sm:px-10 md:pl-8 md:pr-28 lg:pr-0 lg:px-10  mt-8 mxl:mt-20  ">
-          <div className=" w-[32rem] flex flex-col justify-between  ">
+        <div className="flex flex-col lg:flex-row justify-between w-full  xss:pl-4  xss:pr-10   xs:pl-6 xs:pr-12 sm:px-10 md:pl-8 md:pr-28  lg:px-10  mt-8 mxl:mt-20  ">
+          <div className=" sm:w-[32rem] flex flex-col justify-between  ">
             {" "}
             <div className="flex justify-between font-medium  text-sm  mt-4 lg:mt-0 ">
               Transaction ID: 1234567890987
@@ -111,10 +111,10 @@ const OrderSummary = () => {
             </div>
           </div>
           {/* dddd */}
-          <div className="flex flex-row-reverse  lg:flex-row sm:w-[25rem] lg:w-[25rem] justify-between items-center  mt-4 lg:mt-0 ">
+          <div className="flex  flex-row-reverse   justify-between items-center mt-12 w-[19rem] sm:w-[20rem] md:w-[30rem] lg:w-[27rem] sm:mt-14 lg:mt-4">
             <span>
               <p className="text-[#175873] text-[0.59rem] ">Local Currency</p>
-              <span className="flex">
+              <span className="flex mr-4">
                 <span className="relative z-0 ">
                   <select
                     type="text"
@@ -160,7 +160,7 @@ const OrderSummary = () => {
               src={trans}
               className="object-contain w-[1.4rem] text-[#707070] mt-6 "
             />
-            <span>
+            <span float-left>
               <p className="text-[#175873] text-[0.59rem] ">They Receive</p>
               <span className="flex ">
                 <span className="relative z-0">
@@ -172,7 +172,7 @@ const OrderSummary = () => {
                       // formik.touched.receivingcurrency
                       //   ? " font-poppins  pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#009186]   rounded-[6px] border-solid border-red-500 border-[4px] border-r  rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186]"
                       //   :
-                      " font-poppins pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070]   rounded-[6px] border-solid border-[#707070] border-[4px] border-r rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
+                      " font-poppins pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070]   rounded-[6px] lg:rounded-r-none border-solid border-[#707070] border-[4px]  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
                       //placeholder=" "
                     }
                     //   onChange={formik.handleChange}
@@ -196,7 +196,7 @@ const OrderSummary = () => {
                     //   formik.errors.sendamount && formik.touched.sendamount
                     //     ? " font-poppins spin-button-none pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#009186] text-[#009186]  rounded-[6px] border-solid border-red-500 border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186]"
                     //     :
-                    " font-poppins spin-button-none  pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-[#707070] border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
+                    " font-poppins spin-button-none  pl-3 pb-0 h-[52px] w-[85px] hidden md:flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-[#707070] border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
                   }
                   //   onChange={formik.handleChange}
                   //   value={formik.values.sendamount}
@@ -208,7 +208,7 @@ const OrderSummary = () => {
         </div>
       </div>
       <form
-        className="mb-20 mxl:mt-32 xss:pl-4  xss:pr-10   xs:pl-6 xs:pr-12 sm:px-10 md:pl-8 md:pr-28 lg:pr-0 lg:px-10 "
+        className="mb-20 mxl:mt-32 xss:pl-4  xss:pr-10   xs:pl-6 xs:pr-12 sm:px-10 md:pl-8 md:pr-28  lg:px-10 "
         action=""
         onSubmit={formik.handleSubmit}
       >
