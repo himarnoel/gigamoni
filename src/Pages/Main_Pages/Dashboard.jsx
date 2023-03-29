@@ -214,8 +214,10 @@ const Dashboard = () => {
                   </span>
                   <div className="hidden  sm:flex  w-full justify-between items-center ">
                     <p className="text-xs">JPMorgan Chase Bank</p>
-                    <p className="text-xs">12345678901234</p>
+                    <p className="text-xs">{arr.transactionID}</p>
+                    {/* Dummy values to help design */}
                     <p className="text-[#F8F8FF]">12345678901234</p>
+                    {/* Dummy values to help design */}
                   </div>
                   <span className="hidden sm:flex text-xs justify-between items-center">
                     <p className={`text-[#FBBC05]`}>{arr.status}</p>
@@ -232,7 +234,7 @@ const Dashboard = () => {
                   </span>
                   <span className="flex sm:hidden text-xs justify-between text-[#262626]">
                     <p className="ss">JPMorgan Chase Bank</p>
-                    <p>12345678901234</p>
+                    <p>{arr.transactionID}</p>
                     <p className="text-white text-xs">Cw224</p>
                   </span>
                   <span className="flex sm:hidden justify-between text-xs">

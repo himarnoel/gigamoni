@@ -2,13 +2,16 @@ import React from "react";
 import NavBar from "./../../Components/AppComponents/NavBar";
 import img1 from "../../assets/overlayimage/one.svg";
 import img2 from "../../assets/overlayimage/vector.svg";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { RingLoader } from "react-spinners";
 import { useState } from "react";
+import axios from "axios";
+import { baseurl } from "../../Service/validate_and_api";
 const PaymentModeMobile = () => {
   let location = useLocation();
   console.log(location.state);
+  const navigate = useNavigate();
   const [load, setload] = useState(false);
   const payWithTransfer = () => {
     setload(true);
@@ -42,14 +45,13 @@ const PaymentModeMobile = () => {
       )
       .then((res) => {
         console.log(res.data);
-        allowScroll();
+
         setload(false);
         navigate("/dashboard");
       })
       .catch((e) => {
         setload(false);
         console.log(e);
-        allowScroll();
       });
   };
 
