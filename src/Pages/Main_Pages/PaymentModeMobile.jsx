@@ -4,6 +4,7 @@ import img1 from "../../assets/overlayimage/one.svg";
 import img2 from "../../assets/overlayimage/vector.svg";
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import { RingLoader } from 'react-spinners';
 const PaymentModeMobile = () => {
   let location = useLocation();
   const payWithTransfer = () => {
@@ -94,6 +95,16 @@ const PaymentModeMobile = () => {
   return (
     <div className="flex lg:hidden justify-between h-screen font-poppins">
       <NavBar />
+      <div
+        className={
+          load
+            ? "absolute top-0   bg-[#262626]/[0.8]   z-[90] h-screen w-full flex  justify-center items-center text-3xl"
+            : "hidden"
+        }
+      >
+        <RingLoader color="#009186" size={90} />
+      </div>
+
       <div className="bg flex-auto ">
         <div className="w-full pt-12 flex justify-center items-center h-screen px-10 ">
           <div className="bg-[#F8F8FF] h-[25rem] sm:h-[50rem] md:h-[60rem] rounded-[11.8392px] text-xs mxl:text-sm w-full py-8 px-4 sm:px-14  font-semibold">
