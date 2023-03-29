@@ -89,7 +89,7 @@ const OrderSummary = () => {
           <div className="flex pl-3 pb-3 mt-8 mxl:mt-14 items-center border-b border-[#87ACA3] text-[#000000]">
             {" "}
             <img src={img2} alt="" />
-            <p className="ml-2">Pay with Bank Transfer</p>
+            <p className="ml-2">Pay with Bank Transfer</p>  
           </div>
           <div className="flex pl-3 pb-3 mt-8 mxl:mt-12 items-center border-b border-[#87ACA3] text-[#000000]">
             {" "}

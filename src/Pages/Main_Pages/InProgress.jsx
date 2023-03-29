@@ -50,8 +50,8 @@ const InProgress = () => {
             <p className="font-semibold mxl:text-xl">Notifications</p>
           </div>
         </div>
-        <div className="flex justify-between items-center font-medium text-sm">
-          <div className="flex flex-col mt-8 ">
+        <div className="flex flex-col lg:flex-row justify-between items-center font-medium text-sm">
+          <div className="flex flex-col md:w-full lg:w-fit">
             <div className="flex">
               <p className="pr-8">Transaction ID :1234567890987</p>
               <p className="flex">
@@ -60,11 +60,11 @@ const InProgress = () => {
               </p>
             </div>
             <div className="flex mt-8">
-              <p className="pr-8">Date: 01/01/2023 11:30am</p>
+              <p className=" md:pr-0 lg:pr-8">Date: 01/01/2023 11:30am</p>
               <p>Mode of payment: Card Payment</p>
             </div>
           </div>
-          <div className="flex flex-col text-sm font-semibold">
+          <div className="flex flex-col text-sm font-semibold md:w-full lg:w-fit">
             <p className="text-[#262626] flex mt-4">
               <p> Proof of payment status:</p>
               <p className="text-[#D80010] ml-2 "> Not uploaded</p>

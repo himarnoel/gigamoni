@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import DashNav from "../../Components/DashBoardComponents/DashNav";
 import bell from "../../assets/bell.svg";
 import { GrSearch } from "react-icons/gr";
@@ -24,6 +24,39 @@ const Dashboard = () => {
   const [buttons, setbuttons] = useState(false);
   const [beneficiaries, setbeneficiaries] = useState(false);
   const navigate = useNavigate();
+  const safeDocument = typeof document !== "undefined" ? document : {};
+  const scrollBlocked = useRef();
+  const html = safeDocument.documentElement;
+  const { body } = safeDocument;
+
+  const blockScroll = () => {
+    window.scrollTo({ top: 0, left: 0 });
+
+    if (!body || !body.style || scrollBlocked.current) return;
+    const scrollBarWidth = window.innerWidth - html.clientWidth;
+    const bodyPaddingRight =
+      parseInt(
+        window.getComputedStyle(body).getPropertyValue("padding-right")
+      ) || 0;
+
+    html.style.position = "relative"; /* [1] */
+    html.style.overflow = "hidden"; /* [2] */
+    body.style.position = "relative"; /* [1] */
+    body.style.overflow = "hidden"; /* [2] */
+    body.style.paddingRight = `${bodyPaddingRight + scrollBarWidth}px`;
+    scrollBlocked.current = true;
+  };
+  const allowScroll = () => {
+    if (!body || !body.style || !scrollBlocked.current) return;
+
+    html.style.position = "";
+    html.style.overflow = "";
+    body.style.position = "";
+    body.style.overflow = "";
+    body.style.paddingRight = "";
+
+    scrollBlocked.current = false;
+  };
   useEffect(() => {
     axios
       .get(`${baseurl}/transactions/`, {
@@ -40,11 +73,12 @@ const Dashboard = () => {
       });
   }, []);
 
-  const funcontrol = () => {
+  const showBeneficiaries = () => {
     setbuttons(false);
+    blockScroll();
     setbeneficiaries(true);
   };
-  const mobilefuncontrol = () => {
+  const mobileShowBeneficiaries = () => {
     setbuttons(false);
     navigate("/beneficiary");
   };
@@ -52,10 +86,14 @@ const Dashboard = () => {
     setbuttons(false);
     navigate("/pending");
   };
+  const closeBeneficiarises = () => {
+    setbeneficiaries(false);
+    allowScroll();
+  };
   return (
     <div className="font-poppins bg-[#F8F8FF] overflow-y-hidden ">
       <div
-        onClick={() => setbeneficiaries(false)}
+        onClick={() => closeBeneficiarises()}
         className={
           beneficiaries
             ? `absolute h-screen  w-full top-0 bg-[#262626]/[0.8] z-[90] sm:flex items-center justify-center hidden`
@@ -64,7 +102,7 @@ const Dashboard = () => {
       >
         <div className="relative xl:w-[30rem] mxl:w-[40rem] sm:h-[30rem] sm:w-[30rem] md:h-[35rem] md:w-[33rem] mxl:h-[40rem]  xl:h-[29rem] bg-[#DAF2F1] rounded-lg px-3 flex  flex-col justify-between py-4 mxl:py-10  ">
           <RiCloseCircleFill
-            onClick={() => setbeneficiaries(false)}
+            onClick={() => closeBeneficiarises()}
             className="absolute top-3 right-4 cursor-pointer text-[#009186] text-xl "
           />
           <p className="text-[#262626] font-semibold text-center text-lg mt-5">
@@ -232,14 +270,14 @@ const Dashboard = () => {
                   }
                 >
                   <button
-                    onClick={() => funcontrol()}
+                    onClick={() => showBeneficiaries()}
                     className="px-[1rem] hidden sm:block py-[0.5rem] text-xs sm:text-base sm:py-[0.6rem]  md:py-[0.5rem] lg:py-[0.5rem] mxl:py-[0.8rem] w-full  rounded-lg text-[#009186] border-2 font-semibold border-[#009186]"
                   >
                     Saved Beneficiary
                   </button>
                   {/* Mobile */}
                   <button
-                    onClick={() => mobilefuncontrol()}
+                    onClick={() => mobileShowBeneficiaries()}
                     className="px-[1rem] sm:hidden py-[0.5rem] text-xs sm:text-base sm:py-[0.6rem]  md:py-[0.5rem] lg:py-[0.5rem] mxl:py-[0.8rem] w-full  rounded-lg text-[#009186] border-2 font-semibold border-[#009186]"
                   >
                     Saved Beneficiary
