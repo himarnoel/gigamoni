@@ -127,20 +127,19 @@ const OrderSummary = () => {
               <p className="text-[#175873] text-[0.59rem] ">Local Currency</p>
               <span className="flex mr-4">
                 <span className="relative z-0 ">
-                  <select
+                <select
                     type="text"
-                    id="receivingcurrency"
+                    id="sendingcurrency"
                     className={
-                      // formik.errors.receivingcurrency &&
-                      // formik.touched.receivingcurrency
-                      //   ? " font-poppins  pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#009186]   rounded-[6px] border-solid border-red-500 border-[4px] rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186]"
-                      //   :
-                      " font-poppins pl-3  pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070] border-r   rounded-[6px] border-solid border-[#707070] border-[4px] rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
+                      formik.errors.sendingcurrency &&
+                      formik.touched.sendingcurrency
+                        ? " font-poppins  pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#009186]   rounded-[6px] border-solid border-red-500 border-[4px] rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186]"
+                        : " font-poppins pl-3  pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070] border-r   rounded-[6px] border-solid border-[#707070] border-[4px] rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
                       //placeholder=" "
                     }
-                    //   onChange={formik.handleChange}
-                    //   value={formik.values.receivingcurrency}
-                    //   onBlur={formik.handleBlur}
+                    onChange={formik.handleChange}
+                    value={formik.values.sendingcurrency}
+                    onBlur={formik.handleBlur}
                     placeholder="receivingcountry"
                   >
                     <option value="NGN" selected>
