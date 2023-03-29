@@ -4,9 +4,47 @@ import bell from "../../assets/bell.svg";
 import { BiTransfer } from "react-icons/bi";
 import { RiArrowDownSLine } from "react-icons/ri";
 import { Formik, useFormik } from "formik";
-import { pendingValidate } from "../../Service/validate_and_api";
+import { baseurl, pendingValidate } from "../../Service/validate_and_api";
 import trans from "../../assets/overlayimage/iconic.svg";
+import { useRef } from "react";
+import { useState } from "react";
+import { RingLoader } from "react-spinners";
+import axios from "axios";
 const Pending = () => {
+  const [load, setload] = useState(false);
+  const safeDocument = typeof document !== "undefined" ? document : {};
+  const scrollBlocked = useRef();
+  const html = safeDocument.documentElement;
+  const { body } = safeDocument;
+
+  const blockScroll = () => {
+    window.scrollTo({ top: 0, left: 0 });
+
+    if (!body || !body.style || scrollBlocked.current) return;
+    const scrollBarWidth = window.innerWidth - html.clientWidth;
+    const bodyPaddingRight =
+      parseInt(
+        window.getComputedStyle(body).getPropertyValue("padding-right")
+      ) || 0;
+
+    html.style.position = "relative"; /* [1] */
+    html.style.overflow = "hidden"; /* [2] */
+    body.style.position = "relative"; /* [1] */
+    body.style.overflow = "hidden"; /* [2] */
+    body.style.paddingRight = `${bodyPaddingRight + scrollBarWidth}px`;
+    scrollBlocked.current = true;
+  };
+  const allowScroll = () => {
+    if (!body || !body.style || !scrollBlocked.current) return;
+
+    html.style.position = "";
+    html.style.overflow = "";
+    body.style.position = "";
+    body.style.overflow = "";
+    body.style.paddingRight = "";
+
+    scrollBlocked.current = false;
+  };
   const formik = useFormik({
     initialValues: {
       receivername: "",
@@ -20,15 +58,54 @@ const Pending = () => {
       accountNumber: "",
       receivingCountry: "",
       tractionDescription: "",
+      receivingcurrency: "USD",
+      sendingcurrency: "NGN",
+      amountsent: "",
+      amountReceived: "",
     },
     validationSchema: pendingValidate,
     onSubmit: (values) => {
-      console.log(values);
+      axios
+        .post(`${baseurl}/transactions/`, {
+          "beneficiary": false,
+          receiverName: values.receivername,
+          receiverEmail: values.emailAddress,
+          receiverPhone:values.phoneNumber ,
+          receiverAcctName: values.accountName,
+          receiverAcctNo: values.accountNumber,
+          receiverBankName: values.bankName,
+          receiverBankAddress: values.bankAddress,
+          receiverIban:values.iban,
+          receiverSwiftCode: values.swiftCode,
+          receiverCountry: values.receivingCountry,
+          currencySent: values.sendingcurrency,
+          currencyReceived: values.receivingcurrency,
+          amountReceived: values.amountReceived,
+          description: values.tractionDescription,
+          paymentMethod: "",
+          headers: {
+            Authorization: `Token ${localStorage.getItem("LoggedIntoken")}`,
+          },
+        })
+        .then((res) => {
+          console.log(res.data);
+          Settrans(res.data);
+        })
+        .catch((e) => {
+          console.log(e);
+        });
     },
   });
   console.log(formik.values);
   return (
     <div className=" bg-[#F8F8FF] font-poppins ">
+      {load ? (
+        <div className="absolute bg-cover bg-[#262626]/[0.8]  z-[20] h-screen w-screen flex  justify-center items-center text-3xl">
+          <RingLoader color="#009186" size={90} />
+        </div>
+      ) : (
+        ""
+      )}
       <NavBar class="fixed top-0 z-[2]" />
       <div className="flex justify-between items-center mt-28 px-2 xss:px-4 xs:px-6  sm:mt-26  sm:mt-26  lg:mt-20 lg:hidden  mxl:mt-10">
         <button className=" text-sm px-[4rem] py-[0.7rem]  lg:px-[4rem] lg:py-[0.7rem] rounded-lg bg-[#87ACA3]">
@@ -90,18 +167,17 @@ const Pending = () => {
                 <span className="relative z-0 ">
                   <select
                     type="text"
-                    id="receivingcurrency"
+                    id="sendingcurrency"
                     className={
-                      // formik.errors.receivingcurrency &&
-                      // formik.touched.receivingcurrency
-                      //   ? " font-poppins  pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#009186]   rounded-[6px] border-solid border-red-500 border-[4px] rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186]"
-                      //   :
-                      " font-poppins pl-3  pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070] border-r   rounded-[6px] border-solid border-[#707070] border-[4px] rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
+                      formik.errors.sendingcurrency &&
+                      formik.touched.sendingcurrency
+                        ? " font-poppins  pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#009186]   rounded-[6px] border-solid border-red-500 border-[4px] rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186]"
+                        : " font-poppins pl-3  pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070] border-r   rounded-[6px] border-solid border-[#707070] border-[4px] rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
                       //placeholder=" "
                     }
-                    //   onChange={formik.handleChange}
-                    //   value={formik.values.receivingcurrency}
-                    //   onBlur={formik.handleBlur}
+                    onChange={formik.handleChange}
+                    value={formik.values.sendingcurrency}
+                    onBlur={formik.handleBlur}
                     placeholder="receivingcountry"
                   >
                     <option value="NGN" selected>
@@ -114,17 +190,16 @@ const Pending = () => {
                 </span>
                 <input
                   type="number"
-                  id="sendamount"
+                  id="amountsent"
                   placeholder="00000"
                   className={
-                    //   formik.errors.sendamount && formik.touched.sendamount
-                    //     ? " font-poppins spin-button-none pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#009186] text-[#009186]  rounded-[6px] border-solid border-red-500 border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186]"
-                    //     :
-                    " font-poppins spin-button-none  pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-[#707070] border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
+                    formik.errors.amountsent && formik.touched.amountsent
+                      ? " font-poppins spin-button-none pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#009186] text-[#009186]  rounded-[6px] border-solid border-red-500 border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186]"
+                      : " font-poppins spin-button-none  pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-[#707070] border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
                   }
-                  //   onChange={formik.handleChange}
-                  //   value={formik.values.sendamount}
-                  //   onBlur={formik.handleBlur}
+                  onChange={formik.handleChange}
+                  value={formik.values.amountsent}
+                  onBlur={formik.handleBlur}
                 />
               </span>
             </span>
@@ -140,16 +215,15 @@ const Pending = () => {
                     type="text"
                     id="receivingcurrency"
                     className={
-                      // formik.errors.receivingcurrency &&
-                      // formik.touched.receivingcurrency
-                      //   ? " font-poppins  pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#009186]   rounded-[6px] border-solid border-red-500 border-[4px] border-r  rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186]"
-                      //   :
-                      " font-poppins pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070]   rounded-[6px] lg:rounded-r-none border-solid border-[#707070] border-[4px]  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
+                      formik.errors.receivingcurrency &&
+                      formik.touched.receivingcurrency
+                        ? " font-poppins  pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#009186]   rounded-[6px] border-solid border-red-500 border-[4px] border-r  rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186]"
+                        : " font-poppins pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070]   rounded-[6px] lg:rounded-r-none border-solid border-[#707070] border-[4px]  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
                       //placeholder=" "
                     }
-                    //   onChange={formik.handleChange}
-                    //   value={formik.values.receivingcurrency}
-                    //   onBlur={formik.handleBlur}
+                    onChange={formik.handleChange}
+                    value={formik.values.receivingcurrency}
+                    onBlur={formik.handleBlur}
                     placeholder="receivingcountry"
                   >
                     <option value="USD" selected>
@@ -162,17 +236,17 @@ const Pending = () => {
                 </span>
                 <input
                   type="number"
-                  id="sendamount"
+                  id="amountReceived"
                   placeholder="00000"
                   className={
-                    //   formik.errors.sendamount && formik.touched.sendamount
-                    //     ? " font-poppins spin-button-none pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#009186] text-[#009186]  rounded-[6px] border-solid border-red-500 border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186]"
-                    //     :
-                    " font-poppins spin-button-none  pl-3 pb-0 h-[52px] w-[85px] hidden md:flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-[#707070] border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
+                    formik.errors.amountReceived &&
+                    formik.touched.amountReceived
+                      ? " font-poppins spin-button-none pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#009186] text-[#009186]  rounded-[6px] border-solid border-red-500 border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186]"
+                      : " font-poppins spin-button-none  pl-3 pb-0 h-[52px] w-[85px] hidden md:flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-[#707070] border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
                   }
-                  //   onChange={formik.handleChange}
-                  //   value={formik.values.sendamount}
-                  //   onBlur={formik.handleBlur}
+                  onChange={formik.handleChange}
+                  value={formik.values.amountReceived}
+                  onBlur={formik.handleBlur}
                 />
               </span>
             </span>
@@ -546,7 +620,6 @@ const Pending = () => {
           </div>
 
           <button
-            onClick={() => alert(formik.isValid)}
             type="submit"
             className={
               formik.values.accountName &&
