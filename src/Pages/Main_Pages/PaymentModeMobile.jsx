@@ -3,6 +3,7 @@ import NavBar from "./../../Components/AppComponents/NavBar";
 import img1 from "../../assets/overlayimage/one.svg";
 import img2 from "../../assets/overlayimage/vector.svg";
 const PaymentModeMobile = () => {
+  let location = useLocation();
   return (
     <div className="flex lg:hidden justify-between h-screen font-poppins">
       <NavBar />

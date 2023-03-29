@@ -59,7 +59,7 @@ const OrderSummary = () => {
     validationSchema: pendingValidate,
     onSubmit: (values) => {
       if (checkmobile) {
-        navigate("/pay");
+        navigate("/pay", { state: values });
       } else {
         console.log(values);
         blockScroll();
