@@ -63,14 +63,13 @@ const Pending = () => {
       receivingcurrency: "USD",
       sendingcurrency: "NGN",
       amountsent: "",
-      amountReceived: "",
+      amountReceived: "100",
     },
     validationSchema: pendingValidate,
     onSubmit: (values) => {
       navigate("/summary", {
-        state: values
+        state: values,
       });
-      
     },
   });
   console.log(formik.values);
