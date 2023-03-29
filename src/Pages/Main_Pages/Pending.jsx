@@ -10,8 +10,10 @@ import { useRef } from "react";
 import { useState } from "react";
 import { RingLoader } from "react-spinners";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 const Pending = () => {
   const [load, setload] = useState(false);
+  const navigate = useNavigate();
   const safeDocument = typeof document !== "undefined" ? document : {};
   const scrollBlocked = useRef();
   const html = safeDocument.documentElement;
@@ -65,35 +67,10 @@ const Pending = () => {
     },
     validationSchema: pendingValidate,
     onSubmit: (values) => {
-      axios
-        .post(`${baseurl}/transactions/`, {
-          "beneficiary": false,
-          receiverName: values.receivername,
-          receiverEmail: values.emailAddress,
-          receiverPhone:values.phoneNumber ,
-          receiverAcctName: values.accountName,
-          receiverAcctNo: values.accountNumber,
-          receiverBankName: values.bankName,
-          receiverBankAddress: values.bankAddress,
-          receiverIban:values.iban,
-          receiverSwiftCode: values.swiftCode,
-          receiverCountry: values.receivingCountry,
-          currencySent: values.sendingcurrency,
-          currencyReceived: values.receivingcurrency,
-          amountReceived: values.amountReceived,
-          description: values.tractionDescription,
-          paymentMethod: "",
-          headers: {
-            Authorization: `Token ${localStorage.getItem("LoggedIntoken")}`,
-          },
-        })
-        .then((res) => {
-          console.log(res.data);
-          Settrans(res.data);
-        })
-        .catch((e) => {
-          console.log(e);
-        });
+      navigate("/summary", {
+        state: values
+      });
+      
     },
   });
   console.log(formik.values);

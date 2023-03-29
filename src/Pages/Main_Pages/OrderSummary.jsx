@@ -4,68 +4,57 @@ import bell from "../../assets/bell.svg";
 import { BiTransfer } from "react-icons/bi";
 import { RiArrowDownSLine } from "react-icons/ri";
 import { Formik, useFormik } from "formik";
-import { pendingValidate } from "../../Service/validate_and_api";
+import { baseurl, pendingValidate } from "../../Service/validate_and_api";
 import { useRef } from "react";
 import img1 from "../../assets/overlayimage/one.svg";
 import img2 from "../../assets/overlayimage/vector.svg";
 import trans from "../../assets/overlayimage/iconic.svg";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { RingLoader } from "react-spinners";
+import axios from "axios";
+import { useEffect } from "react";
 const OrderSummary = () => {
+  let location = useLocation();
   const [bool, setbool] = useState(false);
   const [checkmobile, setcheckmobile] = useState(false);
+  const [load, setload] = useState(false);
   const safeDocument = typeof document !== "undefined" ? document : {};
   const scrollBlocked = useRef();
   const html = safeDocument.documentElement;
   const { body } = safeDocument;
   const navigate = useNavigate();
-
+  const token = localStorage.getItem("LoggedIntoken");
   const blockScroll = () => {
-    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-    setbool(true);
-    if (!body || !body.style || scrollBlocked.current) return;
-    const scrollBarWidth = window.innerWidth - html.clientWidth;
-    const bodyPaddingRight =
-      parseInt(
-        window.getComputedStyle(body).getPropertyValue("padding-right")
-      ) || 0;
-
-    html.style.position = "relative"; /* [1] */
-    html.style.overflow = "hidden"; /* [2] */
-    body.style.position = "relative"; /* [1] */
-    body.style.overflow = "hidden"; /* [2] */
-    body.style.paddingRight = `${bodyPaddingRight + scrollBarWidth}px`;
-    scrollBlocked.current = true;
+    window.scrollTo({ top: 0, left: 0 });
+    html.style.overflow = "hidden";
   };
   const allowScroll = () => {
-    setbool(false);
-    if (!body || !body.style || !scrollBlocked.current) return;
-
-    html.style.position = "";
+    window.scrollTo({ top: 0, left: 0 });
     html.style.overflow = "";
-    body.style.position = "";
-    body.style.overflow = "";
-    body.style.paddingRight = "";
+  };
 
-    scrollBlocked.current = false;
+  const closePayMethod = () => {
+    setbool(false);
+    allowScroll();
   };
 
   const formik = useFormik({
     initialValues: {
-      receivername: "",
-      bankName: "",
-      phoneNumber: "",
-      bankAddress: "",
-      emailAddress: "",
-      iban: "",
-      accountName: "",
-      swiftCode: "",
-      accountNumber: "",
-      receivingCountry: "",
-      tractionDescription: "",
-      receivingcurrency: "USD",
-      sendingcurrency: "NGN",
-      amountsent: "",
-      amountReceived: "",
+      receivername: location.state.receivername,
+      bankName: location.state.bankName,
+      phoneNumber: location.state.phoneNumber,
+      bankAddress: location.state.bankAddress,
+      emailAddress: location.state.emailAddress,
+      iban: location.state.iban,
+      accountName: location.state.accountName,
+      swiftCode: location.state.swiftCode,
+      accountNumber: location.state.accountNumber,
+      receivingCountry: location.state.receivingCountry,
+      tractionDescription: location.state.tractionDescription,
+      receivingcurrency: location.state.receivingcurrency,
+      sendingcurrency: location.state.sendingcurrency,
+      amountsent: location.state.amountsent,
+      amountReceived: location.state.amountReceived,
     },
     validationSchema: pendingValidate,
     onSubmit: (values) => {
@@ -73,15 +62,108 @@ const OrderSummary = () => {
         navigate("/pay");
       } else {
         console.log(values);
+        blockScroll();
+        setbool(true);
       }
     },
   });
-  // console.log(formik.values);
+  const payWithTransfer = () => {
+    blockScroll();
+    setload(true);
+
+    axios
+      .post(`${baseurl}/transactions/`, {
+        beneficiary: false,
+        receiverName: formik.values.receivername,
+        receiverEmail: formik.values.emailAddress,
+        receiverPhone: formik.values.phoneNumber,
+        receiverAcctName: formik.values.accountName,
+        receiverAcctNo: formik.values.accountNumber,
+        receiverBankName: formik.values.bankName,
+        receiverBankAddress: formik.values.bankAddress,
+        receiverIban: formik.values.iban,
+        receiverSwiftCode: formik.values.swiftCode,
+        receiverCountry: formik.values.receivingCountry,
+        currencySent: formik.values.sendingcurrency,
+        currencyReceived: formik.values.receivingcurrency,
+        amountReceived: formik.values.amountReceived,
+        description: formik.values.tractionDescription,
+        paymentMethod: "payWithTransfer",
+        headers: {
+          Authorization: `Token ${token}`,
+        },
+      })
+      .then((res) => {
+        console.log(res.data);
+        allowScroll();
+        setload(false);
+        navigate("/dashboard");
+      })
+      .catch((e) => {
+        setload(false);
+        console.log(e);
+        allowScroll();
+      });
+  };
+
+  const payWithCard = () => {
+    allowScroll();
+    setload(true);
+    blockScroll();
+    axios
+      .post(
+        `${baseurl}/transactions/`,
+        {
+          beneficiary: false,
+          receiverName: formik.values.receivername,
+          receiverEmail: formik.values.emailAddress,
+          receiverPhone: formik.values.phoneNumber,
+          receiverAcctName: formik.values.accountName,
+          receiverAcctNo: formik.values.accountNumber,
+          receiverBankName: formik.values.bankName,
+          receiverBankAddress: formik.values.bankAddress,
+          receiverIban: formik.values.iban,
+          receiverSwiftCode: formik.values.swiftCode,
+          receiverCountry: formik.values.receivingCountry,
+          currencySent: formik.values.sendingcurrency,
+          currencyReceived: formik.values.receivingcurrency,
+          amountReceived: formik.values.amountReceived,
+          description: formik.values.tractionDescription,
+          paymentMethod: "payWithCard",
+        },
+        {
+          headers: {
+            Authorization: `Token ${localStorage.getItem("LoggedIntoken")}`,
+          },
+        }
+      )
+      .then((res) => {
+        console.log(res.data);
+        allowScroll();
+        setload(false);
+        navigate("/dashboard");
+      })
+      .catch((e) => {
+        setload(false);
+        console.log(e);
+      });
+  };
   return (
     <div className="font-poppins  min-h-full over  ">
       <NavBar class="fixed  top-0 z-[10]" />
+
       <div
-        onClick={() => allowScroll()}
+        className={
+          load
+            ? "absolute top-0   bg-[#262626]/[0.8]   z-[90] h-screen w-full flex  justify-center items-center text-3xl"
+            : "hidden"
+        }
+      >
+        <RingLoader color="#009186" size={90} />
+      </div>
+
+      <div
+        onClick={() => closePayMethod()}
         className={
           bool
             ? "absolute top-0   bg-[#262626]/[0.8]   z-[90] h-screen w-full flex  justify-center items-center"
@@ -90,12 +172,18 @@ const OrderSummary = () => {
       >
         <div className="bg-[#F8F8FF] h-[16rem] rounded-[11.8392px] text-xs mxl:text-sm w-[26rem] mxl:h-[20rem] mxl:w-[30rem] py-8 px-10  font-semibold">
           <p className="text-center">Select Mode Of Payment</p>
-          <div className="flex pl-3 pb-3 mt-8 mxl:mt-14 items-center border-b border-[#87ACA3] text-[#000000]">
+          <div
+            onClick={() => payWithTransfer()}
+            className="flex cursor-pointer pl-3 pb-3 mt-8 mxl:mt-14 items-center border-b border-[#87ACA3] text-[#000000]"
+          >
             {" "}
             <img src={img2} alt="" />
             <p className="ml-2">Pay with Bank Transfer</p>
           </div>
-          <div className="flex pl-3 pb-3 mt-8 mxl:mt-12 items-center border-b border-[#87ACA3] text-[#000000]">
+          <div
+            onClick={() => payWithCard()}
+            className="flex cursor-pointer pl-3 pb-3 mt-8 mxl:mt-12 items-center border-b border-[#87ACA3] text-[#000000]"
+          >
             {" "}
             <img src={img1} alt="" />
             <p className="ml-2">Pay with debit card</p>
@@ -105,6 +193,7 @@ const OrderSummary = () => {
       <div className="w-full pt-32 lg:pt-20 mxl:pt-32 ">
         <p className="text-[#175873] text-lg sm:text-3xl font-semibold  text-center">
           Order Summary
+          {}
         </p>
         <p className="text-center text-sm sm:text-lg font-semibold mt-7">
           You are all set, Kindly confirm your details before proceeding.{" "}
@@ -127,7 +216,7 @@ const OrderSummary = () => {
               <p className="text-[#175873] text-[0.59rem] ">Local Currency</p>
               <span className="flex mr-4">
                 <span className="relative z-0 ">
-                <select
+                  <select
                     type="text"
                     id="sendingcurrency"
                     className={
@@ -152,17 +241,16 @@ const OrderSummary = () => {
                 </span>
                 <input
                   type="number"
-                  id="sendamount"
+                  id="amountsent"
                   placeholder="00000"
                   className={
-                    //   formik.errors.sendamount && formik.touched.sendamount
-                    //     ? " font-poppins spin-button-none pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#009186] text-[#009186]  rounded-[6px] border-solid border-red-500 border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186]"
-                    //     :
-                    " font-poppins spin-button-none  pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-[#707070] border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
+                    formik.errors.amountsent && formik.touched.amountsent
+                      ? " font-poppins spin-button-none pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#009186] text-[#009186]  rounded-[6px] border-solid border-red-500 border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186]"
+                      : " font-poppins spin-button-none  pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-[#707070] border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
                   }
-                  //   onChange={formik.handleChange}
-                  //   value={formik.values.sendamount}
-                  //   onBlur={formik.handleBlur}
+                  onChange={formik.handleChange}
+                  value={formik.values.amountsent}
+                  onBlur={formik.handleBlur}
                 />
               </span>
             </span>
@@ -178,16 +266,15 @@ const OrderSummary = () => {
                     type="text"
                     id="receivingcurrency"
                     className={
-                      // formik.errors.receivingcurrency &&
-                      // formik.touched.receivingcurrency
-                      //   ? " font-poppins  pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#009186]   rounded-[6px] border-solid border-red-500 border-[4px] border-r  rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186]"
-                      //   :
-                      " font-poppins pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070]   rounded-[6px] lg:rounded-r-none border-solid border-[#707070] border-[4px]  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
+                      formik.errors.receivingcurrency &&
+                      formik.touched.receivingcurrency
+                        ? " font-poppins  pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#009186]   rounded-[6px] border-solid border-red-500 border-[4px] rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186]"
+                        : " font-poppins pl-3  pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070] border-r   rounded-[6px] border-solid border-[#707070] border-[4px] rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
                       //placeholder=" "
                     }
-                    //   onChange={formik.handleChange}
-                    //   value={formik.values.receivingcurrency}
-                    //   onBlur={formik.handleBlur}
+                    onChange={formik.handleChange}
+                    value={formik.values.receivingcurrency}
+                    onBlur={formik.handleBlur}
                     placeholder="receivingcountry"
                   >
                     <option value="USD" selected>
@@ -200,18 +287,18 @@ const OrderSummary = () => {
                 </span>
                 <input
                   type="number"
-                  id="sendamount"
+                  id="amountReceived"
                   placeholder="00000"
                   className={
-                    //   formik.errors.sendamount && formik.touched.sendamount
-                    //     ? " font-poppins spin-button-none pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#009186] text-[#009186]  rounded-[6px] border-solid border-red-500 border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186]"
-                    //     :
-                    " font-poppins spin-button-none  pl-3 pb-0 h-[52px] w-[85px] hidden md:flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-[#707070] border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
+                    formik.errors.amountReceived &&
+                    formik.touched.amountReceived
+                      ? " font-poppins spin-button-none pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#009186] text-[#009186]  rounded-[6px] border-solid border-red-500 border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186]"
+                      : " font-poppins spin-button-none  pl-3 pb-0 h-[52px] w-[85px] hidden md:flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-[#707070] border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
                   }
-                  //   onChange={formik.handleChange}
-                  //   value={formik.values.sendamount}
-                  //   onBlur={formik.handleBlur}
-                />
+                  onChange={formik.handleChange}
+                  value={formik.values.amountReceived}
+                  onBlur={formik.handleBlur}
+                />{" "}
               </span>
             </span>
           </div>
@@ -426,7 +513,7 @@ const OrderSummary = () => {
               )}
             </div>{" "}
           </div>
-          <div className="w-full  grid  gap-y-8 mxl:gap-y-16 mt-5">
+          <div className="w-full  grid  gap-y-8 mxl:gap-y-16 mt-5 lg:mt-0">
             <div className="relative z-0 mt-0">
               <input
                 type="text"
@@ -589,7 +676,8 @@ const OrderSummary = () => {
           </button>
 
           <button
-            onClick={() => blockScroll()}
+            type="submit"
+            // onClick={() => blockScroll()}
             className="p-6 bg-[#009186] hidden lg:block rounded-lg px-14 text-sm py-3 float-right mt-5 text-[#F8F8FF] font-medium"
           >
             Pay Now
