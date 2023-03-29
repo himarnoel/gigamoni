@@ -68,31 +68,37 @@ const OrderSummary = () => {
     },
   });
   const payWithTransfer = () => {
+    console.log(token);
     blockScroll();
     setload(true);
 
     axios
-      .post(`${baseurl}/transactions/`, {
-        beneficiary: false,
-        receiverName: formik.values.receivername,
-        receiverEmail: formik.values.emailAddress,
-        receiverPhone: formik.values.phoneNumber,
-        receiverAcctName: formik.values.accountName,
-        receiverAcctNo: formik.values.accountNumber,
-        receiverBankName: formik.values.bankName,
-        receiverBankAddress: formik.values.bankAddress,
-        receiverIban: formik.values.iban,
-        receiverSwiftCode: formik.values.swiftCode,
-        receiverCountry: formik.values.receivingCountry,
-        currencySent: formik.values.sendingcurrency,
-        currencyReceived: formik.values.receivingcurrency,
-        amountReceived: formik.values.amountReceived,
-        description: formik.values.tractionDescription,
-        paymentMethod: "payWithTransfer",
-        headers: {
-          Authorization: `Token ${token}`,
+      .post(
+        `${baseurl}/transactions/`,
+        {
+          beneficiary: false,
+          receiverName: formik.values.receivername,
+          receiverEmail: formik.values.emailAddress,
+          receiverPhone: formik.values.phoneNumber,
+          receiverAcctName: formik.values.accountName,
+          receiverAcctNo: formik.values.accountNumber,
+          receiverBankName: formik.values.bankName,
+          receiverBankAddress: formik.values.bankAddress,
+          receiverIban: formik.values.iban,
+          receiverSwiftCode: formik.values.swiftCode,
+          receiverCountry: formik.values.receivingCountry,
+          currencySent: formik.values.sendingcurrency,
+          currencyReceived: formik.values.receivingcurrency,
+          amountReceived: formik.values.amountReceived,
+          description: formik.values.tractionDescription,
+          paymentMethod: "payWithTransfer",
         },
-      })
+        {
+          headers: {
+            Authorization: `Token ${token}`,
+          },
+        }
+      )
       .then((res) => {
         console.log(res.data);
         allowScroll();
@@ -671,7 +677,10 @@ const OrderSummary = () => {
           </div>
         </div>
         <div className="w-full lg:flex  lg:justify-between lg:items-center">
-          <button className="p-6 hidden lg:block bg-[#87ACA3] rounded-lg px-14 text-sm py-3 float-right mt-5 text-[#262626] font-medium">
+          <button
+            onClick={() => navigate("/pending")}
+            className="p-6 hidden lg:block bg-[#87ACA3] rounded-lg px-14 text-sm py-3 float-right mt-5 text-[#262626] font-medium"
+          >
             Back
           </button>
 
