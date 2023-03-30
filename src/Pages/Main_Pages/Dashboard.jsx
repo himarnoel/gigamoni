@@ -19,7 +19,9 @@ const Dashboard = () => {
   const [first, setfirst] = useState("");
   const [trans, Settrans] = useState([]);
   const [startDate, setStartDate] = useState(null);
-  const [showBeneficiarieslist, setshowBeneficiarieslist] = useState(false)
+  const [showBeneficiarieslist, setshowBeneficiarieslist] = useState(false);
+  const [showTransactionList, setshowTransactionList] = useState(false);
+  const [beneficiarieslist, setbeneficiarieslist] = useState([]);
   const [date, setdate] = useState(false);
   const [openDate, setopenDate] = useState(false);
   const [buttons, setbuttons] = useState(false);
@@ -91,8 +93,27 @@ const Dashboard = () => {
     setbeneficiaries(false);
     allowScroll();
   };
-  const fetchTransaction = () => {};
-  const fetchBeneficiaries = () => {};
+  const fetchTransaction = () => {
+    setshowBeneficiarieslist(false);
+    setshowTransactionList(true);
+     axios
+      .get(`${baseurl}/transactions/`, {
+        headers: {
+          Authorization: `Token ${localStorage.getItem("LoggedIntoken")}`,
+        },
+      })
+      .then((res) => {
+        console.log(res.data);
+        Settrans(res.data);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
+  const fetchBeneficiaries = () => {
+    setshowTransactionList(false);
+    setshowBeneficiarieslist(true);
+  };
   return (
     <div className="font-poppins bg-[#F8F8FF] overflow-y-hidden ">
       <div
@@ -214,7 +235,7 @@ const Dashboard = () => {
                   : "hidden"
               }
             >
-              {beneficiaries.map((arr, i) => (
+              {beneficiarieslist.map((arr, i) => (
                 <div className="rounded-lg lg:py-1 lg:px-[0.24rem]   flex flex-col justify-center gap-y-4 border-2 border-[#009186] text-sm mt-8 bg-[#F8F8FF] px-3  xl:px-3   py-1 min-h-[12rem] sm:min-h-[7rem]">
                   <p className="text-[#175873] font-semibold">
                     Beneficiary Name
