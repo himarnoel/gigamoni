@@ -199,7 +199,7 @@ const Dashboard = () => {
               <p
                 onClick={() => fetchTransaction()}
                 className={
-                  showBeneficiarieslist
+                  showTransactionList
                     ? `text-[#175873] font-medium text-sm sm:text-base cursor-pointer`
                     : "text-[#009186] font-medium text-xs sm:text-sm cursor-pointer"
                 }
@@ -209,9 +209,9 @@ const Dashboard = () => {
               <p
                 onClick={() => fetchBeneficiaries()}
                 className={
-                  showTransactionList
-                    ? `text-[#175873] sm:ml-[10rem] lg:ml-[5rem] text-sm cursor-pointer`
-                    : `text-[#009186] sm:ml-[10rem] lg:ml-[5rem] text-xs cursor-pointer`
+                  showBeneficiarieslist
+                    ? `text-[#175873] sm:ml-[10rem] lg:ml-[5rem] text-sm sm:text-base cursor-pointer`
+                    : `text-[#009186] sm:ml-[10rem] lg:ml-[5rem] text-xs sm:text-sm cursor-pointer`
                 }
               >
                 Beneficiaries
