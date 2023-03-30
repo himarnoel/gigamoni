@@ -90,6 +90,8 @@ const Dashboard = () => {
     setbeneficiaries(false);
     allowScroll();
   };
+  const fetchTransaction = () => {};
+  const fetchBeneficiaries = () => {};
   return (
     <div className="font-poppins bg-[#F8F8FF] overflow-y-hidden ">
       <div
@@ -159,10 +161,16 @@ const Dashboard = () => {
         <div className="flex  lg:flex-row flex-col-reverse w-full justify-between mxl:pt-20">
           <div className=" mt-10 lg:w-[27rem] xl:w-[34rem]">
             <span className="flex justify-between sm:justify-start">
-              <p className="text-[#175873] font-medium text-xs sm:text-base cursor-pointer">
+              <p
+                onClick={() => fetchTransaction()}
+                className={`text-[#175873] font-medium text-xs sm:text-base cursor-pointer`}
+              >
                 Recent Transactions
               </p>
-              <p className="text-[#009186] sm:ml-[10rem] lg:ml-[5rem] text-sm cursor-pointer">
+              <p
+                onClick={() => fetchBeneficiaries()}
+                className={`text-[#009186] sm:ml-[10rem] lg:ml-[5rem] text-sm cursor-pointer`}
+              >
                 Beneficiaries
               </p>
             </span>
@@ -198,7 +206,33 @@ const Dashboard = () => {
               </div>
             </div>
 
-            <div className="bg-[#DAF2F1]   overflow-auto rounded-lg w-full h-[20rem] sm:h-[30rem] lg:h-[22.6rem] mxl:h-[42.8rem] mt-8 px-4 border-[#009186]">
+            <div
+              className={
+                showBeneficiarieslist
+                  ? "bg-[#DAF2F1]   overflow-auto rounded-lg w-full h-[20rem] sm:h-[30rem] lg:h-[22.6rem] mxl:h-[42.8rem] mt-8 pr-20 pl-4 border-[#009186]"
+                  : "hidden"
+              }
+            >
+              {beneficiaries.map((arr, i) => (
+                <div className="rounded-lg lg:py-1 lg:px-[0.24rem]   flex flex-col justify-center gap-y-4 border-2 border-[#009186] text-sm mt-8 bg-[#F8F8FF] px-3  xl:px-3   py-1 min-h-[12rem] sm:min-h-[7rem]">
+                  <p className="text-[#175873] font-semibold">
+                    Beneficiary Name
+                  </p>
+                  <div className="flex w-[20rem] justify-between text-[#262626]">
+                    <p className="">JPMorgan Chase Bank</p>
+                    <p className="s">12345678901234</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div
+              className={
+                showTransactionList
+                  ? "bg-[#DAF2F1]   overflow-auto rounded-lg w-full h-[20rem] sm:h-[30rem] lg:h-[22.6rem] mxl:h-[42.8rem] mt-8 px-4 border-[#009186]"
+                  : "bg-[#DAF2F1]   overflow-auto rounded-lg w-full h-[20rem] sm:h-[30rem] lg:h-[22.6rem] mxl:h-[42.8rem] mt-8 px-4 border-[#009186]"
+              }
+            >
               {trans.map((arr, i) => (
                 <div className="rounded-lg lg:py-1 lg:px-[0.24rem]   flex flex-col justify-between border-2 border-[#009186] text-sm mt-8 bg-[#F8F8FF] px-3  xl:px-3  py-1 min-h-[12rem] sm:min-h-[7rem]">
                   <span className="hidden sm:flex items-center justify-between mt-2">
