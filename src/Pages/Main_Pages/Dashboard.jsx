@@ -96,7 +96,7 @@ const Dashboard = () => {
   const fetchTransaction = () => {
     setshowBeneficiarieslist(false);
     setshowTransactionList(true);
-     axios
+    axios
       .get(`${baseurl}/transactions/`, {
         headers: {
           Authorization: `Token ${localStorage.getItem("LoggedIntoken")}`,
@@ -113,6 +113,19 @@ const Dashboard = () => {
   const fetchBeneficiaries = () => {
     setshowTransactionList(false);
     setshowBeneficiarieslist(true);
+    axios
+      .get(`${baseurl}/transactions/beneficiary/`, {
+        headers: {
+          Authorization: `Token ${localStorage.getItem("LoggedIntoken")}`,
+        },
+      })
+      .then((res) => {
+        console.log(res.data);
+        setbeneficiarieslist(res.data);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   };
   return (
     <div className="font-poppins bg-[#F8F8FF] overflow-y-hidden ">
@@ -185,13 +198,21 @@ const Dashboard = () => {
             <span className="flex justify-between sm:justify-start">
               <p
                 onClick={() => fetchTransaction()}
-                className={`text-[#175873] font-medium text-xs sm:text-base cursor-pointer`}
+                className={
+                  showBeneficiarieslist
+                    ? `text-[#175873] font-medium text-sm sm:text-base cursor-pointer`
+                    : "text-[#009186] font-medium text-xs sm:text-sm cursor-pointer"
+                }
               >
                 Recent Transactions
               </p>
               <p
                 onClick={() => fetchBeneficiaries()}
-                className={`text-[#009186] sm:ml-[10rem] lg:ml-[5rem] text-sm cursor-pointer`}
+                className={
+                  showTransactionList
+                    ? `text-[#175873] sm:ml-[10rem] lg:ml-[5rem] text-sm cursor-pointer`
+                    : `text-[#009186] sm:ml-[10rem] lg:ml-[5rem] text-xs cursor-pointer`
+                }
               >
                 Beneficiaries
               </p>
