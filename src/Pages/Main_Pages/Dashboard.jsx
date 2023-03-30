@@ -19,6 +19,7 @@ const Dashboard = () => {
   const [first, setfirst] = useState("");
   const [trans, Settrans] = useState([]);
   const [startDate, setStartDate] = useState(null);
+  const [showBeneficiarieslist, setshowBeneficiarieslist] = useState(false)
   const [date, setdate] = useState(false);
   const [openDate, setopenDate] = useState(false);
   const [buttons, setbuttons] = useState(false);
