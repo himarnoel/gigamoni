@@ -159,10 +159,10 @@ const Dashboard = () => {
         <div className="flex  lg:flex-row flex-col-reverse w-full justify-between mxl:pt-20">
           <div className=" mt-10 lg:w-[27rem] xl:w-[34rem]">
             <span className="flex justify-between sm:justify-start">
-              <p className="text-[#175873] font-medium text-xs sm:text-base ">
+              <p className="text-[#175873] font-medium text-xs sm:text-base cursor-pointer">
                 Recent Transactions
               </p>
-              <p className="text-[#009186] sm:ml-[10rem] lg:ml-[5rem] text-sm">
+              <p className="text-[#009186] sm:ml-[10rem] lg:ml-[5rem] text-sm cursor-pointer">
                 Beneficiaries
               </p>
             </span>
@@ -213,14 +213,26 @@ const Dashboard = () => {
                     </p>
                   </span>
                   <div className="hidden  sm:flex  w-full justify-between items-center ">
-                    <p className="text-xs">JPMorgan Chase Bank</p>
+                    <p className="text-xs">{arr.receiverBankName}</p>
                     <p className="text-xs">{arr.transactionID}</p>
                     {/* Dummy values to help design */}
                     <p className="text-[#F8F8FF]">12345678901234</p>
                     {/* Dummy values to help design */}
                   </div>
                   <span className="hidden sm:flex text-xs justify-between items-center">
-                    <p className={`text-[#FBBC05]`}>{arr.status}</p>
+                    <p
+                      className={
+                        arr.status == "In Progress"
+                          ? `text-[#FBBC05]`
+                          : arr.status == "Completed"
+                          ? `text-[#00913E]`
+                          : arr.status == "Cancelled"
+                          ? `text-[#D80010]`
+                          : "text-[#5D5FEF]" //Pending
+                      }
+                    >
+                      {arr.status}
+                    </p>
                     <p className="text-[#262626] ">{arr.paymentMethod}</p>
                     <p className="text-[#009186] ">see more</p>
                   </span>
@@ -233,7 +245,7 @@ const Dashboard = () => {
                     <p> ${arr.amountReceived}</p>
                   </span>
                   <span className="flex sm:hidden text-xs justify-between text-[#262626]">
-                    <p className="ss">JPMorgan Chase Bank</p>
+                    <p className="ss">{arr.receiverBankName}</p>
                     <p>{arr.transactionID}</p>
                     <p className="text-white text-xs">Cw224</p>
                   </span>
