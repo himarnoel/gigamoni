@@ -20,7 +20,7 @@ const Dashboard = () => {
   const [trans, Settrans] = useState([]);
   const [startDate, setStartDate] = useState(null);
   const [showBeneficiarieslist, setshowBeneficiarieslist] = useState(false);
-  const [showTransactionList, setshowTransactionList] = useState(false);
+  const [showTransactionList, setshowTransactionList] = useState(true);
   const [beneficiarieslist, setbeneficiarieslist] = useState([]);
   const [date, setdate] = useState(false);
   const [openDate, setopenDate] = useState(false);
@@ -258,12 +258,10 @@ const Dashboard = () => {
             >
               {beneficiarieslist.map((arr, i) => (
                 <div className="rounded-lg lg:py-1 lg:px-[0.24rem]   flex flex-col justify-center gap-y-4 border-2 border-[#009186] text-sm mt-8 bg-[#F8F8FF] px-3  xl:px-3   py-1 min-h-[12rem] sm:min-h-[7rem]">
-                  <p className="text-[#175873] font-semibold">
-                    Beneficiary Name
-                  </p>
-                  <div className="flex w-[20rem] justify-between text-[#262626]">
-                    <p className="">JPMorgan Chase Bank</p>
-                    <p className="s">12345678901234</p>
+                  <p className="text-[#175873] font-semibold">{arr.acctName}</p>
+                  <div className="flex w-full lg:w-[20rem] justify-between text-[#262626]">
+                    <p className="">{arr.bankName}</p>
+                    <p className="s">{arr.acctNo}1234567</p>
                   </div>
                 </div>
               ))}
@@ -273,14 +271,14 @@ const Dashboard = () => {
               className={
                 showTransactionList
                   ? "bg-[#DAF2F1]   overflow-auto rounded-lg w-full h-[20rem] sm:h-[30rem] lg:h-[22.6rem] mxl:h-[42.8rem] mt-8 px-4 border-[#009186]"
-                  : "bg-[#DAF2F1]   overflow-auto rounded-lg w-full h-[20rem] sm:h-[30rem] lg:h-[22.6rem] mxl:h-[42.8rem] mt-8 px-4 border-[#009186]"
+                  : "hidden"
               }
             >
               {trans.map((arr, i) => (
                 <div className="rounded-lg lg:py-1 lg:px-[0.24rem]   flex flex-col justify-between border-2 border-[#009186] text-sm mt-8 bg-[#F8F8FF] px-3  xl:px-3  py-1 min-h-[12rem] sm:min-h-[7rem]">
                   <span className="hidden sm:flex items-center justify-between mt-2">
                     <p className=" text-[#175873] text-xs">
-                      01/01/2023 11:30am
+                      {arr.transactionCreatedDate}
                     </p>
                     <p className="text-[#175873] font-semibold">
                       Lorem Ipsum University, London{" "}
@@ -315,7 +313,7 @@ const Dashboard = () => {
                   </span>
                   {/* FOR MOBILE SCREEN */}
                   <span className="text-[#175873] flex sm:hidden mt-3">
-                    01/01/2023 11:30am
+                    {arr.transactionCreatedDate}
                   </span>
                   <span className="text-[#175873] font-semibold flex sm:hidden  justify-between">
                     <p>Lorem Ipsum University, London </p>
