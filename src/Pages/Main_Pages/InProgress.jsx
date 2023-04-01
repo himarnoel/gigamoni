@@ -78,7 +78,7 @@ const InProgress = () => {
             </p>
           </div>
         </div>
-        <div className="flex flex-row-reverse lg:flex-row justify-between items-center w-[22rem] mt-6">
+        <div className="flex flex-row-reverse md:flex-row justify-between items-center md:w-[22rem] mt-6">
           <span>
             <p className="text-[#175873] text-[0.59rem] ">Local Currency</p>
             <span className="flex mr-4">
@@ -174,7 +174,7 @@ const InProgress = () => {
           </span>
         </div>
         <form
-          className="mb-24 mxl:mt-[7rem] px-20"
+          className="mb-24 mxl:mt-[7rem] md:px-10 lg:px-20"
           action=""
           onSubmit={formik.handleSubmit}
         >
