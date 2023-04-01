@@ -32,7 +32,7 @@ const InProgress = () => {
   return (
     <div className=" font-poppins">
       <NavBar class="top-0 fixed z-[20]" />
-      <div className="pt-20 mxl:pt-32 2xl:px-[10rem] xl:px-[5rem] lg:px-10  px-2 xss:px-4 xs:px-6 sm:px-10 md:px-8">
+      <div className="pt-32 mxl:pt-32 2xl:px-[10rem] xl:px-[5rem] lg:px-10  px-2 xss:px-4 xs:px-6 sm:px-10 md:px-8">
         <div className="flex justify-between items-center">
           {" "}
           <button className="p-6 bg-[#87ACA3] rounded-md px-20 text-sm py-3 float-right  text-[#262626] font-medium">
@@ -50,8 +50,8 @@ const InProgress = () => {
             <p className="font-semibold mxl:text-xl">Notifications</p>
           </div>
         </div>
-        <div className="flex flex-col lg:flex-row justify-between items-center font-medium text-sm">
-          <div className="flex flex-col md:w-full lg:w-fit">
+        <div className="flex flex-col md:flex-row justify-between items-center font-medium text-sm">
+          <div className="flex flex-col md:w-fit">
             <div className="flex">
               <p className="pr-8">Transaction ID :1234567890987</p>
               <p className="flex">
@@ -64,7 +64,7 @@ const InProgress = () => {
               <p>Mode of payment: Card Payment</p>
             </div>
           </div>
-          <div className="flex flex-col text-sm font-semibold md:w-full lg:w-fit">
+          <div className="flex flex-col text-sm font-semibold md:w-fit">
             <p className="text-[#262626] flex mt-4">
               <p> Proof of payment status:</p>
               <p className="text-[#D80010] ml-2 "> Not uploaded</p>

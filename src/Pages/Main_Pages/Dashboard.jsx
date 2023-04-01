@@ -34,31 +34,10 @@ const Dashboard = () => {
 
   const blockScroll = () => {
     window.scrollTo({ top: 0, left: 0 });
-
-    if (!body || !body.style || scrollBlocked.current) return;
-    const scrollBarWidth = window.innerWidth - html.clientWidth;
-    const bodyPaddingRight =
-      parseInt(
-        window.getComputedStyle(body).getPropertyValue("padding-right")
-      ) || 0;
-
-    html.style.position = "relative"; /* [1] */
-    html.style.overflow = "hidden"; /* [2] */
-    body.style.position = "relative"; /* [1] */
-    body.style.overflow = "hidden"; /* [2] */
-    body.style.paddingRight = `${bodyPaddingRight + scrollBarWidth}px`;
-    scrollBlocked.current = true;
+    body.style.overflow = "hidden";
   };
   const allowScroll = () => {
-    if (!body || !body.style || !scrollBlocked.current) return;
-
-    html.style.position = "";
-    html.style.overflow = "";
-    body.style.position = "";
     body.style.overflow = "";
-    body.style.paddingRight = "";
-
-    scrollBlocked.current = false;
   };
   useEffect(() => {
     axios
@@ -96,36 +75,40 @@ const Dashboard = () => {
   const fetchTransaction = () => {
     setshowBeneficiarieslist(false);
     setshowTransactionList(true);
-    axios
-      .get(`${baseurl}/transactions/`, {
-        headers: {
-          Authorization: `Token ${localStorage.getItem("LoggedIntoken")}`,
-        },
-      })
-      .then((res) => {
-        console.log(res.data);
-        Settrans(res.data);
-      })
-      .catch((e) => {
-        console.log(e);
-      });
+    if (trans.length == 0) {
+      axios
+        .get(`${baseurl}/transactions/`, {
+          headers: {
+            Authorization: `Token ${localStorage.getItem("LoggedIntoken")}`,
+          },
+        })
+        .then((res) => {
+          console.log(res.data);
+          Settrans(res.data);
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    }
   };
   const fetchBeneficiaries = () => {
     setshowTransactionList(false);
     setshowBeneficiarieslist(true);
-    axios
-      .get(`${baseurl}/transactions/beneficiary/`, {
-        headers: {
-          Authorization: `Token ${localStorage.getItem("LoggedIntoken")}`,
-        },
-      })
-      .then((res) => {
-        console.log(res.data);
-        setbeneficiarieslist(res.data);
-      })
-      .catch((e) => {
-        console.log(e);
-      });
+    if (beneficiarieslist.length == 0) {
+      axios
+        .get(`${baseurl}/transactions/beneficiary/`, {
+          headers: {
+            Authorization: `Token ${localStorage.getItem("LoggedIntoken")}`,
+          },
+        })
+        .then((res) => {
+          console.log(res.data);
+          setbeneficiarieslist(res.data);
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    }
   };
   return (
     <div className="font-poppins bg-[#F8F8FF] overflow-y-hidden ">
@@ -146,20 +129,15 @@ const Dashboard = () => {
             Beneficiaries
           </p>
           <div className="   h-[86%]  overflow-auto mt-5 px-8 bg-">
-            <div className="h-[6rem] border-2 border-[#009186] rounded-lg bg-white mt-5 text-base  justify-between pt-5 pb-3 px-2 flex flex-col">
-              <p className="text-[#175873] font-semibold">Beneficiary Name</p>
-              <div className="flex font-[#262626] text-xs">
-                <p className="mr-4">JPMorgan Chase Bank</p>
-                <p>12345678901234</p>
+            {beneficiarieslist.map((arr, i) => (
+              <div className="h-[6rem] border-2 border-[#009186] rounded-lg bg-white mt-5 text-base  justify-between pt-5 pb-3 px-2 flex flex-col">
+                <p className="text-[#175873] font-semibold">{arr.acctName}</p>
+                <div className="flex font-[#262626] text-xs">
+                  <p className="mr-4">{arr.bankName}</p>
+                  <p>{arr.acctNo}01234</p>
+                </div>
               </div>
-            </div>
-            <div className="h-[6rem] border-2 border-[#009186] rounded-lg bg-white mt-5 text-base  justify-between pt-5 pb-3 px-2 flex flex-col">
-              <p className="text-[#175873] font-semibold">Beneficiary Name</p>
-              <div className="flex font-[#262626] text-xs">
-                <p className="mr-4">JPMorgan Chase Bank</p>
-                <p>12345678901234</p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
@@ -232,7 +210,9 @@ const Dashboard = () => {
                   className="object-contain w-[1.3rem] absolute inset-y-3 right-[1.2rem]"
                 />
               </div>
-              <div className="relative lg:ml-8">
+              <div
+                className={showTransactionList ? "relative lg:ml-8" : "hidden"}
+              >
                 <DatePicker
                   open={openDate}
                   className="w-[5rem] xs:w-[7rem] sm:w-[8rem] md:w-[10rem] lg:w-full px-2  py-3 text-sm placeholder:text-[#87ACA3] placeholder:text-xs rounded-[8px] border-[2px] focus:outline-none border-[#009186] focus:border-[#009186]  border-solid"
@@ -246,6 +226,19 @@ const Dashboard = () => {
                   onClick={() => setopenDate(!openDate)}
                   className="text-[#009186] inset-y-4 absolute right-3 bg-white"
                 />
+              </div>
+              <div
+                className={
+                  showBeneficiarieslist ? "relative lg:ml-12" : "hidden"
+                }
+              >
+                <button
+                  className={
+                    "w-[5rem] xs:w-[7rem] sm:w-[8rem] md:w-[10rem] lg:w-[8rem] px-2  py-3 text-sm placeholder:text-[#87ACA3] placeholder:text-xs rounded-[8px] border-[2px] focus:outline-none border-[#009186] focus:border-[#009186]  border-solid"
+                  }
+                >
+                  Add
+                </button>
               </div>
             </div>
 
