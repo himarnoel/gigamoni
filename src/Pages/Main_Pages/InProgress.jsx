@@ -32,15 +32,14 @@ const InProgress = () => {
   return (
     <div className=" font-poppins">
       <NavBar class="top-0 fixed z-[20]" />
-      <div className="pt-32 mxl:pt-32 2xl:px-[10rem] xl:px-[5rem] lg:px-10  px-2 xss:px-4 xs:px-6 sm:px-10 md:px-8">
-        <div className="flex justify-between items-center">
-          {" "}
+      <div className=" pt-32 mxl:pt-32 2xl:px-[10rem] xl:px-[5rem] lg:px-10  px-2 xss:px-4 xs:px-6 sm:px-8 md:px-8 ">
+        <div className="flex justify-between items-center ">
           <button className="p-6 bg-[#87ACA3] rounded-md px-20 text-sm py-3 float-right  text-[#262626] font-medium">
             Back
           </button>
           <div
             onClick={() => alert("Notification")}
-            className=" text-[#009186] items-center cursor-pointer hidden lg:flex "
+            className=" text-[#009186] items-center cursor-pointer hidden lg:flex  "
           >
             <img
               src={bell}
@@ -50,53 +49,57 @@ const InProgress = () => {
             <p className="font-semibold mxl:text-xl">Notifications</p>
           </div>
         </div>
-        <div className="flex flex-col md:flex-row justify-between items-center font-medium text-sm">
-          <div className="flex flex-col md:w-fit">
-            <div className="flex">
-              <p className="pr-8">Transaction ID :1234567890987</p>
-              <p className="flex">
-                <p> Status:</p>{" "}
+        <div className="flex  sm:flex-row flex-col w-full md:w-fit lg:w-full justify-between items-center font-medium text-sm">
+          <div className="flex flex-col w-full sm:w-fit  ">
+            <div className="flex flex-col md:flex-row ">
+              <p className="pr-8 mt-6">Transaction ID :1234567890987</p>
+              <p className="flex mt-6">
+                <p> Status:</p>
                 <p className="text-[#FBBC05] ml-1"> In progress</p>
               </p>
             </div>
-            <div className="flex mt-8">
-              <p className=" md:pr-0 lg:pr-8">Date: 01/01/2023 11:30am</p>
-              <p>Mode of payment: Card Payment</p>
+            <div className="flex flex-col  lg:flex-row  lg:w-full mt-6 md:mt-2 lg:mt-8">
+              <p className=" md:pr-0 lg:pr-8 ">Date: 01/01/2023 11:30am</p>
+              <p className="md:mt-2 lg:mt-0 mt-6">
+                Mode of payment: Card Payment
+              </p>
             </div>
           </div>
-          <div className="flex flex-col text-sm font-semibold md:w-fit">
-            <p className="text-[#262626] flex mt-4">
+          <div className="flex flex-col text-sm font-semibold w-full sm:w-fit">
+            <p className="text-[#262626] flex mt-6 sm:mt-4">
               <p> Proof of payment status:</p>
-              <p className="text-[#D80010] ml-2 "> Not uploaded</p>
+              <p className="text-[#D80010]  sm:ml-2 "> Not uploaded</p>
             </p>
-            <p className="ml-3 mt-6">Mode of payment: Card Payment</p>
+            <p className="sm:ml-3 mt-6 sm:mt-6">
+              Mode of payment: Card Payment
+            </p>
             <p
               onClick={() => navigate("/upload")}
-              className="ml-4 text-[#009186] mt-6 cursor-pointer"
+              className="sm:ml-4 mt-6 text-[#009186] sm:mt-6 cursor-pointer"
             >
               Upload proof of payment
             </p>
           </div>
         </div>
-        <div className="flex flex-row-reverse md:flex-row justify-between items-center md:w-[22rem] mt-6">
+
+        <div className="flex  flex-row-reverse   justify-between items-center mt-12 w-[19rem] sm:w-[20rem] md:w-[30rem] lg:w-[27rem] sm:mt-14 lg:mt-4">
           <span>
             <p className="text-[#175873] text-[0.59rem] ">Local Currency</p>
             <span className="flex mr-4">
               <span className="relative z-0 ">
                 <select
                   type="text"
-                  id="receivingcurrency"
+                  id="sendingcurrency"
                   className={
-                    // formik.errors.receivingcurrency &&
-                    // formik.touched.receivingcurrency
-                    //   ? " font-poppins  pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#009186]   rounded-[6px] border-solid border-red-500 border-[4px] rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186]"
-                    //   :
-                    " font-poppins pl-3  pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070] border-r   rounded-[6px] border-solid border-[#707070] border-[4px] rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
+                    formik.errors.sendingcurrency &&
+                    formik.touched.sendingcurrency
+                      ? "  font-poppins pl-3  pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070] border-r   rounded-[6px] border-solid border-red-500 border-[4px] rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
+                      : " font-poppins pl-3  pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070] border-r   rounded-[6px] border-solid border-[#707070] border-[4px] rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
                     //placeholder=" "
                   }
-                  //   onChange={formik.handleChange}
-                  //   value={formik.values.receivingcurrency}
-                  //   onBlur={formik.handleBlur}
+                  onChange={formik.handleChange}
+                  value={formik.values.sendingcurrency}
+                  onBlur={formik.handleBlur}
                   placeholder="receivingcountry"
                 >
                   <option value="NGN" selected>
@@ -109,26 +112,24 @@ const InProgress = () => {
               </span>
               <input
                 type="number"
-                id="sendamount"
+                id="amountsent"
                 placeholder="00000"
                 className={
-                  //   formik.errors.sendamount && formik.touched.sendamount
-                  //     ? " font-poppins spin-button-none pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#009186] text-[#009186]  rounded-[6px] border-solid border-red-500 border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186]"
-                  //     :
-                  " font-poppins spin-button-none  pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-[#707070] border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
+                  formik.errors.amountsent && formik.touched.amountsent
+                    ? " font-poppins spin-button-none  pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-red-500 border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
+                    : " font-poppins spin-button-none  pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-[#707070] border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
                 }
-                //   onChange={formik.handleChange}
-                //   value={formik.values.sendamount}
-                //   onBlur={formik.handleBlur}
+                onChange={formik.handleChange}
+                value={formik.values.amountsent}
+                onBlur={formik.handleBlur}
               />
             </span>
           </span>
-
           <img
             src={trans}
-            className="object-contain w-[1.4rem] text-[#707070] mt-6 mr-4"
+            className="object-contain w-[1.4rem] text-[#707070] mt-6 "
           />
-          <span>
+          <span float-left>
             <p className="text-[#175873] text-[0.59rem] ">They Receive</p>
             <span className="flex ">
               <span className="relative z-0">
@@ -136,16 +137,15 @@ const InProgress = () => {
                   type="text"
                   id="receivingcurrency"
                   className={
-                    // formik.errors.receivingcurrency &&
-                    // formik.touched.receivingcurrency
-                    //   ? " font-poppins  pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#009186]   rounded-[6px] border-solid border-red-500 border-[4px] border-r  rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186]"
-                    //   :
-                    " font-poppins pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070]   rounded-[6px] border-solid border-[#707070] border-[4px] border-r rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
+                    formik.errors.receivingcurrency &&
+                    formik.touched.receivingcurrency
+                      ? " font-poppins pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070]   rounded-[6px] lg:rounded-r-none border-solid border-red-500 border-[4px]  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
+                      : " font-poppins pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070]   rounded-[6px] lg:rounded-r-none border-solid border-[#707070] border-[4px]  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
                     //placeholder=" "
                   }
-                  //   onChange={formik.handleChange}
-                  //   value={formik.values.receivingcurrency}
-                  //   onBlur={formik.handleBlur}
+                  onChange={formik.handleChange}
+                  value={formik.values.receivingcurrency}
+                  onBlur={formik.handleBlur}
                   placeholder="receivingcountry"
                 >
                   <option value="USD" selected>
@@ -158,27 +158,27 @@ const InProgress = () => {
               </span>
               <input
                 type="number"
-                id="sendamount"
+                id="amountReceived"
                 placeholder="00000"
                 className={
-                  //   formik.errors.sendamount && formik.touched.sendamount
-                  //     ? " font-poppins spin-button-none pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#009186] text-[#009186]  rounded-[6px] border-solid border-red-500 border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186]"
-                  //     :
-                  " font-poppins spin-button-none  pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-[#707070] border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
+                  formik.errors.amountReceived && formik.touched.amountReceived
+                    ? " font-poppins spin-button-none  pl-3 pb-0 h-[52px] w-[85px] hidden md:flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-red-500 border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
+                    : " font-poppins spin-button-none  pl-3 pb-0 h-[52px] w-[85px] hidden md:flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-[#707070] border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
                 }
-                //   onChange={formik.handleChange}
-                //   value={formik.values.sendamount}
-                //   onBlur={formik.handleBlur}
+                onChange={formik.handleChange}
+                value={formik.values.amountReceived}
+                onBlur={formik.handleBlur}
               />
             </span>
           </span>
         </div>
+
         <form
-          className="mb-24 mxl:mt-[7rem] md:px-10 lg:px-20"
+          className="mb-24 mxl:mt-[7rem] sm:px-6  md:px-8 lg:px-20"
           action=""
           onSubmit={formik.handleSubmit}
         >
-          <div className="flex gap-x-20  mt-10">
+          <div className="flex flex-col lg:flex-row gap-x-20  mt-10">
             <div className="w-full flex-col flex gap-y-8 mxl:gap-y-16">
               <div className="relative z-0 mt-0">
                 <input
@@ -382,7 +382,7 @@ const InProgress = () => {
                 )}
               </div>{" "}
             </div>
-            <div className="w-full  grid  gap-y-8 mxl:gap-y-16">
+            <div className="w-full mt-2 md:mt-5 lg:mt-0 grid   gap-y-8 mxl:gap-y-16">
               <div className="relative z-0 mt-0">
                 <input
                   type="text"
@@ -536,7 +536,7 @@ const InProgress = () => {
               </div>{" "}
             </div>
           </div>
-          <button className="p-6 border-2 border-[#009186] rounded-lg px-14 text-sm py-3 float-left ml-[-6rem] mxl:ml-[-5rem] mt-8 mxl:mt-16 text-[#009186] font-medium">
+          <button className="p-6 border-2 border-[#009186] rounded-lg px-14 text-sm py-3 float-left md:ml-[-3rem] xl:ml-[-6rem] mxl:ml-[-5rem] mt-8 mxl:mt-16 text-[#009186] font-medium">
             Initiate Dispute
           </button>
         </form>

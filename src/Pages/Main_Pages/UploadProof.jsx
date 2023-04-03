@@ -116,12 +116,12 @@ const UploadProof = () => {
             </div>
           </div>
         </div>
-        <p className="text-[1.7rem] font-semibold text-center mt-6">
+        <p className="text-[1.5rem] xl:text-[1.7rem] font-semibold text-center mt-6">
           Upload Proof of payment
         </p>
         <form
           onSubmit={formik.handleSubmit}
-          className="w-full px-[19rem] mt-10 "
+          className="w-full lg:px-[10rem] xl:px-[19rem] mt-10 "
         >
           <div
             onClick={() => handleClick()}
