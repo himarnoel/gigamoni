@@ -213,8 +213,8 @@ const UploadProof = () => {
               className={
                 formik.values.file.length == 0 ||
                 formik.values.transactionID.length == 0
-                  ? " text-sm px-[4rem] py-[0.7rem]  lg:px-[4rem] lg:py-[0.7rem] rounded-lg bg-[#C4C4C4] font-semibold text-sm "
-                  : " text-sm px-[4rem] py-[0.7rem]  lg:px-[4rem] lg:py-[0.7rem] rounded-lg bg-[#009186] text-[#F8F8FF] font-semibold text-sm"
+                  ? "px-[4rem] py-[0.7rem]  lg:px-[4rem] lg:py-[0.7rem] rounded-lg bg-[#C4C4C4] font-semibold text-sm "
+                  : "px-[4rem] py-[0.7rem]  lg:px-[4rem] lg:py-[0.7rem] rounded-lg bg-[#009186] text-[#F8F8FF] font-semibold text-sm"
               }
             >
               Done
