@@ -95,7 +95,7 @@ const UploadProof = () => {
         className=" font-poppins"
       >
         <NavBar class="top-0 fixed z-[20]" />
-        <div className="pt-20 flex justify-between mxl:pt-32 2xl:px-[10rem] xl:px-[5rem] lg:px-10  px-2 xss:px-4 xs:px-6 sm:px-10 md:px-8">
+        <div className="mt-[5rem] flex justify-between mxl:pt-32 2xl:px-[10rem] xl:px-[5rem] lg:px-10  px-2 xss:px-4 xs:px-6 sm:px-10 md:px-8">
           <button className=" lg:px-[4rem] lg:py-[0.7rem] rounded-lg bg-[#87ACA3] font-semibold">
             Back
           </button>
@@ -121,7 +121,7 @@ const UploadProof = () => {
         </p>
         <form
           onSubmit={formik.handleSubmit}
-          className="w-full lg:px-[10rem] xl:px-[19rem] mt-10 "
+          className="w-full px-10 lg:px-[10rem] xl:px-[19rem] mt-10 "
         >
           <div
             onClick={() => handleClick()}
