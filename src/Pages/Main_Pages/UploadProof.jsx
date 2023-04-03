@@ -186,7 +186,7 @@ const UploadProof = () => {
               id="transactionID"
               type="text"
               placeholder="Enter transaction ID"
-              className="border-2 border-[#87ACA3] placeholder:text-[#87ACA3] text-xs w-[17rem] sm:w-[20rem] px-4 py-4 ml-[-1rem] sm:py-3 mt-8 rounded-lg focus:outline-none focus:ring-0 focus:border-[#87ACA3]"
+              className="border-2 border-[#87ACA3] placeholder:text-[#87ACA3] text-xs w-[17rem] sm:w-[20rem] px-4 py-4 ml-[-1rem] sm:ml-0 sm:py-3 mt-8 rounded-lg focus:outline-none focus:ring-0 focus:border-[#87ACA3]"
               onChange={formik.handleChange}
               value={formik.values.transactionID}
             />
