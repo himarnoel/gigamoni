@@ -100,7 +100,7 @@ const UploadProof = () => {
             Back
           </button>
           <div className="flex items-center justify-between font-semibold text-sm">
-            <p className=" mr-3sm:mr-20 text-[#009186] text-xs  sm:text-base cursor-pointer hidden lg:flex">
+            <p className=" mr-3 sm:mr-20 text-[#009186] text-xs  sm:text-base cursor-pointer hidden lg:flex">
               Upload proof of payment
             </p>
             <div
@@ -136,7 +136,7 @@ const UploadProof = () => {
             // onDragLeave={dragLeave}
             onDrop={fileDrop}
             className={
-              "h-[20rem] border-2 mxl:border-4 mx-auto border-dashed border-[#87ACA3] relative w-full rounded-[11.8392px]"
+              "h-[18rem] sm:h-[20rem] border-2 mxl:border-4 mx-auto border-dashed border-[#87ACA3] relative w-full rounded-[11.8392px]"
             }
           >
             <div
@@ -147,30 +147,33 @@ const UploadProof = () => {
                   : "hidden"
               }
             ></div>
-            <span className="flex justify-center items-center rounded-full bg-[#87ACA3] h-14 w-14 mx-auto mt-8">
-              <IoMdCloudUpload className="text-3xl text-[#2B7C85]" />
+            <span className="flex justify-center items-center rounded-full bg-[#87ACA3] h-14 w-14 md:h-16 md:w-16 lg:h-14 lg:w-14 mx-auto mt-8">
+              <IoMdCloudUpload className="text-3xl md:text-4xl lg:text-3xl text-[#2B7C85]" />
             </span>
             <input
               type="file"
-              style={{ display: "none" }}
+              className="hidden"
               ref={hiddenFileInput}
               onChange={handleChange}
             />
-            <p className="mt-4 flex justify-center lg:hidden">
+            <p className="mt-4 lg:flex justify-center hidden">
               <span> Drag and drop file here </span>
               <span className="text-[#009186]">-or- Upload</span>
             </p>
-            <div className="flex justify-center mt-24">
+            <p className="lg:hidden mt-4 text-center font-semibold text-[#009186]">
+              Upload
+            </p>
+            <div className="flex justify-around mt-16 sm:mt-24">
               <span className="flex flex-col">
-                <p className="font-medium">Images </p>
+                <p className="font-medium text-sm sm:text-base">Images </p>
                 <p className="flex mt-3 items-center">
                   <BiImageAlt className="text-[#2B7C85] text-2xl" />
                   <p className=" ml-3 mr-2 text-xs">JPEG</p>
                   <p className="text-xs">PNG</p>
                 </p>
               </span>
-              <span className="flex flex-col ml-10">
-                <p className="font-medium">Documents </p>
+              <span className="flex flex-col">
+                <p className="font-medium text-sm sm:text-base">Documents </p>
                 <p className="flex mt-3 items-center">
                   <img src={pdf} alt="" className="w-[1.2rem]" />
                   <p className="text-xs ml-3 mr-2">PDF</p>
