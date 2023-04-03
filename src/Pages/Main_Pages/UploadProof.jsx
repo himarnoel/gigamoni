@@ -156,7 +156,7 @@ const UploadProof = () => {
               ref={hiddenFileInput}
               onChange={handleChange}
             />
-            <p className="mt-4 flex justify-center">
+            <p className="mt-4 flex justify-center lg:hidden">
               <span> Drag and drop file here </span>
               <span className="text-[#009186]">-or- Upload</span>
             </p>
