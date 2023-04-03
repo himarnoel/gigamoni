@@ -95,8 +95,8 @@ const UploadProof = () => {
         className=" font-poppins"
       >
         <NavBar class="top-0 fixed z-[20]" />
-        <div className="mt-[5rem] flex justify-between mxl:pt-32 2xl:px-[10rem] xl:px-[5rem] lg:px-10  px-2 xss:px-4 xs:px-6 sm:px-10 md:px-8">
-          <button className=" lg:px-[4rem] lg:py-[0.7rem] rounded-lg bg-[#87ACA3] font-semibold">
+        <div className="mt-[6rem] flex justify-between mxl:pt-32 2xl:px-[10rem] xl:px-[5rem] lg:px-10  px-2 xss:px-4 xs:px-6 sm:px-10 md:px-8">
+          <button className=" text-sm px-[4rem] py-[0.7rem]  lg:px-[4rem] lg:py-[0.7rem] rounded-lg bg-[#87ACA3]">
             Back
           </button>
           <div className="flex items-center font-semibold text-sm">
@@ -207,13 +207,14 @@ const UploadProof = () => {
             ) : (
               ""
             )}
+          
             <button
               type="submit"
               className={
                 formik.values.file.length == 0 ||
                 formik.values.transactionID.length == 0
-                  ? " lg:px-[4rem] lg:py-[0.7rem] rounded-lg bg-[#C4C4C4] font-semibold text-sm "
-                  : " lg:px-[4rem] lg:py-[0.7rem] rounded-lg bg-[#009186] text-[#F8F8FF] font-semibold text-sm"
+                  ? " text-sm px-[4rem] py-[0.7rem]  lg:px-[4rem] lg:py-[0.7rem] rounded-lg bg-[#C4C4C4] font-semibold text-sm "
+                  : " text-sm px-[4rem] py-[0.7rem]  lg:px-[4rem] lg:py-[0.7rem] rounded-lg bg-[#009186] text-[#F8F8FF] font-semibold text-sm"
               }
             >
               Done
