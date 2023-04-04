@@ -219,7 +219,7 @@ const UploadProof = () => {
             <button
               type="submit"
               className={
-                formik.values.file.length == 0 &&
+                formik.values.file.length == 0 ||
                 formik.values.transactionID.length == 0
                   ? "px-[4rem] py-[0.7rem] hidden sm:block lg:px-[4rem] lg:py-[0.7rem] rounded-lg bg-[#C4C4C4] font-semibold text-sm "
                   : "px-[4rem] py-[0.7rem] hidden sm:block lg:px-[4rem] lg:py-[0.7rem] rounded-lg bg-[#009186] text-[#F8F8FF] font-semibold text-sm"
@@ -231,10 +231,10 @@ const UploadProof = () => {
           <button
             type="submit"
             className={
-              formik.values.file.length == 0 &&
+              formik.values.file.length == 0||
               formik.values.transactionID.length == 0
-                ? "px-[4rem] py-[0.7rem] mx-auto  sm:hidden  lg:px-[4rem] lg:py-[0.7rem] rounded-lg bg-[#C4C4C4] font-semibold text-sm "
-                : "px-[4rem] py-[0.7rem] mx-auto  sm:hidden  lg:px-[4rem] lg:py-[0.7rem] rounded-lg bg-[#009186] text-[#F8F8FF] font-semibold text-sm"
+                ? "px-[4rem] py-[0.7rem]  w-full mt-2 sm:hidden  lg:px-[4rem] lg:py-[0.7rem] rounded-lg bg-[#C4C4C4] font-semibold text-sm "
+                : "px-[4rem] py-[0.7rem] w-full mt-2 sm:hidden  lg:px-[4rem] lg:py-[0.7rem] rounded-lg bg-[#009186] text-[#F8F8FF] font-semibold text-sm"
             }
           >
             Done
