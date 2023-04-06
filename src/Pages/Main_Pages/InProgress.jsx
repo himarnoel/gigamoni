@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import NavBar from "./../../Components/AppComponents/NavBar";
 import bell from "../../assets/bell.svg";
 import { BiTransfer } from "react-icons/bi";
@@ -7,8 +7,16 @@ import { Formik, useFormik } from "formik";
 import { pendingValidate } from "../../Service/validate_and_api";
 import trans from "../../assets/overlayimage/iconic.svg";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 const InProgress = () => {
+  const [items, setItems] = useState({});
+  const [fileName, setfileName] = useState("");
   const navigate = useNavigate;
+  useEffect(() => {
+    const upload = JSON.parse(localStorage.getItem("filetoupload"));
+    setItems(upload);
+    setfileName(upload.fileName);
+  }, []);
   const formik = useFormik({
     initialValues: {
       receivername: "",
@@ -68,17 +76,27 @@ const InProgress = () => {
           <div className="flex flex-col text-sm font-semibold w-full sm:w-fit">
             <p className="text-[#262626] flex mt-6 sm:mt-4">
               <p> Proof of payment status:</p>
-              <p className="text-[#D80010]  sm:ml-2 "> Not uploaded</p>
+              {items ? (
+                <p className="text-[#00913E]  sm:ml-2 ">Uploaded</p>
+              ) : (
+                <p className="text-[#D80010]  sm:ml-2 "> Not uploaded</p>
+              )}
             </p>
             <p className="sm:ml-3 mt-6 sm:mt-6">
               Mode of payment: Card Payment
             </p>
-            <p
-              onClick={() => navigate("/upload")}
-              className="sm:ml-4 mt-6 text-[#009186] sm:mt-6 cursor-pointer"
-            >
-              Upload proof of payment
-            </p>
+            {items ? (
+              <div className="rounded-lg flex justify-center items-center py-3 px-10 font-normal sm:ml-4 mt-6 sm:mt-6 text-[#87ACA3] border-2 border-[#87ACA3]">
+                {fileName}
+              </div>
+            ) : (
+              <p
+                onClick={() => navigate("/upload")}
+                className="sm:ml-4 mt-6 text-[#009186] sm:mt-6 cursor-pointer"
+              >
+                Upload proof of payment
+              </p>
+            )}
           </div>
         </div>
 

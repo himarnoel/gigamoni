@@ -102,6 +102,7 @@ export const pendingValidate = yup.object().shape({
 export const uploadfileValidate = yup.object().shape({
   transactionID: yup.string().required("Please fill up this field"),
   file: yup.string().required("Please fill up this field"),
+  fileName: yup.string().required("Please fill up this field"),
 });
 
 // beneficiary: false,

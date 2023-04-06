@@ -32,6 +32,7 @@ const UploadProof = () => {
       formik.setValues({
         transactionID: formik.values.transactionID,
         file: reader.result.toString(),
+        fileName: fileUploaded.name,
       });
     };
   };
@@ -70,11 +71,12 @@ const UploadProof = () => {
       formik.setValues({
         transactionID: formik.values.transactionID,
         file: reader.result.toString(),
+        fileName: file[0].name,
       });
     };
   };
   const formik = useFormik({
-    initialValues: { transactionID: "", file: "" },
+    initialValues: { transactionID: "", file: "", fileName: "" },
     validationSchema: uploadfileValidate,
     onSubmit: (values) => {
       localStorage.setItem("filetoupload", JSON.stringify(values));
