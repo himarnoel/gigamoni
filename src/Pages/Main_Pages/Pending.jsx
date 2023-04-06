@@ -60,6 +60,7 @@ const Pending = () => {
       accountNumber: "",
       receivingCountry: "",
       tractionDescription: "",
+      sendingcurrency:"",
       receivingcurrency: "USD",
       amountReceived: "",
     },
@@ -118,7 +119,7 @@ const Pending = () => {
             </p>
           </div>
         </div>
-        <div className="flex flex-col lg:flex-row justify-between w-full sm:w-[20rem] md:w-[30rem] lg:w-full lg:pr-8 xl:pr-10 mt-4   mxl:mt-20">
+        <div className="flex flex-col lg:flex-row justify-between w-full sm:w-[20rem] md:w-[30rem] lg:w-full lg:pr-8 xl:pr-[13rem] mt-4   mxl:mt-20">
           <div className="lg:w-[26rem] xl:w-[32rem] flex flex-col justify-between  h-[4rem] text-sm">
             {" "}
             <div className="flex flex-col lg:flex-row justify-between font-medium lg:mt-4">
@@ -134,11 +135,42 @@ const Pending = () => {
               {/* <p className="ss">Service Fee: $10</p> */}
             </div>
           </div>
-          <div className="flex  mt-12 w-[19rem] sm:w-[20rem] md:w-[30rem] lg:w-[30rem] sm:mt-14 lg:mt-4">
+          <div className="flex justify-between  mt-12 w-[19rem] sm:w-[20rem] md:w-[30rem] lg:w-[20rem] sm:mt-14 lg:mt-4">
+            <span>
+              <p className="text-[#175873] text-[0.59rem]">Local Currency</p>
+              <span className="flex">
+                <span className="relative z-0 ">
+                  <select
+                    type="text"
+                    id="sendingcurrency"
+                    className={
+                      formik.errors.sendingcurrency &&
+                      formik.touched.sendingcurrency
+                        ? "  font-poppins pl-3  pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070]   rounded-[6px] border-solid border-red-500 border-[4px] appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
+                        : " font-poppins pl-3  pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070]   rounded-[6px] border-solid border-[#707070] border-[4px] appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
+                      //placeholder=" "
+                    }
+                    onChange={formik.handleChange}
+                    value={formik.values.sendingcurrency}
+                    onBlur={formik.handleBlur}
+                    placeholder="receivingcountry"
+                  >
+                    <option value="NGN" selected>
+                      NGN
+                    </option>
+
+                    <option value="Pounds">Pounds</option>
+                  </select>
+                  <RiArrowDownSLine className="pointer-events-none cursor-pointer text-4xl absolute inset-y-5 right-0 flex items-center px-2 text-[#707070]" />
+                </span>
+              </span>
+            </span>
+            <img
+              src={trans}
+              className="object-contain w-[1.4rem] text-[#707070] mt-6 "
+            />
             <span float-left>
-              <p className="font-semibold text-[0.59rem] text-[#175873] ">
-                They Receive
-              </p>
+              <p className=" text-[0.59rem] text-[#175873] ">They Receive</p>
               <span className="flex ">
                 <span className="relative z-0">
                   <select
@@ -147,8 +179,8 @@ const Pending = () => {
                     className={
                       formik.errors.receivingcurrency &&
                       formik.touched.receivingcurrency
-                        ? " font-poppins pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070]   rounded-[6px] lg:rounded-r-none border-solid border-red-500 border-[4px]  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
-                        : " font-poppins pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070]   rounded-[6px] lg:rounded-r-none border-solid border-[#707070] border-[4px]  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
+                        ? " font-poppins pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070]   rounded-[6px] lg:rounded-r-none border-solid border-red-500 border-[4px]  appearance-none border-r  focus:outline-none focus:ring-0 focus:border-[#707070]"
+                        : " font-poppins pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070]   rounded-[6px] lg:rounded-r-none border-solid border-[#707070] border-[4px]  appearance-none border-r   focus:outline-none focus:ring-0 focus:border-[#707070]"
                       //placeholder=" "
                     }
                     onChange={formik.handleChange}
@@ -171,8 +203,8 @@ const Pending = () => {
                   className={
                     formik.errors.amountReceived &&
                     formik.touched.amountReceived
-                      ? " font-poppins spin-button-none  pl-3 pb-0 h-[52px] w-[85px] hidden md:flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-red-500 border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
-                      : " font-poppins spin-button-none  pl-3 pb-0 h-[52px] w-[85px] hidden md:flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-[#707070] border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
+                      ? " font-poppins spin-button-none  pl-3 pb-0 h-[52px] w-[85px] hidden md:flex justify-center items-center shade  text-sm mt-3 bg-transparent   placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-red-500 border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
+                      : " font-poppins spin-button-none  pl-3 pb-0 h-[52px] w-[85px] hidden md:flex justify-center items-center shade  text-sm mt-3 bg-transparent  placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-[#707070] border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
                   }
                   onChange={formik.handleChange}
                   value={formik.values.amountReceived}
