@@ -8,9 +8,12 @@ import bell from "../../assets/bell.svg";
 import { RingLoader } from "react-spinners";
 import { RiArrowDownSLine } from "react-icons/ri";
 import trans from "../../assets/overlayimage/iconic.svg";
+import img1 from "../../assets/overlayimage/one.svg";
+import img2 from "../../assets/overlayimage/vector.svg";
 
 const Update = () => {
   const [overlay, setoverlay] = useState(false);
+  const [change, setchange] = useState(fale);
   const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
@@ -48,7 +51,43 @@ const Update = () => {
             : "hidden"
         }
       >
-        
+        {change ? (
+          <div className="bg-white h-[24rem] w-[26rem] rounded-lg flex flex-col items-center relative">
+            <IoCloseCircle className="text-[#009186] absolute right-3 top-2 text-xl" />
+            <div className="flex justify-center items-center rounded-full h-[5rem] w-[5rem] bg-[#00913E]/[0.1] mx-auto mt-20">
+              <img src={mail} alt="" className="object-contain w-10" />
+            </div>
+            <p className="text-center mt-8 w-[20rem]">
+              Your request has been received and we will get back to you shortly
+            </p>
+            <button
+              onClick={() => navigate("/dashboard")}
+              className="py-2 px-10 bg-[#009186] text-[#F8F8FF] rounded-lg mt-5"
+            >
+              okay
+            </button>
+          </div>
+        ) : (
+          <div className="bg-[#F8F8FF] h-[16rem] rounded-[11.8392px] text-xs mxl:text-sm w-[26rem] mxl:h-[20rem] mxl:w-[30rem] py-8 px-10  font-semibold">
+            <p className="text-center">Select Mode Of Payment</p>
+            <div
+              onClick={() => payWithTransfer()}
+              className="flex cursor-pointer pl-3 pb-3 mt-8 mxl:mt-14 items-center border-b border-[#87ACA3] text-[#000000]"
+            >
+              {" "}
+              <img src={img2} alt="" />
+              <p className="ml-2">Pay with Bank Transfer</p>
+            </div>
+            <div
+              onClick={() => payWithCard()}
+              className="flex cursor-pointer pl-3 pb-3 mt-8 mxl:mt-12 items-center border-b border-[#87ACA3] text-[#000000]"
+            >
+              {" "}
+              <img src={img1} alt="" />
+              <p className="ml-2">Pay with debit card</p>
+            </div>
+          </div>
+        )}
       </div>
 
       <NavBar class="fixed top-0 z-[2]" />
