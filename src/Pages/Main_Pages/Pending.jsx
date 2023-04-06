@@ -22,30 +22,11 @@ const Pending = () => {
   const blockScroll = () => {
     window.scrollTo({ top: 0, left: 0 });
 
-    if (!body || !body.style || scrollBlocked.current) return;
-    const scrollBarWidth = window.innerWidth - html.clientWidth;
-    const bodyPaddingRight =
-      parseInt(
-        window.getComputedStyle(body).getPropertyValue("padding-right")
-      ) || 0;
-
-    html.style.position = "relative"; /* [1] */
-    html.style.overflow = "hidden"; /* [2] */
-    body.style.position = "relative"; /* [1] */
     body.style.overflow = "hidden"; /* [2] */
-    body.style.paddingRight = `${bodyPaddingRight + scrollBarWidth}px`;
-    scrollBlocked.current = true;
   };
   const allowScroll = () => {
-    if (!body || !body.style || !scrollBlocked.current) return;
-
     html.style.position = "";
     html.style.overflow = "";
-    body.style.position = "";
-    body.style.overflow = "";
-    body.style.paddingRight = "";
-
-    scrollBlocked.current = false;
   };
   const formik = useFormik({
     initialValues: {
@@ -60,28 +41,30 @@ const Pending = () => {
       accountNumber: "",
       receivingCountry: "",
       tractionDescription: "",
-      sendingcurrency:"",
+      sendingcurrency: "NGN",
       receivingcurrency: "USD",
       amountReceived: "",
     },
     validationSchema: pendingValidate,
     onSubmit: (values) => {
-      navigate("/summary", {
-        state: values,
-      });
+      blockScroll();
+      // navigate("/summary", {
+      //   state: values,
+      // });
     },
   });
   console.log(formik.values);
   return (
     <div className=" bg-[#F8F8FF] font-poppins ">
       {load ? (
-        <div className="absolute bg-cover bg-[#262626]/[0.8]  z-[20] h-screen w-screen flex  justify-center items-center text-3xl">
+        <div className="absolute bg-cover bg-[#262626]/[0.8] top-0 z-[20] h-full w-full flex  justify-center items-center text-3xl">
           <RingLoader color="#009186" size={90} />
         </div>
       ) : (
         ""
       )}
       <NavBar class="fixed top-0 z-[2]" />
+
       <div className="flex justify-between items-center mt-28 px-2 xss:px-4 xs:px-6  sm:mt-26  sm:mt-26  lg:mt-20 lg:hidden  mxl:mt-10">
         <button className=" text-sm px-[4rem] py-[0.7rem]  lg:px-[4rem] lg:py-[0.7rem] rounded-lg bg-[#87ACA3]">
           Back
@@ -554,7 +537,7 @@ const Pending = () => {
               </div>{" "}
               <div className="relative z-0 mt-4 row-span-2">
                 <textarea
-                  placeholder="Enter traction description "
+                  placeholder="Enter transaction description "
                   name=""
                   id="tractionDescription"
                   cols="30"
@@ -595,7 +578,9 @@ const Pending = () => {
               formik.values.receivingCountry &&
               formik.values.swiftCode &&
               formik.values.tractionDescription &&
-              formik.values.amountReceived
+              formik.values.amountReceived &&
+              formik.values.receivingcurrency &&
+              formik.values.sendingcurrency
                 ? "p-6 bg-[#009186] rounded-lg px-14 text-sm py-3 float-left lg:float-right mt-5 text-[#F8F8FF] font-medium"
                 : "p-6 bg-[#C4C4C4]  rounded-lg px-14 text-sm py-3 float-left lg:float-right mt-5 text-[#444444] font-medium"
             }
