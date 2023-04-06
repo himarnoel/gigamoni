@@ -10,7 +10,8 @@ import { RiArrowDownSLine } from "react-icons/ri";
 import trans from "../../assets/overlayimage/iconic.svg";
 import img1 from "../../assets/overlayimage/one.svg";
 import img2 from "../../assets/overlayimage/vector.svg";
-
+import { IoCloseCircle } from "react-icons/io5";
+import mail from "../../assets/Vector.svg";
 const Update = () => {
   const [overlay, setoverlay] = useState(false);
   const [change, setchange] = useState(false);
@@ -40,13 +41,14 @@ const Update = () => {
       });
     },
   });
-  console.log(formik.values);
+  const payWithTransfer = () => {};
+  const payWithCard = () => {};
 
   return (
     <div className=" bg-[#F8F8FF] font-poppins ">
       <div
         className={
-          overlay
+          !overlay
             ? "absolute bg-cover bg-[#262626]/[0.8] top-0 z-[20] h-screen w-full flex  justify-center items-center "
             : "hidden"
         }
