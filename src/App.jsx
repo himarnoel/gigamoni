@@ -26,6 +26,7 @@ import OrderSummary from "./Pages/Main_Pages/OrderSummary";
 import InProgress from "./Pages/Main_Pages/InProgress";
 import UploadProof from "./Pages/Main_Pages/UploadProof";
 import PaymentModeMobile from "./Pages/Main_Pages/PaymentModeMobile";
+import Update from "./Pages/Main_Pages/Update";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -55,6 +56,7 @@ function App() {
         <Route path="/progress" element={<InProgress />} />
         <Route path="/upload" element={<UploadProof />} />
         <Route path="/pay" element={<PaymentModeMobile />} />
+        <Route path="/update" element={<Update />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </div>
