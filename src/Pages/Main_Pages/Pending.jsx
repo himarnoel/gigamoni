@@ -15,11 +15,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 const Pending = () => {
   const [load, setload] = useState(false);
+  const [overlay, setoverlay] = useState(false);
   const navigate = useNavigate();
-  const safeDocument = typeof document !== "undefined" ? document : {};
-  const scrollBlocked = useRef();
-  const html = safeDocument.documentElement;
-  const { body } = safeDocument;
 
   const blockScroll = () => {
     window.scrollTo({ top: 0, left: 0 });
@@ -58,21 +55,34 @@ const Pending = () => {
   console.log(formik.values);
   return (
     <div className=" bg-[#F8F8FF] font-poppins ">
-      {load ? (
-        <div className="absolute bg-cover bg-[#262626]/[0.8] top-0 z-[20] h-screen w-full flex  justify-center items-center text-3xl">
-          <RingLoader color="#009186" size={90} />
-        </div>
-      ) : (
-        ""
-      )}
-      <div className="absolute bg-cover bg-[#262626]/[0.8] top-0 z-[20] h-screen w-full flex  justify-center items-center text-3xl">
-        <div className="bg-white h-[24rem] w-[26rem] rounded-lg">
-          <IoCloseCircle />
-          <div className="flex justify-center items-center rounded-full h-[5rem] w-[5rem] bg-[#00913E]/[0.1] mx-auto mt-10">
-            <img src={mail} alt="" className="object-contain w-10" />
+      <div
+        className={
+          overlay
+            ? "absolute bg-cover bg-[#262626]/[0.8] top-0 z-[20] h-screen w-full flex  justify-center items-center "
+            : "hidden"
+        }
+      >
+        {load ? (
+          <RingLoader color="#009186" size={90} className="text-3xl" />
+        ) : (
+          <div className="bg-white h-[24rem] w-[26rem] rounded-lg flex flex-col items-center relative">
+            <IoCloseCircle className="text-[#009186] absolute right-3 top-2 text-xl" />
+            <div className="flex justify-center items-center rounded-full h-[5rem] w-[5rem] bg-[#00913E]/[0.1] mx-auto mt-20">
+              <img src={mail} alt="" className="object-contain w-10" />
+            </div>
+            <p className="text-center mt-8 w-[20rem]">
+              Your request has been received and we will get back to you shortly
+            </p>
+            <button
+              onClick={() => navigate("/dashboard")}
+              className="py-2 px-10 bg-[#009186] text-[#F8F8FF] rounded-lg mt-5"
+            >
+              okay
+            </button>
           </div>
-        </div>
+        )}
       </div>
+
       <NavBar class="fixed top-0 z-[2]" />
 
       <div className="flex justify-between items-center mt-28 px-2 xss:px-4 xs:px-6  sm:mt-26  sm:mt-26  lg:mt-20 lg:hidden  mxl:mt-10">
