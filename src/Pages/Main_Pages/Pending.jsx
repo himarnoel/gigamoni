@@ -10,6 +10,7 @@ import trans from "../../assets/overlayimage/iconic.svg";
 import { useRef } from "react";
 import { useState } from "react";
 import { RingLoader } from "react-spinners";
+import { IoCloseCircle } from "react-icons/io5";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 const Pending = () => {
@@ -65,9 +66,10 @@ const Pending = () => {
         ""
       )}
       <div className="absolute bg-cover bg-[#262626]/[0.8] top-0 z-[20] h-screen w-full flex  justify-center items-center text-3xl">
-        <div className="bg-white h-[24rem] w-[30rem] rounded-lg">
-          <div className="flex justify-center items-center rounded-full h-[5rem] w-[5rem] bg-[#00913E]/[0.1] mx-auto">
-            <img src={mail} alt=""  c/>
+        <div className="bg-white h-[24rem] w-[26rem] rounded-lg">
+          <IoCloseCircle />
+          <div className="flex justify-center items-center rounded-full h-[5rem] w-[5rem] bg-[#00913E]/[0.1] mx-auto mt-10">
+            <img src={mail} alt="" className="object-contain w-10" />
           </div>
         </div>
       </div>
