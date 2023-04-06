@@ -10,7 +10,7 @@ import { RiArrowDownSLine } from "react-icons/ri";
 import trans from "../../assets/overlayimage/iconic.svg";
 
 const Update = () => {
-  const [load, setload] = useState(false);
+  const [overlay, setoverlay] = useState(false);
   const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
@@ -41,19 +41,16 @@ const Update = () => {
 
   return (
     <div className=" bg-[#F8F8FF] font-poppins ">
-      {load ? (
-        <div
-          className={
-            overlay
-              ? "absolute bg-cover bg-[#262626]/[0.8] top-0 z-[20] h-screen w-full flex  justify-center items-center "
-              : "hidden"
-          }
-        >
-          <RingLoader color="#009186" size={90} />
-        </div>
-      ) : (
-        ""
-      )}
+      <div
+        className={
+          overlay
+            ? "absolute bg-cover bg-[#262626]/[0.8] top-0 z-[20] h-screen w-full flex  justify-center items-center "
+            : "hidden"
+        }
+      >
+        
+      </div>
+
       <NavBar class="fixed top-0 z-[2]" />
       <div className="flex justify-between items-center mt-28 px-2 xss:px-4 xs:px-6  sm:mt-26  sm:mt-26  lg:mt-20 lg:hidden  mxl:mt-10">
         <button className=" text-sm px-[4rem] py-[0.7rem]  lg:px-[4rem] lg:py-[0.7rem] rounded-lg bg-[#87ACA3]">
