@@ -67,13 +67,13 @@ const Update = () => {
               <img src={mail} alt="" className="object-contain w-10" />
             </div>
             <p className="text-center mt-8 w-[20rem]">
-              Your request has been received and we will get back to you shortly
+              You will pay the sum of N500,000
             </p>
             <button
-              onClick={() => navigate("/dashboard")}
+              onClick={() => setchange(false)}
               className="py-2 px-10 bg-[#009186] text-[#F8F8FF] rounded-lg mt-5"
             >
-              okay
+              Pay Now
             </button>
           </div>
         ) : (
