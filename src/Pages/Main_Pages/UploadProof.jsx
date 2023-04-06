@@ -8,12 +8,14 @@ import pdf from "../../assets/overlayimage/pdf.svg";
 import pin from "../../assets/overlayimage/pin.svg";
 import { useFormik } from "formik";
 import { uploadfileValidate } from "../../Service/validate_and_api";
+import { useNavigate } from "react-router-dom";
 
 const UploadProof = () => {
   const wrapperRef = useRef();
   const hiddenFileInput = useRef(null);
   const [overlayUpload, setoverlayUpload] = useState(false);
   const [filename, setFilename] = useState("");
+  const navigate = useNavigate();
 
   const handleClick = () => {
     hiddenFileInput.current.click();
@@ -75,7 +77,8 @@ const UploadProof = () => {
     initialValues: { transactionID: "", file: "" },
     validationSchema: uploadfileValidate,
     onSubmit: (values) => {
-      console.log(values);
+      localStorage.setItem("filetoupload", JSON.stringify(values));
+      navigate("/progress");
     },
   });
   const remove = () => {
@@ -231,7 +234,7 @@ const UploadProof = () => {
           <button
             type="submit"
             className={
-              formik.values.file.length == 0||
+              formik.values.file.length == 0 ||
               formik.values.transactionID.length == 0
                 ? "px-[4rem] py-[0.7rem]  w-full mt-2 sm:hidden  lg:px-[4rem] lg:py-[0.7rem] rounded-lg bg-[#C4C4C4] font-semibold text-sm "
                 : "px-[4rem] py-[0.7rem] w-full mt-2 sm:hidden  lg:px-[4rem] lg:py-[0.7rem] rounded-lg bg-[#009186] text-[#F8F8FF] font-semibold text-sm"

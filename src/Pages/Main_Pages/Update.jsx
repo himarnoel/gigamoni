@@ -96,7 +96,7 @@ const Update = () => {
                 <span className="text-[#EB4335]">Update*</span>
               </p>
             </div>
-            <div className="flex  justify-between font-medium mt-4 lg:mt-4 ">
+            <div className="flex  justify-between font-medium mt-4 lg:mt-6 ">
               {" "}
               <p className="d">Date: 01/01/2023 11:30am</p>
               {/* <p className="ss">Service Fee: $10</p> */}
@@ -575,7 +575,8 @@ const Update = () => {
               formik.values.receivingCountry &&
               formik.values.swiftCode &&
               formik.values.tractionDescription &&
-              formik.values.amountReceived
+              formik.values.amountReceived &&
+              formik.values.amountsent
                 ? "p-6 bg-[#009186] rounded-lg px-14 text-sm py-3 float-left lg:float-right mt-5 text-[#F8F8FF] font-medium"
                 : "p-6 bg-[#C4C4C4]  rounded-lg px-14 text-sm py-3 float-left lg:float-right mt-5 text-[#444444] font-medium"
             }
