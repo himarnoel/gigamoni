@@ -13,7 +13,7 @@ import img2 from "../../assets/overlayimage/vector.svg";
 
 const Update = () => {
   const [overlay, setoverlay] = useState(false);
-  const [change, setchange] = useState(fale);
+  const [change, setchange] = useState(false);
   const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
