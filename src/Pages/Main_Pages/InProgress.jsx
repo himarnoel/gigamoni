@@ -14,8 +14,10 @@ const InProgress = () => {
   const navigate = useNavigate;
   useEffect(() => {
     const upload = JSON.parse(localStorage.getItem("filetoupload"));
-    setItems(upload);
-    setfileName(upload.fileName);
+    if (upload) {
+      setItems(upload);
+      setfileName(upload.fileName);
+    }
   }, []);
   const formik = useFormik({
     initialValues: {
@@ -76,7 +78,7 @@ const InProgress = () => {
           <div className="flex flex-col text-sm font-semibold w-full sm:w-fit">
             <p className="text-[#262626] flex mt-6 sm:mt-4">
               <p> Proof of payment status:</p>
-              {items ? (
+              {!Object.keys(items).length == 0 ? (
                 <p className="text-[#00913E]  sm:ml-2 ">Uploaded</p>
               ) : (
                 <p className="text-[#D80010]  sm:ml-2 "> Not uploaded</p>
@@ -85,7 +87,7 @@ const InProgress = () => {
             <p className="sm:ml-3 mt-6 sm:mt-6">
               Mode of payment: Card Payment
             </p>
-            {items ? (
+            {!Object.keys(items).length == 0 ? (
               <div className="rounded-lg flex justify-center items-center py-3 px-10 font-normal sm:ml-4 mt-6 sm:mt-6 text-[#87ACA3] border-2 border-[#87ACA3]">
                 {fileName}
               </div>
