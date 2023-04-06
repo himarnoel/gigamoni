@@ -1,6 +1,7 @@
 import React from "react";
 import NavBar from "./../../Components/AppComponents/NavBar";
 import bell from "../../assets/bell.svg";
+import mail from "../../assets/Vector.svg";
 import { BiTransfer } from "react-icons/bi";
 import { RiArrowDownSLine } from "react-icons/ri";
 import { Formik, useFormik } from "formik";
@@ -57,12 +58,19 @@ const Pending = () => {
   return (
     <div className=" bg-[#F8F8FF] font-poppins ">
       {load ? (
-        <div className="absolute bg-cover bg-[#262626]/[0.8] top-0 z-[20] h-full w-full flex  justify-center items-center text-3xl">
+        <div className="absolute bg-cover bg-[#262626]/[0.8] top-0 z-[20] h-screen w-full flex  justify-center items-center text-3xl">
           <RingLoader color="#009186" size={90} />
         </div>
       ) : (
         ""
       )}
+      <div className="absolute bg-cover bg-[#262626]/[0.8] top-0 z-[20] h-screen w-full flex  justify-center items-center text-3xl">
+        <div className="bg-white h-[24rem] w-[30rem] rounded-lg">
+          <div className="flex justify-center items-center rounded-full h-[5rem] w-[5rem] bg-[#00913E]/[0.1] mx-auto">
+            <img src={mail} alt=""  c/>
+          </div>
+        </div>
+      </div>
       <NavBar class="fixed top-0 z-[2]" />
 
       <div className="flex justify-between items-center mt-28 px-2 xss:px-4 xs:px-6  sm:mt-26  sm:mt-26  lg:mt-20 lg:hidden  mxl:mt-10">
