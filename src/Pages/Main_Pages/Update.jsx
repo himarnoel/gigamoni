@@ -42,7 +42,13 @@ const Update = () => {
   return (
     <div className=" bg-[#F8F8FF] font-poppins ">
       {load ? (
-        <div className="absolute bg-cover bg-[#262626]/[0.8]  z-[20] h-screen w-screen flex  justify-center items-center text-3xl">
+        <div
+          className={
+            overlay
+              ? "absolute bg-cover bg-[#262626]/[0.8] top-0 z-[20] h-screen w-full flex  justify-center items-center "
+              : "hidden"
+          }
+        >
           <RingLoader color="#009186" size={90} />
         </div>
       ) : (
