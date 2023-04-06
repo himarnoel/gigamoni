@@ -24,7 +24,7 @@ const Pending = () => {
     body.style.overflow = "hidden"; /* [2] */
   };
   const allowScroll = () => {
-    html.style.position = "";
+    
     html.style.overflow = "";
   };
   const formik = useFormik({

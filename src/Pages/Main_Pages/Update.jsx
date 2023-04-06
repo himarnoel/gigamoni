@@ -16,6 +16,13 @@ const Update = () => {
   const [overlay, setoverlay] = useState(false);
   const [change, setchange] = useState(false);
   const navigate = useNavigate();
+  const blockScroll = () => {
+    window.scrollTo({ top: 0, left: 0 });
+    body.style.overflow = "hidden";
+  };
+  const allowScroll = () => {
+    html.style.overflow = "";
+  };
   const formik = useFormik({
     initialValues: {
       receivername: "",
