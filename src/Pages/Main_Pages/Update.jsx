@@ -62,9 +62,12 @@ const Update = () => {
       >
         {change ? (
           <div className="bg-white h-[24rem] w-[26rem] rounded-lg flex flex-col items-center relative">
-            <IoCloseCircle className="text-[#009186] absolute right-3 top-2 text-xl" />
+            <IoCloseCircle
+              className="text-[#009186] absolute right-3 top-2 text-xl cursor-pointer"
+              onClick={() => setoverlay(false)}
+            />
             <div className="flex justify-center items-center rounded-full h-[5rem] w-[5rem] bg-[#00913E]/[0.1] mx-auto mt-20">
-              <img src={mail} alt="" className="object-contain w-10" />
+              <img src={mail} alt="" className="object-contain w-12" />
             </div>
             <p className="text-center mt-8 w-[20rem]">
               You will pay the sum of N500,000
