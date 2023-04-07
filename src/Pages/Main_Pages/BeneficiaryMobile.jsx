@@ -19,7 +19,7 @@ const BeneficiaryMobile = () => {
               className="ml-2 w-[1.8rem] sm:w-[2rem] mxl:w-[2.8rem]"
             />
           </button>
-          <img
+          <img  
             src={bell}
             alt=""
             className="object-contain w-[1.6rem] sm:w-[2.3rem] md:w-[2.5rem] "

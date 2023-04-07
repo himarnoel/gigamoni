@@ -233,6 +233,7 @@ const Dashboard = () => {
                 }
               >
                 <button
+                  onClick={() => navigate("/singlebeneficiary")}
                   className={
                     "w-[5rem] xs:w-[7rem] sm:w-[8rem] md:w-[10rem] lg:w-[8rem] px-2  py-3 text-sm placeholder:text-[#87ACA3] placeholder:text-xs rounded-[8px] border-[2px] focus:outline-none border-[#009186] focus:border-[#009186]  border-solid"
                   }
