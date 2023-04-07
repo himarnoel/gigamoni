@@ -14,6 +14,7 @@ import { BsFillCalendar2Fill } from "react-icons/bs";
 import DatePicker from "react-datepicker";
 import { RiCloseCircleFill } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
+import { RingLoader } from "react-spinners";
 
 const Dashboard = () => {
   const [first, setfirst] = useState("");
@@ -270,7 +271,7 @@ const Dashboard = () => {
                 }
               >
                 <button
-                  onClick={() => navigate("/singlebeneficiary")}
+                  onClick={() => navigate("/singlebeneficiaryadd")}
                   className={
                     "w-[5rem] xs:w-[7rem] sm:w-[8rem] md:w-[10rem] lg:w-[8rem] px-2  py-3 text-sm placeholder:text-[#87ACA3] placeholder:text-xs rounded-[8px] border-[2px] focus:outline-none border-[#009186] focus:border-[#009186]  border-solid"
                   }
@@ -283,10 +284,19 @@ const Dashboard = () => {
             <div
               className={
                 showBeneficiarieslist
-                  ? "bg-[#DAF2F1]   overflow-auto rounded-lg w-full h-[20rem] sm:h-[30rem] lg:h-[22.6rem] mxl:h-[42.8rem] mt-8 pr-20 pl-4 border-[#009186]"
+                  ? `bg-[#DAF2F1] ${
+                      beneficiarieslist.length == 0
+                        ? "flex justify-center items-center"
+                        : ""
+                    }  overflow-auto rounded-lg w-full h-[20rem] sm:h-[30rem] lg:h-[22.6rem] mxl:h-[42.8rem] mt-8 pr-20 pl-4 border-[#009186]`
                   : "hidden"
               }
             >
+              {beneficiarieslist.length == 0 ? (
+                <RingLoader className="text-[#009186] " />
+              ) : (
+                ""
+              )}
               {beneficiarieslist.map((arr, i) => (
                 <div
                   onClick={() => navigate("/singlebeneficiaryedit")}
@@ -304,10 +314,19 @@ const Dashboard = () => {
             <div
               className={
                 showTransactionList
-                  ? "bg-[#DAF2F1]   overflow-auto rounded-lg w-full h-[20rem] sm:h-[30rem] lg:h-[22.6rem] mxl:h-[42.8rem] mt-8 px-4 border-[#009186]"
+                  ? `bg-[#DAF2F1] ${
+                      trans.length == 0
+                        ? "flex items-center justify-center"
+                        : ""
+                    }  overflow-auto rounded-lg w-full h-[20rem] sm:h-[30rem] lg:h-[22.6rem] mxl:h-[42.8rem] mt-8 px-4 border-[#009186]`
                   : "hidden"
               }
             >
+              {trans.length == 0 ? (
+                <RingLoader className="text-[#009186] " />
+              ) : (
+                ""
+              )}
               {trans.map((arr, i) => (
                 <div className="rounded-lg lg:py-1 lg:px-[0.24rem]   flex flex-col justify-between border-2 border-[#009186] text-sm mt-8 bg-[#F8F8FF] px-3  xl:px-3  py-1 min-h-[12rem] sm:min-h-[7rem]">
                   <span className="hidden sm:flex items-center justify-between mt-2">
