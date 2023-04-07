@@ -145,7 +145,7 @@ const Dashboard = () => {
       <DashNav class="fixed top-0 w-full z-[30]" />
       <div className="2xl:px-[10rem] xl:px-[5rem]  px-2 xss:px-4 xs:px-6 sm:px-10 md:px-20   flex flex-col justify-center items-center gap-y-8 pb-8   lg:px-10 mt-20 mxl:pt-20">
         <span
-          onClick={() => alert("Notification")}
+          onClick={() => setshowNotification(!showNotification)}
           className=" text-[#009186] self-end items-center cursor-pointer hidden lg:flex "
         >
           <img
@@ -156,7 +156,15 @@ const Dashboard = () => {
           <p className="font-semibold mxl:text-xl">Notifications</p>
         </span>
         {/* not className is for shadow */}
-        <div className=></div>
+        <div
+          className={
+            showNotification
+              ? "absolute bg-[#D1DEE3] not h-[26rem] w-[24rem] z-[20] top-[7rem] right-11 rounded-[11.8392px] px-4 py-2"
+              : "hidden"
+          }
+        >
+          <p className="text-[#262626]">Notifications</p>
+        </div>
         <div className="w-full lg:hidden flex justify-between items-center mt-10">
           {" "}
           <button className="sm:py-2 py-1 px-10 text-sm sm:w-[20rem] lg:w-full  mxl:py-[12px] mxl:text-xl  flex    mxl:mt-[6rem] justify-center items-center text-[#009186]    rounded-lg border-2 border-[#009186]  ">
