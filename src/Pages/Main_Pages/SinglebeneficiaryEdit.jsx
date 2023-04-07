@@ -46,9 +46,15 @@ const SinglebeneficiaryEdit = () => {
     <div className="font-poppins">
       <NavBar class="fixed top-0 z-[2]" />
       <div className="flex justify-between items-center mt-28 px-2 xss:px-4 xs:px-6  sm:mt-26  sm:mt-26  lg:mt-20 2xl:px-[10rem] xl:px-[5rem] lg:px-10">
-        <button className=" text-sm px-[4rem] py-[0.7rem]  lg:px-[4rem] lg:py-[0.7rem] rounded-lg bg-[#87ACA3]">
-          Back
-        </button>
+        <div className="flex-col flex">
+          <button className=" text-sm px-[4rem] py-[0.7rem]  lg:px-[4rem] lg:py-[0.7rem] rounded-lg bg-[#87ACA3]">
+            Back
+          </button>
+          <button className=" text-sm px-[4rem] py-[0.7rem]  lg:px-[4rem] lg:py-[0.7rem] rounded-lg border-2 border-[#009186] text-[#009186] mt-8">
+          Remove
+          </button>
+        </div>
+
         <div
           onClick={() => alert("Notification")}
           className=" text-[#009186] items-center cursor-pointer flex "
@@ -64,7 +70,7 @@ const SinglebeneficiaryEdit = () => {
         </div>
       </div>
       <form
-        className="mt-20 mxl:mt-[7rem] sm:px-6  md:px-8 lg:px-20"
+        className="mt-[4.5rem] mxl:mt-[7rem] sm:px-6  md:px-8 lg:px-20"
         action=""
         onSubmit={formik.handleSubmit}
       >
