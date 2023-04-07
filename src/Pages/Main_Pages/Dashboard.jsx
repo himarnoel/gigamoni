@@ -19,6 +19,7 @@ const Dashboard = () => {
   const [first, setfirst] = useState("");
   const [trans, Settrans] = useState([]);
   const [startDate, setStartDate] = useState(null);
+  const [showNotification, setshowNotification] = useState(false);
   const [showBeneficiarieslist, setshowBeneficiarieslist] = useState(false);
   const [showTransactionList, setshowTransactionList] = useState(true);
   const [beneficiarieslist, setbeneficiarieslist] = useState([]);
@@ -154,8 +155,8 @@ const Dashboard = () => {
           />
           <p className="font-semibold mxl:text-xl">Notifications</p>
         </span>
-
-        <div className="absolute bg-[#D1DEE3] noti"></div>
+        {/* not className is for shadow */}
+        <div className=></div>
         <div className="w-full lg:hidden flex justify-between items-center mt-10">
           {" "}
           <button className="sm:py-2 py-1 px-10 text-sm sm:w-[20rem] lg:w-full  mxl:py-[12px] mxl:text-xl  flex    mxl:mt-[6rem] justify-center items-center text-[#009186]    rounded-lg border-2 border-[#009186]  ">
