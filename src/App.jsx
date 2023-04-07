@@ -29,7 +29,8 @@ import PaymentModeMobile from "./Pages/Main_Pages/PaymentModeMobile";
 import Update from "./Pages/Main_Pages/Update";
 import CardPayment from "./Pages/Main_Pages/CardPayment";
 import BankTransfer from "./Pages/Main_Pages/BankTransfer";
-import Singlebeneficiary from "./Pages/Main_Pages/Singlebeneficiary";
+
+import SinglebeneficiaryAdd from "./Pages/Main_Pages/SinglebeneficiaryAdd";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -60,7 +61,10 @@ function App() {
         <Route path="/upload" element={<UploadProof />} />
         <Route path="/pay" element={<PaymentModeMobile />} />
         <Route path="/update" element={<Update />} />
-        <Route path="/singlebeneficiary" element={<Singlebeneficiary />} />
+        <Route
+          path="/singlebeneficiaryadd"
+          element={<SinglebeneficiaryAdd />}
+        />
         <Route path="/cardpayment" element={<CardPayment />} />
 
         <Route path="*" element={<Navigate to="/" />} />
