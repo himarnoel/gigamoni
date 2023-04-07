@@ -23,11 +23,12 @@ import NoAcctModal from "./Pages/Send_Money/NoAcctModal";
 import BeneficiaryMobile from "./Pages/Main_Pages/BeneficiaryMobile";
 import Pending from "./Pages/Main_Pages/Pending";
 import OrderSummary from "./Pages/Main_Pages/OrderSummary";
-import InProgress from "./Pages/Main_Pages/InProgress";
+import InProgress from "./Pages/Main_Pages/BankTransfer";
 import UploadProof from "./Pages/Main_Pages/UploadProof";
 import PaymentModeMobile from "./Pages/Main_Pages/PaymentModeMobile";
 import Update from "./Pages/Main_Pages/Update";
 import CardPayment from "./Pages/Main_Pages/CardPayment";
+import BankTransfer from "./Pages/Main_Pages/BankTransfer";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -54,7 +55,7 @@ function App() {
         <Route path="/pending" element={<Pending />} />
         <Route path="/summary" element={<OrderSummary />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/progress" element={<InProgress />} />
+        <Route path="/banktransfer" element={<BankTransfer />} />
         <Route path="/upload" element={<UploadProof />} />
         <Route path="/pay" element={<PaymentModeMobile />} />
         <Route path="/update" element={<Update />} />

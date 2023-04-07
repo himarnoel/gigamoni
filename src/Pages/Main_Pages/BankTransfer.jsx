@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import NavBar from "./../../Components/AppComponents/NavBar";
+import NavBar from "../../Components/AppComponents/NavBar";
 import bell from "../../assets/bell.svg";
 import { BiTransfer } from "react-icons/bi";
 import { RiArrowDownSLine } from "react-icons/ri";
@@ -8,7 +8,7 @@ import { pendingValidate } from "../../Service/validate_and_api";
 import trans from "../../assets/overlayimage/iconic.svg";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-const InProgress = () => {
+const BankTransfer = () => {
   const [items, setItems] = useState({});
   const [fileName, setfileName] = useState("");
   const navigate = useNavigate;
@@ -71,7 +71,7 @@ const InProgress = () => {
             <div className="flex flex-col  lg:flex-row  lg:w-full mt-6 md:mt-2 lg:mt-8">
               <p className=" md:pr-0 lg:pr-8 ">Date: 01/01/2023 11:30am</p>
               <p className="md:mt-2 lg:mt-0 mt-6">
-                Mode of payment: Card Payment
+                Mode of payment: Bank Transfer
               </p>
             </div>
           </div>
@@ -84,9 +84,7 @@ const InProgress = () => {
                 <p className="text-[#D80010]  sm:ml-2 "> Not uploaded</p>
               )}
             </p>
-            <p className="sm:ml-3 mt-6 sm:mt-6">
-              Mode of payment: Card Payment
-            </p>
+
             {!Object.keys(items).length == 0 ? (
               <div className="rounded-lg flex justify-center items-center py-3 px-10 font-normal sm:ml-4 mt-6 sm:mt-6 text-[#87ACA3] border-2 border-[#87ACA3]">
                 {fileName}
@@ -565,4 +563,4 @@ const InProgress = () => {
   );
 };
 
-export default InProgress;
+export default BankTransfer;
