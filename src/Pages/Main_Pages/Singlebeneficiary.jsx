@@ -70,7 +70,7 @@ const Singlebeneficiary = () => {
         onSubmit={formik.handleSubmit}
       >
         <div className="flex flex-col lg:flex-row gap-x-20  mt-10">
-          <div className="w-full h-[21rem] flex flex-col gap-y-8 mxl:gap-y-16 ">
+          <div className="w-full flex flex-col gap-y-8 mxl:gap-y-16 ">
             <div className="relative z-0 mt-0">
               <input
                 type="text"
@@ -232,7 +232,7 @@ const Singlebeneficiary = () => {
               )}
             </div>{" "}
           </div>
-          <div className="w-full mt-2 md:mt-5  lg:mt-0  flex flex-col   gap-y-8 h-[16rem] mxl:gap-y-16">
+          <div className="w-full mt-2 md:mt-5  lg:mt-0  flex flex-col   gap-y-8 mxl:gap-y-16">
             <div className="relative z-0 mt-0">
               <input
                 type="text"
