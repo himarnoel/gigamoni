@@ -1,24 +1,64 @@
-import { useFormik } from "formik";
 import React from "react";
+import NavBar from "./../../Components/AppComponents/NavBar";
+import bell from "../../assets/bell.svg";
+import mail from "../../assets/Vector.svg";
+import { BiTransfer } from "react-icons/bi";
+import { RiArrowDownSLine } from "react-icons/ri";
+import { Formik, useFormik } from "formik";
+import { baseurl, pendingValidate } from "../../Service/validate_and_api";
+import trans from "../../assets/overlayimage/iconic.svg";
+import { useRef } from "react";
+import { useState } from "react";
+import { RingLoader } from "react-spinners";
+import { IoCloseCircle } from "react-icons/io5";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import img1 from "../../assets/overlayimage/one.svg";
+import img2 from "../../assets/overlayimage/vector.svg";
 
 const CardPayment = () => {
+  const [overlay, setoverlay] = useState(false);
+  const [change, setchange] = useState(false);
+  const navigate = useNavigate();
+  const blockScroll = () => {
+    window.scrollTo({ top: 0, left: 0 });
+    body.style.overflow = "hidden";
+  };
+  const allowScroll = () => {
+    html.style.overflow = "";
+  };
   const formik = useFormik({
     initialValues: {
-      receivername: location.state.receivername,
-      bankName: location.state.bankName,
-      phoneNumber: location.state.phoneNumber,
-      bankAddress: location.state.bankAddress,
-      emailAddress: location.state.emailAddress,
-      iban: location.state.iban,
-      accountName: location.state.accountName,
-      swiftCode: location.state.swiftCode,
-      accountNumber: location.state.accountNumber,
-      receivingCountry: location.state.receivingCountry,
-      tractionDescription: location.state.tractionDescription,
-      receivingcurrency: location.state.receivingcurrency,
-      sendingcurrency: location.state.sendingcurrency,
-      amountsent: location.state.amountsent,
-      amountReceived: location.state.amountReceived,
+      receivername: "",
+      bankName: "",
+      phoneNumber: "",
+      bankAddress: "",
+      emailAddress: "",
+      iban: "",
+      accountName: "",
+      swiftCode: "",
+      accountNumber: "",
+      receivingCountry: "",
+      tractionDescription: "",
+      receivingcurrency: "USD",
+      sendingcurrency: "NGN",
+      amountsent: "",
+      amountReceived: "",
+      //   receivername: location.state.receivername,
+      //   bankName: location.state.bankName,
+      //   phoneNumber: location.state.phoneNumber,
+      //   bankAddress: location.state.bankAddress,
+      //   emailAddress: location.state.emailAddress,
+      //   iban: location.state.iban,
+      //   accountName: location.state.accountName,
+      //   swiftCode: location.state.swiftCode,
+      //   accountNumber: location.state.accountNumber,
+      //   receivingCountry: location.state.receivingCountry,
+      //   tractionDescription: location.state.tractionDescription,
+      //   receivingcurrency: location.state.receivingcurrency,
+      //   sendingcurrency: location.state.sendingcurrency,
+      //   amountsent: location.state.amountsent,
+      //   amountReceived: location.state.amountReceived,
     },
     validationSchema: pendingValidate,
     onSubmit: (values) => {
@@ -32,204 +72,161 @@ const CardPayment = () => {
     },
   });
   return (
-    <div className=" bg-[#F8F8FF] font-poppins ">
-      <div
-        className={
-          overlay
-            ? "absolute bg-cover bg-[#262626]/[0.8] top-0 z-[20] h-screen w-full flex  justify-center items-center "
-            : "hidden"
-        }
-      >
-        {change ? (
-          <div className="bg-white h-[24rem] w-[26rem] rounded-lg flex flex-col items-center relative">
-            <IoCloseCircle
-              className="text-[#009186] absolute right-3 top-2 text-xl cursor-pointer"
-              onClick={() => setoverlay(false)}
-            />
-            <div className="flex justify-center items-center rounded-full h-[5rem] w-[5rem] bg-[#00913E]/[0.1] mx-auto mt-20">
-              <img src={mail} alt="" className="object-contain w-12" />
-            </div>
-            <p className="text-center mt-8 w-[20rem]">
-              You will pay the sum of N500,000
-            </p>
-            <button
-              onClick={() => setchange(false)}
-              className="py-2 px-10 bg-[#009186] text-[#F8F8FF] rounded-lg mt-5"
-            >
-              Pay Now
-            </button>
-          </div>
-        ) : (
-          <div className="bg-[#F8F8FF] h-[16rem] rounded-[11.8392px] text-xs mxl:text-sm w-[26rem] mxl:h-[20rem] mxl:w-[30rem] py-8 px-10  font-semibold">
-            <p className="text-center">Select Mode Of Payment</p>
-            <div
-              onClick={() => payWithTransfer()}
-              className="flex cursor-pointer pl-3 pb-3 mt-8 mxl:mt-14 items-center border-b border-[#87ACA3] text-[#000000]"
-            >
-              {" "}
-              <img src={img2} alt="" />
-              <p className="ml-2">Pay with Bank Transfer</p>
-            </div>
-            <div
-              onClick={() => payWithCard()}
-              className="flex cursor-pointer pl-3 pb-3 mt-8 mxl:mt-12 items-center border-b border-[#87ACA3] text-[#000000]"
-            >
-              {" "}
-              <img src={img1} alt="" />
-              <p className="ml-2">Pay with debit card</p>
-            </div>
-          </div>
-        )}
-      </div>
-
-      <NavBar class="fixed top-0 z-[2]" />
-      <div className="flex justify-between items-center mt-28 px-2 xss:px-4 xs:px-6  sm:mt-26  sm:mt-26  lg:mt-20 lg:hidden  mxl:mt-10">
-        <button className=" text-sm px-[4rem] py-[0.7rem]  lg:px-[4rem] lg:py-[0.7rem] rounded-lg bg-[#87ACA3]">
-          Back
-        </button>
-        <div
-          onClick={() => alert("Notification")}
-          className=" text-[#009186] items-center cursor-pointer flex "
-        >
-          <img
-            src={bell}
-            alt=""
-            className="object-contain w-[1.6rem] mxl:w-[2rem] mr-3"
-          />
-          <p className="font-semibold mxl:text-xl hidden lg:block ">
-            Notifications
-          </p>
-        </div>
-      </div>
-      <div className=" 2xl:px-[10rem] xl:px-[5rem]  xss:pl-4  xss:pr-10   xs:pl-6 xs:pr-12 sm:pl-10 sm:pr-28 md:pl-8 md:pr-28 lg:px-10 w-full mt-4  lg:mt-20  mxl:pt-32">
-        <div className=" justify-between items-center mxl:mt-10 hidden lg:flex">
-          <button className=" text-sm px-[4rem] py-[0.7rem]  lg:px-[4rem] lg:py-[0.7rem] rounded-lg bg-[#87ACA3]">
+    <div className=" font-poppins">
+      <NavBar class="top-0 fixed z-[20]" />
+      <div className=" mt-28 sm:mt-26  sm:mt-26  lg:mt-20  mxl:mt-10  2xl:px-[10rem] xl:px-[5rem] lg:px-10  px-2 xss:px-4 xs:px-6 sm:px-8 md:px-8 ">
+        <div className="flex justify-between items-center ">
+          <button className="p-6 bg-[#87ACA3] rounded-md px-20 text-sm py-3 float-right  text-[#262626] font-medium">
             Back
           </button>
           <div
             onClick={() => alert("Notification")}
-            className=" text-[#009186] items-center cursor-pointer flex "
+            className=" text-[#009186] items-center cursor-pointer hidden lg:flex  "
           >
             <img
               src={bell}
               alt=""
               className="object-contain w-[1.6rem] mxl:w-[2rem] mr-3"
             />
-            <p className="font-semibold mxl:text-xl hidden lg:block ">
-              Notifications
-            </p>
+            <p className="font-semibold mxl:text-xl">Notifications</p>
           </div>
         </div>
-        <div className="flex flex-col lg:flex-row justify-between w-full sm:w-[20rem] md:w-[30rem] lg:w-full lg:pr-8 xl:pr-10 mt-4   mxl:mt-20">
-          <div className="lg:w-[26rem] xl:w-[32rem] flex flex-col justify-between  h-[4rem] text-sm">
-            {" "}
-            <div className="flex flex-col lg:flex-row justify-between font-medium lg:mt-4">
-              <p className="">Transaction ID: 1234567890987</p>
-              <p className="flex  mt-4 lg:mt-0">
-                <span className="mr-1"> Status:</span>{" "}
-                <span className="text-[#EB4335]">Update*</span>
+        <div className="flex  sm:flex-row flex-col w-full md:w-fit lg:w-full justify-between items-center font-medium text-sm">
+          <div className="flex flex-col w-full sm:w-fit  ">
+            <div className="flex flex-col md:flex-row  text-xs ">
+              <p className="pr-8 mt-6">Transaction ID :1234567890987</p>
+              <p className="flex mt-6">
+                <p> Status:</p>
+                <p className="text-[#FBBC05] ml-1"> In progress</p>
               </p>
             </div>
-            <div className="flex  justify-between font-medium mt-4 lg:mt-6 ">
-              {" "}
-              <p className="d">Date: 01/01/2023 11:30am</p>
-              {/* <p className="ss">Service Fee: $10</p> */}
+            <div className="flex flex-col text-xs  lg:flex-row  lg:w-full mt-6 md:mt-2 lg:mt-8">
+              <p className=" md:pr-0 lg:pr-8 ">Date: 01/01/2023 11:30am</p>
+              <p className="md:mt-2 lg:mt-0 mt-6 text-[#009186]  ml-8">
+                Card Payment Completed
+              </p>
             </div>
           </div>
-          <div className="flex justify-between mt-12 w-[19rem] sm:w-[20rem] md:w-[30rem] lg:w-[30rem] pr-24 sm:mt-14 lg:mt-4">
-            <span>
-              <p className="text-[#175873] text-[0.59rem]">Local Currency</p>
-              <span className="flex">
-                <span className="relative z-0 ">
-                  <select
-                    type="text"
-                    id="sendingcurrency"
-                    className={
-                      formik.errors.sendingcurrency &&
-                      formik.touched.sendingcurrency
-                        ? "  font-poppins pl-3  pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070] border-r   rounded-[6px] border-solid border-red-500 border-[4px] rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
-                        : " font-poppins pl-3  pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070] border-r   rounded-[6px] border-solid border-[#707070] border-[4px] rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
-                      //placeholder=" "
-                    }
-                    onChange={formik.handleChange}
-                    value={formik.values.sendingcurrency}
-                    onBlur={formik.handleBlur}
-                    placeholder="receivingcountry"
-                  >
-                    <option value="NGN" selected>
-                      NGN
-                    </option>
-
-                    <option value="Pounds">Pounds</option>
-                  </select>
-                  <RiArrowDownSLine className="pointer-events-none cursor-pointer text-4xl absolute inset-y-5 right-0 flex items-center px-2 text-[#707070]" />
-                </span>
-                <input
-                  type="number"
-                  id="amountsent"
-                  placeholder="00000"
-                  className={
-                    formik.errors.amountsent && formik.touched.amountsent
-                      ? " font-poppins spin-button-none  pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-red-500 border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
-                      : " font-poppins spin-button-none  pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-[#707070] border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
-                  }
-                  onChange={formik.handleChange}
-                  value={formik.values.amountsent}
-                  onBlur={formik.handleBlur}
-                />
-              </span>
-            </span>
-            <img
-              src={trans}
-              className="object-contain w-[1.4rem] text-[#707070] mt-6 "
-            />
-            <span float-left>
-              <p className="text-[#175873] text-[0.59rem] ">They Receive</p>
-              <span className="flex ">
-                <span className="relative z-0">
-                  <select
-                    type="text"
-                    id="receivingcurrency"
-                    className={
-                      formik.errors.receivingcurrency &&
-                      formik.touched.receivingcurrency
-                        ? " font-poppins pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070]   rounded-[6px] lg:rounded-r-none border-solid border-red-500 border-[4px]  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
-                        : " font-poppins pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070]   rounded-[6px] lg:rounded-r-none border-solid border-[#707070] border-[4px]  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
-                      //placeholder=" "
-                    }
-                    onChange={formik.handleChange}
-                    value={formik.values.receivingcurrency}
-                    onBlur={formik.handleBlur}
-                    placeholder="receivingcountry"
-                  >
-                    <option value="USD" selected>
-                      USD
-                    </option>
-
-                    <option value="Pounds">Pounds</option>
-                  </select>
-                  <RiArrowDownSLine className="pointer-events-none cursor-pointer  text-4xl absolute inset-y-5 right-0 flex items-center px-2 text-[#707070]" />
-                </span>
-                <input
-                  type="number"
-                  id="amountReceived"
-                  placeholder="00000"
-                  className={
-                    formik.errors.amountReceived &&
-                    formik.touched.amountReceived
-                      ? " font-poppins spin-button-none  pl-3 pb-0 h-[52px] w-[85px] hidden md:flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-red-500 border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
-                      : " font-poppins spin-button-none  pl-3 pb-0 h-[52px] w-[85px] hidden md:flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-[#707070] border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
-                  }
-                  onChange={formik.handleChange}
-                  value={formik.values.amountReceived}
-                  onBlur={formik.handleBlur}
-                />
-              </span>
-            </span>
-          </div>
+          {/* <div className="flex flex-col text-sm font-semibold w-full sm:w-fit">
+            <p className="text-[#262626] flex mt-6 sm:mt-4">
+              <p> Proof of payment status:</p>
+              {!Object.keys(items).length == 0 ? (
+                <p className="text-[#00913E]  sm:ml-2 ">Uploaded</p>
+              ) : (
+                <p className="text-[#D80010]  sm:ml-2 "> Not uploaded</p>
+              )}
+            </p>
+            <p className="sm:ml-3 mt-6 sm:mt-6">
+              Mode of payment: Card Payment
+            </p>
+            {!Object.keys(items).length == 0 ? (
+              <div className="rounded-lg flex justify-center items-center py-3 px-10 font-normal sm:ml-4 mt-6 sm:mt-6 text-[#87ACA3] border-2 border-[#87ACA3]">
+                {fileName}
+              </div>
+            ) : (
+              <p
+                onClick={() => navigate("/upload")}
+                className="sm:ml-4 mt-6 text-[#009186] sm:mt-6 cursor-pointer"
+              >
+                Upload proof of payment
+              </p>
+            )}
+          </div> */}
         </div>
+
+        <div className="flex  flex-row-reverse   justify-between items-center mt-12 w-[19rem] sm:w-[20rem] md:w-[30rem] lg:w-[27rem] sm:mt-14 lg:mt-8">
+          <span>
+            <p className="text-[#175873] text-[0.59rem] ">Local Currency</p>
+            <span className="flex mr-4">
+              <span className="relative z-0 ">
+                <select
+                  type="text"
+                  id="sendingcurrency"
+                  className={
+                    formik.errors.sendingcurrency &&
+                    formik.touched.sendingcurrency
+                      ? "  font-poppins pl-3  pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070] border-r   rounded-[6px] border-solid border-red-500 border-[4px] rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
+                      : " font-poppins pl-3  pb-0 h-[52px] w-[85px] flex justify-center items-center  shade text-sm  mt-3 bg-transparent  text-[#707070] border-r   rounded-[6px] border-solid border-[#707070] border-[4px] rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
+                    //placeholder=" "
+                  }
+                  onChange={formik.handleChange}
+                  value={formik.values.sendingcurrency}
+                  onBlur={formik.handleBlur}
+                  placeholder="receivingcountry"
+                >
+                  <option value="NGN" selected>
+                    NGN
+                  </option>
+
+                  <option value="Pounds">Pounds</option>
+                </select>
+                <RiArrowDownSLine className="pointer-events-none cursor-pointer text-4xl absolute inset-y-5 right-0 flex items-center px-2 text-[#707070]" />
+              </span>
+              <input
+                type="number"
+                id="amountsent"
+                placeholder="00000"
+                className={
+                  formik.errors.amountsent && formik.touched.amountsent
+                    ? " font-poppins spin-button-none  pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-red-500 border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
+                    : " font-poppins spin-button-none  pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-[#707070] border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
+                }
+                onChange={formik.handleChange}
+                value={formik.values.amountsent}
+                onBlur={formik.handleBlur}
+              />
+            </span>
+          </span>
+          <img
+            src={trans}
+            className="object-contain w-[1.4rem] text-[#707070] mt-6 "
+          />
+          <span float-left>
+            <p className="text-[#175873] text-[0.59rem] ">They Receive</p>
+            <span className="flex ">
+              <span className="relative z-0">
+                <select
+                  type="text"
+                  id="receivingcurrency"
+                  className={
+                    formik.errors.receivingcurrency &&
+                    formik.touched.receivingcurrency
+                      ? " font-poppins pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070]   rounded-[6px] lg:rounded-r- border-r  border-solid border-red-500 border-[4px]  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
+                      : " font-poppins pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070]   rounded-[6px] lg:rounded-r-none border-r  border-solid border-[#707070] border-[4px]  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
+                    //placeholder=" "
+                  }
+                  onChange={formik.handleChange}
+                  value={formik.values.receivingcurrency}
+                  onBlur={formik.handleBlur}
+                  placeholder="receivingcountry"
+                >
+                  <option value="USD" selected>
+                    USD
+                  </option>
+
+                  <option value="Pounds">Pounds</option>
+                </select>
+                <RiArrowDownSLine className="pointer-events-none cursor-pointer  text-4xl absolute inset-y-5 right-0 flex items-center px-2 text-[#707070]" />
+              </span>
+              <input
+                type="number"
+                id="amountReceived"
+                placeholder="00000"
+                className={
+                  formik.errors.amountReceived && formik.touched.amountReceived
+                    ? " font-poppins spin-button-none  pl-3 pb-0 h-[52px] w-[85px] hidden md:flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-red-500 border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
+                    : " font-poppins spin-button-none  pl-3 pb-0 h-[52px] w-[85px] hidden md:flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-[#707070] border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
+                }
+                onChange={formik.handleChange}
+                value={formik.values.amountReceived}
+                onBlur={formik.handleBlur}
+              />
+            </span>
+          </span>
+        </div>
+
         <form
-          className="mb-20 mxl:mt-32"
+          className="mb-24 mxl:mt-[7rem] sm:px-6  md:px-8 lg:px-20"
           action=""
           onSubmit={formik.handleSubmit}
         >
@@ -241,7 +238,7 @@ const CardPayment = () => {
                   id="receivername"
                   className={
                     formik.errors.receivername && formik.touched.receivername
-                      ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                      ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
                       : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
                   }
                   placeholder=" "
@@ -437,7 +434,7 @@ const CardPayment = () => {
                 )}
               </div>{" "}
             </div>
-            <div className="w-full  grid mt-5 lg:mt-0  gap-y-8 mxl:gap-y-16">
+            <div className="w-full mt-2 md:mt-5 lg:mt-0 grid   gap-y-8 mxl:gap-y-16">
               <div className="relative z-0 mt-0">
                 <input
                   type="text"
@@ -566,27 +563,24 @@ const CardPayment = () => {
                   ""
                 )}
               </div>{" "}
-              <div className="relative z-0 mt-4 row-span-2">
+              <div className="relative z-0  row-span-2">
                 <textarea
                   placeholder="Enter traction description "
                   name=""
-                  id="tractionDescription"
+                  id=""
                   cols="30"
                   className={
                     formik.errors.tractionDescription &&
                     formik.touched.tractionDescription
-                      ? "w-full border-red-500 placeholder:text-xs px-2 pt-2 placeholder:text-[#262626]   bg-transparent h-[6rem] rounded-lg border"
-                      : "w-full border-[#262626] placeholder:text-xs px-2 pt-2 placeholder:text-[#262626]  bg-transparent h-[6rem] rounded-lg border"
+                      ? "w-full placeholder:text-xs px-2 pt-2 placeholder:text-[#262626] border-red-500  focus:border-[#009186]  bg-transparent h-[6rem] rounded-lg border"
+                      : "w-full placeholder:text-xs px-2 pt-2 placeholder:text-[#262626] border-[#262626]  focus:border-[#009186]  bg-transparent h-[6rem] mxl:h-[9rem] rounded-lg border"
                   }
-                  onChange={formik.handleChange}
-                  value={formik.values.tractionDescription}
-                  onBlur={formik.handleBlur}
                 ></textarea>
 
                 {formik.errors.tractionDescription &&
                 formik.touched.tractionDescription ? (
                   <p className="text-red-500 text-xs font-poppins">
-                    {formik.errors.tractionDescription}
+                    {formik.errors.receivername}
                   </p>
                 ) : (
                   ""
@@ -594,28 +588,8 @@ const CardPayment = () => {
               </div>{" "}
             </div>
           </div>
-
-          <button
-            type="submit"
-            className={
-              formik.values.accountName &&
-              formik.values.accountNumber &&
-              formik.values.bankAddress &&
-              formik.values.bankName &&
-              formik.values.emailAddress &&
-              formik.values.iban &&
-              formik.values.phoneNumber &&
-              formik.values.receivername &&
-              formik.values.receivingCountry &&
-              formik.values.swiftCode &&
-              formik.values.tractionDescription &&
-              formik.values.amountReceived &&
-              formik.values.amountsent
-                ? "p-6 bg-[#009186] rounded-lg px-14 text-sm py-3 float-left lg:float-right mt-5 text-[#F8F8FF] font-medium"
-                : "p-6 bg-[#C4C4C4]  rounded-lg px-14 text-sm py-3 float-left lg:float-right mt-5 text-[#444444] font-medium"
-            }
-          >
-            Pay Now
+          <button className="p-6 border-2 border-[#009186] rounded-lg px-14 text-sm py-3 float-left md:ml-[-3rem] xl:ml-[-6rem] mxl:ml-[-5rem] mt-8 mxl:mt-16 text-[#009186] font-medium">
+            Initiate Dispute
           </button>
         </form>
       </div>
