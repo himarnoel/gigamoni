@@ -31,6 +31,7 @@ import CardPayment from "./Pages/Main_Pages/CardPayment";
 import BankTransfer from "./Pages/Main_Pages/BankTransfer";
 
 import SinglebeneficiaryAdd from "./Pages/Main_Pages/SinglebeneficiaryAdd";
+import SinglebeneficiaryEdit from "./Pages/Main_Pages/SinglebeneficiaryEdit";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -64,6 +65,10 @@ function App() {
         <Route
           path="/singlebeneficiaryadd"
           element={<SinglebeneficiaryAdd />}
+        />
+        <Route
+          path="/singlebeneficiaryedit"
+          element={<SinglebeneficiaryEdit />}
         />
         <Route path="/cardpayment" element={<CardPayment />} />
 
