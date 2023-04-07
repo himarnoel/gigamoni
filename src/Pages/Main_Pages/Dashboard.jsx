@@ -159,11 +159,37 @@ const Dashboard = () => {
         <div
           className={
             showNotification
-              ? "absolute bg-[#D1DEE3] not h-[26rem] w-[24rem] z-[20] top-[7rem] right-11 rounded-[11.8392px] px-4 py-2"
+              ? "absolute bg-[#D1DEE3] not h-[26rem] w-[24rem] z-[20] top-[7rem] right-11 rounded-[11.8392px] px-4 py-2 overflow-y-auto"
               : "hidden"
           }
         >
-          <p className="text-[#262626]">Notifications</p>
+          <p className="text-[#262626] text-sm font-semibold ml-8  mt-5">
+            Notifications
+          </p>
+          <div className="flex text-xs justify-around items-center mt-5">
+            <div className="h-3 w-3 bg-[#00913E] rounded-full"></div>
+            <div className="border-b-2 w-[19rem] border-[#175873] leading-[2]">
+              Transfer to Lorem Ipsum, successful Transaction ID: 123456789012
+            </div>
+          </div>
+          <div className="flex text-xs justify-around items-center mt-5">
+            <div className="h-3 w-3 bg-[#00913E] rounded-full"></div>
+            <div className="border-b-2 w-[19rem] border-[#175873] leading-[2]">
+              Transfer to Lorem Ipsum, successful Transaction ID: 123456789012
+            </div>
+          </div>
+          <div className="flex text-xs justify-around items-center mt-5">
+            <div className="h-3 w-3 bg-[#00913E] rounded-full"></div>
+            <div className="border-b-2 w-[19rem] border-[#175873] leading-[2]">
+              Transfer to Lorem Ipsum, successful Transaction ID: 123456789012
+            </div>
+          </div>
+          <div className="flex text-xs justify-around items-center mt-5">
+            <div className="h-3 w-3 bg-[#00913E] rounded-full"></div>
+            <div className="border-b-2 w-[19rem] border-[#175873] leading-[2]">
+              Transfer to Lorem Ipsum, successful Transaction ID: 123456789012
+            </div>
+          </div>
         </div>
         <div className="w-full lg:hidden flex justify-between items-center mt-10">
           {" "}
