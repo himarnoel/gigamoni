@@ -288,7 +288,10 @@ const Dashboard = () => {
               }
             >
               {beneficiarieslist.map((arr, i) => (
-                <div className="rounded-lg lg:py-1 lg:px-[0.24rem]   flex flex-col justify-center gap-y-4 border-2 border-[#009186] text-sm mt-8 bg-[#F8F8FF] px-3  xl:px-3   py-1 min-h-[12rem] sm:min-h-[7rem]">
+                <div
+                  onClick={() => navigate("/singlebeneficiaryedit")}
+                  className="rounded-lg lg:py-1 lg:px-[0.24rem] cursor-pointer  flex flex-col justify-center gap-y-4 border-2 border-[#009186] text-sm mt-8 bg-[#F8F8FF] px-3  xl:px-3   py-1 min-h-[12rem] sm:min-h-[7rem]"
+                >
                   <p className="text-[#175873] font-semibold">{arr.acctName}</p>
                   <div className="flex w-full lg:w-[20rem] justify-between text-[#262626]">
                     <p className="">{arr.bankName}</p>
