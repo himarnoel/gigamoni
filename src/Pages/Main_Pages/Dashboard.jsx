@@ -154,6 +154,8 @@ const Dashboard = () => {
           />
           <p className="font-semibold mxl:text-xl">Notifications</p>
         </span>
+
+        <div className="absolute bg-[#D1DEE3] noti"></div>
         <div className="w-full lg:hidden flex justify-between items-center mt-10">
           {" "}
           <button className="sm:py-2 py-1 px-10 text-sm sm:w-[20rem] lg:w-full  mxl:py-[12px] mxl:text-xl  flex    mxl:mt-[6rem] justify-center items-center text-[#009186]    rounded-lg border-2 border-[#009186]  ">
@@ -188,8 +190,8 @@ const Dashboard = () => {
                 onClick={() => fetchBeneficiaries()}
                 className={
                   showBeneficiarieslist
-                    ? `text-[#175873] sm:ml-[10rem] lg:ml-[5rem] text-sm sm:text-base cursor-pointer`
-                    : `text-[#009186] sm:ml-[10rem] lg:ml-[5rem] text-xs sm:text-sm cursor-pointer`
+                    ? `text-[#175873] font-medium sm:ml-[10rem] lg:ml-[5rem] text-sm sm:text-base cursor-pointer`
+                    : `text-[#009186] font-medium sm:ml-[10rem] lg:ml-[5rem] text-xs sm:text-sm cursor-pointer`
                 }
               >
                 Beneficiaries

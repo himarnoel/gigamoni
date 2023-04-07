@@ -51,7 +51,7 @@ const SinglebeneficiaryEdit = () => {
             Back
           </button>
           <button className=" text-sm px-[4rem] py-[0.7rem]  lg:px-[4rem] lg:py-[0.7rem] rounded-lg border-2 border-[#009186] text-[#009186] mt-8">
-          Remove
+            Remove
           </button>
         </div>
 
@@ -71,7 +71,6 @@ const SinglebeneficiaryEdit = () => {
       </div>
       <form
         className="mt-[4.5rem] mxl:mt-[7rem] sm:px-6  md:px-8 lg:px-20"
-        action=""
         onSubmit={formik.handleSubmit}
       >
         <div className="flex flex-col lg:flex-row gap-x-20  mt-10">
