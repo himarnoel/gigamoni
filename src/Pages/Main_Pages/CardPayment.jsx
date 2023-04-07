@@ -1,6 +1,36 @@
+import { useFormik } from "formik";
 import React from "react";
 
 const CardPayment = () => {
+  const formik = useFormik({
+    initialValues: {
+      receivername: location.state.receivername,
+      bankName: location.state.bankName,
+      phoneNumber: location.state.phoneNumber,
+      bankAddress: location.state.bankAddress,
+      emailAddress: location.state.emailAddress,
+      iban: location.state.iban,
+      accountName: location.state.accountName,
+      swiftCode: location.state.swiftCode,
+      accountNumber: location.state.accountNumber,
+      receivingCountry: location.state.receivingCountry,
+      tractionDescription: location.state.tractionDescription,
+      receivingcurrency: location.state.receivingcurrency,
+      sendingcurrency: location.state.sendingcurrency,
+      amountsent: location.state.amountsent,
+      amountReceived: location.state.amountReceived,
+    },
+    validationSchema: pendingValidate,
+    onSubmit: (values) => {
+      if (checkmobile) {
+        navigate("/pay", { state: values });
+      } else {
+        console.log(values);
+        blockScroll();
+        setbool(true);
+      }
+    },
+  });
   return (
     <div className=" bg-[#F8F8FF] font-poppins ">
       <div
