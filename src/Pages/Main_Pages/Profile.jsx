@@ -62,7 +62,7 @@ const Profile = () => {
       <p className="text-[1.7rem] font-semibold text-center mt-4 ">
         Your Profile
       </p>
-      <div className="flex gap-x-10 2xl:px-[10rem] xl:px-[5rem] lg:px-10 mt-8">
+      <div className="flex justify-between gap-x-10 2xl:px-[10rem] xl:px-[5rem] lg:px-10 mt-8">
         <form
           onSubmit={editprofileformik.handleSubmit}
           className="w-full mt-2 md:mt-5  lg:mt-0  flex flex-col h-[24rem]   px-5  justify-between mxl:gap-y-16"
@@ -241,7 +241,7 @@ const Profile = () => {
           </button>
         </form>
         {/* right side */}
-        <div className="w-full mt-2 md:mt-5 mx-5  lg:mt-0  flex flex-col h-[30rem] justify-between     mxl:gap-y-16">
+        <div className="w-full mt-2 md:mt-5 mx-20 mb-10  lg:mt-0  flex flex-col h-[30rem] justify-between     mxl:gap-y-16">
           <p className="text-[#262626] font-medium">Change Password</p>
           <form
             onSubmit={changepasswordformik.handleSubmit}
@@ -356,6 +356,13 @@ const Profile = () => {
               className=" cursor-pointer  rounded focus:ring-0  
               "
             />
+            <input
+              type="checkbox"
+              name="genres"
+              value="adventure"
+              id="adventure_id"
+            />
+            <label for="adventure_id" className="text-sm"></label>
             <p className="text-xs ml-2">
               I would like to receive emails on service and product update
             </p>
@@ -363,13 +370,17 @@ const Profile = () => {
           <div className="flex items-center ">
             <input
               type="checkbox"
-              //   checked
-              className=" cursor-pointer  rounded focus:ring-0  
-              "
+              name="genres"
+              value="adventure"
+              id="adventure"
             />
+            <label for="adventure" className="text-sm"></label>
             <p className="text-xs ml-2">Subscribe to news letter</p>
           </div>
-          <button className="py-2 mb-5  hidden  mxl:py-[12px] mxl:text-xl  lg:flex text-sm   mxl:mt-[6rem] justify-center items-center text-[#009186] mt-1   rounded-lg border-2 border-[#009186] w-full ">
+          <button
+            className="py-2
+           hidden  mxl:py-[12px] mxl:text-xl  lg:flex text-sm   mxl:mt-[6rem] justify-center items-center text-[#009186] mt-1   rounded-lg border-2 border-[#009186] w-full "
+          >
             Customer Support
             <img src={caller} alt="" className="ml-2 mxl:w-[2.8rem]" />
           </button>
