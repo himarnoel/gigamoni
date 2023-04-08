@@ -2,7 +2,7 @@ import React from "react";
 import NavBar from "../../Components/AppComponents/NavBar";
 import bell from "../../assets/bell.svg";
 import { useFormik } from "formik";
-import { pendingValidate } from "../../Service/validate_and_api";
+import { pendingValidate, updateProfile } from "../../Service/validate_and_api";
 const Profile = () => {
   const editprofileformik = useFormik({
     initialValues: {
@@ -11,9 +11,8 @@ const Profile = () => {
       phoneNumber: "",
       address: "",
       bvn: "",
-     
     },
-    validationSchema: pendingValidate,
+    validationSchema: updateProfile,
     onSubmit: (values) => {
       navigate("/summary", {
         state: values,
@@ -22,21 +21,9 @@ const Profile = () => {
   });
   const changepasswordformik = useFormik({
     initialValues: {
-      receivername: "",
-      bankName: "",
-      phoneNumber: "",
-      bankAddress: "",
-      emailAddress: "",
-      iban: "",
-      accountName: "",
-      swiftCode: "",
-      accountNumber: "",
-      receivingCountry: "",
-      tractionDescription: "",
-      receivingcurrency: "USD",
-      sendingcurrency: "NGN",
-      amountsent: "",
-      amountReceived: "",
+     oldpassword: "",
+     newpassword: "",
+     confirmpassword: "",
     },
     validationSchema: pendingValidate,
     onSubmit: (values) => {

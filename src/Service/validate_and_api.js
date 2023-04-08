@@ -111,3 +111,26 @@ export const updateProfile = yup.object().shape({
   address: yup.string().required("Please fill up this field"),
   bvn: yup.string().required("Please fill up this field"),
 });
+
+export const updatePassword = yup.object().shape({
+  oldpassword: yup
+    .string()
+    .min(8, "password must containat least 8 characters ")
+    .matches(
+      passwordRegExp,
+      "characters with at least one of each: uppercase, lowercase, number and special"
+    )
+    .required("Please fill up this field"),
+  newpassword: yup
+    .string()
+    .min(8, "password must containat least 8 characters ")
+    .matches(
+      passwordRegExp,
+      "characters with at least one of each: uppercase, lowercase, number and special"
+    )
+    .required("Please fill up this field"),
+  confirmpassword: yup
+    .string()
+    .oneOf([yup.ref("password"), null], "Passwords must match")
+    .required("Please fill up this field"),
+});
