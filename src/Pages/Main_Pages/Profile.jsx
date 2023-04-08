@@ -21,9 +21,9 @@ const Profile = () => {
   });
   const changepasswordformik = useFormik({
     initialValues: {
-     oldpassword: "",
-     newpassword: "",
-     confirmpassword: "",
+      oldpassword: "",
+      newpassword: "",
+      confirmpassword: "",
     },
     validationSchema: pendingValidate,
     onSubmit: (values) => {
@@ -62,28 +62,28 @@ const Profile = () => {
               type="text"
               id="name"
               className={
-                editprofileformik.errors.name &&  editprofileformik.touched.name
+                editprofileformik.errors.name && editprofileformik.touched.name
                   ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
                   : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
               }
               placeholder=" "
-              onChange={ editprofileformik.handleChange}
-              value={ editprofileformik.values.name}
-              onBlur={ editprofileformik.handleBlur}
+              onChange={editprofileformik.handleChange}
+              value={editprofileformik.values.name}
+              onBlur={editprofileformik.handleBlur}
             />
             <label
               for="name"
               className={
-                 editprofileformik.errors.name &&  editprofileformik.touched.name
+                editprofileformik.errors.name && editprofileformik.touched.name
                   ? "absolute text-xs mxl:text-sm font-poppins text-red-500   duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                   : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
               }
             >
               Name
             </label>
-            { editprofileformik.errors.name &&  editprofileformik.touched.name ? (
+            {editprofileformik.errors.name && editprofileformik.touched.name ? (
               <p className="text-red-500 text-xs font-poppins">
-                { editprofileformik.errors.name}
+                {editprofileformik.errors.name}
               </p>
             ) : (
               ""
@@ -94,28 +94,31 @@ const Profile = () => {
               type="text"
               id="email"
               className={
-                 editprofileformik.errors.email&&  editprofileformik.touched.email
+                editprofileformik.errors.email &&
+                editprofileformik.touched.email
                   ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
                   : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
               }
               placeholder=" "
-              onChange={ editprofileformik.handleChange}
-              value={ editprofileformik.values.email}
-              onBlur={ editprofileformik.handleBlur}
+              onChange={editprofileformik.handleChange}
+              value={editprofileformik.values.email}
+              onBlur={editprofileformik.handleBlur}
             />
             <label
               for="name"
               className={
-                 editprofileformik.errors.email &&  editprofileformik.touched.email
+                editprofileformik.errors.email &&
+                editprofileformik.touched.email
                   ? "absolute text-xs mxl:text-sm font-poppins text-red-500  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                   : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
               }
             >
               Email
             </label>
-            { editprofileformik.errors.email &&  editprofileformik.touched.email ? (
+            {editprofileformik.errors.email &&
+            editprofileformik.touched.email ? (
               <p className="text-red-500 text-xs font-poppins">
-                { editprofileformik.errors.email}
+                {editprofileformik.errors.email}
               </p>
             ) : (
               ""
@@ -126,28 +129,31 @@ const Profile = () => {
               type="text"
               id="phoneNumber"
               className={
-                 editprofileformik.errors.phoneNumber &&  editprofileformik.touched.phoneNumber
+                editprofileformik.errors.phoneNumber &&
+                editprofileformik.touched.phoneNumber
                   ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
                   : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
               }
               placeholder=" "
-              onChange={ editprofileformik.handleChange}
-              value={ editprofileformik.values.phoneNumber}
-              onBlur={ editprofileformik.handleBlur}
+              onChange={editprofileformik.handleChange}
+              value={editprofileformik.values.phoneNumber}
+              onBlur={editprofileformik.handleBlur}
             />
             <label
               for="name"
               className={
-                 editprofileformik.errors.phoneNumber &&  editprofileformik.touched.phoneNumber
+                editprofileformik.errors.phoneNumber &&
+                editprofileformik.touched.phoneNumber
                   ? "absolute text-xs mxl:text-sm font-poppins text-red-500  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                   : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
               }
             >
               Phone number
             </label>
-            { editprofileformik.errors.phoneNumber &&  editprofileformik.touched.phoneNumber ? (
+            {editprofileformik.errors.phoneNumber &&
+            editprofileformik.touched.phoneNumber ? (
               <p className="text-red-500 text-xs font-poppins">
-                { editprofileformik.errors.phoneNumber}
+                {editprofileformik.errors.phoneNumber}
               </p>
             ) : (
               ""
@@ -158,28 +164,31 @@ const Profile = () => {
               type="text"
               id="address"
               className={
-                 editprofileformik.errors.address &&  editprofileformik.touched.address
+                editprofileformik.errors.address &&
+                editprofileformik.touched.address
                   ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
                   : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
               }
               placeholder=" "
-              onChange={ editprofileformik.handleChange}
-              value={ editprofileformik.values.address}
-              onBlur={ editprofileformik.handleBlur}
+              onChange={editprofileformik.handleChange}
+              value={editprofileformik.values.address}
+              onBlur={editprofileformik.handleBlur}
             />
             <label
               for="name"
               className={
-                 editprofileformik.errors.address &&  editprofileformik.touched.address
+                editprofileformik.errors.address &&
+                editprofileformik.touched.address
                   ? "absolute text-xs mxl:text-sm font-poppins text-red-500  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                   : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
               }
             >
               Address
             </label>
-            { editprofileformik.errors.address &&  editprofileformik.touched.address ? (
+            {editprofileformik.errors.address &&
+            editprofileformik.touched.address ? (
               <p className="text-red-500 text-xs font-poppins">
-                { editprofileformik.errors.address}
+                {editprofileformik.errors.address}
               </p>
             ) : (
               ""
@@ -188,30 +197,30 @@ const Profile = () => {
           <div className="relative z-0 mt-0">
             <input
               type="text"
-              id="swiftCode"
+              id="bvn"
               className={
-                 editprofileformik.errors.swiftCode &&  editprofileformik.touched.swiftCode
+                editprofileformik.errors.bvn && editprofileformik.touched.bvn
                   ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
                   : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
               }
               placeholder=" "
-              onChange={ editprofileformik.handleChange}
-              value={ editprofileformik.values.swiftCode}
-              onBlur={ editprofileformik.handleBlur}
+              onChange={editprofileformik.handleChange}
+              value={editprofileformik.values.bvn}
+              onBlur={editprofileformik.handleBlur}
             />
             <label
               for="name"
               className={
-                 editprofileformik.errors.swiftCode &&  editprofileformik.touched.swiftCode
+                editprofileformik.errors.bvn && editprofileformik.touched.bvn
                   ? "absolute text-xs mxl:text-sm font-poppins text-red-500  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                   : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
               }
             >
               Bank Verification Number (BVN)
             </label>
-            { editprofileformik.errors.swiftCode &&  editprofileformik.touched.swiftCode ? (
+            {editprofileformik.errors.bvn && editprofileformik.touched.bvn ? (
               <p className="text-red-500 text-xs font-poppins">
-                { editprofileformik.errors.swiftCode}
+                {editprofileformik.errors.bvn}
               </p>
             ) : (
               ""
