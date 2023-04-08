@@ -53,7 +53,7 @@ const Profile = () => {
       </div>
       <p className="text-3xl font-semibold text-center mt-10">Your Profile</p>
       <div className="flex gap-x-10 px-10">
-        <div className="w-full mt-2 md:mt-5  lg:mt-0  flex flex-col   gap-y-8 mxl:gap-y-16">
+        <form className="w-full mt-2 md:mt-5  lg:mt-0  flex flex-col   gap-y-8 mxl:gap-y-16">
           <div className="relative z-0 mt-0">
             <input
               type="text"
@@ -76,7 +76,7 @@ const Profile = () => {
                   : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
               }
             >
-              Bank Name
+              Name
             </label>
             {formik.errors.bankName && formik.touched.bankName ? (
               <p className="text-red-500 text-xs font-poppins">
@@ -108,7 +108,7 @@ const Profile = () => {
                   : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
               }
             >
-              Bank Address
+              Email
             </label>
             {formik.errors.bankAddress && formik.touched.bankAddress ? (
               <p className="text-red-500 text-xs font-poppins">
@@ -140,7 +140,7 @@ const Profile = () => {
                   : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
               }
             >
-              IBAN
+              Phone number
             </label>
             {formik.errors.iban && formik.touched.iban ? (
               <p className="text-red-500 text-xs font-poppins">
@@ -172,7 +172,7 @@ const Profile = () => {
                   : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
               }
             >
-              SwiftCode
+              Address
             </label>
             {formik.errors.swiftCode && formik.touched.swiftCode ? (
               <p className="text-red-500 text-xs font-poppins">
@@ -182,10 +182,42 @@ const Profile = () => {
               ""
             )}
           </div>{" "}
-          <button className=" w-fit bg-[#009186] rounded-lg px-4 text-sm py-3 self-end text-[#F8F8FF] font-medium">
-            Save Beneficiary
+          <div className="relative z-0 mt-0">
+            <input
+              type="text"
+              id="swiftCode"
+              className={
+                formik.errors.swiftCode && formik.touched.swiftCode
+                  ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                  : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+              }
+              placeholder=" "
+              onChange={formik.handleChange}
+              value={formik.values.swiftCode}
+              onBlur={formik.handleBlur}
+            />
+            <label
+              for="name"
+              className={
+                formik.errors.swiftCode && formik.touched.swiftCode
+                  ? "absolute text-xs mxl:text-sm font-poppins text-red-500  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                  : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+              }
+            >
+              Bank Verification Number (BVN)
+            </label>
+            {formik.errors.swiftCode && formik.touched.swiftCode ? (
+              <p className="text-red-500 text-xs font-poppins">
+                {formik.errors.swiftCode}
+              </p>
+            ) : (
+              ""
+            )}
+          </div>{" "}
+          <button className=" w-fit bg-[#009186] rounded-lg px-14 text-sm py-3 self-end text-[#F8F8FF] font-medium">
+            Update
           </button>
-        </div>
+        </form>
         {/* right side */}
         <div className="w-full mt-2 md:mt-5 px-20  lg:mt-0  flex flex-col   gap-y-8 mxl:gap-y-16">
           <p className="text-[#262626] font-medium">Change Password</p>
@@ -282,9 +314,9 @@ const Profile = () => {
           <div className="flex items-center">
             <input
               type="checkbox"
-              checked
-              className="bg-amber-200 hover:bg-amber-400 cursor-pointer 
-              w-12 h-12 border-3 border-rose-500 rounded-lg checked:bg-green-500"
+              //   checked
+              className=" cursor-pointer  rounded focus:ring-0 focus:bg-green-500 hover:bg-green-500 bg-green-500
+               checked:bg-green-500"
             />
             <p className="text-xs">
               I would like to receive emails on service and product update
