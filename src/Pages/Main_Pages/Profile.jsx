@@ -100,22 +100,22 @@ const Profile = () => {
               }
               placeholder=" "
               onChange={ editprofileformik.handleChange}
-              value={ editprofileformik.values.enamil}
+              value={ editprofileformik.values.email}
               onBlur={ editprofileformik.handleBlur}
             />
             <label
               for="name"
               className={
-                 editprofileformik.errors.enamil &&  editprofileformik.touched.enamil
+                 editprofileformik.errors.email &&  editprofileformik.touched.email
                   ? "absolute text-xs mxl:text-sm font-poppins text-red-500  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                   : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
               }
             >
               Email
             </label>
-            { editprofileformik.errors.enamil &&  editprofileformik.touched.enamil ? (
+            { editprofileformik.errors.email &&  editprofileformik.touched.email ? (
               <p className="text-red-500 text-xs font-poppins">
-                { editprofileformik.errors.enamil}
+                { editprofileformik.errors.email}
               </p>
             ) : (
               ""
