@@ -231,7 +231,7 @@ const Profile = () => {
           </button>
         </form>
         {/* right side */}
-        <div className="w-full mt-2 md:mt-5 px-20  lg:mt-0  flex flex-col   gap-y-8 mxl:gap-y-16">
+        <form className="w-full mt-2 md:mt-5 px-20  lg:mt-0  flex flex-col   gap-y-8 mxl:gap-y-16">
           <p className="text-[#262626] font-medium">Change Password</p>
           <div className="relative z-0 mt-0">
             <input
@@ -346,7 +346,7 @@ const Profile = () => {
             <input type="checkbox" />
             <p>Subscribe to news letter</p>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   );
