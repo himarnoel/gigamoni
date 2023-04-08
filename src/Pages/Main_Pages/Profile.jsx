@@ -62,10 +62,10 @@ const Profile = () => {
       <p className="text-[1.7rem] font-semibold text-center mt-4 ">
         Your Profile
       </p>
-      <div className="flex gap-x-10 px-10 mt-8">
+      <div className="flex gap-x-10 2xl:px-[10rem] xl:px-[5rem] lg:px-10 mt-8">
         <form
           onSubmit={editprofileformik.handleSubmit}
-          className="w-full mt-2 md:mt-5  lg:mt-0  flex flex-col h-[24rem]   px-10  justify-between mxl:gap-y-16"
+          className="w-full mt-2 md:mt-5  lg:mt-0  flex flex-col h-[24rem]   px-5  justify-between mxl:gap-y-16"
         >
           <div className="relative z-0 mt-0">
             <input
@@ -241,7 +241,7 @@ const Profile = () => {
           </button>
         </form>
         {/* right side */}
-        <div className="w-full mt-2 md:mt-5 px-20  lg:mt-0  flex flex-col h-[30rem] justify-between    mxl:gap-y-16">
+        <div className="w-full mt-2 md:mt-5 mx-5  lg:mt-0  flex flex-col h-[30rem] justify-between     mxl:gap-y-16">
           <p className="text-[#262626] font-medium">Change Password</p>
           <form
             onSubmit={changepasswordformik.handleSubmit}
