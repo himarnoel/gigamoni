@@ -62,28 +62,28 @@ const Profile = () => {
               type="text"
               id="bankName"
               className={
-                formik.errors.bankName && formik.touched.bankName
+                editprofileformik.errors.name &&  editprofileformik.touched.bankName
                   ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
                   : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
               }
               placeholder=" "
-              onChange={formik.handleChange}
-              value={formik.values.bankName}
-              onBlur={formik.handleBlur}
+              onChange={ editprofileformik.handleChange}
+              value={ editprofileformik.values.bankName}
+              onBlur={ editprofileformik.handleBlur}
             />
             <label
               for="name"
               className={
-                formik.errors.bankName && formik.touched.bankName
+                 editprofileformik.errors.bankName &&  editprofileformik.touched.bankName
                   ? "absolute text-xs mxl:text-sm font-poppins text-red-500   duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                   : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
               }
             >
               Name
             </label>
-            {formik.errors.bankName && formik.touched.bankName ? (
+            { editprofileformik.errors.bankName &&  editprofileformik.touched.bankName ? (
               <p className="text-red-500 text-xs font-poppins">
-                {formik.errors.bankName}
+                { editprofileformik.errors.bankName}
               </p>
             ) : (
               ""
@@ -94,28 +94,28 @@ const Profile = () => {
               type="text"
               id="bankAddress"
               className={
-                formik.errors.bankAddress && formik.touched.bankAddress
+                 editprofileformik.errors.bankAddress &&  editprofileformik.touched.bankAddress
                   ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
                   : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
               }
               placeholder=" "
-              onChange={formik.handleChange}
-              value={formik.values.bankAddress}
-              onBlur={formik.handleBlur}
+              onChange={ editprofileformik.handleChange}
+              value={ editprofileformik.values.bankAddress}
+              onBlur={ editprofileformik.handleBlur}
             />
             <label
               for="name"
               className={
-                formik.errors.bankAddress && formik.touched.bankAddress
+                 editprofileformik.errors.bankAddress &&  editprofileformik.touched.bankAddress
                   ? "absolute text-xs mxl:text-sm font-poppins text-red-500  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                   : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
               }
             >
               Email
             </label>
-            {formik.errors.bankAddress && formik.touched.bankAddress ? (
+            { editprofileformik.errors.bankAddress &&  editprofileformik.touched.bankAddress ? (
               <p className="text-red-500 text-xs font-poppins">
-                {formik.errors.bankAddress}
+                { editprofileformik.errors.bankAddress}
               </p>
             ) : (
               ""
@@ -126,28 +126,28 @@ const Profile = () => {
               type="text"
               id="iban"
               className={
-                formik.errors.iban && formik.touched.iban
+                 editprofileformik.errors.iban &&  editprofileformik.touched.iban
                   ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
                   : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
               }
               placeholder=" "
-              onChange={formik.handleChange}
-              value={formik.values.iban}
-              onBlur={formik.handleBlur}
+              onChange={ editprofileformik.handleChange}
+              value={ editprofileformik.values.iban}
+              onBlur={ editprofileformik.handleBlur}
             />
             <label
               for="name"
               className={
-                formik.errors.iban && formik.touched.iban
+                 editprofileformik.errors.iban &&  editprofileformik.touched.iban
                   ? "absolute text-xs mxl:text-sm font-poppins text-red-500  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                   : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
               }
             >
               Phone number
             </label>
-            {formik.errors.iban && formik.touched.iban ? (
+            { editprofileformik.errors.iban &&  editprofileformik.touched.iban ? (
               <p className="text-red-500 text-xs font-poppins">
-                {formik.errors.iban}
+                { editprofileformik.errors.iban}
               </p>
             ) : (
               ""
@@ -158,28 +158,28 @@ const Profile = () => {
               type="text"
               id="swiftCode"
               className={
-                formik.errors.swiftCode && formik.touched.swiftCode
+                 editprofileformik.errors.swiftCode &&  editprofileformik.touched.swiftCode
                   ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
                   : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
               }
               placeholder=" "
-              onChange={formik.handleChange}
-              value={formik.values.swiftCode}
-              onBlur={formik.handleBlur}
+              onChange={ editprofileformik.handleChange}
+              value={ editprofileformik.values.swiftCode}
+              onBlur={ editprofileformik.handleBlur}
             />
             <label
               for="name"
               className={
-                formik.errors.swiftCode && formik.touched.swiftCode
+                 editprofileformik.errors.swiftCode &&  editprofileformik.touched.swiftCode
                   ? "absolute text-xs mxl:text-sm font-poppins text-red-500  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                   : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
               }
             >
               Address
             </label>
-            {formik.errors.swiftCode && formik.touched.swiftCode ? (
+            { editprofileformik.errors.swiftCode &&  editprofileformik.touched.swiftCode ? (
               <p className="text-red-500 text-xs font-poppins">
-                {formik.errors.swiftCode}
+                { editprofileformik.errors.swiftCode}
               </p>
             ) : (
               ""
@@ -190,28 +190,28 @@ const Profile = () => {
               type="text"
               id="swiftCode"
               className={
-                formik.errors.swiftCode && formik.touched.swiftCode
+                 editprofileformik.errors.swiftCode &&  editprofileformik.touched.swiftCode
                   ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
                   : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
               }
               placeholder=" "
-              onChange={formik.handleChange}
-              value={formik.values.swiftCode}
-              onBlur={formik.handleBlur}
+              onChange={ editprofileformik.handleChange}
+              value={ editprofileformik.values.swiftCode}
+              onBlur={ editprofileformik.handleBlur}
             />
             <label
               for="name"
               className={
-                formik.errors.swiftCode && formik.touched.swiftCode
+                 editprofileformik.errors.swiftCode &&  editprofileformik.touched.swiftCode
                   ? "absolute text-xs mxl:text-sm font-poppins text-red-500  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                   : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
               }
             >
               Bank Verification Number (BVN)
             </label>
-            {formik.errors.swiftCode && formik.touched.swiftCode ? (
+            { editprofileformik.errors.swiftCode &&  editprofileformik.touched.swiftCode ? (
               <p className="text-red-500 text-xs font-poppins">
-                {formik.errors.swiftCode}
+                { editprofileformik.errors.swiftCode}
               </p>
             ) : (
               ""
