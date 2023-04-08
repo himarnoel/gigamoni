@@ -2,7 +2,11 @@ import React from "react";
 import NavBar from "../../Components/AppComponents/NavBar";
 import bell from "../../assets/bell.svg";
 import { useFormik } from "formik";
-import { pendingValidate, updateProfile } from "../../Service/validate_and_api";
+import {
+  pendingValidate,
+  updatePassword,
+  updateProfile,
+} from "../../Service/validate_and_api";
 const Profile = () => {
   const editprofileformik = useFormik({
     initialValues: {
@@ -25,7 +29,7 @@ const Profile = () => {
       newpassword: "",
       confirmpassword: "",
     },
-    validationSchema: pendingValidate,
+    validationSchema: updatePassword,
     onSubmit: (values) => {
       navigate("/summary", {
         state: values,
@@ -54,9 +58,14 @@ const Profile = () => {
           </p>
         </div>
       </div>
-      <p className="text-3xl font-semibold text-center mt-10">Your Profile</p>
-      <div className="flex gap-x-10 px-10">
-        <form className="w-full mt-2 md:mt-5  lg:mt-0  flex flex-col  px-10  gap-y-8 mxl:gap-y-16">
+      <p className="text-[1.7rem] font-semibold text-center mt-4 ">
+        Your Profile
+      </p>
+      <div className="flex gap-x-10 px-10 mt-8">
+        <form
+          onSubmit={editprofileformik.handleSubmit}
+          className="w-full mt-2 md:mt-5  lg:mt-0  flex flex-col h-[24rem]   px-10  justify-between mxl:gap-y-16"
+        >
           <div className="relative z-0 mt-0">
             <input
               type="text"
@@ -231,7 +240,10 @@ const Profile = () => {
           </button>
         </form>
         {/* right side */}
-        <form className="w-full mt-2 md:mt-5 px-20  lg:mt-0  flex flex-col   gap-y-8 mxl:gap-y-16">
+        <form
+          onSubmit={changepasswordformik.handleSubmit}
+          className="w-full mt-2 md:mt-5 px-20  lg:mt-0  flex flex-col   gap-y-8 mxl:gap-y-16"
+        >
           <p className="text-[#262626] font-medium">Change Password</p>
           <div className="relative z-0 mt-0">
             <input
@@ -328,10 +340,14 @@ const Profile = () => {
               ""
             )}
           </div>{" "}
-          <button className=" w-fit bg-[#87ACA3] rounded-lg px-4 text-sm py-3 self-end text-[#262626] font-medium ">
+          <button
+            type="submit"
+            className=" w-fit bg-[#87ACA3] rounded-lg px-4 text-sm py-3 self-end text-[#262626] font-medium "
+          >
             Save Beneficiary
           </button>
-          <div className="flex items-center">
+        </form>
+        <div className="flex items-center">
             <input
               type="checkbox"
               //   checked
@@ -346,7 +362,6 @@ const Profile = () => {
             <input type="checkbox" />
             <p>Subscribe to news letter</p>
           </div>
-        </form>
       </div>
     </div>
   );
