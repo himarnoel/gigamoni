@@ -92,7 +92,7 @@ const Profile = () => {
           <div className="relative z-0 mt-0">
             <input
               type="text"
-              id="bankAddress"
+              id="email"
               className={
                  editprofileformik.errors.email&&  editprofileformik.touched.email
                   ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
