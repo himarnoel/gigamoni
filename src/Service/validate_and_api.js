@@ -106,7 +106,10 @@ export const uploadfileValidate = yup.object().shape({
 });
 export const updateProfile = yup.object().shape({
   name: yup.string().required("Please fill up this field"),
-  email: yup.string().required("Please fill up this field"),
+  email: yup
+    .string()
+    .email("please enter a valid email")
+    .required("Please fill up this field"),
   phoneNumber: yup.string().required("Please fill up this field"),
   address: yup.string().required("Please fill up this field"),
   bvn: yup.string().required("Please fill up this field"),
