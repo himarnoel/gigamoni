@@ -78,7 +78,7 @@ const Profile = () => {
             >
               Bank Name
             </label>
-            {formik.errors.bankName && Formik.touched.bankName ? (
+            {formik.errors.bankName && formik.touched.bankName ? (
               <p className="text-red-500 text-xs font-poppins">
                 {formik.errors.bankName}
               </p>
@@ -187,31 +187,23 @@ const Profile = () => {
           </button>
         </div>
         {/* right side */}
-        <div className="w-full mt-2 md:mt-5  lg:mt-0  flex flex-col   gap-y-8 mxl:gap-y-16">
+        <div className="w-full mt-2 md:mt-5 px-20  lg:mt-0  flex flex-col   gap-y-8 mxl:gap-y-16">
+          <p className="text-[#262626] font-medium">Change Password</p>
           <div className="relative z-0 mt-0">
             <input
               type="text"
               id="bankAddress"
               className={
                 formik.errors.bankAddress && formik.touched.bankAddress
-                  ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
-                  : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                  ? "block font-poppins  w-full  py-4 text-sm text-gray-900 bg-transparent  border-[1.5px]  border-red-500 appearance-none   placeholder:text-[#707070]  focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                  : "block font-poppins  w-full   text-center py-4 text-sm text-gray-900 bg-transparent border-2 rounded-lg border-[#87ACA3] placeholder:text-[#707070] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
               }
-              placeholder=" "
+              placeholder="Enter old password"
               onChange={formik.handleChange}
               value={formik.values.bankAddress}
               onBlur={formik.handleBlur}
             />
-            <label
-              for="name"
-              className={
-                formik.errors.bankAddress && formik.touched.bankAddress
-                  ? "absolute text-xs mxl:text-sm font-poppins text-red-500  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                  : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-              }
-            >
-              Bank Address
-            </label>
+
             {formik.errors.bankAddress && formik.touched.bankAddress ? (
               <p className="text-red-500 text-xs font-poppins">
                 {formik.errors.bankAddress}
