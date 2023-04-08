@@ -344,7 +344,7 @@ const Profile = () => {
             </div>{" "}
             <button
               type="submit"
-              className=" w-fit bg-[#87ACA3] rounded-lg px-8 text-sm py-[13px] text-sm self-end text-[#262626] font-medium "
+              className=" w-fit bg-[#87ACA3] rounded-lg px-8 text-sm py-[13px]  self-end text-[#262626] font-medium "
             >
               Change password
             </button>
