@@ -4,7 +4,23 @@ import bell from "../../assets/bell.svg";
 import { useFormik } from "formik";
 import { pendingValidate } from "../../Service/validate_and_api";
 const Profile = () => {
-  const formik = useFormik({
+  const editprofileformik = useFormik({
+    initialValues: {
+      name: "",
+      email: "",
+      phoneNumber: "",
+      address: "",
+      bvn: "",
+     
+    },
+    validationSchema: pendingValidate,
+    onSubmit: (values) => {
+      navigate("/summary", {
+        state: values,
+      });
+    },
+  });
+  const changepasswordformik = useFormik({
     initialValues: {
       receivername: "",
       bankName: "",
@@ -53,7 +69,7 @@ const Profile = () => {
       </div>
       <p className="text-3xl font-semibold text-center mt-10">Your Profile</p>
       <div className="flex gap-x-10 px-10">
-        <form className="w-full mt-2 md:mt-5  lg:mt-0  flex flex-col   gap-y-8 mxl:gap-y-16">
+        <form className="w-full mt-2 md:mt-5  lg:mt-0  flex flex-col  px-10  gap-y-8 mxl:gap-y-16">
           <div className="relative z-0 mt-0">
             <input
               type="text"
