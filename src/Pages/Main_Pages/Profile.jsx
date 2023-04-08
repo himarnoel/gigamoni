@@ -359,6 +359,7 @@ const Profile = () => {
             <input
               type="checkbox"
               name="genres"
+              className="border-[#009186] border-2 checked:border-[#009186]"
               value="adventure"
               id="adventure_id"
             />
@@ -370,6 +371,7 @@ const Profile = () => {
           <div className="flex items-center ">
             <input
               type="checkbox"
+              className="border-[#009186] border"
               name="genres"
               value="adventure"
               id="adventure"

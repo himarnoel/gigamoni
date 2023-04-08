@@ -148,10 +148,13 @@ input[type="checkbox"]:checked + label::after {
   -o-transform: rotate(-45deg);
   -ms-transform: rotate(-45deg);
   transform: rotate(-45deg);
+  border-width: 2px;
+  border-color: #009186;
 }
 
 input[type="checkbox"] {
   line-height: 2.1ex;
+  
 }
 
 input[type="radio"],
@@ -176,4 +179,6 @@ input[type="checkbox"] + label::before {
   border: 1px solid rgb(166, 166, 166);
   border-radius: 4px;
   margin-right: 0.5em;
+  border-width: 1px;
+  border-color: #009186;
 }
