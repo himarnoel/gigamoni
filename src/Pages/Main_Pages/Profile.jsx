@@ -2,6 +2,7 @@ import React from "react";
 import NavBar from "../../Components/AppComponents/NavBar";
 import bell from "../../assets/bell.svg";
 import { useFormik } from "formik";
+import caller from "../../assets/Dashboard/caller.svg";
 import {
   pendingValidate,
   updatePassword,
@@ -359,7 +360,7 @@ const Profile = () => {
               I would like to receive emails on service and product update
             </p>
           </div>
-          <div className="flex items-center mb-20">
+          <div className="flex items-center ">
             <input
               type="checkbox"
               //   checked
@@ -368,6 +369,10 @@ const Profile = () => {
             />
             <p className="text-xs ml-2">Subscribe to news letter</p>
           </div>
+          <button className="py-2 mb-5  hidden  mxl:py-[12px] mxl:text-xl  lg:flex text-sm   mxl:mt-[6rem] justify-center items-center text-[#009186] mt-1   rounded-lg border-2 border-[#009186] w-full ">
+            Customer Support
+            <img src={caller} alt="" className="ml-2 mxl:w-[2.8rem]" />
+          </button>
         </div>
       </div>
     </div>
