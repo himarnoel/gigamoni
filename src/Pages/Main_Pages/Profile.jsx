@@ -236,23 +236,23 @@ const Profile = () => {
           <div className="relative z-0 mt-0">
             <input
               type="text"
-              id="bankAddress"
+              id="oldpassword"
               className={
-                changepasswordformik.errors.bankAddress &&
-                changepasswordformik.touched.bankAddress
+                changepasswordformik.errors.oldpassword &&
+                changepasswordformik.touched.oldpassword
                   ? "block font-poppins  w-full  py-4 text-sm text-gray-900 bg-transparent  rounded-lg border-2 text-center  border-red-500 appearance-none   placeholder:text-[#707070]  focus:outline-none focus:ring-0 focus:border-[#009186] peer"
                   : "block font-poppins  w-full   text-center py-4 text-sm text-gray-900 bg-transparent border-2 rounded-lg border-[#87ACA3] placeholder:text-[#707070] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
               }
               placeholder="Enter old password"
               onChange={changepasswordformik.handleChange}
-              value={changepasswordformik.values.bankAddress}
+              value={changepasswordformik.values.oldpassword}
               onBlur={changepasswordformik.handleBlur}
             />
 
-            {changepasswordformik.errors.bankAddress &&
-            changepasswordformik.touched.bankAddress ? (
+            {changepasswordformik.errors.oldpassword &&
+            changepasswordformik.touched.oldpassword ? (
               <p className="text-red-500 text-xs font-poppins">
-                {changepasswordformik.errors.bankAddress}
+                {changepasswordformik.errors.oldpassword}
               </p>
             ) : (
               ""
