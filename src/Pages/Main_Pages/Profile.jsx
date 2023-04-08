@@ -240,128 +240,135 @@ const Profile = () => {
           </button>
         </form>
         {/* right side */}
-        <form
-          onSubmit={changepasswordformik.handleSubmit}
-          className="w-full mt-2 md:mt-5 px-20  lg:mt-0  flex flex-col   gap-y-8 mxl:gap-y-16"
-        >
+        <div className="w-full mt-2 md:mt-5 px-20  lg:mt-0  flex flex-col h-[30rem] justify-between    mxl:gap-y-16">
           <p className="text-[#262626] font-medium">Change Password</p>
-          <div className="relative z-0 mt-0">
-            <input
-              type="text"
-              id="oldpassword"
-              className={
-                changepasswordformik.errors.oldpassword &&
-                changepasswordformik.touched.oldpassword
-                  ? "block font-poppins  w-full  py-4 text-sm text-gray-900 bg-transparent  rounded-lg border-2 text-center  border-red-500 appearance-none   placeholder:text-[#707070]  focus:outline-none focus:ring-0 focus:border-[#009186] peer"
-                  : "block font-poppins  w-full   text-center py-4 text-sm text-gray-900 bg-transparent border-2 rounded-lg border-[#87ACA3] placeholder:text-[#707070] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
-              }
-              placeholder="Enter old password"
-              onChange={changepasswordformik.handleChange}
-              value={changepasswordformik.values.oldpassword}
-              onBlur={changepasswordformik.handleBlur}
-            />
-
-            {changepasswordformik.errors.oldpassword &&
-            changepasswordformik.touched.oldpassword ? (
-              <p className="text-red-500 text-xs font-poppins">
-                {changepasswordformik.errors.oldpassword}
-              </p>
-            ) : (
-              ""
-            )}
-          </div>{" "}
-          <div className="relative z-0 mt-0">
-            <input
-              type="text"
-              id="newpassword"
-              className={
-                changepasswordformik.errors.newpassword &&
-                changepasswordformik.touched.newpassword
-                  ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
-                  : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
-              }
-              placeholder=" "
-              onChange={changepasswordformik.handleChange}
-              value={changepasswordformik.values.newpassword}
-              onBlur={changepasswordformik.handleBlur}
-            />
-            <label
-              for="name"
-              className={
-                changepasswordformik.errors.newpassword &&
-                changepasswordformik.touched.newpassword
-                  ? "absolute text-xs mxl:text-sm font-poppins text-red-500  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                  : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-              }
-            >
-              New Password
-            </label>
-            {changepasswordformik.errors.newpassword &&
-            changepasswordformik.touched.newpassword ? (
-              <p className="text-red-500 text-xs font-poppins">
-                {changepasswordformik.errors.newpassword}
-              </p>
-            ) : (
-              ""
-            )}
-          </div>{" "}
-          <div className="relative z-0 mt-0">
-            <input
-              type="text"
-              id="confirmpassword"
-              className={
-                changepasswordformik.errors.confirmpassword &&
-                changepasswordformik.touched.confirmpassword
-                  ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
-                  : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
-              }
-              placeholder=" "
-              onChange={changepasswordformik.handleChange}
-              value={changepasswordformik.values.confirmpassword}
-              onBlur={changepasswordformik.handleBlur}
-            />
-            <label
-              for="name"
-              className={
-                changepasswordformik.errors.confirmpassword &&
-                changepasswordformik.touched.confirmpassword
-                  ? "absolute text-xs mxl:text-sm font-poppins text-red-500  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                  : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-              }
-            >
-              Confirm Password
-            </label>
-            {changepasswordformik.errors.confirmpassword &&
-            changepasswordformik.touched.confirmpassword ? (
-              <p className="text-red-500 text-xs font-poppins">
-                {changepasswordformik.errors.confirmpassword}
-              </p>
-            ) : (
-              ""
-            )}
-          </div>{" "}
-          <button
-            type="submit"
-            className=" w-fit bg-[#87ACA3] rounded-lg px-4 text-sm py-3 self-end text-[#262626] font-medium "
+          <form
+            onSubmit={changepasswordformik.handleSubmit}
+            className="mxl:gap-y-16 flex flex-col justify-between h-[16rem] "
           >
-            Save Beneficiary
-          </button>
-        </form>
-        <div className="flex items-center">
+            <div className="relative z-0 mt-0">
+              <input
+                type="text"
+                id="oldpassword"
+                className={
+                  changepasswordformik.errors.oldpassword &&
+                  changepasswordformik.touched.oldpassword
+                    ? "block font-poppins  w-full  py-[0.9rem] text-sm text-gray-900 bg-transparent  rounded-lg border-2 text-center  border-red-500 appearance-none   placeholder:text-[#707070]  focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                    : "block font-poppins  w-full  py-[0.9rem] text-center  text-sm text-gray-900 bg-transparent border-2 rounded-lg border-[#87ACA3] placeholder:text-[#707070] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                }
+                placeholder="Enter old password"
+                onChange={changepasswordformik.handleChange}
+                value={changepasswordformik.values.oldpassword}
+                onBlur={changepasswordformik.handleBlur}
+              />
+
+              {changepasswordformik.errors.oldpassword &&
+              changepasswordformik.touched.oldpassword ? (
+                <p className="text-red-500 text-xs font-poppins">
+                  {changepasswordformik.errors.oldpassword}
+                </p>
+              ) : (
+                ""
+              )}
+            </div>{" "}
+            <div className="relative z-0 mt-0">
+              <input
+                type="text"
+                id="newpassword"
+                className={
+                  changepasswordformik.errors.newpassword &&
+                  changepasswordformik.touched.newpassword
+                    ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                    : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                }
+                placeholder=" "
+                onChange={changepasswordformik.handleChange}
+                value={changepasswordformik.values.newpassword}
+                onBlur={changepasswordformik.handleBlur}
+              />
+              <label
+                for="name"
+                className={
+                  changepasswordformik.errors.newpassword &&
+                  changepasswordformik.touched.newpassword
+                    ? "absolute text-xs mxl:text-sm font-poppins text-red-500  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                    : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                }
+              >
+                New Password
+              </label>
+              {changepasswordformik.errors.newpassword &&
+              changepasswordformik.touched.newpassword ? (
+                <p className="text-red-500 text-xs font-poppins">
+                  {changepasswordformik.errors.newpassword}
+                </p>
+              ) : (
+                ""
+              )}
+            </div>{" "}
+            <div className="relative z-0 mt-0">
+              <input
+                type="text"
+                id="confirmpassword"
+                className={
+                  changepasswordformik.errors.confirmpassword &&
+                  changepasswordformik.touched.confirmpassword
+                    ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                    : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                }
+                placeholder=" "
+                onChange={changepasswordformik.handleChange}
+                value={changepasswordformik.values.confirmpassword}
+                onBlur={changepasswordformik.handleBlur}
+              />
+              <label
+                for="name"
+                className={
+                  changepasswordformik.errors.confirmpassword &&
+                  changepasswordformik.touched.confirmpassword
+                    ? "absolute text-xs mxl:text-sm font-poppins text-red-500  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                    : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                }
+              >
+                Confirm Password
+              </label>
+              {changepasswordformik.errors.confirmpassword &&
+              changepasswordformik.touched.confirmpassword ? (
+                <p className="text-red-500 text-xs font-poppins">
+                  {changepasswordformik.errors.confirmpassword}
+                </p>
+              ) : (
+                ""
+              )}
+            </div>{" "}
+            <button
+              type="submit"
+              className=" w-fit bg-[#87ACA3] rounded-lg px-4 text-sm py-3 self-end text-[#262626] font-medium "
+            >
+              Change password
+            </button>
+          </form>
+          <div className="flex items-center">
             <input
               type="checkbox"
               //   checked
-              className=" cursor-pointer  rounded focus:ring-0 focus:bg-green-500 hover:bg-green-500 bg-green-500
-               checked:bg-green-500"
+              className=" cursor-pointer  rounded focus:ring-0  
+              "
             />
-            <p className="text-xs">
+            <p className="text-xs ml-2">
               I would like to receive emails on service and product update
             </p>
           </div>
           <div className="flex items-center mb-20">
-            <input type="checkbox" />
-            <p>Subscribe to news letter</p>
+            <input
+              type="checkbox"
+              //   checked
+              className=" cursor-pointer  rounded focus:ring-0  
+              "
+            />
+            <p className="text-xs ml-2">Subscribe to news letter</p>
           </div>
+        </div>
       </div>
     </div>
   );
