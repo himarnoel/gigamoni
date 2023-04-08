@@ -110,7 +110,11 @@ export const updateProfile = yup.object().shape({
     .string()
     .email("please enter a valid email")
     .required("Please fill up this field"),
-  phoneNumber: yup.string().required("Please fill up this field"),
+  phoneNumber: yup
+    .string()
+    .required("Please fill up this field")
+    .matches(phoneRegExp, "Phone number is not valid")
+    .max(15, "too long"),
   address: yup.string().required("Please fill up this field"),
   bvn: yup.string().required("Please fill up this field"),
 });
