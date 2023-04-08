@@ -72,7 +72,7 @@ const Profile = () => {
               for="name"
               className={
                 formik.errors.bankName && formik.touched.bankName
-                  ? "absolute text-xs mxl:text-sm font-poppins text-red-500  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                  ? "absolute text-xs mxl:text-sm font-poppins text-red-500   duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                   : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
               }
             >
@@ -195,7 +195,7 @@ const Profile = () => {
               id="bankAddress"
               className={
                 formik.errors.bankAddress && formik.touched.bankAddress
-                  ? "block font-poppins  w-full  py-4 text-sm text-gray-900 bg-transparent  border-[1.5px]  border-red-500 appearance-none   placeholder:text-[#707070]  focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                  ? "block font-poppins  w-full  py-4 text-sm text-gray-900 bg-transparent  rounded-lg border-2 text-center  border-red-500 appearance-none   placeholder:text-[#707070]  focus:outline-none focus:ring-0 focus:border-[#009186] peer"
                   : "block font-poppins  w-full   text-center py-4 text-sm text-gray-900 bg-transparent border-2 rounded-lg border-[#87ACA3] placeholder:text-[#707070] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
               }
               placeholder="Enter old password"
@@ -234,7 +234,7 @@ const Profile = () => {
                   : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
               }
             >
-              IBAN
+              New Password
             </label>
             {formik.errors.iban && formik.touched.iban ? (
               <p className="text-red-500 text-xs font-poppins">
@@ -266,7 +266,7 @@ const Profile = () => {
                   : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
               }
             >
-              SwiftCode
+              Confirm Password
             </label>
             {formik.errors.swiftCode && formik.touched.swiftCode ? (
               <p className="text-red-500 text-xs font-poppins">
@@ -276,9 +276,24 @@ const Profile = () => {
               ""
             )}
           </div>{" "}
-          <button className=" w-fit bg-[#009186] rounded-lg px-4 text-sm py-3 self-end text-[#F8F8FF] font-medium">
+          <button className=" w-fit bg-[#87ACA3] rounded-lg px-4 text-sm py-3 self-end text-[#262626] font-medium ">
             Save Beneficiary
           </button>
+          <div className="flex items-center">
+            <input
+              type="checkbox"
+              checked
+              className="bg-amber-200 hover:bg-amber-400 cursor-pointer 
+              w-12 h-12 border-3 border-rose-500 rounded-lg checked:bg-green-500"
+            />
+            <p className="text-xs">
+              I would like to receive emails on service and product update
+            </p>
+          </div>
+          <div className="flex items-center mb-20">
+            <input type="checkbox" />
+            <p>Subscribe to news letter</p>
+          </div>
         </div>
       </div>
     </div>
