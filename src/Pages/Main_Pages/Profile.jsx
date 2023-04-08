@@ -238,19 +238,21 @@ const Profile = () => {
               type="text"
               id="bankAddress"
               className={
-                formik.errors.bankAddress && formik.touched.bankAddress
+                changepasswordformik.errors.bankAddress &&
+                changepasswordformik.touched.bankAddress
                   ? "block font-poppins  w-full  py-4 text-sm text-gray-900 bg-transparent  rounded-lg border-2 text-center  border-red-500 appearance-none   placeholder:text-[#707070]  focus:outline-none focus:ring-0 focus:border-[#009186] peer"
                   : "block font-poppins  w-full   text-center py-4 text-sm text-gray-900 bg-transparent border-2 rounded-lg border-[#87ACA3] placeholder:text-[#707070] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
               }
               placeholder="Enter old password"
-              onChange={formik.handleChange}
-              value={formik.values.bankAddress}
-              onBlur={formik.handleBlur}
+              onChange={changepasswordformik.handleChange}
+              value={changepasswordformik.values.bankAddress}
+              onBlur={changepasswordformik.handleBlur}
             />
 
-            {formik.errors.bankAddress && formik.touched.bankAddress ? (
+            {changepasswordformik.errors.bankAddress &&
+            changepasswordformik.touched.bankAddress ? (
               <p className="text-red-500 text-xs font-poppins">
-                {formik.errors.bankAddress}
+                {changepasswordformik.errors.bankAddress}
               </p>
             ) : (
               ""
@@ -261,28 +263,31 @@ const Profile = () => {
               type="text"
               id="iban"
               className={
-                formik.errors.iban && formik.touched.iban
+                changepasswordformik.errors.iban &&
+                changepasswordformik.touched.iban
                   ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
                   : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
               }
               placeholder=" "
-              onChange={formik.handleChange}
-              value={formik.values.iban}
-              onBlur={formik.handleBlur}
+              onChange={changepasswordformik.handleChange}
+              value={changepasswordformik.values.iban}
+              onBlur={changepasswordformik.handleBlur}
             />
             <label
               for="name"
               className={
-                formik.errors.iban && formik.touched.iban
+                changepasswordformik.errors.iban &&
+                changepasswordformik.touched.iban
                   ? "absolute text-xs mxl:text-sm font-poppins text-red-500  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                   : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
               }
             >
               New Password
             </label>
-            {formik.errors.iban && formik.touched.iban ? (
+            {changepasswordformik.errors.iban &&
+            changepasswordformik.touched.iban ? (
               <p className="text-red-500 text-xs font-poppins">
-                {formik.errors.iban}
+                {changepasswordformik.errors.iban}
               </p>
             ) : (
               ""
@@ -293,28 +298,31 @@ const Profile = () => {
               type="text"
               id="swiftCode"
               className={
-                formik.errors.swiftCode && formik.touched.swiftCode
+                changepasswordformik.errors.swiftCode &&
+                changepasswordformik.touched.swiftCode
                   ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
                   : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
               }
               placeholder=" "
-              onChange={formik.handleChange}
-              value={formik.values.swiftCode}
-              onBlur={formik.handleBlur}
+              onChange={changepasswordformik.handleChange}
+              value={changepasswordformik.values.swiftCode}
+              onBlur={changepasswordformik.handleBlur}
             />
             <label
               for="name"
               className={
-                formik.errors.swiftCode && formik.touched.swiftCode
+                changepasswordformik.errors.swiftCode &&
+                changepasswordformik.touched.swiftCode
                   ? "absolute text-xs mxl:text-sm font-poppins text-red-500  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                   : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
               }
             >
               Confirm Password
             </label>
-            {formik.errors.swiftCode && formik.touched.swiftCode ? (
+            {changepasswordformik.errors.swiftCode &&
+            changepasswordformik.touched.swiftCode ? (
               <p className="text-red-500 text-xs font-poppins">
-                {formik.errors.swiftCode}
+                {changepasswordformik.errors.swiftCode}
               </p>
             ) : (
               ""
