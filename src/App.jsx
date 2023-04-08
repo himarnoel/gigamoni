@@ -32,6 +32,7 @@ import BankTransfer from "./Pages/Main_Pages/BankTransfer";
 
 import SinglebeneficiaryAdd from "./Pages/Main_Pages/SinglebeneficiaryAdd";
 import SinglebeneficiaryEdit from "./Pages/Main_Pages/SinglebeneficiaryEdit";
+import Profile from "./Pages/Main_Pages/Profile";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -71,6 +72,7 @@ function App() {
           element={<SinglebeneficiaryEdit />}
         />
         <Route path="/cardpayment" element={<CardPayment />} />
+        <Route path="/profile" element={<Profile />} />
 
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>

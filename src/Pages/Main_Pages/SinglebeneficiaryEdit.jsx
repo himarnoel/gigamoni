@@ -1,13 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
-import DashNav from "../../Components/DashBoardComponents/DashNav";
+
 import bell from "../../assets/bell.svg";
-import { GrSearch } from "react-icons/gr";
-import search from "../../assets/search.svg";
-import { RiArrowDownSLine } from "react-icons/ri";
-import card from "../../assets/carddash.png";
-import { BiTransfer } from "react-icons/bi";
-import caller from "../../assets/Dashboard/caller.svg";
-import cardformobilescreen from "../../assets/Dashboard/mobilecard.svg";
 import axios from "axios";
 import { baseurl, pendingValidate } from "../../Service/validate_and_api";
 import { BsFillCalendar2Fill } from "react-icons/bs";
