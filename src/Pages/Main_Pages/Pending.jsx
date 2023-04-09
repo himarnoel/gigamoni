@@ -155,7 +155,7 @@ const Pending = () => {
                     onChange={formik.handleChange}
                     value={formik.values.sendingcurrency}
                     onBlur={formik.handleBlur}
-                    placeholder="receivingcountry"
+                    placeholder="receivingCountry"
                   >
                     <option value="NGN" selected>
                       NGN
@@ -181,14 +181,14 @@ const Pending = () => {
                     className={
                       formik.errors.receivingcurrency &&
                       formik.touched.receivingcurrency
-                        ? " font-poppins pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070]   rounded-[6px] lg:rounded-r-none border-solid border-red-500 border-[4px]  appearance-none border-r  focus:outline-none focus:ring-0 focus:border-[#707070]"
-                        : " font-poppins pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070]   rounded-[6px] lg:rounded-r-none border-solid border-[#707070] border-[4px]  appearance-none border-r   focus:outline-none focus:ring-0 focus:border-[#707070]"
+                        ? " font-poppins pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070]   rounded-[6px]  rounded-r-none border-solid border-red-500 border-[4px]  appearance-none border-r  focus:outline-none focus:ring-0 focus:border-[#707070]"
+                        : " font-poppins pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070]   rounded-[6px] rounded-r-none border-solid border-[#707070] border-[4px]  appearance-none border-r   focus:outline-none focus:ring-0 focus:border-[#707070]"
                       //placeholder=" "
                     }
                     onChange={formik.handleChange}
                     value={formik.values.receivingcurrency}
                     onBlur={formik.handleBlur}
-                    placeholder="receivingcountry"
+                    placeholder=""
                   >
                     <option value="USD" selected>
                       USD
@@ -205,8 +205,8 @@ const Pending = () => {
                   className={
                     formik.errors.amountReceived &&
                     formik.touched.amountReceived
-                      ? " font-poppins spin-button-none  pl-3 pb-0 h-[52px] w-[85px] hidden md:flex justify-center items-center shade  text-sm mt-3 bg-transparent   placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-red-500 border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
-                      : " font-poppins spin-button-none  pl-3 pb-0 h-[52px] w-[85px] hidden md:flex justify-center items-center shade  text-sm mt-3 bg-transparent  placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-[#707070] border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
+                      ? " font-poppins spin-button-none  pl-3 pb-0 h-[52px] w-[85px]  md:flex justify-center items-center shade  text-sm mt-3 bg-transparent   placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-red-500 border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
+                      : " font-poppins spin-button-none  pl-3 pb-0 h-[52px] w-[85px]  md:flex justify-center items-center shade  text-sm mt-3 bg-transparent  placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-[#707070] border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
                   }
                   onChange={formik.handleChange}
                   value={formik.values.amountReceived}
@@ -416,10 +416,10 @@ const Pending = () => {
                   Receiving Country
                 </label>
                 <RiArrowDownSLine className="pointer-events-none cursor-pointer text-4xl absolute inset-y-0 right-0 flex items-center px-2 text-[#262626]" />
-                {formik.errors.receivingcountry &&
-                formik.touched.receivingcountry ? (
+                {formik.errors.receivingCountry &&
+                formik.touched.receivingCountry ? (
                   <p className="text-red-500 text-xs font-poppins">
-                    {formik.errors.receivingcountry}
+                    {formik.errors.receivingCountry}
                   </p>
                 ) : (
                   ""
