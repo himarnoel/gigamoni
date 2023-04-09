@@ -124,20 +124,20 @@ const Pending = () => {
         <div className="flex flex-col lg:flex-row justify-between w-full sm:w-[20rem] md:w-[30rem] lg:w-full lg:pr-8 xl:pr-[13rem] mt-4   mxl:mt-20">
           <div className="lg:w-[26rem] xl:w-[32rem] flex flex-col justify-between  h-[4rem] text-sm">
             {" "}
-            <div className="flex flex-col lg:flex-row justify-between font-medium lg:mt-4">
+            <div className="flex flex-col lg:flex-row justify-between font-medium lg:mt-4  mt-4">
               <p className="">Transaction ID: 1234567890987</p>
-              <p className="flex  mt-4 lg:mt-0">
+              <p className="flex  mt-6 lg:mt-0">
                 <span className="mr-1"> Status:</span>{" "}
                 <span className="text-[#5D5FEF]">Pending</span>
               </p>
             </div>
-            <div className="flex  justify-between font-medium mt-4 lg:mt-6 ">
+            <div className="flex  justify-between font-medium mt-6 lg:mt-6 ">
               {" "}
               <p className="d">Date: 01/01/2023 11:30am</p>
               {/* <p className="ss">Service Fee: $10</p> */}
             </div>
           </div>
-          <div className="flex justify-between  mt-12 w-[19rem] sm:w-[20rem] md:w-[30rem] lg:w-[20rem] sm:mt-14 lg:mt-4">
+          <div className="flex justify-between  mt-24 w-[19rem] sm:w-[20rem] md:w-[30rem] lg:w-[20rem] sm:mt-14 lg:mt-4">
             <span>
               <p className="text-[#175873] text-[0.59rem]">Local Currency</p>
               <span className="flex">
