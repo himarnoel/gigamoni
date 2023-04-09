@@ -24,7 +24,6 @@ const Pending = () => {
     body.style.overflow = "hidden"; /* [2] */
   };
   const allowScroll = () => {
-    
     html.style.overflow = "";
   };
   const formik = useFormik({
@@ -387,28 +386,29 @@ const Pending = () => {
               <div className="relative z-0 ">
                 <select
                   type="text"
-                  id="receivingCountry"
+                  id="receivingcountry"
+                  required
                   className={
-                    formik.errors.receivingCountry &&
-                    formik.touched.receivingCountry
+                    formik.errors.receivingcountry &&
+                    formik.touched.receivingcountry
                       ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
                       : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
                     //placeholder=" "
                   }
                   onChange={formik.handleChange}
-                  value={formik.values.receivingCountry}
+                  value={formik.values.receivingcountry}
                   onBlur={formik.handleBlur}
-                  placeholder="receivingCountry"
+                  placeholder="receivingcountry"
                 >
                   <option value=""></option>
 
                   <option value="Canada">Canada</option>
                 </select>
                 <label
-                  for="receivingCountry"
+                  for="receivingcountry"
                   className={
-                    formik.errors.receivingCountry &&
-                    formik.touched.receivingCountry
+                    formik.errors.receivingcountry &&
+                    formik.touched.receivingcountry
                       ? "absolute top-4   -z-1 origin-0  text-xs mxl:text-sm font-poppins text-red-500  duration-300  peer-focus:text-[#009186] "
                       : "absolute top-4   -z-1 origin-0  text-xs mxl:text-sm font-poppins text-[#262626]  duration-300  peer-focus:text-[#009186] "
                   }
@@ -416,10 +416,10 @@ const Pending = () => {
                   Receiving Country
                 </label>
                 <RiArrowDownSLine className="pointer-events-none cursor-pointer text-4xl absolute inset-y-0 right-0 flex items-center px-2 text-[#262626]" />
-                {formik.errors.receivingCountry &&
-                formik.touched.receivingCountry ? (
+                {formik.errors.receivingcountry &&
+                formik.touched.receivingcountry ? (
                   <p className="text-red-500 text-xs font-poppins">
-                    {formik.errors.receivingCountry}
+                    {formik.errors.receivingcountry}
                   </p>
                 ) : (
                   ""
