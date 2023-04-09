@@ -103,7 +103,7 @@ const Pending = () => {
             </p>
           </div>
         </div>
-        <div className="flex flex-col lg:flex-row justify-between w-full sm:w-[20rem] md:w-[30rem] lg:w-full lg:pr-8 xl:pr-[13rem] mt-4   mxl:mt-20">
+        <div className="flex flex-col lg:flex-row justify-between w-full sm:w-[20rem] md:w-[30rem] lg:w-full lg:pr-8 xl:pr-[13rem] mt-4   mxl:mt-20  lg:mt-10">
           <div className="lg:w-[26rem] xl:w-[32rem] flex flex-col justify-between  h-[4rem] text-sm">
             {" "}
             <div className="flex flex-col lg:flex-row justify-between font-medium lg:mt-4  mt-4">
@@ -119,7 +119,7 @@ const Pending = () => {
               {/* <p className="ss">Service Fee: $10</p> */}
             </div>
           </div>
-          <div className="flex justify-between  mt-24 w-[19rem] sm:w-[20rem] md:w-[30rem] lg:w-[20rem] sm:mt-20 md:mt-24 lg:mt-4">
+          <div className="flex justify-between  mt-24 sm:mt-20 md:mt-24 lg:mt-0 w-[19rem] sm:w-[20rem] md:w-[30rem] lg:w-[20rem] ">
             <span>
               <p className="text-[#175873] text-[0.59rem]">Local Currency</p>
               <span className="flex">
@@ -369,7 +369,6 @@ const Pending = () => {
                 <select
                   type="text"
                   id="receivingcountry"
-                  required
                   className={
                     formik.errors.receivingcountry &&
                     formik.touched.receivingcountry
