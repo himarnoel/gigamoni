@@ -137,7 +137,7 @@ const Pending = () => {
               {/* <p className="ss">Service Fee: $10</p> */}
             </div>
           </div>
-          <div className="flex justify-between  mt-24 w-[19rem] sm:w-[20rem] md:w-[30rem] lg:w-[20rem] sm:mt-14 lg:mt-4">
+          <div className="flex justify-between  mt-24 w-[19rem] sm:w-[20rem] md:w-[30rem] lg:w-[20rem] sm:mt-20 lg:mt-4">
             <span>
               <p className="text-[#175873] text-[0.59rem]">Local Currency</p>
               <span className="flex">
