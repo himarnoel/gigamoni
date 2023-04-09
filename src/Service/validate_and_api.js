@@ -95,7 +95,7 @@ export const pendingValidate = yup.object().shape({
   tractionDescription: yup.string().required("Please fill up this field"),
   receivingcurrency: yup.string().required("Please fill up this field"),
   sendingcurrency: yup.string().required("Please fill up this field"),
-  amountsent: yup.number().required("Please fill up this field"),
+  // amountsent: yup.number().required("Please fill up this field"),
   amountReceived: yup.number().required("Please fill up this field"),
 });
 

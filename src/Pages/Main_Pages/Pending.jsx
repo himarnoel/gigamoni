@@ -45,13 +45,14 @@ const Pending = () => {
     },
     validationSchema: pendingValidate,
     onSubmit: (values) => {
-      blockScroll();
+      // blockScroll();
+      // console.log("yes");
       // navigate("/summary", {
       //   state: values,
       // });
     },
   });
-  console.log(formik.values);
+  // console.log(formik.values);
   return (
     <div className=" bg-[#F8F8FF] font-poppins ">
       <div

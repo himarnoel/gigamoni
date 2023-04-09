@@ -355,7 +355,7 @@ const Profile = () => {
               //   checked
               className=" cursor-pointer  rounded focus:ring-0  
               "
-            />   
+            />
             <input
               type="checkbox"
               name="genres"
