@@ -370,14 +370,14 @@ const Pending = () => {
                   type="text"
                   id="receivingcountry"
                   className={
-                    formik.errors.receivingcountry &&
-                    formik.touched.receivingcountry
+                    formik.errors.receivingCountry &&
+                    formik.touched.receivingCountry
                       ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
                       : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
                     //placeholder=" "
                   }
                   onChange={formik.handleChange}
-                  value={formik.values.receivingcountry}
+                  value={formik.values.receivingCountry}
                   onBlur={formik.handleBlur}
                   placeholder="receivingcountry"
                 >
@@ -388,8 +388,8 @@ const Pending = () => {
                 <label
                   for="receivingcountry"
                   className={
-                    formik.errors.receivingcountry &&
-                    formik.touched.receivingcountry
+                    formik.errors.receivingCountry &&
+                    formik.touched.receivingCountry
                       ? "absolute top-4   -z-1 origin-0  text-xs mxl:text-sm font-poppins text-red-500  duration-300  peer-focus:text-[#009186] "
                       : "absolute top-4   -z-1 origin-0  text-xs mxl:text-sm font-poppins text-[#262626]  duration-300  peer-focus:text-[#009186] "
                   }
