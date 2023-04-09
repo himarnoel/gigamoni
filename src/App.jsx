@@ -34,12 +34,15 @@ import SinglebeneficiaryAdd from "./Pages/Main_Pages/SinglebeneficiaryAdd";
 import SinglebeneficiaryEdit from "./Pages/Main_Pages/SinglebeneficiaryEdit";
 import Profile from "./Pages/Main_Pages/Profile";
 
+
+
 function App() {
   const [count, setCount] = useState(0);
   const token = localStorage.getItem("LoggedIntoken");
 
   return (
     <div>
+      {/* <RemoveScrollBar /> */}
       <ToastContainer position="top-center" autoClose={2000} />
       <Routes>
         <Route path="/" element={<LandingPage />} />

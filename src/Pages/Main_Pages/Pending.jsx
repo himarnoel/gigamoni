@@ -13,19 +13,17 @@ import { RingLoader } from "react-spinners";
 import { IoCloseCircle } from "react-icons/io5";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import {
+  RemoveScrollBar,
+  zeroRightClassName,
+  fullWidthClassName,
+  noScrollbarsClassName,
+} from "react-remove-scroll-bar";
 const Pending = () => {
   const [load, setload] = useState(false);
   const [overlay, setoverlay] = useState(false);
   const navigate = useNavigate();
 
-  const blockScroll = () => {
-    window.scrollTo({ top: 0, left: 0 });
-
-    body.style.overflow = "hidden"; /* [2] */
-  };
-  const allowScroll = () => {
-    html.style.overflow = "";
-  };
   const formik = useFormik({
     initialValues: {
       receivername: "",
@@ -45,8 +43,9 @@ const Pending = () => {
     },
     validationSchema: pendingValidate,
     onSubmit: (values) => {
-      // blockScroll();
-      // console.log("yes");
+      setoverlay(true);
+      window.scrollTo({ top: 0, left: 0 });
+      // console.log(values);
       // navigate("/summary", {
       //   state: values,
       // });
@@ -54,21 +53,29 @@ const Pending = () => {
   });
   // console.log(formik.values);
   return (
-    <div className=" bg-[#F8F8FF] font-poppins ">
+    <div className={`bg-[#F8F8FF] font-poppins `}>
+      {overlay ? <RemoveScrollBar /> : ""}
       <div
+        onClick={() => setoverlay(false)}
         className={
           overlay
-            ? "absolute bg-cover bg-[#262626]/[0.8] top-0 z-[20] h-screen w-full flex  justify-center items-center "
+            ? "absolute bg-cover bg-[#262626]/[0.8] top-[-7.2rem] lg:top-[-5rem] z-[90]  h-screen w-screen flex  justify-center items-center "
             : "hidden"
         }
       >
         {load ? (
           <RingLoader color="#009186" size={90} className="text-3xl" />
         ) : (
-          <div className="bg-white h-[24rem] w-[26rem] rounded-lg flex flex-col items-center relative">
-            <IoCloseCircle className="text-[#009186] absolute right-3 top-2 text-xl" />
-            <div className="flex justify-center items-center rounded-full h-[5rem] w-[5rem] bg-[#00913E]/[0.1] mx-auto mt-20">
-              <img src={mail} alt="" className="object-contain w-10" />
+          <div
+            // onClick={() => setoverlay(true)}
+            className="bg-white h-[24rem] w-[26rem] rounded-lg flex flex-col items-center relative"
+          >
+            <IoCloseCircle
+              onClick={() => setoverlay(false)}
+              className="text-[#009186] absolute right-3 top-2 text-xl"
+            />
+            <div className="flex justify-center items-center rounded-full h-[8rem] w-[8rem] bg-[#00913E]/[0.1] mx-auto mt-20">
+              <img src={mail} alt="" className="object-contain w-20" />
             </div>
             <p className="text-center mt-8 w-[20rem]">
               Your request has been received and we will get back to you shortly
@@ -587,7 +594,7 @@ const Pending = () => {
                 : "p-6 bg-[#C4C4C4]  rounded-lg px-14 text-sm py-3 float-left lg:float-right mt-5 text-[#444444] font-medium"
             }
           >
-            Pay Now
+            Submit
           </button>
         </form>
       </div>
