@@ -368,7 +368,7 @@ const Pending = () => {
               <div className="relative z-0 ">
                 <select
                   type="text"
-                  id="receivingcountry"
+                  id="receivingCountry"
                   className={
                     formik.errors.receivingCountry &&
                     formik.touched.receivingCountry
