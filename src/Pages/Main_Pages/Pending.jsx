@@ -545,8 +545,8 @@ const Pending = () => {
                   className={
                     formik.errors.tractionDescription &&
                     formik.touched.tractionDescription
-                      ? "w-full border-red-500 placeholder:text-xs px-2 pt-2 placeholder:text-[#262626]   bg-transparent h-[6rem] rounded-lg border"
-                      : "w-full border-[#262626] placeholder:text-xs px-2 pt-2 placeholder:text-[#262626]  bg-transparent h-[6rem] rounded-lg border"
+                      ? "w-full border-red-500 placeholder:text-xs px-2 pt-2 placeholder:text-[#262626] focus:outline-none  bg-transparent h-[6rem] rounded-lg border"
+                      : "w-full border-[#262626] placeholder:text-xs px-2 pt-2 placeholder:text-[#262626] focus:outline-none  bg-transparent h-[6rem] rounded-lg border"
                   }
                   onChange={formik.handleChange}
                   value={formik.values.tractionDescription}
