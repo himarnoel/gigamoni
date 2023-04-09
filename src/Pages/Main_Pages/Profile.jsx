@@ -247,7 +247,7 @@ const Profile = () => {
             onSubmit={changepasswordformik.handleSubmit}
             className="mxl:gap-y-16 flex flex-col justify-between h-[16rem] "
           >
-            <div className="relative z-0 mt-0">
+            <div className="relative z- 0 mt-0">
               <input
                 type="text"
                 id="oldpassword"
@@ -355,7 +355,7 @@ const Profile = () => {
               //   checked
               className=" cursor-pointer  rounded focus:ring-0  
               "
-            />
+            />   
             <input
               type="checkbox"
               name="genres"

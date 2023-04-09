@@ -108,6 +108,7 @@ select:disabled{
 
 select[disabled] > option {
   color: graytext;
+  appearance: none;
   border-color: rgb(255, 255, 255) !important;
 }
 
