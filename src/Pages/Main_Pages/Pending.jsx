@@ -45,10 +45,7 @@ const Pending = () => {
     onSubmit: (values) => {
       setoverlay(true);
       window.scrollTo({ top: 0, left: 0 });
-      // console.log(values);
-      // navigate("/summary", {
-      //   state: values,
-      // });
+      localStorage.setItem("receiverData", JSON.stringify(values));
     },
   });
   // console.log(formik.values);
@@ -377,6 +374,7 @@ const Pending = () => {
                 <select
                   type="text"
                   id="receivingCountry"
+                  required
                   className={
                     formik.errors.receivingCountry &&
                     formik.touched.receivingCountry
