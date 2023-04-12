@@ -51,9 +51,11 @@ const Dashboard = () => {
       .then((res) => {
         console.log(res.data);
         Settrans(res.data);
+        showTransactionList(false);
       })
       .catch((e) => {
         console.log(e);
+        showTransactionList(false);
       });
   }, []);
 
@@ -327,67 +329,69 @@ const Dashboard = () => {
               ) : (
                 ""
               )}
-              {trans.map((arr, i) => (
-                <div className="rounded-lg lg:py-1 lg:px-[0.24rem]   flex flex-col justify-between border-2 border-[#009186] text-sm mt-8 bg-[#F8F8FF] px-3  xl:px-3  py-1 min-h-[12rem] sm:min-h-[7rem]">
-                  <span className="hidden sm:flex items-center justify-between mt-2">
-                    <p className=" text-[#175873] text-xs">
+              {trans
+                .map((arr, i) => (
+                  <div className="rounded-lg lg:py-1 lg:px-[0.24rem]   flex flex-col justify-between border-2 border-[#009186] text-sm mt-8 bg-[#F8F8FF] px-3  xl:px-3  py-1 min-h-[12rem] sm:min-h-[7rem]">
+                    <span className="hidden sm:flex items-center justify-between mt-2">
+                      <p className=" text-[#175873] text-xs">
+                        {arr.transactionCreatedDate}
+                      </p>
+                      <p className="text-[#175873] font-semibold">
+                        Lorem Ipsum University, London{" "}
+                      </p>
+                      <p className="text-[#175873] font-semibold">
+                        ${arr.amountReceived}
+                      </p>
+                    </span>
+                    <div className="hidden  sm:flex  w-full justify-between items-center ">
+                      <p className="text-xs">{arr.receiverBankName}</p>
+                      <p className="text-xs">{arr.transactionID}</p>
+                      {/* Dummy values to help design */}
+                      <p className="text-[#F8F8FF]">12345678901234</p>
+                      {/* Dummy values to help design */}
+                    </div>
+                    <span className="hidden sm:flex text-xs justify-between items-center">
+                      <p
+                        className={
+                          arr.status == "In Progress"
+                            ? `text-[#FBBC05]`
+                            : arr.status == "Completed"
+                            ? `text-[#00913E]`
+                            : arr.status == "Cancelled"
+                            ? `text-[#D80010]`
+                            : "text-[#5D5FEF]" //Pending
+                        }
+                      >
+                        {arr.status}
+                      </p>
+                      <p className="text-[#262626] ">{arr.paymentMethod}</p>
+                      <p className="text-[#009186] ">see more</p>
+                    </span>
+                    {/* FOR MOBILE SCREEN */}
+                    <span className="text-[#175873] flex sm:hidden mt-3">
                       {arr.transactionCreatedDate}
+                    </span>
+                    <span className="text-[#175873] font-semibold flex sm:hidden  justify-between">
+                      <p>Lorem Ipsum University, London </p>
+                      <p> ${arr.amountReceived}</p>
+                    </span>
+                    <span className="flex sm:hidden text-xs justify-between text-[#262626]">
+                      <p className="ss">{arr.receiverBankName}</p>
+                      <p>{arr.transactionID}</p>
+                      <p className="text-white text-xs">Cw224</p>
+                    </span>
+                    <span className="flex sm:hidden justify-between text-xs">
+                      <p className="text-[#FBBC05]">{arr.status}</p>
+                      <p className="ss">{arr.paymentMethod}</p>
+                      <p className="text-white text-xs">Card Payment</p>
+                    </span>
+                    <p className="flex sm:hidden text-[#009186] text-xs">
+                      see more
                     </p>
-                    <p className="text-[#175873] font-semibold">
-                      Lorem Ipsum University, London{" "}
-                    </p>
-                    <p className="text-[#175873] font-semibold">
-                      ${arr.amountReceived}
-                    </p>
-                  </span>
-                  <div className="hidden  sm:flex  w-full justify-between items-center ">
-                    <p className="text-xs">{arr.receiverBankName}</p>
-                    <p className="text-xs">{arr.transactionID}</p>
-                    {/* Dummy values to help design */}
-                    <p className="text-[#F8F8FF]">12345678901234</p>
-                    {/* Dummy values to help design */}
+                    {/* The end for the Mobile screen */}
                   </div>
-                  <span className="hidden sm:flex text-xs justify-between items-center">
-                    <p
-                      className={
-                        arr.status == "In Progress"
-                          ? `text-[#FBBC05]`
-                          : arr.status == "Completed"
-                          ? `text-[#00913E]`
-                          : arr.status == "Cancelled"
-                          ? `text-[#D80010]`
-                          : "text-[#5D5FEF]" //Pending
-                      }
-                    >
-                      {arr.status}
-                    </p>
-                    <p className="text-[#262626] ">{arr.paymentMethod}</p>
-                    <p className="text-[#009186] ">see more</p>
-                  </span>
-                  {/* FOR MOBILE SCREEN */}
-                  <span className="text-[#175873] flex sm:hidden mt-3">
-                    {arr.transactionCreatedDate}
-                  </span>
-                  <span className="text-[#175873] font-semibold flex sm:hidden  justify-between">
-                    <p>Lorem Ipsum University, London </p>
-                    <p> ${arr.amountReceived}</p>
-                  </span>
-                  <span className="flex sm:hidden text-xs justify-between text-[#262626]">
-                    <p className="ss">{arr.receiverBankName}</p>
-                    <p>{arr.transactionID}</p>
-                    <p className="text-white text-xs">Cw224</p>
-                  </span>
-                  <span className="flex sm:hidden justify-between text-xs">
-                    <p className="text-[#FBBC05]">{arr.status}</p>
-                    <p className="ss">{arr.paymentMethod}</p>
-                    <p className="text-white text-xs">Card Payment</p>
-                  </span>
-                  <p className="flex sm:hidden text-[#009186] text-xs">
-                    see more
-                  </p>
-                  {/* The end for the Mobile screen */}
-                </div>
-              ))}
+                ))
+                .reverse()}
             </div>
           </div>
           {/* for the second part */}

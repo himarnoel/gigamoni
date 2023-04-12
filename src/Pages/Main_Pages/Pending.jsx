@@ -45,7 +45,44 @@ const Pending = () => {
     onSubmit: (values) => {
       setoverlay(true);
       window.scrollTo({ top: 0, left: 0 });
-      localStorage.setItem("receiverData", JSON.stringify(values));
+      setload(true);
+      axios
+        .post(
+          `${baseurl}/transactions/`,
+          {
+            beneficiary: false,
+            receiverName: values.receivername,
+            receiverEmail: values.emailAddress,
+            receiverPhone: values.phoneNumber,
+            receiverAcctName: values.accountName,
+            receiverAcctNo: values.accountNumber,
+            receiverBankName: values.bankName,
+            receiverBankAddress: values.bankAddress,
+            receiverIban: values.iban,
+            receiverSwiftCode: values.swiftCode,
+            receiverCountry: values.receivingCountry,
+            currencySent: formik.values.sendingcurrency,
+            currencyReceived: formik.values.receivingcurrency,
+            amountReceived: formik.values.amountReceived,
+            description: formik.values.tractionDescription,
+            paymentMethod: "payWithTransfer",
+          },
+          {
+            headers: {
+              Authorization: `Token ${localStorage.getItem("LoggedIntoken")}`,
+            },
+          }
+        )
+        .then((res) => {
+          console.log(res.data);
+
+          setload(false);
+          navigate("/dashboard");
+        })
+        .catch((e) => {
+          setload(false);
+          console.log(e);
+        });
     },
   });
   // console.log(formik.values);

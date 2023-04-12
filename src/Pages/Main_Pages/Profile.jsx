@@ -1,14 +1,38 @@
-import React from "react";
+import React, { useEffect } from "react";
 import NavBar from "../../Components/AppComponents/NavBar";
 import bell from "../../assets/bell.svg";
-import { useFormik } from "formik";
+import { Formik, useFormik } from "formik";
 import caller from "../../assets/Dashboard/caller.svg";
 import {
+  baseurl,
   pendingValidate,
   updatePassword,
   updateProfile,
 } from "../../Service/validate_and_api";
+import axios from "axios";
 const Profile = () => {
+  
+  useEffect(() => {
+    axios
+      .get(`${baseurl}/accounts/profile`, {
+        headers: {
+          Authorization: `Token ${localStorage.getItem("LoggedIntoken")}`,
+        },
+      })
+      .then((res) => {
+        console.log(res);
+        editprofileformik.setValues({
+          name: res.data.fullname,
+          phoneNumber: res.data.phoneNumber,
+          address: "",
+          email: res.data.email,
+        });
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  }, []);
+
   const editprofileformik = useFormik({
     initialValues: {
       name: "",
