@@ -41,7 +41,7 @@ const Signup = () => {
           currRecvd: fromSendMoney.receivingcurrency.split(" ").join(""),
           amtRecvd: fromSendMoney.sendamount.toString().split(" ").join(""),
           password: values.password.split(" ").join(""),
-          fullname: values.name.split(" ").join(""),
+          fullname: values.name,
           email: values.email.split(" ").join(""),
           phoneNumber:
             phone +
