@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import NavBar from "../../Components/AppComponents/NavBar";
 import bell from "../../assets/bell.svg";
 import { Formik, useFormik } from "formik";
@@ -10,9 +10,15 @@ import {
   updateProfile,
 } from "../../Service/validate_and_api";
 import axios from "axios";
+import { RingLoader } from "react-spinners";
 const Profile = () => {
+  const safeDocument = typeof document !== "undefined" ? document : {};
+  const scrollBlocked = useRef();
+  const html = safeDocument.documentElement;
+  const { body } = safeDocument;
   const [load, setload] = useState(false);
   useEffect(() => {
+    body.style.overflow = "hidden";
     setload(true);
     axios
       .get(`${baseurl}/accounts/profile`, {
@@ -22,6 +28,7 @@ const Profile = () => {
       })
       .then((res) => {
         console.log(res);
+        body.style.overflow = "";
         setload(false);
         editprofileformik.setValues({
           name: res.data.fullname,
@@ -33,6 +40,7 @@ const Profile = () => {
       .catch((e) => {
         console.log(e);
         setload(false);
+        body.style.overflow = "";
       });
   }, []);
 
@@ -46,9 +54,33 @@ const Profile = () => {
     },
     validationSchema: updateProfile,
     onSubmit: (values) => {
-      navigate("/summary", {
-        state: values,
-      });
+      axios
+        .put(
+          `${baseurl}/accounts/profile`,
+          {
+            password: values.bvn,
+
+            fullname: values.name,
+            email: values.name,
+            phoneNumber: values.phoneNumber,
+            country: values.name,
+          },
+
+          {
+            headers: {
+              Authorization: `Token ${localStorage.getItem("LoggedIntoken")}`,
+            },
+          }
+        )
+        .then((res) => {
+          console.log(res);
+          body.style.overflow = "";
+        })
+        .catch((e) => {
+          console.log(e);
+          setload(false);
+          body.style.overflow = "";
+        });
     },
   });
   const changepasswordformik = useFormik({
@@ -59,9 +91,9 @@ const Profile = () => {
     },
     validationSchema: updatePassword,
     onSubmit: (values) => {
-      navigate("/summary", {
-        state: values,
-      });
+      // navigate("/summary", {
+      //   state: values,
+      // });
     },
   });
   return (
