@@ -88,7 +88,7 @@ const Pending = () => {
         .catch((e) => {
           setoverlay(false);
           if (e.response.data.detail == "Invalid token.") {
-            toast.error("An error occurred");
+            toast.error("token expired");
           } else {
             toast.error("An error occurred");
           }

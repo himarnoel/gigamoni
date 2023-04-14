@@ -13,6 +13,7 @@ import axios from "axios";
 import { RingLoader } from "react-spinners";
 import { useNavigate } from "react-router-dom";
 import DashNav from "../../Components/DashBoardComponents/DashNav";
+import { toast } from "react-toastify";
 const Profile = () => {
   const navigate = useNavigate();
   const safeDocument = typeof document !== "undefined" ? document : {};
@@ -48,6 +49,11 @@ const Profile = () => {
           console.log(e);
           setload(false);
           body.style.overflow = "";
+          if (e.response.data.detail == "Invalid token.") {
+            toast.error("token expired");
+          } else {
+            toast.error("An error occurred");
+          }
         });
     }
   }, []);
@@ -86,8 +92,14 @@ const Profile = () => {
         })
         .catch((e) => {
           console.log(e);
-          setload(false);
           body.style.overflow = "";
+          setload(false);
+          if (e.response.data.detail == "Invalid token.") {
+            toast.error("token expired");
+          } else {
+            toast.error("An error occurred");
+          }
+          console.log(e);
         });
     },
   });
