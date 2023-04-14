@@ -22,6 +22,7 @@ const Profile = () => {
   const { body } = safeDocument;
   const [load, setload] = useState(false);
   useEffect(() => {
+    window.scroll({ top: 0, left: 0 });
     const val = localStorage.getItem("LoggedIntoken");
     if (!val) {
       navigate("/signup");
