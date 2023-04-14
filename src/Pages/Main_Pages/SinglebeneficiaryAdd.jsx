@@ -9,7 +9,7 @@ import { BiTransfer } from "react-icons/bi";
 import caller from "../../assets/Dashboard/caller.svg";
 import cardformobilescreen from "../../assets/Dashboard/mobilecard.svg";
 import axios from "axios";
-import { baseurl, pendingValidate } from "../../Service/validate_and_api";
+import { addbeneficiaryValidate, baseurl, pendingValidate } from "../../Service/validate_and_api";
 import { BsFillCalendar2Fill } from "react-icons/bs";
 import DatePicker from "react-datepicker";
 import { RiCloseCircleFill } from "react-icons/ri";
@@ -36,18 +36,12 @@ const SinglebeneficiaryAdd = () => {
       accountName: "",
       swiftCode: "",
       accountNumber: "",
-      receivingCountry: "",
-      tractionDescription: "",
-      receivingcurrency: "USD",
-      sendingcurrency: "NGN",
-      amountsent: "",
-      amountReceived: "",
+     
+  
     },
-    validationSchema: pendingValidate,
+    validationSchema: addbeneficiaryValidate,
     onSubmit: (values) => {
-      navigate("/summary", {
-        state: values,
-      });
+    
     },
   });
   return (
