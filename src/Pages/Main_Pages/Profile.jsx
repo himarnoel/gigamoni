@@ -231,6 +231,7 @@ const Profile = () => {
             <input
               type="text"
               id="phoneNumber"
+              disabled
               className={
                 editprofileformik.errors.phoneNumber &&
                 editprofileformik.touched.phoneNumber
@@ -266,6 +267,7 @@ const Profile = () => {
             <input
               type="text"
               id="address"
+              disabled
               className={
                 editprofileformik.errors.address &&
                 editprofileformik.touched.address
@@ -301,6 +303,7 @@ const Profile = () => {
             <input
               type="text"
               id="bvn"
+              disabled
               className={
                 editprofileformik.errors.bvn && editprofileformik.touched.bvn
                   ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
