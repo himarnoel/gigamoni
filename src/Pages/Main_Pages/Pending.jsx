@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import NavBar from "./../../Components/AppComponents/NavBar";
 import bell from "../../assets/bell.svg";
 import mail from "../../assets/Vector.svg";
@@ -20,6 +20,12 @@ import {
   noScrollbarsClassName,
 } from "react-remove-scroll-bar";
 const Pending = () => {
+  useEffect(() => {
+    const val = localStorage.getItem("LoggedIntoken");
+    if (!val) {
+      navigate("/signup");
+    }
+  }, []);
   const [load, setload] = useState(false);
   const [overlay, setoverlay] = useState(false);
   const navigate = useNavigate();

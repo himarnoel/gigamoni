@@ -18,6 +18,12 @@ import NavBar from "./../../Components/AppComponents/NavBar";
 import { useFormik } from "formik";
 
 const SinglebeneficiaryAdd = () => {
+  useEffect(() => {
+    const val = localStorage.getItem("LoggedIntoken");
+    if (!val) {
+      navigate("/signup");
+    }
+  }, []);
   const formik = useFormik({
     initialValues: {
       receivername: "",

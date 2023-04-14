@@ -9,6 +9,7 @@ import { useState } from "react";
 import axios from "axios";
 import { baseurl } from "../../Service/validate_and_api";
 const PaymentModeMobile = () => {
+
   let location = useLocation();
   console.log(location.state);
   const navigate = useNavigate();

@@ -17,6 +17,12 @@ const Update = () => {
   const [change, setchange] = useState(false);
   const navigate = useNavigate();
   const blockScroll = () => {
+    useEffect(() => {
+      const val = localStorage.getItem("LoggedIntoken");
+      if (!val) {
+        navigate("/signup");
+      }
+    }, []);
     window.scrollTo({ top: 0, left: 0 });
     body.style.overflow = "hidden";
   };

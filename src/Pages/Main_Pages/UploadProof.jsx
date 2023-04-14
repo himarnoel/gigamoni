@@ -11,6 +11,12 @@ import { uploadfileValidate } from "../../Service/validate_and_api";
 import { useNavigate } from "react-router-dom";
 
 const UploadProof = () => {
+  useEffect(() => {
+    const val = localStorage.getItem("LoggedIntoken");
+    if (!val) {
+      navigate("/signup");
+    }
+  }, []);
   const wrapperRef = useRef();
   const hiddenFileInput = useRef(null);
   const [overlayUpload, setoverlayUpload] = useState(false);
