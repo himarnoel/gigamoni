@@ -195,6 +195,7 @@ const Profile = () => {
             <input
               type="text"
               id="email"
+              disabled
               className={
                 editprofileformik.errors.email &&
                 editprofileformik.touched.email
