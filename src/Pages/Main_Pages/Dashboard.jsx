@@ -203,7 +203,7 @@ const Dashboard = () => {
         <span
           onMouseOver={() => setshowNotification(true)}
           onMouseOut={() => setshowNotification(false)}
-          // onClick={() => setshowNotification(!showNotification)}
+          // onClick={() => setshowNotification(false)}
           className=" text-[#009186] self-end items-center cursor-pointer hidden lg:flex py-2  "
         >
           <img
