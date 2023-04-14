@@ -120,6 +120,8 @@ const Dashboard = () => {
         });
     }
   };
+
+  const transactionDetail=(item)=>{}
   const fetchBeneficiaries = () => {
     setload(true);
     setnorecenttrans(false);
@@ -412,8 +414,13 @@ const Dashboard = () => {
                   .map((item, i) => (
                     <div
                       key={i}
-                      
-                      className="rounded-lg lg:py-1 lg:px-[0.24rem]   flex flex-col justify-between border-2 border-[#009186] text-sm mt-8 bg-[#F8F8FF] px-3  xl:px-3  py-1 min-h-[12rem] sm:min-h-[7rem]"
+                      onClick={
+                        ()=>transactionDetail(item)
+                        // item.status == "Pending"
+                        //   ? () => navigate("/pending")
+                        //   : ""
+                      }
+                      className="rounded-lg lg:py-1 lg:px-[0.24rem] cursor-pointer  flex flex-col justify-between border-2 border-[#009186] text-sm mt-8 bg-[#F8F8FF] px-3  xl:px-3  py-1 min-h-[12rem] sm:min-h-[7rem]"
                     >
                       <span className="hidden sm:flex items-center justify-between mt-2">
                         <p className=" text-[#175873] text-xs">
