@@ -10,9 +10,9 @@ import { useEffect } from "react";
 
 const CheckMail = () => {
   useEffect(() => {
-    localStorage.removeItem("Send")
-  }, [])
-  
+    localStorage.removeItem("Send");
+  }, []);
+
   const navigate = useNavigate();
   const [load, setload] = useState(false);
   const Resender = () => {
