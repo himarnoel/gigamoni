@@ -122,8 +122,8 @@ export const updateProfile = yup.object().shape({
     .required("Please fill up this field")
     .matches(phoneRegExp, "Phone number is not valid")
     .max(15, "too long"),
-  address: yup.string().required("Please fill up this field"),
-  bvn: yup.string().required("Please fill up this field"),
+  // address: yup.string().required("Please fill up this field"),
+  // bvn: yup.string().required("Please fill up this field"),
 });
 
 export const updatePassword = yup.object().shape({

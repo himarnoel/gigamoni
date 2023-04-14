@@ -68,16 +68,14 @@ const Profile = () => {
     },
     validationSchema: updateProfile,
     onSubmit: (values) => {
+      window.scroll({ top: 0, left: 0 });
+      body.style.overflow = "hidden";
+      setload(true);
       axios
         .put(
           `${baseurl}/accounts/profile`,
           {
-            password: values.bvn,
-
             fullname: values.name,
-            email: values.name,
-            phoneNumber: values.phoneNumber,
-            country: values.name,
           },
 
           {
@@ -87,6 +85,7 @@ const Profile = () => {
           }
         )
         .then((res) => {
+          setload(false);
           console.log(res);
           body.style.overflow = "";
         })
