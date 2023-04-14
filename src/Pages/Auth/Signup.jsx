@@ -16,7 +16,7 @@ const Signup = () => {
   const [phone, setphone] = useState("+234");
   const [first, setfirst] = useState({});
   const navigate = useNavigate();
-  const  fromSendMoney = JSON.parse(localStorage.Send);
+  const fromSendMoney = JSON.parse(localStorage.getItem("Send"));
   const formik = useFormik({
     initialValues: {
       name: fromSendMoney.name ?? "",
@@ -30,7 +30,7 @@ const Signup = () => {
     onSubmit: (values) => {
       window.scrollTo(0, 0);
       setload(true);
-      if (localStorage.Send) {
+      if (localStorage.getItem("Send")) {
         axios
           .post(`${baseurl}/accounts/signup/`, {
             currSent: fromSendMoney.localcurrency,
