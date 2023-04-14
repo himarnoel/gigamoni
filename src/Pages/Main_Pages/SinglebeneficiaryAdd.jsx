@@ -42,7 +42,20 @@ const SinglebeneficiaryAdd = () => {
       accountNumber: "",
     },
     validationSchema: addbeneficiaryValidate,
-    onSubmit: (values) => {},
+    onSubmit: (values) => {
+      axios.post(
+        `${baseurl}/accounts/profile`,
+        {
+          fullname: values.name,
+        },
+
+        {
+          headers: {
+            Authorization: `Token ${localStorage.getItem("LoggedIntoken")}`,
+          },
+        }
+      );
+    },
   });
   return (
     <div className="font-poppins">
