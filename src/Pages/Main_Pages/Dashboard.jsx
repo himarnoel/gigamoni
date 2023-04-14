@@ -185,12 +185,12 @@ const Dashboard = () => {
             <p className="text-yellow-500">No beneficiary</p>
           ) : (
             <div className="   h-[86%]  overflow-auto mt-5 px-8 bg-">
-              {beneficiarieslist.map((arr, i) => (
+              {beneficiarieslist.map((item, i) => (
                 <div className="h-[6rem] border-2 border-[#009186] rounded-lg bg-white mt-5 text-base  justify-between pt-5 pb-3 px-2 flex flex-col">
-                  <p className="text-[#175873] font-semibold">{arr.acctName}</p>
+                  <p className="text-[#175873] font-semibold">{item.acctName}</p>
                   <div className="flex font-[#262626] text-xs">
-                    <p className="mr-4">{arr.bankName}</p>
-                    <p>{arr.acctNo}01234</p>
+                    <p className="mr-4">{item.bankName}</p>
+                    <p>{item.acctNo}01234</p>
                   </div>
                 </div>
               ))}
@@ -362,17 +362,18 @@ const Dashboard = () => {
               ) : norecenttrans ? (
                 <p className="text-yellow-500">No beneficiary</p>
               ) : (
-                beneficiarieslist.map((arr, i) => (
+                beneficiarieslist.map((item, i) => (
                   <div
+                  key={i}
                     onClick={() => navigate("/singlebeneficiaryedit")}
                     className="rounded-lg lg:py-1 lg:px-[0.24rem] cursor-pointer  flex flex-col justify-center gap-y-4 border-2 border-[#009186] text-sm mt-8 bg-[#F8F8FF] px-3  xl:px-3   py-1 min-h-[12rem] sm:min-h-[7rem]"
                   >
                     <p className="text-[#175873] font-semibold">
-                      {arr.acctName}
+                      {item.acctName}
                     </p>
                     <div className="flex w-full lg:w-[20rem] justify-between text-[#262626]">
-                      <p className="">{arr.bankName}</p>
-                      <p className="s">{arr.acctNo}1234567</p>
+                      <p className="">{item.bankName}</p>
+                      <p className="s">{item.acctNo}1234567</p>
                     </div>
                   </div>
                 ))
@@ -403,22 +404,22 @@ const Dashboard = () => {
                 <p className="text-yellow-500">No recent transaction</p>
               ) : (
                 trans
-                  .map((arr, i) => (
+                  .map((item, i) => (
                     <div className="rounded-lg lg:py-1 lg:px-[0.24rem]   flex flex-col justify-between border-2 border-[#009186] text-sm mt-8 bg-[#F8F8FF] px-3  xl:px-3  py-1 min-h-[12rem] sm:min-h-[7rem]">
                       <span className="hidden sm:flex items-center justify-between mt-2">
                         <p className=" text-[#175873] text-xs">
-                          {arr.transactionCreatedDate}
+                          {item.transactionCreatedDate}
                         </p>
                         <p className="text-[#175873] font-semibold">
                           Lorem Ipsum University, London{" "}
                         </p>
                         <p className="text-[#175873] font-semibold">
-                          ${arr.amountReceived}
+                          ${item.amountReceived}
                         </p>
                       </span>
                       <div className="hidden  sm:flex  w-full justify-between items-center ">
-                        <p className="text-xs">{arr.receiverBankName}</p>
-                        <p className="text-xs">{arr.transactionID}</p>
+                        <p className="text-xs">{item.receiverBankName}</p>
+                        <p className="text-xs">{item.transactionID}</p>
                         {/* Dummy values to help design */}
                         <p className="text-[#F8F8FF]">12345678901234</p>
                         {/* Dummy values to help design */}
@@ -426,36 +427,36 @@ const Dashboard = () => {
                       <span className="hidden sm:flex text-xs justify-between items-center">
                         <p
                           className={
-                            arr.status == "In Progress"
+                            item.status == "In Progress"
                               ? `text-[#FBBC05]`
-                              : arr.status == "Completed"
+                              : item.status == "Completed"
                               ? `text-[#00913E]`
-                              : arr.status == "Cancelled"
+                              : item.status == "Cancelled"
                               ? `text-[#D80010]`
                               : "text-[#5D5FEF]" //Pending
                           }
                         >
-                          {arr.status}
+                          {item.status}
                         </p>
-                        <p className="text-[#262626] ">{arr.paymentMethod}</p>
+                        <p className="text-[#262626] ">{item.paymentMethod}</p>
                         <p className="text-[#009186] ">see more</p>
                       </span>
                       {/* FOR MOBILE SCREEN */}
                       <span className="text-[#175873] flex sm:hidden mt-3">
-                        {arr.transactionCreatedDate}
+                        {item.transactionCreatedDate}
                       </span>
                       <span className="text-[#175873] font-semibold flex sm:hidden  justify-between">
                         <p>Lorem Ipsum University, London </p>
-                        <p> ${arr.amountReceived}</p>
+                        <p> ${item.amountReceived}</p>
                       </span>
                       <span className="flex sm:hidden text-xs justify-between text-[#262626]">
-                        <p className="ss">{arr.receiverBankName}</p>
-                        <p>{arr.transactionID}</p>
+                        <p className="ss">{item.receiverBankName}</p>
+                        <p>{item.transactionID}</p>
                         <p className="text-white text-xs">Cw224</p>
                       </span>
                       <span className="flex sm:hidden justify-between text-xs">
-                        <p className="text-[#FBBC05]">{arr.status}</p>
-                        <p className="ss">{arr.paymentMethod}</p>
+                        <p className="text-[#FBBC05]">{item.status}</p>
+                        <p className="ss">{item.paymentMethod}</p>
                         <p className="text-white text-xs">Card Payment</p>
                       </span>
                       <p className="flex sm:hidden text-[#009186] text-xs">
