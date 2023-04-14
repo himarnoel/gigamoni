@@ -18,6 +18,8 @@ import { RingLoader } from "react-spinners";
 
 const Dashboard = () => {
   const [first, setfirst] = useState("");
+  const [error, seterror] = useState(false);
+  const [load, setload] = useState(false);
   const [trans, Settrans] = useState([]);
   const [startDate, setStartDate] = useState(null);
   const [showNotification, setshowNotification] = useState(false);
@@ -49,6 +51,7 @@ const Dashboard = () => {
     body.style.overflow = "";
   };
   useEffect(() => {
+    setload(true);
     axios
       .get(`${baseurl}/transactions/`, {
         headers: {
@@ -59,10 +62,13 @@ const Dashboard = () => {
         console.log(res.data);
         Settrans(res.data);
         showTransactionList(false);
+        setload(true);
       })
       .catch((e) => {
         console.log(e);
         showTransactionList(false);
+        setload(false);
+        seterror(true);
       });
   }, []);
 
@@ -302,7 +308,7 @@ const Dashboard = () => {
               }
             >
               {beneficiarieslist.length == 0 ? (
-                <RingLoader className="text-[#009186] " />
+                <RingLoader color="#009186] " />
               ) : (
                 ""
               )}
@@ -324,18 +330,12 @@ const Dashboard = () => {
               className={
                 showTransactionList
                   ? `bg-[#DAF2F1] ${
-                      trans.length == 0
-                        ? "flex items-center justify-center"
-                        : ""
+                      load ? "flex items-center justify-center" : ""
                     }  overflow-auto rounded-lg w-full h-[20rem] sm:h-[30rem] lg:h-[22.6rem] mxl:h-[42.8rem] mt-8 px-4 border-[#009186]`
                   : "hidden"
               }
             >
-              {trans.length == 0 ? (
-                <RingLoader className="text-[#009186] " />
-              ) : (
-                ""
-              )}
+              {load ? <RingLoader className="text-[#009186] " /> : ""}
               {trans
                 .map((arr, i) => (
                   <div className="rounded-lg lg:py-1 lg:px-[0.24rem]   flex flex-col justify-between border-2 border-[#009186] text-sm mt-8 bg-[#F8F8FF] px-3  xl:px-3  py-1 min-h-[12rem] sm:min-h-[7rem]">
