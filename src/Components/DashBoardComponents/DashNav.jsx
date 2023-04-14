@@ -21,9 +21,11 @@ const DashNav = (props) => {
           <span className="flex  text-black w-[29rem] justify-between items-center  text-sm">
             <Link to="/">How it works</Link>
             <Link to="/">FAQs </Link>
-            <Link to="/login">Logout</Link>
+            <Link to="/login" onClick={() => logout()}>
+              Logout
+            </Link>
             <button
-              onClick={() => logout()}
+              onClick={() => navigate("/profile")}
               className="px-[2.4rem] py-[0.7rem] rounded text-white bg-[#009186] flex items-center"
             >
               Account
