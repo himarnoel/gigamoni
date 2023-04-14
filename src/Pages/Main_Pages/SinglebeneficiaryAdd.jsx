@@ -40,23 +40,24 @@ const SinglebeneficiaryAdd = () => {
       accountName: "",
       swiftCode: "",
       accountNumber: "",
-      country:""
+      country: "",
     },
     validationSchema: addbeneficiaryValidate,
     onSubmit: (values) => {
+      
       axios.post(
         `${baseurl}/accounts/profile`,
         {
           fullName: values.receivername,
           email: values.emailAddress,
-          phoneNumber:  values.phoneNumber,
-          acctName:  values.accountNumber,
-          acctNo:  values.accountNumber,
-          bankName:  values.bankName,
-          bankAddress:  values.bankAddress,
-          iban:  values.iban,
-          swiftCode:  values.swiftCode,
-          country:  values.country,
+          phoneNumber: values.phoneNumber,
+          acctName: values.accountNumber,
+          acctNo: values.accountNumber,
+          bankName: values.bankName,
+          bankAddress: values.bankAddress,
+          iban: values.iban,
+          swiftCode: values.swiftCode,
+          country: values.country,
         },
 
         {
@@ -383,6 +384,45 @@ const SinglebeneficiaryAdd = () => {
               {formik.errors.swiftCode && formik.touched.swiftCode ? (
                 <p className="text-red-500 text-xs font-poppins">
                   {formik.errors.swiftCode}
+                </p>
+              ) : (
+                ""
+              )}
+            </div>{" "}
+            <div className="relative z-0 ">
+              <select
+                type="text"
+                id="country"
+                required
+                className={
+                  formik.errors.country && formik.touched.country
+                    ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                    : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                  //placeholder=" "
+                }
+                onChange={formik.handleChange}
+                value={formik.values.country}
+                onBlur={formik.handleBlur}
+                placeholder="receivingcountry"
+              >
+                <option value=""></option>
+
+                <option value="Canada">Canada</option>
+              </select>
+              <label
+                for="country"
+                className={
+                  formik.errors.country && formik.touched.country
+                    ? "absolute top-4   -z-1 origin-0  text-xs mxl:text-sm font-poppins text-red-500  duration-300  peer-focus:text-[#009186] "
+                    : "absolute top-4   -z-1 origin-0  text-xs mxl:text-sm font-poppins text-[#262626]  duration-300  peer-focus:text-[#009186] "
+                }
+              >
+                Receiving Country
+              </label>
+              <RiArrowDownSLine className="pointer-events-none cursor-pointer text-4xl absolute inset-y-0 right-0 flex items-center px-2 text-[#262626]" />
+              {formik.errors.country && formik.touched.country ? (
+                <p className="text-red-500 text-xs font-poppins">
+                  {formik.errors.country}
                 </p>
               ) : (
                 ""
