@@ -186,8 +186,13 @@ const Dashboard = () => {
           ) : (
             <div className="   h-[86%]  overflow-auto mt-5 px-8 bg-">
               {beneficiarieslist.map((item, i) => (
-                <div className="h-[6rem] border-2 border-[#009186] rounded-lg bg-white mt-5 text-base  justify-between pt-5 pb-3 px-2 flex flex-col">
-                  <p className="text-[#175873] font-semibold">{item.acctName}</p>
+                <div
+                  key={i}
+                  className="h-[6rem] border-2 border-[#009186] rounded-lg bg-white mt-5 text-base  justify-between pt-5 pb-3 px-2 flex flex-col"
+                >
+                  <p className="text-[#175873] font-semibold">
+                    {item.acctName}
+                  </p>
                   <div className="flex font-[#262626] text-xs">
                     <p className="mr-4">{item.bankName}</p>
                     <p>{item.acctNo}01234</p>
@@ -364,7 +369,7 @@ const Dashboard = () => {
               ) : (
                 beneficiarieslist.map((item, i) => (
                   <div
-                  key={i}
+                    key={i}
                     onClick={() => navigate("/singlebeneficiaryedit")}
                     className="rounded-lg lg:py-1 lg:px-[0.24rem] cursor-pointer  flex flex-col justify-center gap-y-4 border-2 border-[#009186] text-sm mt-8 bg-[#F8F8FF] px-3  xl:px-3   py-1 min-h-[12rem] sm:min-h-[7rem]"
                   >
@@ -405,7 +410,11 @@ const Dashboard = () => {
               ) : (
                 trans
                   .map((item, i) => (
-                    <div className="rounded-lg lg:py-1 lg:px-[0.24rem]   flex flex-col justify-between border-2 border-[#009186] text-sm mt-8 bg-[#F8F8FF] px-3  xl:px-3  py-1 min-h-[12rem] sm:min-h-[7rem]">
+                    <div
+                      key={i}
+                      
+                      className="rounded-lg lg:py-1 lg:px-[0.24rem]   flex flex-col justify-between border-2 border-[#009186] text-sm mt-8 bg-[#F8F8FF] px-3  xl:px-3  py-1 min-h-[12rem] sm:min-h-[7rem]"
+                    >
                       <span className="hidden sm:flex items-center justify-between mt-2">
                         <p className=" text-[#175873] text-xs">
                           {item.transactionCreatedDate}
