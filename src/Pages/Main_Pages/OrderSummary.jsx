@@ -13,8 +13,8 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { RingLoader } from "react-spinners";
 import axios from "axios";
 import { useEffect } from "react";
+import DashNav from "../../Components/DashBoardComponents/DashNav";
 const OrderSummary = () => {
-  
   let location = useLocation();
   const [bool, setbool] = useState(false);
   const [checkmobile, setcheckmobile] = useState(false);
@@ -157,7 +157,7 @@ const OrderSummary = () => {
   };
   return (
     <div className="font-poppins  min-h-full over  ">
-      <NavBar class="fixed  top-0 z-[10]" />
+      <DashNav class="fixed  top-0 z-[10]" />
 
       <div
         className={
