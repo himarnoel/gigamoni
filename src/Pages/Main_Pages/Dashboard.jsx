@@ -14,7 +14,7 @@ import { BsFillCalendar2Fill } from "react-icons/bs";
 import DatePicker from "react-datepicker";
 import { RiCloseCircleFill } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
-import { RingLoader } from "react-spinners";
+import { RingLoader, SyncLoader } from "react-spinners";
 
 const Dashboard = () => {
   const [first, setfirst] = useState("");
