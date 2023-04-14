@@ -38,9 +38,10 @@ const Signup = () => {
       console.log("Colllaasd");
       axios
         .post(`${baseurl}/accounts/signup/`, {
-          currSent: fromSendMoney.localcurrency.split(" ").join(""),
-          currRecvd: fromSendMoney.receivingcurrency.split(" ").join(""),
-          amtRecvd: fromSendMoney.sendamount.toString().split(" ").join(""),
+          currSent: fromSendMoney.localcurrency.split(" ").join("") ?? "",
+          currRecvd: fromSendMoney.receivingcurrency.split(" ").join("") ?? "",
+          amtRecvd:
+            fromSendMoney.sendamount.toString().split(" ").join("") ?? "",
           password: values.password.split(" ").join(""),
           fullname: values.name,
           email: values.email.split(" ").join(""),
