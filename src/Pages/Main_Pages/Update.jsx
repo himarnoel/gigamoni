@@ -49,9 +49,9 @@ const Update = () => {
     },
     validationSchema: pendingValidate,
     onSubmit: (values) => {
-      navigate("/summary", {
-        state: values,
-      });
+      // navigate("/summary", {
+      //   state: values,
+      // });
     },
   });
   const payWithTransfer = () => {};
