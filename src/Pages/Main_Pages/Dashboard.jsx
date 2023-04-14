@@ -310,7 +310,7 @@ const Dashboard = () => {
                   ? `bg-[#DAF2F1] ${
                       load
                         ? "flex items-center justify-center"
-                        : !loaderror
+                        : loaderror
                         ? "flex items-center justify-center"
                         : "flex items-center justify-center"
                     }  overflow-auto rounded-lg w-full h-[20rem] sm:h-[30rem] lg:h-[22.6rem] mxl:h-[42.8rem] mt-8 pr-20 pl-4 border-[#009186]`
@@ -319,7 +319,7 @@ const Dashboard = () => {
             >
               {load ? (
                 <RingLoader className="text-[#009186] " />
-              ) : !loaderror ? (
+              ) : loaderror ? (
                 <p className="text-red-500">A error occurred</p>
               ) : (
                 <p className="text-red-500">No Beneficiary</p>
