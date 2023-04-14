@@ -12,6 +12,7 @@ import { useNavigate } from "react-router-dom";
 
 const UploadProof = () => {
   useEffect(() => {
+    window.scroll({ top: 0, left: 0 });
     const val = localStorage.getItem("LoggedIntoken");
     if (!val) {
       navigate("/signup");
