@@ -18,7 +18,7 @@ import { RingLoader } from "react-spinners";
 
 const Dashboard = () => {
   const [first, setfirst] = useState("");
-  const [error, seterror] = useState(false);
+  const [loaderror, setloaderror] = useState(false);
   const [load, setload] = useState(false);
   const [trans, Settrans] = useState([]);
   const [startDate, setStartDate] = useState(null);
@@ -52,6 +52,7 @@ const Dashboard = () => {
   };
   useEffect(() => {
     setload(true);
+    console.log("victory");
     axios
       .get(`${baseurl}/transactions/`, {
         headers: {
@@ -61,14 +62,14 @@ const Dashboard = () => {
       .then((res) => {
         console.log(res.data);
         Settrans(res.data);
-        showTransactionList(false);
-        setload(true);
+
+        setload(false);
+        setloaderror(false);
       })
       .catch((e) => {
         console.log(e);
-        showTransactionList(false);
+        setloaderror(true);
         setload(false);
-        seterror(true);
       });
   }, []);
 
@@ -332,21 +333,20 @@ const Dashboard = () => {
                   ? `bg-[#DAF2F1] ${
                       load
                         ? "flex items-center justify-center"
-                        : error
+                        : loaderror
                         ? "flex items-center justify-center"
                         : ""
                     }  overflow-auto rounded-lg w-full h-[20rem] sm:h-[30rem] lg:h-[22.6rem] mxl:h-[42.8rem] mt-8 px-4 border-[#009186]`
                   : "hidden"
               }
             >
+              {/*  */}
               {load ? (
-                error ? (
-                  <p></p>
-                ) : (
-                  <RingLoader className="text-[#009186] " />
-                )
+                <RingLoader className="text-[#009186] " />
+              ) : loaderror ? (
+                <p className="text-red-500">A error occurred</p>
               ) : (
-                ""
+                <p className="text-red-500">fsdfasdf</p>
               )}
               {trans
                 .map((arr, i) => (
