@@ -62,7 +62,6 @@ const Dashboard = () => {
       .then((res) => {
         console.log(res.data);
         Settrans(res.data);
-
         setload(false);
         setloaderror(false);
       })
