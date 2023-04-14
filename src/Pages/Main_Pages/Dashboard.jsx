@@ -76,6 +76,7 @@ const Dashboard = () => {
     setbuttons(false);
     blockScroll();
     setbeneficiaries(true);
+    fetchBeneficiaries();
   };
   const mobileShowBeneficiaries = () => {
     setbuttons(false);
@@ -140,12 +141,12 @@ const Dashboard = () => {
       <div
         onClick={() => closeBeneficiarises()}
         className={
-          beneficiaries
-            ? `absolute h-screen  w-full top-0 bg-[#262626]/[0.8] z-[90] sm:flex items-center justify-center hidden`
+          beneficiaries?
+           `absolute h-screen  w-full top-0 bg-[#262626]/[0.8] z-[90] sm:flex items-center justify-center hidden`
             : "hidden"
         }
       >
-        <div className="relative xl:w-[30rem] mxl:w-[40rem] sm:h-[30rem] sm:w-[30rem] md:h-[35rem] md:w-[33rem] mxl:h-[40rem]  xl:h-[29rem] bg-[#DAF2F1] rounded-lg px-3 flex  flex-col justify-between py-4 mxl:py-10  ">
+        <div className={`relative xl:w-[30rem] mxl:w-[40rem] sm:h-[30rem] sm:w-[30rem] md:h-[35rem] md:w-[33rem] mxl:h-[40rem]  xl:h-[29rem] bg-[#DAF2F1] rounded-lg px-3 flex  flex-col justify-between py-4 mxl:py-10`}>
           <RiCloseCircleFill
             onClick={() => closeBeneficiarises()}
             className="absolute top-3 right-4 cursor-pointer text-[#009186] text-xl "
@@ -153,6 +154,14 @@ const Dashboard = () => {
           <p className="text-[#262626] font-semibold text-center text-lg mt-5">
             Beneficiaries
           </p>
+          {load ? (
+            <RingLoader className="text-[#009186] " />
+          ) : loaderror ? (
+            <p className="text-red-500">A error occurred</p>
+          ) : (
+            <p className="text-yellow-500">No recent transaction</p>
+          )}
+
           <div className="   h-[86%]  overflow-auto mt-5 px-8 bg-">
             {beneficiarieslist.map((arr, i) => (
               <div className="h-[6rem] border-2 border-[#009186] rounded-lg bg-white mt-5 text-base  justify-between pt-5 pb-3 px-2 flex flex-col">
