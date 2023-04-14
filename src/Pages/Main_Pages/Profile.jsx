@@ -30,7 +30,7 @@ const Profile = () => {
       body.style.overflow = "hidden";
       setload(true);
       axios
-        .get(`${baseurl}/accounts/profile`, {
+        .get(`${baseurl}/accounts/profile/`, {
           headers: {
             Authorization: `Token ${localStorage.getItem("LoggedIntoken")}`,
           },
@@ -74,9 +74,9 @@ const Profile = () => {
       setload(true);
       axios
         .put(
-          `${baseurl}/accounts/profile`,
+          `${baseurl}/accounts/profile/`,
           {
-            fullname: values.name,
+            fullname: values.name, 
           },
 
           {
