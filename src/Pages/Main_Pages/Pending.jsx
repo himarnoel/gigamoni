@@ -23,8 +23,28 @@ import { toast } from "react-toastify";
 const Pending = () => {
   useEffect(() => {
     const val = localStorage.getItem("LoggedIntoken");
+    const transactiondata = JSON.parse(localStorage.getItem("transactiondata"));
     if (!val) {
       navigate("/signup");
+    } else {
+      if (transactiondata) {
+        formik.setValues({
+          receivername: transactiondata.receiverName ?? "",
+          bankName: transactiondata.receiverBankName ?? "",
+          phoneNumber: transactiondata.receiverPhone ?? "",
+          bankAddress: transactiondata.receiverBankAddress ?? "",
+          emailAddress: transactiondata.receiverEmail ?? "",
+          iban: transactiondata.receiverIban ?? "",
+          accountName: transactiondata.receiverAcctName ?? "",
+          swiftCode: transactiondata.receiverSwiftCode ?? "",
+          accountNumber: transactiondata.receiverAcctNo ?? "",
+          receivingCountry: transactiondata.receiverCountry ?? "",
+          tractionDescription: transactiondata.description ?? "",
+          sendingcurrency: "NGN",
+          receivingcurrency: "USD",
+          amountReceived: transactiondata.amountReceived ?? "s",
+        });
+      }
     }
   }, []);
   const [load, setload] = useState(false);
