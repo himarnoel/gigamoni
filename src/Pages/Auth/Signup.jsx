@@ -16,6 +16,10 @@ const Signup = () => {
   const [phone, setphone] = useState("+234");
   const [first, setfirst] = useState({});
   const navigate = useNavigate();
+  const safeDocument = typeof document !== "undefined" ? document : {};
+  const scrollBlocked = useRef();
+  const html = safeDocument.documentElement;
+  const { body } = safeDocument;
   const fromSendMoney = JSON.parse(localStorage.getItem("Send"));
   if (fromSendMoney) {
     formik.setValues({
@@ -40,7 +44,8 @@ const Signup = () => {
     onSubmit: (values) => {
       window.scrollTo(0, 0);
       setload(true);
-      
+      body.style.overflow = "";
+
       if (fromSendMoney) {
         axios
           .post(`${baseurl}/accounts/signup/`, {
