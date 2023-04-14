@@ -16,8 +16,7 @@ const Signup = () => {
   const [phone, setphone] = useState("+234");
   const [first, setfirst] = useState({});
   const navigate = useNavigate();
-  let fromSendMoney = {};
-  fromSendMoney = JSON.parse(localStorage.Send);
+  const  fromSendMoney = JSON.parse(localStorage.Send);
   const formik = useFormik({
     initialValues: {
       name: fromSendMoney.name ?? "",
