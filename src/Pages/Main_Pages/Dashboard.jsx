@@ -189,7 +189,7 @@ const Dashboard = () => {
           onMouseOver={() => setshowNotification(true)}
           onMouseOut={() => setshowNotification(false)}
           // onClick={() => setshowNotification(!showNotification)}
-          className=" text-[#009186] self-end items-center cursor-pointer hidden lg:flex "
+          className=" text-[#009186] self-end items-center cursor-pointer hidden lg:flex py-2  "
         >
           <img
             src={bell}
@@ -204,7 +204,7 @@ const Dashboard = () => {
           onMouseOut={() => setshowNotification(false)}
           className={
             showNotification
-              ? "absolute bg-[#D1DEE3] not h-[26rem] w-[24rem] z-[20] top-[7rem] right-11 rounded-[11.8392px] px-4 py-2 overflow-y-auto"
+              ? "absolute bg-[#D1DEE3] not h-[26rem] w-[24rem] z-[20] top-[7.2rem] right-11 rounded-[11.8392px] px-4 py-2 overflow-y-auto"
               : "hidden"
           }
         >
