@@ -6,8 +6,13 @@ import axios from "axios";
 import RingLoader from "react-spinners/RingLoader";
 import { baseurl } from "../../Service/validate_and_api";
 import { toast } from "react-toastify";
+import { useEffect } from "react";
 
 const CheckMail = () => {
+  useEffect(() => {
+    localStorage.removeItem("Send")
+  }, [])
+  
   const navigate = useNavigate();
   const [load, setload] = useState(false);
   const Resender = () => {
