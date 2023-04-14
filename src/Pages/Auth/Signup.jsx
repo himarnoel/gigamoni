@@ -17,11 +17,7 @@ const Signup = () => {
   const [first, setfirst] = useState({});
   const navigate = useNavigate();
   let fromSendMoney = {};
-
-  if (localStorage.Send) {
-    fromSendMoney = JSON.parse(localStorage.Send);
-  }
-
+  fromSendMoney = JSON.parse(localStorage.Send);
   const formik = useFormik({
     initialValues: {
       name: fromSendMoney.name ?? "",
@@ -35,52 +31,92 @@ const Signup = () => {
     onSubmit: (values) => {
       window.scrollTo(0, 0);
       setload(true);
-      console.log("Colllaasd");
-      axios
-        .post(`${baseurl}/accounts/signup/`, {
-          currSent: fromSendMoney.localcurrency.split(" ").join("") ?? "",
-          currRecvd: fromSendMoney.receivingcurrency.split(" ").join("") ?? "",
-          amtRecvd:
-            fromSendMoney.sendamount.toString().split(" ").join("") ?? "",
-          password: values.password.split(" ").join(""),
-          fullname: values.name,
-          email: values.email.split(" ").join(""),
-          phoneNumber:
-            phone +
-            values.phonenumber.toString().substring(1).split(" ").join(""),
-          country: values.country.split(" ").join(""),
-        })
-        .then((res) => {
-          console.log(res);
-          setload(false);
-          navigate("/check");
-          toast.success("success");
-          // console.log(res.response.status);
-          localStorage.setItem("email", values.email.toString());
-        })
-        .catch((e) => {
-          console.log(e);
-          setload(false);
-          if (
-            e.response.data.email[0] ==
-              "user with this email already exists." &&
-            e.response.data.phoneNumber[0] ==
+      if (localStorage.Send) {
+        axios
+          .post(`${baseurl}/accounts/signup/`, {
+            currSent: fromSendMoney.localcurrency,
+            currRecvd: fromSendMoney.receivingcurrency.split(" ").join(""),
+            amtRecvd: fromSendMoney.sendamount.toString().split(" ").join(""),
+            password: values.password.split(" ").join(""),
+            fullname: values.name.trim(),
+            email: values.email.split(" ").join(""),
+            phoneNumber:
+              phone +
+              values.phonenumber.toString().substring(1).split(" ").join(""),
+            country: values.country.split(" ").join(""),
+          })
+          .then((res) => {
+            console.log(res);
+            setload(false);
+            navigate("/check");
+            toast.success("success");
+            // console.log(res.response.status);
+            localStorage.setItem("email", values.email.toString());
+          })
+          .catch((e) => {
+            console.log(e);
+            setload(false);
+            if (
+              e.response.data.email[0] ==
+                "user with this email already exists." &&
+              e.response.data.phoneNumber[0] ==
+                "user with this phoneNumber already exists."
+            ) {
+              toast.error("user details already exists");
+            } else if (
+              e.response.data.email[0] == "user with this email already exists."
+            ) {
+              toast.error("Email already exist");
+            } else if (
+              e.response.data.phoneNumber[0] ==
               "user with this phoneNumber already exists."
-          ) {
-            toast.error("user details already exists");
-          } else if (
-            e.response.data.email[0] == "user with this email already exists."
-          ) {
-            toast.error("Email already exist");
-          } else if (
-            e.response.data.phoneNumber[0] ==
-            "user with this phoneNumber already exists."
-          ) {
-            toast.error("Phone number already exist");
-          } else {
-            toast.error("An error occurred");
-          }
-        });
+            ) {
+              toast.error("Phone number already exist");
+            } else {
+              toast.error("An error occurred");
+            }
+          });
+      } else {
+        axios
+          .post(`${baseurl}/accounts/signup/`, {
+            password: values.password,
+            fullname: values.name,
+            email: values.email,
+            phoneNumber: phone + values.phonenumber.toString().substring(1),
+            country: values.country,
+          })
+          .then((res) => {
+            console.log(res);
+            setload(false);
+            navigate("/check");
+            toast.success("success");
+            // console.log(res.response.status);
+            localStorage.setItem("email", values.email.toString());
+          })
+          .catch((e) => {
+            console.log(e);
+            setload(false);
+            if (
+              e.response.data.email[0] ==
+                "user with this email already exists." &&
+              e.response.data.phoneNumber[0] ==
+                "user with this phoneNumber already exists."
+            ) {
+              toast.error("user details already exists");
+            } else if (
+              e.response.data.email[0] == "user with this email already exists."
+            ) {
+              toast.error("Email already exist");
+            } else if (
+              e.response.data.phoneNumber[0] ==
+              "user with this phoneNumber already exists."
+            ) {
+              toast.error("Phone number already exist");
+            } else {
+              toast.error("An error occurred");
+            }
+          });
+      }
     },
   });
 
