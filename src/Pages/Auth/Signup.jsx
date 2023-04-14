@@ -30,7 +30,7 @@ const Signup = () => {
     onSubmit: (values) => {
       window.scrollTo(0, 0);
       setload(true);
-      if (localStorage.getItem("Send")) {
+      if (fromSendMoney) {
         axios
           .post(`${baseurl}/accounts/signup/`, {
             currSent: fromSendMoney.localcurrency,
