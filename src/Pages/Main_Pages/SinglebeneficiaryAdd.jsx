@@ -71,6 +71,7 @@ const SinglebeneficiaryAdd = () => {
         )
         .then((res) => {
           console.log(res);
+          navigate("/dashboard");
           setload(false);
         })
         .catch((e) => {
