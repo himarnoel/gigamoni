@@ -49,7 +49,7 @@ const SinglebeneficiaryAdd = () => {
       setload(true);
       axios
         .post(
-          `${baseurl}/accounts/profile`,
+          `${baseurl}/transactions/beneficiary/`,
           {
             fullName: values.receivername,
             email: values.emailAddress,
