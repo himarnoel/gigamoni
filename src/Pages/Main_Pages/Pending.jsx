@@ -23,6 +23,7 @@ import { toast } from "react-toastify";
 import DashNav from "../../Components/DashBoardComponents/DashNav";
 const Pending = () => {
   useEffect(() => {
+    window.scroll({ top: 0, left: 0 });
     const val = localStorage.getItem("LoggedIntoken");
     const transactiondata = JSON.parse(localStorage.getItem("transactiondata"));
     if (!val) {
