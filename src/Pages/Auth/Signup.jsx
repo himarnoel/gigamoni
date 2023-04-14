@@ -35,6 +35,7 @@ const Signup = () => {
     onSubmit: (values) => {
       window.scrollTo(0, 0);
       setload(true);
+      console.log("Colllaasd");
       axios
         .post(`${baseurl}/accounts/signup/`, {
           currSent: fromSendMoney.localcurrency.split(" ").join(""),

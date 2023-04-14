@@ -19,6 +19,7 @@ import { RingLoader, SyncLoader } from "react-spinners";
 const Dashboard = () => {
   const [first, setfirst] = useState("");
   const [loaderror, setloaderror] = useState(false);
+  const [norecenttrans, setnorecenttrans] = useState(false);
   const [load, setload] = useState(false);
   const [trans, Settrans] = useState([]);
   const [startDate, setStartDate] = useState(null);
@@ -52,7 +53,6 @@ const Dashboard = () => {
   };
   useEffect(() => {
     setload(true);
-    console.log("victory");
     axios
       .get(`${baseurl}/transactions/`, {
         headers: {
@@ -64,6 +64,9 @@ const Dashboard = () => {
         Settrans(res.data);
         setload(false);
         setloaderror(false);
+        if (res.data.length == 0) {
+          setnorecenttrans(true);
+        }
       })
       .catch((e) => {
         console.log(e);
@@ -91,6 +94,7 @@ const Dashboard = () => {
     allowScroll();
   };
   const fetchTransaction = () => {
+    setnorecenttrans(false);
     setshowBeneficiarieslist(false);
     setshowTransactionList(true);
     if (trans.length == 0) {
@@ -103,8 +107,11 @@ const Dashboard = () => {
         .then((res) => {
           console.log(res.data);
           Settrans(res.data);
-          setloaderror(false);
           setload(false);
+          setloaderror(false);
+          if (res.data.length == 0) {
+            setnorecenttrans(true);
+          }
         })
         .catch((e) => {
           console.log(e);
@@ -114,6 +121,8 @@ const Dashboard = () => {
     }
   };
   const fetchBeneficiaries = () => {
+    setload(true);
+    setnorecenttrans(false);
     setshowTransactionList(false);
     setshowBeneficiarieslist(true);
     if (beneficiarieslist.length == 0) {
@@ -128,6 +137,9 @@ const Dashboard = () => {
           setbeneficiarieslist(res.data);
           setloaderror(false);
           setload(false);
+          if (res.data.length == 0) {
+            setnorecenttrans(true);
+          }
         })
         .catch((e) => {
           console.log(e);
@@ -149,38 +161,41 @@ const Dashboard = () => {
         <div
           className={`bg-[#DAF2F1] relative ${
             load
-              ? "flex items-center justify-center relative"
+              ? "flex items-center justify-center"
               : loaderror
-              ? "flex items-center justify-center relative"
-              : "flex items-center justify-center relative"
-          }relative xl:w-[30rem] mxl:w-[40rem] sm:h-[30rem] sm:w-[30rem] md:h-[35rem] md:w-[33rem] mxl:h-[40rem]  xl:h-[29rem] bg-[#DAF2F1] rounded-lg px-3 flex  flex-col justify-between py-4 mxl:py-10`}
+              ? "flex items-center justify-center"
+              : norecenttrans
+              ? "flex items-center justify-center "
+              : ""
+          }relative xl:w-[30rem] mxl:w-[40rem] sm:h-[30rem] sm:w-[30rem] md:h-[35rem] md:w-[33rem] mxl:h-[40rem]  xl:h-[29rem] bg-[#DAF2F1] rounded-lg px-3 flex  flex-col py-4 mxl:py-10`}
         >
           <RiCloseCircleFill
             onClick={() => closeBeneficiarises()}
             className="absolute top-3 right-4 cursor-pointer text-[#009186] text-xl "
           />
-          <p className="text-[#262626] font-semibold text-center text-lg mt-5">
+          <p className="text-[#262626] font-semibold text-center text-lg mt-5 absolute top-0">
             Beneficiaries
           </p>
+
           {load ? (
-            <RingLoader className="text-[#009186] mt-[10rem] " />
+            <RingLoader className="text-[#009186] " />
           ) : loaderror ? (
             <p className="text-red-500">A error occurred</p>
+          ) : norecenttrans ? (
+            <p className="text-yellow-500">No beneficiary</p>
           ) : (
-            <p className="text-yellow-500">No recent transaction</p>
-          )}
-
-          <div className="   h-[86%]  overflow-auto mt-5 px-8 bg-">
-            {beneficiarieslist.map((arr, i) => (
-              <div className="h-[6rem] border-2 border-[#009186] rounded-lg bg-white mt-5 text-base  justify-between pt-5 pb-3 px-2 flex flex-col">
-                <p className="text-[#175873] font-semibold">{arr.acctName}</p>
-                <div className="flex font-[#262626] text-xs">
-                  <p className="mr-4">{arr.bankName}</p>
-                  <p>{arr.acctNo}01234</p>
+            <div className="   h-[86%]  overflow-auto mt-5 px-8 bg-">
+              {beneficiarieslist.map((arr, i) => (
+                <div className="h-[6rem] border-2 border-[#009186] rounded-lg bg-white mt-5 text-base  justify-between pt-5 pb-3 px-2 flex flex-col">
+                  <p className="text-[#175873] font-semibold">{arr.acctName}</p>
+                  <div className="flex font-[#262626] text-xs">
+                    <p className="mr-4">{arr.bankName}</p>
+                    <p>{arr.acctNo}01234</p>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
       <DashNav class="fixed top-0 w-full z-[30]" />
@@ -333,7 +348,9 @@ const Dashboard = () => {
                         ? "flex items-center justify-center"
                         : loaderror
                         ? "flex items-center justify-center"
-                        : "flex items-center justify-center"
+                        : norecenttrans
+                        ? "flex items-center justify-center"
+                        : ""
                     }  overflow-auto rounded-lg w-full h-[20rem] sm:h-[30rem] lg:h-[22.6rem] mxl:h-[42.8rem] mt-8 pr-20 pl-4 border-[#009186]`
                   : "hidden"
               }
@@ -342,21 +359,24 @@ const Dashboard = () => {
                 <RingLoader className="text-[#009186] " />
               ) : loaderror ? (
                 <p className="text-red-500">A error occurred</p>
+              ) : norecenttrans ? (
+                <p className="text-yellow-500">No beneficiary</p>
               ) : (
-                <p className="text-yellow-500">No recent transaction</p>
-              )}
-              {beneficiarieslist.map((arr, i) => (
-                <div
-                  onClick={() => navigate("/singlebeneficiaryedit")}
-                  className="rounded-lg lg:py-1 lg:px-[0.24rem] cursor-pointer  flex flex-col justify-center gap-y-4 border-2 border-[#009186] text-sm mt-8 bg-[#F8F8FF] px-3  xl:px-3   py-1 min-h-[12rem] sm:min-h-[7rem]"
-                >
-                  <p className="text-[#175873] font-semibold">{arr.acctName}</p>
-                  <div className="flex w-full lg:w-[20rem] justify-between text-[#262626]">
-                    <p className="">{arr.bankName}</p>
-                    <p className="s">{arr.acctNo}1234567</p>
+                beneficiarieslist.map((arr, i) => (
+                  <div
+                    onClick={() => navigate("/singlebeneficiaryedit")}
+                    className="rounded-lg lg:py-1 lg:px-[0.24rem] cursor-pointer  flex flex-col justify-center gap-y-4 border-2 border-[#009186] text-sm mt-8 bg-[#F8F8FF] px-3  xl:px-3   py-1 min-h-[12rem] sm:min-h-[7rem]"
+                  >
+                    <p className="text-[#175873] font-semibold">
+                      {arr.acctName}
+                    </p>
+                    <div className="flex w-full lg:w-[20rem] justify-between text-[#262626]">
+                      <p className="">{arr.bankName}</p>
+                      <p className="s">{arr.acctNo}1234567</p>
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))
+              )}
             </div>
 
             <div
@@ -367,7 +387,9 @@ const Dashboard = () => {
                         ? "flex items-center justify-center"
                         : loaderror
                         ? "flex items-center justify-center"
-                        : "flex items-center justify-center"
+                        : norecenttrans
+                        ? "flex items-center justify-center"
+                        : ""
                     }  overflow-auto rounded-lg w-full h-[20rem] sm:h-[30rem] lg:h-[22.6rem] mxl:h-[42.8rem] mt-8 px-4 border-[#009186]`
                   : "hidden"
               }
@@ -377,72 +399,73 @@ const Dashboard = () => {
                 <RingLoader className="text-[#009186] " />
               ) : loaderror ? (
                 <p className="text-red-500">A error occurred</p>
-              ) : (
+              ) : norecenttrans ? (
                 <p className="text-yellow-500">No recent transaction</p>
-              )}
-              {trans
-                .map((arr, i) => (
-                  <div className="rounded-lg lg:py-1 lg:px-[0.24rem]   flex flex-col justify-between border-2 border-[#009186] text-sm mt-8 bg-[#F8F8FF] px-3  xl:px-3  py-1 min-h-[12rem] sm:min-h-[7rem]">
-                    <span className="hidden sm:flex items-center justify-between mt-2">
-                      <p className=" text-[#175873] text-xs">
+              ) : (
+                trans
+                  .map((arr, i) => (
+                    <div className="rounded-lg lg:py-1 lg:px-[0.24rem]   flex flex-col justify-between border-2 border-[#009186] text-sm mt-8 bg-[#F8F8FF] px-3  xl:px-3  py-1 min-h-[12rem] sm:min-h-[7rem]">
+                      <span className="hidden sm:flex items-center justify-between mt-2">
+                        <p className=" text-[#175873] text-xs">
+                          {arr.transactionCreatedDate}
+                        </p>
+                        <p className="text-[#175873] font-semibold">
+                          Lorem Ipsum University, London{" "}
+                        </p>
+                        <p className="text-[#175873] font-semibold">
+                          ${arr.amountReceived}
+                        </p>
+                      </span>
+                      <div className="hidden  sm:flex  w-full justify-between items-center ">
+                        <p className="text-xs">{arr.receiverBankName}</p>
+                        <p className="text-xs">{arr.transactionID}</p>
+                        {/* Dummy values to help design */}
+                        <p className="text-[#F8F8FF]">12345678901234</p>
+                        {/* Dummy values to help design */}
+                      </div>
+                      <span className="hidden sm:flex text-xs justify-between items-center">
+                        <p
+                          className={
+                            arr.status == "In Progress"
+                              ? `text-[#FBBC05]`
+                              : arr.status == "Completed"
+                              ? `text-[#00913E]`
+                              : arr.status == "Cancelled"
+                              ? `text-[#D80010]`
+                              : "text-[#5D5FEF]" //Pending
+                          }
+                        >
+                          {arr.status}
+                        </p>
+                        <p className="text-[#262626] ">{arr.paymentMethod}</p>
+                        <p className="text-[#009186] ">see more</p>
+                      </span>
+                      {/* FOR MOBILE SCREEN */}
+                      <span className="text-[#175873] flex sm:hidden mt-3">
                         {arr.transactionCreatedDate}
+                      </span>
+                      <span className="text-[#175873] font-semibold flex sm:hidden  justify-between">
+                        <p>Lorem Ipsum University, London </p>
+                        <p> ${arr.amountReceived}</p>
+                      </span>
+                      <span className="flex sm:hidden text-xs justify-between text-[#262626]">
+                        <p className="ss">{arr.receiverBankName}</p>
+                        <p>{arr.transactionID}</p>
+                        <p className="text-white text-xs">Cw224</p>
+                      </span>
+                      <span className="flex sm:hidden justify-between text-xs">
+                        <p className="text-[#FBBC05]">{arr.status}</p>
+                        <p className="ss">{arr.paymentMethod}</p>
+                        <p className="text-white text-xs">Card Payment</p>
+                      </span>
+                      <p className="flex sm:hidden text-[#009186] text-xs">
+                        see more
                       </p>
-                      <p className="text-[#175873] font-semibold">
-                        Lorem Ipsum University, London{" "}
-                      </p>
-                      <p className="text-[#175873] font-semibold">
-                        ${arr.amountReceived}
-                      </p>
-                    </span>
-                    <div className="hidden  sm:flex  w-full justify-between items-center ">
-                      <p className="text-xs">{arr.receiverBankName}</p>
-                      <p className="text-xs">{arr.transactionID}</p>
-                      {/* Dummy values to help design */}
-                      <p className="text-[#F8F8FF]">12345678901234</p>
-                      {/* Dummy values to help design */}
+                      {/* The end for the Mobile screen */}
                     </div>
-                    <span className="hidden sm:flex text-xs justify-between items-center">
-                      <p
-                        className={
-                          arr.status == "In Progress"
-                            ? `text-[#FBBC05]`
-                            : arr.status == "Completed"
-                            ? `text-[#00913E]`
-                            : arr.status == "Cancelled"
-                            ? `text-[#D80010]`
-                            : "text-[#5D5FEF]" //Pending
-                        }
-                      >
-                        {arr.status}
-                      </p>
-                      <p className="text-[#262626] ">{arr.paymentMethod}</p>
-                      <p className="text-[#009186] ">see more</p>
-                    </span>
-                    {/* FOR MOBILE SCREEN */}
-                    <span className="text-[#175873] flex sm:hidden mt-3">
-                      {arr.transactionCreatedDate}
-                    </span>
-                    <span className="text-[#175873] font-semibold flex sm:hidden  justify-between">
-                      <p>Lorem Ipsum University, London </p>
-                      <p> ${arr.amountReceived}</p>
-                    </span>
-                    <span className="flex sm:hidden text-xs justify-between text-[#262626]">
-                      <p className="ss">{arr.receiverBankName}</p>
-                      <p>{arr.transactionID}</p>
-                      <p className="text-white text-xs">Cw224</p>
-                    </span>
-                    <span className="flex sm:hidden justify-between text-xs">
-                      <p className="text-[#FBBC05]">{arr.status}</p>
-                      <p className="ss">{arr.paymentMethod}</p>
-                      <p className="text-white text-xs">Card Payment</p>
-                    </span>
-                    <p className="flex sm:hidden text-[#009186] text-xs">
-                      see more
-                    </p>
-                    {/* The end for the Mobile screen */}
-                  </div>
-                ))
-                .reverse()}
+                  ))
+                  .reverse()
+              )}
             </div>
           </div>
           {/* for the second part */}

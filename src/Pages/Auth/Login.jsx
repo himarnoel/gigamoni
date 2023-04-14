@@ -51,6 +51,8 @@ const Login = () => {
             navigate(
               `/verify?id=${e.response.data.id}&key=${e.response.data.key}`
             );
+          } else if (e.response.data == "User does not exist") {
+            toast.error("Invalid user");
           } else {
             toast.error("Incorrect email or password");
           }
