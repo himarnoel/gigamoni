@@ -18,30 +18,35 @@ const Profile = () => {
   const { body } = safeDocument;
   const [load, setload] = useState(false);
   useEffect(() => {
-    body.style.overflow = "hidden";
-    setload(true);
-    axios
-      .get(`${baseurl}/accounts/profile`, {
-        headers: {
-          Authorization: `Token ${localStorage.getItem("LoggedIntoken")}`,
-        },
-      })
-      .then((res) => {
-        console.log(res);
-        body.style.overflow = "";
-        setload(false);
-        editprofileformik.setValues({
-          name: res.data.fullname,
-          phoneNumber: res.data.phoneNumber,
-          address: "",
-          email: res.data.email,
+    const val = localStorage.getItem("LoggedIntoken");
+    if (!val) {
+      navigate("/signup");
+    } else {
+      body.style.overflow = "hidden";
+      setload(true);
+      axios
+        .get(`${baseurl}/accounts/profile`, {
+          headers: {
+            Authorization: `Token ${localStorage.getItem("LoggedIntoken")}`,
+          },
+        })
+        .then((res) => {
+          console.log(res);
+          body.style.overflow = "";
+          setload(false);
+          editprofileformik.setValues({
+            name: res.data.fullname,
+            phoneNumber: res.data.phoneNumber,
+            address: "",
+            email: res.data.email,
+          });
+        })
+        .catch((e) => {
+          console.log(e);
+          setload(false);
+          body.style.overflow = "";
         });
-      })
-      .catch((e) => {
-        console.log(e);
-        setload(false);
-        body.style.overflow = "";
-      });
+    }
   }, []);
 
   const editprofileformik = useFormik({

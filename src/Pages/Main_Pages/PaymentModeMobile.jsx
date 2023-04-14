@@ -10,6 +10,12 @@ import axios from "axios";
 import { baseurl } from "../../Service/validate_and_api";
 const PaymentModeMobile = () => {
 
+  useEffect(() => {
+    const val = localStorage.getItem("LoggedIntoken");
+    if (!val) {
+      navigate("/signup");
+    }
+  }, []);
   let location = useLocation();
   console.log(location.state);
   const navigate = useNavigate();

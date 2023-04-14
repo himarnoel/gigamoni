@@ -13,10 +13,15 @@ const BankTransfer = () => {
   const [fileName, setfileName] = useState("");
   const navigate = useNavigate;
   useEffect(() => {
-    const upload = JSON.parse(localStorage.getItem("filetoupload"));
-    if (upload) {
-      setItems(upload);
-      setfileName(upload.fileName);
+    const val = localStorage.getItem("LoggedIntoken");
+    if (!val) {
+      navigate("/signup");
+    } else {
+      const upload = JSON.parse(localStorage.getItem("filetoupload"));
+      if (upload) {
+        setItems(upload);
+        setfileName(upload.fileName);
+      }
     }
   }, []);
   const formik = useFormik({

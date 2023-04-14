@@ -10,6 +10,12 @@ import { useNavigate } from "react-router-dom";
 import NavBar from "./../../Components/AppComponents/NavBar";
 import { useFormik } from "formik";
 const SinglebeneficiaryEdit = () => {
+  useEffect(() => {
+    const val = localStorage.getItem("LoggedIntoken");
+    if (!val) {
+      navigate("/signup");
+    }
+  }, []);
   const formik = useFormik({
     initialValues: {
       receivername: "",

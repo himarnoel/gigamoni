@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import DashNav from "../../Components/DashBoardComponents/DashNav";
 import bell from "../../assets/bell.svg";
 import { BiTransfer } from "react-icons/bi";
 import caller from "../../assets/Dashboard/caller.svg";
 const BeneficiaryMobile = () => {
+  
+  useEffect(() => {
+    const val = localStorage.getItem("LoggedIntoken");
+    if (!val) {
+      navigate("/signup");
+    }
+  }, []);
   return (
     <div className="font-poppins ">
       {" "}

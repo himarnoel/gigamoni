@@ -14,6 +14,7 @@ import { RingLoader } from "react-spinners";
 import axios from "axios";
 import { useEffect } from "react";
 const OrderSummary = () => {
+  
   let location = useLocation();
   const [bool, setbool] = useState(false);
   const [checkmobile, setcheckmobile] = useState(false);

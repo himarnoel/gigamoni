@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import NavBar from "./../../Components/AppComponents/NavBar";
 import bell from "../../assets/bell.svg";
 import mail from "../../assets/Vector.svg";
@@ -17,6 +17,13 @@ import img1 from "../../assets/overlayimage/one.svg";
 import img2 from "../../assets/overlayimage/vector.svg";
 
 const CardPayment = () => {
+  
+  useEffect(() => {
+    const val = localStorage.getItem("LoggedIntoken");
+    if (!val) {
+      navigate("/signup");
+    }
+  }, []);
   const [overlay, setoverlay] = useState(false);
   const [change, setchange] = useState(false);
   const navigate = useNavigate();
