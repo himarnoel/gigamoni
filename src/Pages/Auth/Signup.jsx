@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import NavBar from "./../../Components/AppComponents/NavBar";
 import icon from "./../../assets/google-icon.svg";
 import { RiArrowDownSLine } from "react-icons/ri";
@@ -44,7 +44,7 @@ const Signup = () => {
     onSubmit: (values) => {
       window.scrollTo(0, 0);
       setload(true);
-      body.style.overflow = "";
+      body.style.overflow = "hidden";
 
       if (fromSendMoney) {
         axios
@@ -65,12 +65,13 @@ const Signup = () => {
             setload(false);
             navigate("/check");
             toast.success("success");
-            // console.log(res.response.status);
+            body.style.overflow = "";
             localStorage.setItem("email", values.email.toString());
           })
           .catch((e) => {
             console.log(e);
             setload(false);
+            body.style.overflow = "";
             if (
               e.response.data.email[0] ==
                 "user with this email already exists." &&
@@ -105,10 +106,11 @@ const Signup = () => {
             setload(false);
             navigate("/check");
             toast.success("success");
-            // console.log(res.response.status);
+            body.style.overflow = "";
             localStorage.setItem("email", values.email.toString());
           })
           .catch((e) => {
+            body.style.overflow = "";
             console.log(e);
             setload(false);
             if (
