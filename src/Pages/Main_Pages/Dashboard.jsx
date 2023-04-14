@@ -186,7 +186,9 @@ const Dashboard = () => {
       <DashNav class="fixed top-0 w-full z-[30]" />
       <div className="2xl:px-[10rem] xl:px-[5rem]  px-2 xss:px-4 xs:px-6 sm:px-10 md:px-20   flex flex-col justify-center items-center gap-y-8 pb-8   lg:px-10 mt-20 mxl:pt-20">
         <span
-          onClick={() => setshowNotification(!showNotification)}
+          onMouseOver={() => setshowNotification(true)}
+          onMouseOut={() => setshowNotification(false)}
+          // onClick={() => setshowNotification(!showNotification)}
           className=" text-[#009186] self-end items-center cursor-pointer hidden lg:flex "
         >
           <img
@@ -198,6 +200,8 @@ const Dashboard = () => {
         </span>
         {/* not className is for shadow */}
         <div
+          onMouseOver={() => setshowNotification(true)}
+          onMouseOut={() => setshowNotification(false)}
           className={
             showNotification
               ? "absolute bg-[#D1DEE3] not h-[26rem] w-[24rem] z-[20] top-[7rem] right-11 rounded-[11.8392px] px-4 py-2 overflow-y-auto"
