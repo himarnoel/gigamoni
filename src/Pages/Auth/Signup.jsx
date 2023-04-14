@@ -29,10 +29,10 @@ const Signup = () => {
   }
   const formik = useFormik({
     initialValues: {
-      name: fromSendMoney.name ?? "",
-      email: fromSendMoney.email ?? "",
-      phonenumber: fromSendMoney.phonenumber ?? "",
-      country: fromSendMoney.country ?? "",
+      name: "",
+      email: "",
+      phonenumber: "",
+      country: "",
       password: "",
       passwordConfirmation: "",
     },
