@@ -322,7 +322,7 @@ const Dashboard = () => {
               ) : loaderror ? (
                 <p className="text-red-500">A error occurred</p>
               ) : (
-                <p className="text-red-500">No Beneficiary</p>
+                <p className="text-yellow-500">No recent transaction</p>
               )}
               {beneficiarieslist.map((arr, i) => (
                 <div
@@ -346,7 +346,7 @@ const Dashboard = () => {
                         ? "flex items-center justify-center"
                         : loaderror
                         ? "flex items-center justify-center"
-                        : ""
+                        : "flex items-center justify-center"
                     }  overflow-auto rounded-lg w-full h-[20rem] sm:h-[30rem] lg:h-[22.6rem] mxl:h-[42.8rem] mt-8 px-4 border-[#009186]`
                   : "hidden"
               }
@@ -357,7 +357,7 @@ const Dashboard = () => {
               ) : loaderror ? (
                 <p className="text-red-500">A error occurred</p>
               ) : (
-                ""
+                <p className="text-yellow-500">No recent transaction</p>
               )}
               {trans
                 .map((arr, i) => (
