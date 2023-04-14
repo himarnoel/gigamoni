@@ -17,6 +17,16 @@ const Signup = () => {
   const [first, setfirst] = useState({});
   const navigate = useNavigate();
   const fromSendMoney = JSON.parse(localStorage.getItem("Send"));
+  if (fromSendMoney) {
+    formik.setValues({
+      name: fromSendMoney.name ?? "",
+      email: fromSendMoney.email ?? "",
+      phonenumber: fromSendMoney.phonenumber ?? "",
+      country: fromSendMoney.country ?? "",
+      password: "",
+      passwordConfirmation: "",
+    });
+  }
   const formik = useFormik({
     initialValues: {
       name: fromSendMoney.name ?? "",
