@@ -83,7 +83,7 @@ const Pending = () => {
           console.log(res.data);
 
           setload(false);
-          navigate("/dashboard");
+         
         })
         .catch((e) => {
           setload(false);
