@@ -121,9 +121,13 @@ const Dashboard = () => {
         .then((res) => {
           console.log(res.data);
           setbeneficiarieslist(res.data);
+          setloaderror(true);
+          setload(false);
         })
         .catch((e) => {
           console.log(e);
+          setloaderror(true);
+          setload(false);
         });
     }
   };
