@@ -12,6 +12,7 @@ import {
 import axios from "axios";
 import { RingLoader } from "react-spinners";
 import { useNavigate } from "react-router-dom";
+import DashNav from "../../Components/DashBoardComponents/DashNav";
 const Profile = () => {
   const navigate = useNavigate();
   const safeDocument = typeof document !== "undefined" ? document : {};
@@ -105,7 +106,7 @@ const Profile = () => {
   });
   return (
     <div className="font-poppins">
-      <NavBar class="fixed top-0 z-[2]" />
+      <DashNav class="fixed top-0 z-[2]" />
       <div
         className={
           load
