@@ -102,9 +102,13 @@ const Dashboard = () => {
         .then((res) => {
           console.log(res.data);
           Settrans(res.data);
+          setloaderror(false);
+          setload(false);
         })
         .catch((e) => {
           console.log(e);
+          setloaderror(true);
+          setload(false);
         });
     }
   };
@@ -121,7 +125,7 @@ const Dashboard = () => {
         .then((res) => {
           console.log(res.data);
           setbeneficiarieslist(res.data);
-          setloaderror(true);
+          setloaderror(false);
           setload(false);
         })
         .catch((e) => {
@@ -304,15 +308,19 @@ const Dashboard = () => {
               className={
                 showBeneficiarieslist
                   ? `bg-[#DAF2F1] ${
-                      beneficiarieslist.length == 0
-                        ? "flex justify-center items-center"
+                      load
+                        ? "flex items-center justify-center"
+                        : loaderror
+                        ? "flex items-center justify-center"
                         : ""
                     }  overflow-auto rounded-lg w-full h-[20rem] sm:h-[30rem] lg:h-[22.6rem] mxl:h-[42.8rem] mt-8 pr-20 pl-4 border-[#009186]`
                   : "hidden"
               }
             >
-              {beneficiarieslist.length == 0 ? (
-                <RingLoader color="#009186] " />
+              {load ? (
+                <RingLoader className="text-[#009186] " />
+              ) : loaderror ? (
+                <p className="text-red-500">A error occurred</p>
               ) : (
                 ""
               )}
@@ -349,7 +357,7 @@ const Dashboard = () => {
               ) : loaderror ? (
                 <p className="text-red-500">A error occurred</p>
               ) : (
-                <p className="text-red-500">fsdfasdf</p>
+                ""
               )}
               {trans
                 .map((arr, i) => (
