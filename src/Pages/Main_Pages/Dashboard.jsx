@@ -34,6 +34,13 @@ const Dashboard = () => {
   const html = safeDocument.documentElement;
   const { body } = safeDocument;
 
+  useEffect(() => {
+    const val = localStorage.getItem("LoggedIntoken");
+    if (!val) {
+      navigate("/signup");
+    }
+  }, []);
+
   const blockScroll = () => {
     window.scrollTo({ top: 0, left: 0 });
     body.style.overflow = "hidden";
