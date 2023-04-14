@@ -40,6 +40,7 @@ const Signup = () => {
     onSubmit: (values) => {
       window.scrollTo(0, 0);
       setload(true);
+      
       if (fromSendMoney) {
         axios
           .post(`${baseurl}/accounts/signup/`, {
