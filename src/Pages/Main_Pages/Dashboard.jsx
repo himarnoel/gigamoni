@@ -330,12 +330,24 @@ const Dashboard = () => {
               className={
                 showTransactionList
                   ? `bg-[#DAF2F1] ${
-                      load ? "flex items-center justify-center" : ""
+                      load
+                        ? "flex items-center justify-center"
+                        : error
+                        ? "flex items-center justify-center"
+                        : ""
                     }  overflow-auto rounded-lg w-full h-[20rem] sm:h-[30rem] lg:h-[22.6rem] mxl:h-[42.8rem] mt-8 px-4 border-[#009186]`
                   : "hidden"
               }
             >
-              {load ? <RingLoader className="text-[#009186] " /> : ""}
+              {load ? (
+                error ? (
+                  <p></p>
+                ) : (
+                  <RingLoader className="text-[#009186] " />
+                )
+              ) : (
+                ""
+              )}
               {trans
                 .map((arr, i) => (
                   <div className="rounded-lg lg:py-1 lg:px-[0.24rem]   flex flex-col justify-between border-2 border-[#009186] text-sm mt-8 bg-[#F8F8FF] px-3  xl:px-3  py-1 min-h-[12rem] sm:min-h-[7rem]">
