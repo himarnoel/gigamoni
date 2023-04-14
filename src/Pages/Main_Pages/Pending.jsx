@@ -19,6 +19,7 @@ import {
   fullWidthClassName,
   noScrollbarsClassName,
 } from "react-remove-scroll-bar";
+import { toast } from "react-toastify";
 const Pending = () => {
   useEffect(() => {
     const val = localStorage.getItem("LoggedIntoken");
@@ -83,10 +84,14 @@ const Pending = () => {
           console.log(res.data);
 
           setload(false);
-         
         })
         .catch((e) => {
-          setload(false);
+          setoverlay(false);
+          if (e.response.data.detail == "Invalid token.") {
+            toast.error("An error occurred");
+          } else {
+            toast.error("An error occurred");
+          }
           console.log(e);
         });
     },
