@@ -20,9 +20,11 @@ import { RiCloseCircleFill } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
 import NavBar from "./../../Components/AppComponents/NavBar";
 import { useFormik } from "formik";
+import { RingLoader } from "react-spinners";
 
 const SinglebeneficiaryAdd = () => {
   const navigate = useNavigate();
+  const [load, setload] = useState(false);
   useEffect(() => {
     const val = localStorage.getItem("LoggedIntoken");
     if (!val) {
@@ -44,33 +46,51 @@ const SinglebeneficiaryAdd = () => {
     },
     validationSchema: addbeneficiaryValidate,
     onSubmit: (values) => {
-      
-      axios.post(
-        `${baseurl}/accounts/profile`,
-        {
-          fullName: values.receivername,
-          email: values.emailAddress,
-          phoneNumber: values.phoneNumber,
-          acctName: values.accountNumber,
-          acctNo: values.accountNumber,
-          bankName: values.bankName,
-          bankAddress: values.bankAddress,
-          iban: values.iban,
-          swiftCode: values.swiftCode,
-          country: values.country,
-        },
-
-        {
-          headers: {
-            Authorization: `Token ${localStorage.getItem("LoggedIntoken")}`,
+      setload(true);
+      axios
+        .post(
+          `${baseurl}/accounts/profile`,
+          {
+            fullName: values.receivername,
+            email: values.emailAddress,
+            phoneNumber: values.phoneNumber,
+            acctName: values.accountNumber,
+            acctNo: values.accountNumber,
+            bankName: values.bankName,
+            bankAddress: values.bankAddress,
+            iban: values.iban,
+            swiftCode: values.swiftCode,
+            country: values.country,
           },
-        }
-      );
+
+          {
+            headers: {
+              Authorization: `Token ${localStorage.getItem("LoggedIntoken")}`,
+            },
+          }
+        )
+        .then((res) => {
+          console.log(res);
+          setload(false);
+        })
+        .catch((e) => {
+          console.log(e);
+          setload(false);
+        });
     },
   });
   return (
     <div className="font-poppins">
       <DashNav class="fixed top-0 z-[2]" />
+      <div
+        className={
+          load
+            ? "absolute top-0   bg-[#262626]/[0.8]   z-[90] h-screen w-full flex  justify-center items-center text-3xl"
+            : "hidden"
+        }
+      >
+        <RingLoader color="#009186" size={90} />
+      </div>
       <div className="flex justify-between items-center mt-28 px-2 xss:px-4 xs:px-6  sm:mt-26  sm:mt-26  lg:mt-20 2xl:px-[10rem] xl:px-[5rem] lg:px-10">
         <button
           onClick={() => navigate("/dashboard")}
