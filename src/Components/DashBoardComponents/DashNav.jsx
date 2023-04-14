@@ -7,6 +7,10 @@ import { Link, useNavigate } from "react-router-dom";
 const DashNav = (props) => {
   const [bool, setbool] = useState(false);
   const navigate = useNavigate();
+  const logout = () => {
+    localStorage.removeItem("LoggedIntoken");
+    navigate("/login");
+  };
   return (
     <div className=" font-poppins ">
       <div className={`${props.class} lg:block hidden  w-full  `}>
@@ -19,11 +23,11 @@ const DashNav = (props) => {
             <Link to="/">FAQs </Link>
             <Link to="/login">Logout</Link>
             <button
-              onClick={() => navigate("/dashboard")}
+              onClick={() => logout()}
               className="px-[2.4rem] py-[0.7rem] rounded text-white bg-[#009186] flex items-center"
             >
               Account
-              <RiArrowDownSLine  className="text-xl ml-2"/>
+              <RiArrowDownSLine className="text-xl ml-2" />
             </button>
           </span>
         </div>
@@ -42,7 +46,7 @@ const DashNav = (props) => {
          rounded-[8px] bg-[#009186]  text-white mr-4"
           >
             {" "}
-            Account <RiArrowDownSLine  className="ml-2"/>
+            Account <RiArrowDownSLine className="ml-2" />
           </button>{" "}
           <HiMenu
             className="text-black text-xl sm:text-3xl md:text-4xl"
