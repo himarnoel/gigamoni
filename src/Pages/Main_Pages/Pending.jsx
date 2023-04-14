@@ -20,6 +20,7 @@ import {
   noScrollbarsClassName,
 } from "react-remove-scroll-bar";
 import { toast } from "react-toastify";
+import DashNav from "../../Components/DashBoardComponents/DashNav";
 const Pending = () => {
   useEffect(() => {
     const val = localStorage.getItem("LoggedIntoken");
@@ -155,7 +156,7 @@ const Pending = () => {
         )}
       </div>
 
-      <NavBar class="fixed top-0 z-[2]" />
+      <DashNav class="fixed top-0 z-[2]" />
 
       <div className=" 2xl:px-[10rem] xl:px-[5rem]  xss:pl-4  xss:pr-10 mt-28   xs:pl-6 xs:pr-12 sm:pl-10 sm:pr-28 md:pl-8 md:pr-28 lg:px-10 w-full  lg:mt-20  mxl:pt-20 mb-20 sm:mb-32">
         <div className=" justify-between items-center  mxl:mt-10 flex">

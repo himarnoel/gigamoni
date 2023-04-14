@@ -41,6 +41,8 @@ const Dashboard = () => {
     const val = localStorage.getItem("LoggedIntoken");
     if (!val) {
       navigate("/signup");
+    } else {
+      localStorage.removeItem("transactiondata");
     }
   }, []);
 
@@ -122,7 +124,7 @@ const Dashboard = () => {
   };
 
   const transactionDetail = (item) => {
-    localStorage.setItem("transactiondata",JSON.stringify(item))
+    localStorage.setItem("transactiondata", JSON.stringify(item));
     if (item.status == "Pending") {
       navigate("/pending");
     }
