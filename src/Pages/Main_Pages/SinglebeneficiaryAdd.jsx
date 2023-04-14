@@ -40,13 +40,23 @@ const SinglebeneficiaryAdd = () => {
       accountName: "",
       swiftCode: "",
       accountNumber: "",
+      country:""
     },
     validationSchema: addbeneficiaryValidate,
     onSubmit: (values) => {
       axios.post(
         `${baseurl}/accounts/profile`,
         {
-          fullname: values.name,
+          fullName: values.receivername,
+          email: values.emailAddress,
+          phoneNumber:  values.phoneNumber,
+          acctName:  values.accountNumber,
+          acctNo:  values.accountNumber,
+          bankName:  values.bankName,
+          bankAddress:  values.bankAddress,
+          iban:  values.iban,
+          swiftCode:  values.swiftCode,
+          country:  values.country,
         },
 
         {
