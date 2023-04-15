@@ -49,7 +49,7 @@ const BankTransfer = () => {
       <NavBar class="top-0 fixed z-[20]" />
       <div className=" pt-32 mxl:pt-32 2xl:px-[10rem] xl:px-[5rem] lg:px-10  px-2 xss:px-4 xs:px-6 sm:px-8 md:px-8 ">
         <div className="flex justify-between items-center ">
-          <button className="p-6 bg-[#87ACA3] rounded-md px-20 text-sm py-3 float-right  text-[#262626] font-medium">
+          <button onClick={()=>navigate("/dashboard")} className="p-6 bg-[#87ACA3] rounded-md px-20 text-sm py-3 float-right  text-[#262626] font-medium">
             Back
           </button>
           <div
