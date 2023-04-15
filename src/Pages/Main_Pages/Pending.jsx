@@ -22,10 +22,10 @@ import {
 import { toast } from "react-toastify";
 import DashNav from "../../Components/DashBoardComponents/DashNav";
 const Pending = () => {
+  const transactiondata = JSON.parse(localStorage.getItem("transactiondata"));
   useEffect(() => {
     window.scroll({ top: 0, left: 0 });
     const val = localStorage.getItem("LoggedIntoken");
-    const transactiondata = JSON.parse(localStorage.getItem("transactiondata"));
     if (!val) {
       navigate("/signup");
     } else {
@@ -44,7 +44,7 @@ const Pending = () => {
           tractionDescription: transactiondata.description ?? "",
           sendingcurrency: "NGN",
           receivingcurrency: "USD",
-          amountReceived: transactiondata.amountReceived ?? "s",
+          amountReceived: transactiondata.amountReceived ?? "",
         });
       }
     }
@@ -75,47 +75,91 @@ const Pending = () => {
       setoverlay(true);
       window.scrollTo({ top: 0, left: 0 });
       setload(true);
-      axios
-        .post(
-          `${baseurl}/transactions/`,
-          {
-            beneficiary: false,
-            receiverName: values.receivername,
-            receiverEmail: values.emailAddress,
-            receiverPhone: values.phoneNumber,
-            receiverAcctName: values.accountName,
-            receiverAcctNo: values.accountNumber,
-            receiverBankName: values.bankName,
-            receiverBankAddress: values.bankAddress,
-            receiverIban: values.iban,
-            receiverSwiftCode: values.swiftCode,
-            receiverCountry: values.receivingCountry,
-            currencySent: formik.values.sendingcurrency,
-            currencyReceived: formik.values.receivingcurrency,
-            amountReceived: formik.values.amountReceived,
-            description: formik.values.tractionDescription,
-            paymentMethod: "payWithTransfer",
-          },
-          {
-            headers: {
-              Authorization: `Token ${localStorage.getItem("LoggedIntoken")}`,
+      if (transactiondata) {
+        axios
+          .patch(
+            `${baseurl}/transactions/${transactiondata.transactionID}/transaction/`,
+            {
+              beneficiary: false,
+              receiverName: values.receivername,
+              receiverEmail: values.emailAddress,
+              receiverPhone: values.phoneNumber,
+              receiverAcctName: values.accountName,
+              receiverAcctNo: values.accountNumber,
+              receiverBankName: values.bankName,
+              receiverBankAddress: values.bankAddress,
+              receiverIban: values.iban,
+              receiverSwiftCode: values.swiftCode,
+              receiverCountry: values.receivingCountry,
+              currencySent: formik.values.sendingcurrency,
+              currencyReceived: formik.values.receivingcurrency,
+              amountReceived: formik.values.amountReceived,
+              description: formik.values.tractionDescription,
+              paymentMethod: "payWithTransfer",
             },
-          }
-        )
-        .then((res) => {
-          console.log(res.data);
+            {
+              headers: {
+                Authorization: `Token ${localStorage.getItem("LoggedIntoken")}`,
+              },
+            }
+          )
+          .then((res) => {
+            console.log(res.data);
 
-          setload(false);
-        })
-        .catch((e) => {
-          setoverlay(false);
-          if (e.response.data.detail == "Invalid token.") {
-            toast.error("token expired");
-          } else {
-            toast.error("An error occurred");
-          }
-          console.log(e);
-        });
+            setload(false);
+          })
+          .catch((e) => {
+            setoverlay(false);
+            if (e.response.data.detail == "Invalid token.") {
+              toast.error("token expired");
+            } else {
+              toast.error("An error occurred");
+            }
+            console.log(e);
+          });
+      } else {
+        axios
+          .post(
+            `${baseurl}/transactions/`,
+            {
+              beneficiary: false,
+              receiverName: values.receivername,
+              receiverEmail: values.emailAddress,
+              receiverPhone: values.phoneNumber,
+              receiverAcctName: values.accountName,
+              receiverAcctNo: values.accountNumber,
+              receiverBankName: values.bankName,
+              receiverBankAddress: values.bankAddress,
+              receiverIban: values.iban,
+              receiverSwiftCode: values.swiftCode,
+              receiverCountry: values.receivingCountry,
+              currencySent: formik.values.sendingcurrency,
+              currencyReceived: formik.values.receivingcurrency,
+              amountReceived: formik.values.amountReceived,
+              description: formik.values.tractionDescription,
+              paymentMethod: "payWithTransfer",
+            },
+            {
+              headers: {
+                Authorization: `Token ${localStorage.getItem("LoggedIntoken")}`,
+              },
+            }
+          )
+          .then((res) => {
+            console.log(res.data);
+
+            setload(false);
+          })
+          .catch((e) => {
+            setoverlay(false);
+            if (e.response.data.detail == "Invalid token.") {
+              toast.error("token expired");
+            } else {
+              toast.error("An error occurred");
+            }
+            console.log(e);
+          });
+      }
     },
   });
   // console.log(formik.values);

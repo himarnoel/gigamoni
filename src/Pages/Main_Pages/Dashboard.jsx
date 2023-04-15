@@ -450,7 +450,7 @@ const Dashboard = () => {
                               ? `text-[#FBBC05]`
                               : item.status == "Completed"
                               ? `text-[#00913E]`
-                              : item.status == "Cancelled"
+                              : item.status == "Update"
                               ? `text-[#D80010]`
                               : "text-[#5D5FEF]" //Pending
                           }
