@@ -24,7 +24,7 @@ const Update = () => {
   const safeDocument = typeof document !== "undefined" ? document : {};
   const { body } = safeDocument;
   useEffect(() => {
-    window.scrollTo({ top: 0, left: 0 });
+    window.scroll({ top: 0, left: 0 });
     const val = localStorage.getItem("LoggedIntoken");
     if (!val) {
       navigate("/signup");
