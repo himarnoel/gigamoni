@@ -128,6 +128,8 @@ const Dashboard = () => {
     localStorage.setItem("transactiondata", JSON.stringify(item));
     if (item.status == "Pending") {
       navigate("/pending");
+    } else {
+      navigate("/update", { state: item });
     }
   };
   const fetchBeneficiaries = () => {
