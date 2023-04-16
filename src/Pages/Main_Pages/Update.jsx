@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useFormik } from "formik";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { pendingValidate } from "../../Service/validate_and_api";
 import { useState } from "react";
 import NavBar from "../../Components/AppComponents/NavBar";
@@ -16,18 +16,35 @@ const Update = () => {
   const [overlay, setoverlay] = useState(false);
   const [change, setchange] = useState(false);
   const navigate = useNavigate();
+  const { state } = useLocation();
+  useEffect(() => {
+    const val = localStorage.getItem("LoggedIntoken");
+    if (!val) {
+      navigate("/signup");
+    }
+    formik.setValues({
+      receivername: state.receiverName,
+      bankName: state.receiverBankName,
+      phoneNumber: state.receiverName,
+      bankAddress: state.receiverName,
+      emailAddress: state.receiverEmail,
+      iban: state.receiverIban,
+      accountName: state.receiverAcctName,
+      swiftCode: state.receiverSwiftCode,
+      accountNumber: state.receiverAcctNo,
+      receivingCountry: state.receiverCountry,
+      tractionDescription: state.description,
+      sendingcurrency: state.currencySent,
+      receivingcurrency: state.currencyReceived,
+      amountReceived: state.amountReceived,
+    });
+  }, []);
   const blockScroll = () => {
-    useEffect(() => {
-      const val = localStorage.getItem("LoggedIntoken");
-      if (!val) {
-        navigate("/signup");
-      }
-    }, []);
     window.scrollTo({ top: 0, left: 0 });
     body.style.overflow = "hidden";
   };
   const allowScroll = () => {
-    html.style.overflow = "";
+    html.style.overflow = state.receiverName;
   };
   const formik = useFormik({
     initialValues: {
@@ -42,9 +59,8 @@ const Update = () => {
       accountNumber: "",
       receivingCountry: "",
       tractionDescription: "",
-      receivingcurrency: "USD",
       sendingcurrency: "NGN",
-      amountsent: "",
+      receivingcurrency: "USD",
       amountReceived: "",
     },
     validationSchema: pendingValidate,
@@ -132,7 +148,10 @@ const Update = () => {
       </div>
       <div className=" 2xl:px-[10rem] xl:px-[5rem]  xss:pl-4  xss:pr-10   xs:pl-6 xs:pr-12 sm:pl-10 sm:pr-28 md:pl-8 md:pr-28 lg:px-10 w-full mt-4  lg:mt-20  mxl:pt-32">
         <div className=" justify-between items-center mxl:mt-10 hidden lg:flex">
-          <button  onClick={() => navigate("/dashboard")} className=" text-sm px-[4rem] py-[0.7rem]  lg:px-[4rem] lg:py-[0.7rem] rounded-lg bg-[#87ACA3]">
+          <button
+            onClick={() => navigate("/dashboard")}
+            className=" text-sm px-[4rem] py-[0.7rem]  lg:px-[4rem] lg:py-[0.7rem] rounded-lg bg-[#87ACA3]"
+          >
             Back
           </button>
           <div
