@@ -110,8 +110,12 @@ const Update = () => {
           },
         }
       )
-      .then((res) => {})
-      .catch((e) => {});
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((e) => {
+        console.log(res);
+      });
   };
   const payWithCard = () => {
     axios
@@ -142,8 +146,12 @@ const Update = () => {
           },
         }
       )
-      .then((res) => {})
-      .catch((e) => {});
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((e) => {
+        console.log(res);
+      });
   };
 
   return (
