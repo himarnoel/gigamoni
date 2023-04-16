@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useFormik } from "formik";
 import { useLocation, useNavigate } from "react-router-dom";
 import {
+  baseurl,
   pendingValidate,
   updateValidate,
 } from "../../Service/validate_and_api";
@@ -16,6 +17,7 @@ import img2 from "../../assets/overlayimage/vector.svg";
 import { IoCloseCircle } from "react-icons/io5";
 import mail from "../../assets/Vector.svg";
 import DashNav from "../../Components/DashBoardComponents/DashNav";
+import axios from "axios";
 const Update = () => {
   const [overlay, setoverlay] = useState(false);
   const [change, setchange] = useState(false);
@@ -80,8 +82,69 @@ const Update = () => {
       // allowScroll();
     },
   });
-  const payWithTransfer = () => {};
-  const payWithCard = () => {};
+  const payWithTransfer = () => {
+    axios
+      .post(
+        `${baseurl}/transactions/${state.transactionID}/transaction/`,
+        {
+          beneficiary: false,
+          receiverName: "string",
+          receiverEmail: "user@example.com",
+          receiverPhone: "string",
+          receiverAcctName: "string",
+          receiverAcctNo: "string",
+          receiverBankName: "string",
+          receiverBankAddress: "string",
+          receiverIban: "string",
+          receiverSwiftCode: "string",
+          receiverCountry: "string",
+          currencySent: "stri",
+          currencyReceived: "stri",
+          amountReceived: 2147483647,
+          description: "string",
+          paymentMethod: "payWithtransfer",
+        },
+        {
+          headers: {
+            Authorization: `Token ${localStorage.getItem("LoggedIntoken")}`,
+          },
+        }
+      )
+      .then((res) => {})
+      .catch((e) => {});
+  };
+  const payWithCard = () => {
+    axios
+      .post(
+        `${baseurl}/transactions/${state.transactionID}/transaction/`,
+        {
+          beneficiary: false,
+          receiverName: formik.values.receivername,
+          receiverEmail: formik.values.emailAddress,
+          receiverPhone: formik.values.phoneNumber,
+          receiverAcctName: formik.values.accountName,
+          receiverAcctNo: formik.values.accountNumber,
+          receiverBankName: formik.values.bankName,
+          receiverBankAddress: formik.values.bankAddress,
+          receiverIban: formik.values.iban,
+          receiverSwiftCode: formik.values.swiftCode,
+          receiverCountry: formik.values.receivingCountry,
+          currencySent: formik.values.sendingcurrency,
+          currencyReceived: formik.values.receivingcurrency,
+          amountReceived: formik.values.amountReceived,
+          description: formik.values.tractionDescription,
+          paymentMethod: "payWithTransfer",
+          // Card Payment
+        },
+        {
+          headers: {
+            Authorization: `Token ${localStorage.getItem("LoggedIntoken")}`,
+          },
+        }
+      )
+      .then((res) => {})
+      .catch((e) => {});
+  };
 
   return (
     <div className=" bg-[#F8F8FF] font-poppins ">
