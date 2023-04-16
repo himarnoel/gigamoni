@@ -22,8 +22,8 @@ import {
 import { toast } from "react-toastify";
 import DashNav from "../../Components/DashBoardComponents/DashNav";
 const Pending = () => {
-  const transactiondata = JSON.parse(localStorage.getItem("transactiondata"));
   useEffect(() => {
+    const transactiondata = JSON.parse(localStorage.getItem("transactiondata"));
     window.scroll({ top: 0, left: 0 });
     const val = localStorage.getItem("LoggedIntoken");
     if (!val) {
@@ -72,6 +72,9 @@ const Pending = () => {
     },
     validationSchema: pendingValidate,
     onSubmit: (values) => {
+      const transactiondata = JSON.parse(
+        localStorage.getItem("transactiondata")
+      );
       setoverlay(true);
       window.scrollTo({ top: 0, left: 0 });
       setload(true);
