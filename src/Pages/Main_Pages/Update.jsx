@@ -1,7 +1,10 @@
 import React, { useEffect } from "react";
 import { useFormik } from "formik";
 import { useLocation, useNavigate } from "react-router-dom";
-import { pendingValidate } from "../../Service/validate_and_api";
+import {
+  pendingValidate,
+  updateValidate,
+} from "../../Service/validate_and_api";
 import { useState } from "react";
 import NavBar from "../../Components/AppComponents/NavBar";
 import bell from "../../assets/bell.svg";
@@ -12,11 +15,14 @@ import img1 from "../../assets/overlayimage/one.svg";
 import img2 from "../../assets/overlayimage/vector.svg";
 import { IoCloseCircle } from "react-icons/io5";
 import mail from "../../assets/Vector.svg";
+import DashNav from "../../Components/DashBoardComponents/DashNav";
 const Update = () => {
   const [overlay, setoverlay] = useState(false);
   const [change, setchange] = useState(false);
   const navigate = useNavigate();
   const { state } = useLocation();
+  const safeDocument = typeof document !== "undefined" ? document : {};
+  const { body } = safeDocument;
   useEffect(() => {
     const val = localStorage.getItem("LoggedIntoken");
     if (!val) {
@@ -25,8 +31,8 @@ const Update = () => {
     formik.setValues({
       receivername: state.receiverName,
       bankName: state.receiverBankName,
-      phoneNumber: state.receiverName,
-      bankAddress: state.receiverName,
+      phoneNumber: state.receiverPhone,
+      bankAddress: state.receiverBankAddress,
       emailAddress: state.receiverEmail,
       iban: state.receiverIban,
       accountName: state.receiverAcctName,
@@ -37,6 +43,7 @@ const Update = () => {
       sendingcurrency: state.currencySent,
       receivingcurrency: state.currencyReceived,
       amountReceived: state.amountReceived,
+      amountsent: state.amountSent,
     });
   }, []);
   const blockScroll = () => {
@@ -44,7 +51,8 @@ const Update = () => {
     body.style.overflow = "hidden";
   };
   const allowScroll = () => {
-    html.style.overflow = state.receiverName;
+    window.scrollTo({ top: 0, left: 0 });
+    body.style.overflow = "";
   };
   const formik = useFormik({
     initialValues: {
@@ -62,12 +70,13 @@ const Update = () => {
       sendingcurrency: "NGN",
       receivingcurrency: "USD",
       amountReceived: "",
+      amountsent: "",
     },
-    validationSchema: pendingValidate,
+    validationSchema: updateValidate,
     onSubmit: (values) => {
-      // navigate("/summary", {
-      //   state: values,
-      // });
+      blockScroll();
+      setoverlay(true);
+      // allowScroll();
     },
   });
   const payWithTransfer = () => {};
@@ -124,7 +133,7 @@ const Update = () => {
         )}
       </div>
 
-      <NavBar class="fixed top-0 z-[2]" />
+      <DashNav class="fixed top-0 z-[2]" />
       <div className="flex justify-between items-center mt-28 px-2 xss:px-4 xs:px-6  sm:mt-26  sm:mt-26  lg:mt-20 lg:hidden  mxl:mt-10">
         <button
           onClick={() => navigate("/dashboard")}
@@ -215,6 +224,7 @@ const Update = () => {
                 <input
                   type="number"
                   id="amountsent"
+                  disabled
                   placeholder="00000"
                   className={
                     formik.errors.amountsent && formik.touched.amountsent
@@ -261,6 +271,7 @@ const Update = () => {
                 <input
                   type="number"
                   id="amountReceived"
+                  disabled
                   placeholder="00000"
                   className={
                     formik.errors.amountReceived &&
@@ -286,6 +297,7 @@ const Update = () => {
               <div className="relative z-0 mt-0">
                 <input
                   type="text"
+                  disabled
                   id="receivername"
                   className={
                     formik.errors.receivername && formik.touched.receivername
@@ -319,6 +331,7 @@ const Update = () => {
                 <input
                   type="text"
                   id="phoneNumber"
+                  disabled
                   className={
                     formik.errors.phoneNumber && formik.touched.phoneNumber
                       ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
@@ -351,6 +364,7 @@ const Update = () => {
                 <input
                   type="text"
                   id="emailAddress"
+                  disabled
                   className={
                     formik.errors.emailAddress && formik.touched.emailAddress
                       ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
@@ -383,6 +397,7 @@ const Update = () => {
                 <input
                   type="text"
                   id="accountName"
+                  disabled
                   className={
                     formik.errors.accountName && formik.touched.accountName
                       ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
@@ -415,6 +430,7 @@ const Update = () => {
                 <input
                   type="text"
                   id="accountNumber"
+                  disabled
                   className={
                     formik.errors.accountNumber && formik.touched.accountNumber
                       ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
@@ -490,6 +506,7 @@ const Update = () => {
                 <input
                   type="text"
                   id="bankName"
+                  disabled
                   className={
                     formik.errors.bankName && formik.touched.bankName
                       ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
@@ -522,6 +539,7 @@ const Update = () => {
                 <input
                   type="text"
                   id="bankAddress"
+                  disabled
                   className={
                     formik.errors.bankAddress && formik.touched.bankAddress
                       ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
@@ -553,6 +571,7 @@ const Update = () => {
               <div className="relative z-0 mt-0">
                 <input
                   type="text"
+                  disabled
                   id="iban"
                   className={
                     formik.errors.iban && formik.touched.iban
@@ -586,6 +605,7 @@ const Update = () => {
                 <input
                   type="text"
                   id="swiftCode"
+                  disabled
                   className={
                     formik.errors.swiftCode && formik.touched.swiftCode
                       ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
