@@ -423,7 +423,7 @@ const Dashboard = () => {
                     <div
                       key={i}
                       onClick={() => transactionDetail(item)}
-                      className="rounded-lg lg:py-1 lg:px-[0.24rem] cursor-pointer  flex flex-col justify-between border-2 border-[#009186] text-sm mt-8 bg-[#F8F8FF] px-3  xl:px-3  py-1 min-h-[12rem] sm:min-h-[7rem]"
+                      className="rounded-lg lg:py-1 lg:px-[0.24rem] cursor-pointer mb-5 flex flex-col justify-between border-2 border-[#009186] text-sm mt-8 bg-[#F8F8FF] px-3  xl:px-3  py-1 min-h-[12rem] sm:min-h-[7rem]"
                     >
                       <span className="hidden sm:flex items-center justify-between mt-2">
                         <p className=" text-[#175873] text-xs">
