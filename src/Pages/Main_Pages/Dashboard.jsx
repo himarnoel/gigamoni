@@ -128,8 +128,9 @@ const Dashboard = () => {
     localStorage.setItem("transactiondata", JSON.stringify(item));
     if (item.status == "Pending") {
       navigate("/pending");
-    } else {
+    } else if (item.status == "Update") {
       navigate("/update", { state: item });
+    } else if (item.status == "Rejected") {
     }
   };
   const fetchBeneficiaries = () => {
