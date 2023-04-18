@@ -21,16 +21,19 @@ const Signup = () => {
   const html = safeDocument.documentElement;
   const { body } = safeDocument;
   const fromSendMoney = JSON.parse(localStorage.getItem("Send"));
-  if (fromSendMoney) {
-    formik.setValues({
-      name: fromSendMoney.name ?? "",
-      email: fromSendMoney.email ?? "",
-      phonenumber: fromSendMoney.phonenumber ?? "",
-      country: fromSendMoney.country ?? "",
-      password: "",
-      passwordConfirmation: "",
-    });
-  }
+  useEffect(() => {
+    if (fromSendMoney) {
+      formik.setValues({
+        name: fromSendMoney.name ?? "",
+        email: fromSendMoney.email ?? "",
+        phonenumber: fromSendMoney.phonenumber ?? "",
+        country: fromSendMoney.country ?? "",
+        password: "",
+        passwordConfirmation: "",
+      });
+    }
+  }, []);
+
   const formik = useFormik({
     initialValues: {
       name: "",

@@ -25,6 +25,7 @@ const Update = () => {
   const { state } = useLocation();
   const safeDocument = typeof document !== "undefined" ? document : {};
   const { body } = safeDocument;
+
   useEffect(() => {
     window.scroll({ top: 0, left: 0 });
     const val = localStorage.getItem("LoggedIntoken");
@@ -79,47 +80,13 @@ const Update = () => {
     onSubmit: (values) => {
       blockScroll();
       setoverlay(true);
+      setchange(true);
       // allowScroll();
     },
   });
   const payWithTransfer = () => {
     axios
-      .post(
-        `${baseurl}/transactions/${state.transactionID}/transaction/`,
-        {
-          beneficiary: false,
-          receiverName: "string",
-          receiverEmail: "user@example.com",
-          receiverPhone: "string",
-          receiverAcctName: "string",
-          receiverAcctNo: "string",
-          receiverBankName: "string",
-          receiverBankAddress: "string",
-          receiverIban: "string",
-          receiverSwiftCode: "string",
-          receiverCountry: "string",
-          currencySent: "stri",
-          currencyReceived: "stri",
-          amountReceived: 2147483647,
-          description: "string",
-          paymentMethod: "payWithtransfer",
-        },
-        {
-          headers: {
-            Authorization: `Token ${localStorage.getItem("LoggedIntoken")}`,
-          },
-        }
-      )
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((e) => {
-        console.log(res);
-      });
-  };
-  const payWithCard = () => {
-    axios
-      .post(
+      .patch(
         `${baseurl}/transactions/${state.transactionID}/transaction/`,
         {
           beneficiary: false,
@@ -137,7 +104,42 @@ const Update = () => {
           currencyReceived: formik.values.receivingcurrency,
           amountReceived: formik.values.amountReceived,
           description: formik.values.tractionDescription,
-          paymentMethod: "payWithTransfer",
+          paymentMethod: "Bank Transfer",
+        },
+        {
+          headers: {
+            Authorization: `Token ${localStorage.getItem("LoggedIntoken")}`,
+          },
+        }
+      )
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
+  const payWithCard = () => {
+    axios
+      .patch(
+        `${baseurl}/transactions/${state.transactionID}/transaction/`,
+        {
+          beneficiary: false,
+          receiverName: formik.values.receivername,
+          receiverEmail: formik.values.emailAddress,
+          receiverPhone: formik.values.phoneNumber,
+          receiverAcctName: formik.values.accountName,
+          receiverAcctNo: formik.values.accountNumber,
+          receiverBankName: formik.values.bankName,
+          receiverBankAddress: formik.values.bankAddress,
+          receiverIban: formik.values.iban,
+          receiverSwiftCode: formik.values.swiftCode,
+          receiverCountry: formik.values.receivingCountry,
+          currencySent: formik.values.sendingcurrency,
+          currencyReceived: formik.values.receivingcurrency,
+          amountReceived: formik.values.amountReceived,
+          description: formik.values.tractionDescription,
+          paymentMethod: "Card Payment",
           // Card Payment
         },
         {
@@ -150,7 +152,7 @@ const Update = () => {
         console.log(res);
       })
       .catch((e) => {
-        console.log(res);
+        console.log(e);
       });
   };
 
@@ -164,25 +166,6 @@ const Update = () => {
         }
       >
         {change ? (
-          <div className="bg-white h-[24rem] w-[26rem] rounded-lg flex flex-col items-center relative">
-            <IoCloseCircle
-              className="text-[#009186] absolute right-3 top-2 text-xl cursor-pointer"
-              onClick={() => setoverlay(false)}
-            />
-            <div className="flex justify-center items-center rounded-full h-[5rem] w-[5rem] bg-[#00913E]/[0.1] mx-auto mt-20">
-              <img src={mail} alt="" className="object-contain w-12" />
-            </div>
-            <p className="text-center mt-8 w-[20rem]">
-              You will pay the sum of N500,000
-            </p>
-            <button
-              onClick={() => setchange(false)}
-              className="py-2 px-10 bg-[#009186] text-[#F8F8FF] rounded-lg mt-5"
-            >
-              Pay Now
-            </button>
-          </div>
-        ) : (
           <div className="bg-[#F8F8FF] h-[16rem] rounded-[11.8392px] text-xs mxl:text-sm w-[26rem] mxl:h-[20rem] mxl:w-[30rem] py-8 px-10  font-semibold">
             <p className="text-center">Select Mode Of Payment</p>
             <div
@@ -201,6 +184,25 @@ const Update = () => {
               <img src={img1} alt="" />
               <p className="ml-2">Pay with debit card</p>
             </div>
+          </div>
+        ) : (
+          <div className="bg-white h-[24rem] w-[26rem] rounded-lg flex flex-col items-center relative">
+            <IoCloseCircle
+              className="text-[#009186] absolute right-3 top-2 text-xl cursor-pointer"
+              onClick={() => setoverlay(false)}
+            />
+            <div className="flex justify-center items-center rounded-full h-[5rem] w-[5rem] bg-[#00913E]/[0.1] mx-auto mt-20">
+              <img src={mail} alt="" className="object-contain w-12" />
+            </div>
+            <p className="text-center mt-8 w-[20rem]">
+              You will pay the sum of N500,000
+            </p>
+            <button
+              onClick={() => setchange(false)}
+              className="py-2 px-10 bg-[#009186] text-[#F8F8FF] rounded-lg mt-5"
+            >
+              Pay Now
+            </button>
           </div>
         )}
       </div>
