@@ -180,6 +180,7 @@ const CardPayment = () => {
               <span className="relative z-0 ">
                 <select
                   type="text"
+                  disabled
                   id="sendingcurrency"
                   className={
                     formik.errors.sendingcurrency &&
@@ -227,6 +228,7 @@ const CardPayment = () => {
               <span className="relative z-0">
                 <select
                   type="text"
+                  disabled
                   id="receivingcurrency"
                   className={
                     formik.errors.receivingcurrency &&
