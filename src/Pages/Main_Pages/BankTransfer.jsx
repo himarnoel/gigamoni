@@ -43,6 +43,8 @@ const BankTransfer = () => {
         tractionDescription: state.description,
         amountsent: state.amountSent,
         amountReceived: state.amountReceived,
+        receivingcurrency: state.currencyReceived,
+        sendingcurrency: state.currencySent,
       });
     }
   }, []);
@@ -59,6 +61,8 @@ const BankTransfer = () => {
       accountNumber: "",
       receivingCountry: "",
       tractionDescription: "",
+      receivingcurrency: "USD",
+      sendingcurrency: "NGN",
       amountsent: "",
       amountReceived: "",
     },
@@ -101,7 +105,9 @@ const BankTransfer = () => {
               </p>
             </div>
             <div className="flex flex-col  lg:flex-row  lg:w-full mt-6 md:mt-2 lg:mt-8">
-              <p className=" md:pr-0 lg:pr-8 ">Date: {state.transactionCreatedDate}</p>
+              <p className=" md:pr-0 lg:pr-8 ">
+                Date: {state.transactionCreatedDate}
+              </p>
               <p className="md:mt-2 lg:mt-0 mt-6">
                 Mode of payment: Bank Transfer
               </p>
@@ -143,7 +149,7 @@ const BankTransfer = () => {
                   className={
                     formik.errors.sendingcurrency &&
                     formik.touched.sendingcurrency
-                      ?" font-poppins pl-3  pb-0 h-[52px] w-[85px] flex justify-center items-center  shade text-sm  mt-3 bg-transparent  text-[#707070] border-r   rounded-[6px] border-solid border-red-500 border-[4px] rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
+                      ? " font-poppins pl-3  pb-0 h-[52px] w-[85px] flex justify-center items-center  shade text-sm  mt-3 bg-transparent  text-[#707070] border-r   rounded-[6px] border-solid border-red-500 border-[4px] rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
                       : " font-poppins pl-3  pb-0 h-[52px] w-[85px] flex justify-center items-center  shade text-sm  mt-3 bg-transparent  text-[#707070] border-r   rounded-[6px] border-solid border-[#707070] border-[4px] rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
                     //placeholder=" "
                   }

@@ -5,7 +5,7 @@ import mail from "../../assets/Vector.svg";
 import { BiTransfer } from "react-icons/bi";
 import { RiArrowDownSLine } from "react-icons/ri";
 import { Formik, useFormik } from "formik";
-import { baseurl, pendingValidate } from "../../Service/validate_and_api";
+import { baseurl, pendingValidate, updateValidate } from "../../Service/validate_and_api";
 import trans from "../../assets/overlayimage/iconic.svg";
 import { useRef } from "react";
 import { useState } from "react";
@@ -86,7 +86,7 @@ const CardPayment = () => {
       //   amountsent: location.state.amountsent,
       //   amountReceived: location.state.amountReceived,
     },
-    validationSchema: pendingValidate,
+    validationSchema: updateValidate,
     onSubmit: (values) => {
       if (checkmobile) {
         navigate("/pay", { state: values });
