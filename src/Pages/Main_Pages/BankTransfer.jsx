@@ -4,24 +4,41 @@ import bell from "../../assets/bell.svg";
 import { BiTransfer } from "react-icons/bi";
 import { RiArrowDownSLine } from "react-icons/ri";
 import { Formik, useFormik } from "formik";
-import { pendingValidate } from "../../Service/validate_and_api";
+import {
+  pendingValidate,
+  updateValidate,
+} from "../../Service/validate_and_api";
 import trans from "../../assets/overlayimage/iconic.svg";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 const BankTransfer = () => {
   const [items, setItems] = useState({});
   const [fileName, setfileName] = useState("");
-  const navigate = useNavigate;
+  const navigate = useNavigate();
+  const { state } = useLocation();
   useEffect(() => {
     const val = localStorage.getItem("LoggedIntoken");
     if (!val) {
-      navigate("/signup");
+      navigate("/login");
     } else {
       const upload = JSON.parse(localStorage.getItem("filetoupload"));
       if (upload) {
         setItems(upload);
         setfileName(upload.fileName);
       }
+      formik.setValues({
+        receivername: state.receiverAcctName,
+        bankName: state.receiverBankName,
+        phoneNumber: state.receiverPhone,
+        bankAddress: state.receiverBankAddress,
+        emailAddress: state.receiverEmail,
+        iban: state.receiverIban,
+        accountName: state.receiverAcctNo,
+        swiftCode: state.receiverSwiftCode,
+        accountNumber: state.receiverAcctNo,
+        receivingCountry: state.receiverCountry,
+        tractionDescription: state.description,
+      });
     }
   }, []);
   const formik = useFormik({
@@ -37,8 +54,10 @@ const BankTransfer = () => {
       accountNumber: "",
       receivingCountry: "",
       tractionDescription: "",
+      amountsent: "",
+      amountReceived: "",
     },
-    validationSchema: pendingValidate,
+    validationSchema: updateValidate,
     onSubmit: (values) => {
       console.log(values);
     },
@@ -49,7 +68,10 @@ const BankTransfer = () => {
       <NavBar class="top-0 fixed z-[20]" />
       <div className=" pt-32 mxl:pt-32 2xl:px-[10rem] xl:px-[5rem] lg:px-10  px-2 xss:px-4 xs:px-6 sm:px-8 md:px-8 ">
         <div className="flex justify-between items-center ">
-          <button onClick={()=>navigate("/dashboard")} className="p-6 bg-[#87ACA3] rounded-md px-20 text-sm py-3 float-right  text-[#262626] font-medium">
+          <button
+            onClick={() => navigate("/dashboard")}
+            className="p-6 bg-[#87ACA3] rounded-md px-20 text-sm py-3 float-right  text-[#262626] font-medium"
+          >
             Back
           </button>
           <div
@@ -536,7 +558,7 @@ const BankTransfer = () => {
               </div>{" "}
               <div className="relative z-0  row-span-2">
                 <textarea
-                  placeholder="Enter traction description "
+                  placeholder="Enter transaction description "
                   name=""
                   id=""
                   cols="30"
@@ -546,12 +568,13 @@ const BankTransfer = () => {
                       ? "w-full placeholder:text-xs px-2 pt-2 placeholder:text-[#262626] border-red-500  focus:border-[#009186]  bg-transparent h-[6rem] rounded-lg border"
                       : "w-full placeholder:text-xs px-2 pt-2 placeholder:text-[#262626] border-[#262626]  focus:border-[#009186]  bg-transparent h-[6rem] mxl:h-[9rem] rounded-lg border"
                   }
+                  value={formik.values.tractionDescription}
                 ></textarea>
 
                 {formik.errors.tractionDescription &&
                 formik.touched.tractionDescription ? (
                   <p className="text-red-500 text-xs font-poppins">
-                    {formik.errors.receivername}
+                    {formik.errors.tractionDescription}
                   </p>
                 ) : (
                   ""
