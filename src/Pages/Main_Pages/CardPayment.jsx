@@ -17,11 +17,10 @@ import img1 from "../../assets/overlayimage/one.svg";
 import img2 from "../../assets/overlayimage/vector.svg";
 
 const CardPayment = () => {
-  
   useEffect(() => {
     const val = localStorage.getItem("LoggedIntoken");
     if (!val) {
-      navigate("/signup");
+      navigate("/login");
     }
   }, []);
   const [overlay, setoverlay] = useState(false);

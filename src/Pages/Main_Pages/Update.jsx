@@ -260,7 +260,7 @@ const Update = () => {
           <div className="lg:w-[26rem] xl:w-[32rem] flex flex-col justify-between  h-[4rem] text-sm">
             {" "}
             <div className="flex flex-col lg:flex-row justify-between font-medium lg:mt-4">
-              <p className="">Transaction ID: 1234567890987</p>
+              <p className="">Transaction ID: {state.transactionID}</p>
               <p className="flex  mt-4 lg:mt-0">
                 <span className="mr-1"> Status:</span>{" "}
                 <span className="text-[#EB4335]">Update*</span>
@@ -268,7 +268,7 @@ const Update = () => {
             </div>
             <div className="flex  justify-between font-medium mt-4 lg:mt-6 ">
               {" "}
-              <p className="d">Date: 01/01/2023 11:30am</p>
+              <p className="d">Date: {state.transactionCreatedDate}</p>
               {/* <p className="ss">Service Fee: $10</p> */}
             </div>
           </div>

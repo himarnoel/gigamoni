@@ -25,7 +25,7 @@ const Profile = () => {
     window.scroll({ top: 0, left: 0 });
     const val = localStorage.getItem("LoggedIntoken");
     if (!val) {
-      navigate("/signup");
+      navigate("/login");
     } else {
       body.style.overflow = "hidden";
       setload(true);
