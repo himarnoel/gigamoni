@@ -123,7 +123,7 @@ const UploadProof = () => {
           setload(false);
           body.style.overflow = "";
           localStorage.setItem("filetoupload", JSON.stringify(values));
-          // navigate("/banktransfer", { state: values });
+          navigate("/banktransfer", { state: res.data });
         })
         .catch((e) => {
           console.log(e);
