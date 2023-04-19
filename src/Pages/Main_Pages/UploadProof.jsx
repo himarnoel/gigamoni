@@ -7,14 +7,19 @@ import { MdDeleteForever } from "react-icons/md";
 import pdf from "../../assets/overlayimage/pdf.svg";
 import pin from "../../assets/overlayimage/pin.svg";
 import { useFormik } from "formik";
-import { uploadfileValidate } from "../../Service/validate_and_api";
+import { baseurl, uploadfileValidate } from "../../Service/validate_and_api";
 import { useLocation, useNavigate } from "react-router-dom";
+import axios from "axios";
+import { RingLoader } from "react-spinners";
 
 const UploadProof = () => {
   const navigate = useNavigate();
   const { state } = useLocation();
   const safeDocument = typeof document !== "undefined" ? document : {};
+  const scrollBlocked = useRef();
+
   const { body } = safeDocument;
+  const [load, setload] = useState(false);
 
   useEffect(() => {
     window.scroll({ top: 0, left: 0 });
@@ -25,10 +30,11 @@ const UploadProof = () => {
 
     formik.setValues({
       transactionID: state.transactionID,
-      file: "",
-      fileName: "",
+      file: formik.values.file,
+      fileName: formik.values.fileName,
     });
   }, []);
+
   const wrapperRef = useRef();
   const hiddenFileInput = useRef(null);
   const [overlayUpload, setoverlayUpload] = useState(false);
@@ -96,8 +102,35 @@ const UploadProof = () => {
     initialValues: { transactionID: "", file: "", fileName: "" },
     validationSchema: uploadfileValidate,
     onSubmit: (values) => {
-      localStorage.setItem("filetoupload", JSON.stringify(values));
-      navigate("/progress");
+      window.scrollTo({ top: 0, left: 0 });
+      body.style.overflow = "hidden";
+      setload(true);
+
+      axios
+        .patch(
+          `${baseurl}/transactions/${state.transactionID}/transaction/`,
+          {
+            paymentProof: values.file,
+          },
+          {
+            headers: {
+              Authorization: `Token ${localStorage.getItem("LoggedIntoken")}`,
+            },
+          }
+        )
+        .then((res) => {
+          console.log(res);
+          setload(false);
+          body.style.overflow = "";
+          localStorage.setItem("filetoupload", JSON.stringify(values));
+          // navigate("/banktransfer", { state: values });
+        })
+        .catch((e) => {
+          console.log(e);
+          setload(false);
+        });
+      // localStorage.setItem("filetoupload", JSON.stringify(values));
+      // navigate("/progress");
     },
   });
   const remove = () => {
@@ -109,7 +142,14 @@ const UploadProof = () => {
   };
   console.log(formik.values);
   return (
-    <div>
+    <div className="font-poppins">
+      {load ? (
+        <div className="absolute top-0 bg-cover bg-[#262626]/[0.8]  z-[90] h-full overla w-full flex  justify-center items-center text-3xl">
+          <RingLoader color="#009186" size={90} />
+        </div>
+      ) : (
+        ""
+      )}
       <div
         onDragOver={preventOpeningFile}
         onDragLeave={preventOpeningFile}
