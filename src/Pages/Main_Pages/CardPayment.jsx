@@ -5,7 +5,11 @@ import mail from "../../assets/Vector.svg";
 import { BiTransfer } from "react-icons/bi";
 import { RiArrowDownSLine } from "react-icons/ri";
 import { Formik, useFormik } from "formik";
-import { baseurl, pendingValidate, updateValidate } from "../../Service/validate_and_api";
+import {
+  baseurl,
+  pendingValidate,
+  updateValidate,
+} from "../../Service/validate_and_api";
 import trans from "../../assets/overlayimage/iconic.svg";
 import { useRef } from "react";
 import { useState } from "react";
@@ -17,6 +21,10 @@ import img1 from "../../assets/overlayimage/one.svg";
 import img2 from "../../assets/overlayimage/vector.svg";
 
 const CardPayment = () => {
+  const navigate = useNavigate();
+  const [transaction, settransaction] = useState("");
+  const [load, setload] = useState(false);
+  const { state } = useLocation();
   useEffect(() => {
     const val = localStorage.getItem("LoggedIntoken");
     if (!val) {
@@ -37,15 +45,15 @@ const CardPayment = () => {
         tractionDescription: state.description,
         amountsent: state.amountSent,
         amountReceived: state.amountReceived,
+        receivingcurrency: state.currencyReceived,
+        sendingcurrency: state.currencySent,
       });
     }
   }, []);
   const [overlay, setoverlay] = useState(false);
   const [change, setchange] = useState(false);
   const [fileName, setfileName] = useState("");
-  const navigate = useNavigate();
-  const [transaction, settransaction] = useState("");
-  const { state } = useLocation();
+
   const blockScroll = () => {
     window.scrollTo({ top: 0, left: 0 });
     body.style.overflow = "hidden";
@@ -88,13 +96,13 @@ const CardPayment = () => {
     },
     validationSchema: updateValidate,
     onSubmit: (values) => {
-      if (checkmobile) {
-        navigate("/pay", { state: values });
-      } else {
-        console.log(values);
-        blockScroll();
-        setbool(true);
-      }
+      // if (checkmobile) {
+      //   navigate("/pay", { state: values });
+      // } else {
+      //   console.log(values);
+      //   blockScroll();
+      //   setbool(true);
+      // }
     },
   });
   return (
@@ -123,14 +131,17 @@ const CardPayment = () => {
         <div className="flex  sm:flex-row flex-col w-full md:w-fit lg:w-full justify-between items-center font-medium text-sm">
           <div className="flex flex-col w-full sm:w-fit  ">
             <div className="flex flex-col md:flex-row  text-xs ">
-              <p className="pr-8 mt-6">Transaction ID :1234567890987</p>
+              <p className="pr-8 mt-6">Transaction ID :{transaction}</p>
               <p className="flex mt-6">
                 <p> Status:</p>
                 <p className="text-[#FBBC05] ml-1"> In progress</p>
               </p>
             </div>
             <div className="flex flex-col text-xs  lg:flex-row  lg:w-full mt-6 md:mt-2 lg:mt-8">
-              <p className=" md:pr-0 lg:pr-8 ">Date: 01/01/2023 11:30am</p>
+              <p className=" md:pr-0 lg:pr-8 ">
+      
+                Date: {state.transactionCreatedDate}
+              </p>
               <p className="md:mt-2 lg:mt-0 mt-6 text-[#009186]  ml-8">
                 Card Payment Completed
               </p>
