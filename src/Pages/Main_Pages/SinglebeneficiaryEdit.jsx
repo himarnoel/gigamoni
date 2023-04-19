@@ -2,22 +2,45 @@ import React, { useEffect, useRef, useState } from "react";
 
 import bell from "../../assets/bell.svg";
 import axios from "axios";
-import { baseurl, pendingValidate } from "../../Service/validate_and_api";
+import {
+  baseurl,
+  beneficiaryValidate,
+  pendingValidate,
+} from "../../Service/validate_and_api";
 import { BsFillCalendar2Fill } from "react-icons/bs";
 import DatePicker from "react-datepicker";
 import { RiCloseCircleFill } from "react-icons/ri";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import NavBar from "./../../Components/AppComponents/NavBar";
 import { useFormik } from "formik";
 import DashNav from "../../Components/DashBoardComponents/DashNav";
 const SinglebeneficiaryEdit = () => {
+  const { state } = useLocation();
+  const safeDocument = typeof document !== "undefined" ? document : {};
+  const { body } = safeDocument;
+
   const navigate = useNavigate();
   useEffect(() => {
     const val = localStorage.getItem("LoggedIntoken");
     if (!val) {
-      navigate("/signup");
+      navigate("/login");
+    } else {
+      window.scroll({ top: 0, left: 0 });
+      formik.setValues({
+        receivername: state.fullName,
+        bankName: state.bankName,
+        phoneNumber: state.phoneNumber,
+        bankAddress: state.bankAddress,
+        emailAddress: state.email,
+        iban: state.iban,
+        accountName: state.acctName,
+        swiftCode: state.swiftCode,
+        accountNumber: state.acctNo,
+        country: state.country,
+      });
     }
   }, []);
+
   const formik = useFormik({
     initialValues: {
       receivername: "",
@@ -29,16 +52,12 @@ const SinglebeneficiaryEdit = () => {
       accountName: "",
       swiftCode: "",
       accountNumber: "",
-      receivingCountry: "",
-      tractionDescription: "",
-      receivingcurrency: "USD",
-      sendingcurrency: "NGN",
-      amountsent: "",
-      amountReceived: "",
+      country: "",
     },
-    validationSchema: pendingValidate,
+    validationSchema: beneficiaryValidate,
     onSubmit: (values) => {},
   });
+
   return (
     <div className="font-poppins">
       <DashNav class="fixed top-0 z-[2]" />
