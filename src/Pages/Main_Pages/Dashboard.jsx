@@ -132,7 +132,7 @@ const Dashboard = () => {
     } else if (item.status == "Update") {
       navigate("/update", { state: item });
     } else if (item.status == "In Progress") {
-      if (item.paymentMethod == "payWithTransfer") {
+      if (item.paymentMethod == "Bank Transfer") {
         navigate("/upload", { state: item });
       } else {
         navigate("/cardpayment", { state: item });
