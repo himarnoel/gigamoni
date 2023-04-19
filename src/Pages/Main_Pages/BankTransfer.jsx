@@ -11,6 +11,7 @@ import {
 import trans from "../../assets/overlayimage/iconic.svg";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import DashNav from "../../Components/DashBoardComponents/DashNav";
 const BankTransfer = () => {
   const [items, setItems] = useState({});
   const [fileName, setfileName] = useState("");
@@ -38,6 +39,8 @@ const BankTransfer = () => {
         accountNumber: state.receiverAcctNo,
         receivingCountry: state.receiverCountry,
         tractionDescription: state.description,
+        amountsent:state.description,
+        amountReceived:state.description,
       });
     }
   }, []);
@@ -65,7 +68,7 @@ const BankTransfer = () => {
   console.log(formik.values);
   return (
     <div className=" font-poppins">
-      <NavBar class="top-0 fixed z-[20]" />
+      <DashNav class="top-0 fixed z-[20]" />
       <div className=" pt-32 mxl:pt-32 2xl:px-[10rem] xl:px-[5rem] lg:px-10  px-2 xss:px-4 xs:px-6 sm:px-8 md:px-8 ">
         <div className="flex justify-between items-center ">
           <button
