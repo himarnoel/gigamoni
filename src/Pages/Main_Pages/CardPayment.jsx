@@ -12,7 +12,7 @@ import { useState } from "react";
 import { RingLoader } from "react-spinners";
 import { IoCloseCircle } from "react-icons/io5";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import img1 from "../../assets/overlayimage/one.svg";
 import img2 from "../../assets/overlayimage/vector.svg";
 
@@ -21,11 +21,31 @@ const CardPayment = () => {
     const val = localStorage.getItem("LoggedIntoken");
     if (!val) {
       navigate("/login");
+    } else {
+      settransaction(state.transactionID);
+      formik.setValues({
+        receivername: state.receiverAcctName,
+        bankName: state.receiverBankName,
+        phoneNumber: state.receiverPhone,
+        bankAddress: state.receiverBankAddress,
+        emailAddress: state.receiverEmail,
+        iban: state.receiverIban,
+        accountName: state.receiverAcctNo,
+        swiftCode: state.receiverSwiftCode,
+        accountNumber: state.receiverAcctNo,
+        receivingCountry: state.receiverCountry,
+        tractionDescription: state.description,
+        amountsent: state.amountSent,
+        amountReceived: state.amountReceived,
+      });
     }
   }, []);
   const [overlay, setoverlay] = useState(false);
   const [change, setchange] = useState(false);
+  const [fileName, setfileName] = useState("");
   const navigate = useNavigate();
+  const [transaction, settransaction] = useState("");
+  const { state } = useLocation();
   const blockScroll = () => {
     window.scrollTo({ top: 0, left: 0 });
     body.style.overflow = "hidden";
@@ -82,7 +102,10 @@ const CardPayment = () => {
       <NavBar class="top-0 fixed z-[20]" />
       <div className=" mt-28 sm:mt-26  sm:mt-26  lg:mt-20  mxl:mt-10  2xl:px-[10rem] xl:px-[5rem] lg:px-10  px-2 xss:px-4 xs:px-6 sm:px-8 md:px-8 ">
         <div className="flex justify-between items-center ">
-          <button className="p-6 bg-[#87ACA3] rounded-md px-20 text-sm py-3 float-right  text-[#262626] font-medium">
+          <button
+            onClick={() => navigate(-1)}
+            className="p-6 bg-[#87ACA3] rounded-md px-20 text-sm py-3 float-right  text-[#262626] font-medium"
+          >
             Back
           </button>
           <div
