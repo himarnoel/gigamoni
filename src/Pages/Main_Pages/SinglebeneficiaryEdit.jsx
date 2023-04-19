@@ -14,10 +14,13 @@ import { useLocation, useNavigate } from "react-router-dom";
 import NavBar from "./../../Components/AppComponents/NavBar";
 import { useFormik } from "formik";
 import DashNav from "../../Components/DashBoardComponents/DashNav";
+import { RingLoader } from "react-spinners";
+import { toast } from 'react-toastify';
 const SinglebeneficiaryEdit = () => {
   const { state } = useLocation();
   const safeDocument = typeof document !== "undefined" ? document : {};
   const { body } = safeDocument;
+  const [load, setload] = useState(false);
 
   const navigate = useNavigate();
   useEffect(() => {
@@ -55,13 +58,45 @@ const SinglebeneficiaryEdit = () => {
       country: "",
     },
     validationSchema: beneficiaryValidate,
-    onSubmit: (values) => {
-      
-    },
+    onSubmit: (values) => {},
   });
+  const deleteBeneficiary = () => {
+    setload(true);
+    axios
+      .delete(
+        `${baseurl}/transactions/${state.id}/beneficiary/`,
+
+        {
+          headers: {
+            Authorization: `Token ${localStorage.getItem("LoggedIntoken")}`,
+          },
+        }
+      )
+      .then((res) => {
+        console.log(res.data);
+        navigate(-1);
+        setload(false);
+        toast.success("Deleted")
+      })
+      .catch((e) => {
+        console.log(e);
+        // navigate(-1);
+        setload(false);
+        toast.error("Error ")
+      });
+  };
 
   return (
     <div className="font-poppins">
+      <div
+        className={
+          load
+            ? "absolute top-0   bg-[#262626]/[0.8]    z-[90] h-screen w-full flex  justify-center items-center text-3xl"
+            : "hidden"
+        }
+      >
+        <RingLoader color="#009186" size={90} className="text-3xl" />
+      </div>
       <DashNav class="fixed top-0 z-[2]" />
       <div className="flex justify-between items-center mt-28 px-2 xss:px-4 xs:px-6  sm:mt-26  sm:mt-26  lg:mt-20 2xl:px-[10rem] xl:px-[5rem] lg:px-10">
         <div className="flex-col flex">
@@ -71,7 +106,10 @@ const SinglebeneficiaryEdit = () => {
           >
             Back
           </button>
-          <button className=" text-sm px-[4rem] py-[0.7rem]  lg:px-[4rem] lg:py-[0.7rem] rounded-lg border-2 border-[#009186] text-[#009186] mt-8">
+          <button
+            onClick={() => deleteBeneficiary()}
+            className=" text-sm px-[4rem] py-[0.7rem]  lg:px-[4rem] lg:py-[0.7rem] rounded-lg border-2 border-[#009186] text-[#009186] mt-8"
+          >
             Remove
           </button>
         </div>
