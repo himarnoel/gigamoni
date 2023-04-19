@@ -203,6 +203,7 @@ const CardPayment = () => {
               </span>
               <input
                 type="number"
+                disabled
                 id="amountsent"
                 placeholder="00000"
                 className={
