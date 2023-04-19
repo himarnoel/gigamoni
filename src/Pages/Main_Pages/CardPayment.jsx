@@ -139,7 +139,6 @@ const CardPayment = () => {
             </div>
             <div className="flex flex-col text-xs  lg:flex-row  lg:w-full mt-6 md:mt-2 lg:mt-8">
               <p className=" md:pr-0 lg:pr-8 ">
-      
                 Date: {state.transactionCreatedDate}
               </p>
               <p className="md:mt-2 lg:mt-0 mt-6 text-[#009186]  ml-8">
@@ -605,7 +604,8 @@ const CardPayment = () => {
               </div>{" "}
               <div className="relative z-0  row-span-2">
                 <textarea
-                  placeholder="Enter traction description "
+                  placeholder="Enter transaction description "
+                  disabled
                   name=""
                   id=""
                   cols="30"
@@ -615,12 +615,13 @@ const CardPayment = () => {
                       ? "w-full placeholder:text-xs px-2 pt-2 placeholder:text-[#262626] border-red-500  focus:border-[#009186]  bg-transparent h-[6rem] rounded-lg border"
                       : "w-full placeholder:text-xs px-2 pt-2 placeholder:text-[#262626] border-[#262626]  focus:border-[#009186]  bg-transparent h-[6rem] mxl:h-[9rem] rounded-lg border"
                   }
+                  value={formik.values.tractionDescription}
                 ></textarea>
 
                 {formik.errors.tractionDescription &&
                 formik.touched.tractionDescription ? (
                   <p className="text-red-500 text-xs font-poppins">
-                    {formik.errors.receivername}
+                    {formik.errors.tractionDescription}
                   </p>
                 ) : (
                   ""
