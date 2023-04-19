@@ -116,7 +116,7 @@ const Update = () => {
       .then((res) => {
         console.log(res);
         toast.success("success");
-        navigate("/dashboard");
+        navigate(-1);
       })
       .catch((e) => {
         console.log(e);
