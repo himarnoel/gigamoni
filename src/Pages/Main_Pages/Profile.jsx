@@ -17,8 +17,6 @@ import { toast } from "react-toastify";
 const Profile = () => {
   const navigate = useNavigate();
   const safeDocument = typeof document !== "undefined" ? document : {};
-  const scrollBlocked = useRef();
-  const html = safeDocument.documentElement;
   const { body } = safeDocument;
   const [load, setload] = useState(false);
   useEffect(() => {

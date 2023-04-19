@@ -123,6 +123,7 @@ const Update = () => {
       });
   };
   const payWithCard = () => {
+    blockScroll();
     axios
       .patch(
         `${baseurl}/transactions/${state.transactionID}/transaction/`,
@@ -154,10 +155,12 @@ const Update = () => {
       .then((res) => {
         console.log(res);
         toast.success("success");
+        allowScroll();
         navigate("/dashboard");
       })
       .catch((e) => {
         console.log(e);
+        allowScroll();
       });
   };
 
