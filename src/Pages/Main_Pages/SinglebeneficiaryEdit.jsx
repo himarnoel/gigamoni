@@ -15,7 +15,7 @@ import NavBar from "./../../Components/AppComponents/NavBar";
 import { useFormik } from "formik";
 import DashNav from "../../Components/DashBoardComponents/DashNav";
 import { RingLoader } from "react-spinners";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 const SinglebeneficiaryEdit = () => {
   const { state } = useLocation();
   const safeDocument = typeof document !== "undefined" ? document : {};
@@ -76,13 +76,13 @@ const SinglebeneficiaryEdit = () => {
         console.log(res.data);
         navigate(-1);
         setload(false);
-        toast.success("Deleted")
+        toast.success("Deleted");
       })
       .catch((e) => {
         console.log(e);
         // navigate(-1);
         setload(false);
-        toast.error("Error ")
+        toast.error("An error occured");
       });
   };
 
