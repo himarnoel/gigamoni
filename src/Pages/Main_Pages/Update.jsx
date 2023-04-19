@@ -30,7 +30,7 @@ const Update = () => {
     window.scroll({ top: 0, left: 0 });
     const val = localStorage.getItem("LoggedIntoken");
     if (!val) {
-      navigate("/signup");
+      navigate("/login");
     }
     formik.setValues({
       receivername: state.receiverName,

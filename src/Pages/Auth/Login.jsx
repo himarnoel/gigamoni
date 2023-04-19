@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import NavBar from "./../../Components/AppComponents/NavBar";
 import icon from "./../../assets/google-icon.svg";
 import { RiArrowDownSLine } from "react-icons/ri";
@@ -17,6 +17,14 @@ const Login = () => {
   const [selected, setSelected] = useState("");
   const [load, setload] = useState(false);
   const navigate = useNavigate();
+  useEffect(() => {
+    window.scroll({ top: 0, left: 0 });
+    const val = localStorage.getItem("LoggedIntoken");
+    if (val) {
+      navigate("/dashboard");
+    }
+  }, []);
+
   const formik = useFormik({
     initialValues: {
       email: "",
