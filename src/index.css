@@ -67,7 +67,7 @@ select:not([value='']):valid ~ label {
     --tw-translate-y: -1.4rem;
 }
 
-select:focus ~ label{
+select:focus ~ label, select:disabled ~ label{
     
     --tw-translate-x: 0;
     --tw-translate-y: 0;

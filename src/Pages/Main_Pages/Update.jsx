@@ -546,6 +546,7 @@ const Update = () => {
               <div className="relative z-0 ">
                 <select
                   type="text"
+                  disabled
                   id="receivingCountry"
                   className={
                     formik.errors.receivingCountry &&

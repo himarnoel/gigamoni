@@ -199,9 +199,9 @@ const Dashboard = () => {
           {load ? (
             <RingLoader className="text-[#009186] " />
           ) : loaderror ? (
-            <p className="text-red-500">A error occurred</p>
+            <p className="text-red-500 font-semibold">An error occurred</p>
           ) : norecenttrans ? (
-            <p className="text-yellow-500">No beneficiary</p>
+            <p className="text-yellow-500 font-semibold">No beneficiary</p>
           ) : (
             <div className="   h-[86%]  overflow-auto mt-5 px-8 bg-">
               {beneficiarieslist.map((item, i) => (
@@ -382,9 +382,9 @@ const Dashboard = () => {
               {load ? (
                 <RingLoader className="text-[#009186] " />
               ) : loaderror ? (
-                <p className="text-red-500">A error occurred</p>
+                <p className="text-red-500 font-semibold">An error occurred</p>
               ) : norecenttrans ? (
-                <p className="text-yellow-500">No beneficiary</p>
+                <p className="text-yellow-500 font-semibold">No beneficiary</p>
               ) : (
                 beneficiarieslist.map((item, i) => (
                   <div
