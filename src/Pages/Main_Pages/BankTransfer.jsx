@@ -39,8 +39,8 @@ const BankTransfer = () => {
         accountNumber: state.receiverAcctNo,
         receivingCountry: state.receiverCountry,
         tractionDescription: state.description,
-        amountsent:state.description,
-        amountReceived:state.description,
+        amountsent: state.amountSent,
+        amountReceived: state.amountReceived,
       });
     }
   }, []);
