@@ -29,7 +29,7 @@ const UploadProof = () => {
     }
 
     formik.setValues({
-      transactionID: state.transactionID,
+      transactionID: state.transaction,
       file: formik.values.file,
       fileName: formik.values.fileName,
     });
@@ -123,7 +123,7 @@ const UploadProof = () => {
           setload(false);
           body.style.overflow = "";
           localStorage.setItem("filetoupload", JSON.stringify(values));
-          navigate("/banktransfer", { state: res.data });
+          // navigate("/banktransfer", { state: res.data });
         })
         .catch((e) => {
           console.log(e);

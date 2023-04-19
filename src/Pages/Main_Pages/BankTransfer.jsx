@@ -16,6 +16,7 @@ const BankTransfer = () => {
   const [items, setItems] = useState({});
   const [fileName, setfileName] = useState("");
   const navigate = useNavigate();
+  const [transaction, settransaction] = useState("");
   const { state } = useLocation();
   useEffect(() => {
     const val = localStorage.getItem("LoggedIntoken");
@@ -27,6 +28,7 @@ const BankTransfer = () => {
         setItems(upload);
         setfileName(upload.fileName);
       }
+      settransaction(state.transactionID);
       formik.setValues({
         receivername: state.receiverAcctName,
         bankName: state.receiverBankName,
@@ -121,7 +123,7 @@ const BankTransfer = () => {
               </div>
             ) : (
               <p
-                onClick={() => navigate("/upload")}
+                onClick={() => navigate("/upload", { state: { transaction } })}
                 className="sm:ml-4 mt-6 text-[#009186] sm:mt-6 cursor-pointer"
               >
                 Upload proof of payment
