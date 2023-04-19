@@ -250,6 +250,7 @@ const CardPayment = () => {
               </span>
               <input
                 type="number"
+                disabled
                 id="amountReceived"
                 placeholder="00000"
                 className={
@@ -275,6 +276,7 @@ const CardPayment = () => {
               <div className="relative z-0 mt-0">
                 <input
                   type="text"
+                  disabled
                   id="receivername"
                   className={
                     formik.errors.receivername && formik.touched.receivername
@@ -307,6 +309,7 @@ const CardPayment = () => {
               <div className="relative z-0 mt-0">
                 <input
                   type="text"
+                  disabled
                   id="phoneNumber"
                   className={
                     formik.errors.phoneNumber && formik.touched.phoneNumber
@@ -339,6 +342,7 @@ const CardPayment = () => {
               <div className="relative z-0 mt-0">
                 <input
                   type="text"
+                  disabled
                   id="emailAddress"
                   className={
                     formik.errors.emailAddress && formik.touched.emailAddress
@@ -371,6 +375,7 @@ const CardPayment = () => {
               <div className="relative z-0 mt-0">
                 <input
                   type="text"
+                  disabled
                   id="accountName"
                   className={
                     formik.errors.accountName && formik.touched.accountName
@@ -403,6 +408,7 @@ const CardPayment = () => {
               <div className="relative z-0 mt-0">
                 <input
                   type="text"
+                  disabled
                   id="accountNumber"
                   className={
                     formik.errors.accountNumber && formik.touched.accountNumber
@@ -478,6 +484,7 @@ const CardPayment = () => {
               <div className="relative z-0 mt-0">
                 <input
                   type="text"
+                  disabled
                   id="bankName"
                   className={
                     formik.errors.bankName && formik.touched.bankName
@@ -510,6 +517,7 @@ const CardPayment = () => {
               <div className="relative z-0 mt-0">
                 <input
                   type="text"
+                  disabled
                   id="bankAddress"
                   className={
                     formik.errors.bankAddress && formik.touched.bankAddress
@@ -542,6 +550,7 @@ const CardPayment = () => {
               <div className="relative z-0 mt-0">
                 <input
                   type="text"
+                  disabled
                   id="iban"
                   className={
                     formik.errors.iban && formik.touched.iban
@@ -574,6 +583,7 @@ const CardPayment = () => {
               <div className="relative z-0 mt-0">
                 <input
                   type="text"
+                  disabled
                   id="swiftCode"
                   className={
                     formik.errors.swiftCode && formik.touched.swiftCode
