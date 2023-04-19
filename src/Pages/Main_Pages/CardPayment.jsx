@@ -19,6 +19,7 @@ import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
 import img1 from "../../assets/overlayimage/one.svg";
 import img2 from "../../assets/overlayimage/vector.svg";
+import DashNav from "../../Components/DashBoardComponents/DashNav";
 
 const CardPayment = () => {
   const navigate = useNavigate();
@@ -107,7 +108,7 @@ const CardPayment = () => {
   });
   return (
     <div className=" font-poppins">
-      <NavBar class="top-0 fixed z-[20]" />
+      <DashNav class="top-0 fixed z-[20]" />
       <div className=" mt-28 sm:mt-26  sm:mt-26  lg:mt-20  mxl:mt-10  2xl:px-[10rem] xl:px-[5rem] lg:px-10  px-2 xss:px-4 xs:px-6 sm:px-8 md:px-8 ">
         <div className="flex justify-between items-center ">
           <button
