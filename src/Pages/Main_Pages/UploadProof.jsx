@@ -108,7 +108,7 @@ const UploadProof = () => {
 
       axios
         .patch(
-          `${baseurl}/transactions/${state.transactionID}/transaction/`,
+          `${baseurl}/transactions/${state.transaction}/transaction/`,
           {
             paymentProof: values.file,
           },
@@ -123,7 +123,7 @@ const UploadProof = () => {
           setload(false);
           body.style.overflow = "";
           localStorage.setItem("filetoupload", JSON.stringify(values));
-          // navigate("/banktransfer", { state: res.data });
+          navigate(-1);
         })
         .catch((e) => {
           console.log(e);
