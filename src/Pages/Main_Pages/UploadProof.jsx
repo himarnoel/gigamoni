@@ -8,21 +8,31 @@ import pdf from "../../assets/overlayimage/pdf.svg";
 import pin from "../../assets/overlayimage/pin.svg";
 import { useFormik } from "formik";
 import { uploadfileValidate } from "../../Service/validate_and_api";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const UploadProof = () => {
+  const navigate = useNavigate();
+  const { state } = useLocation();
+  const safeDocument = typeof document !== "undefined" ? document : {};
+  const { body } = safeDocument;
+
   useEffect(() => {
     window.scroll({ top: 0, left: 0 });
     const val = localStorage.getItem("LoggedIntoken");
     if (!val) {
       navigate("/signup");
     }
+
+    formik.setValues({
+      transactionID: state.transactionID,
+      file: "",
+      fileName: "",
+    });
   }, []);
   const wrapperRef = useRef();
   const hiddenFileInput = useRef(null);
   const [overlayUpload, setoverlayUpload] = useState(false);
   const [filename, setFilename] = useState("");
-  const navigate = useNavigate();
 
   const handleClick = () => {
     hiddenFileInput.current.click();
@@ -197,6 +207,7 @@ const UploadProof = () => {
             <input
               id="transactionID"
               type="text"
+              disabled
               placeholder="Enter transaction ID"
               className="border-2 border-[#87ACA3] placeholder:text-[#87ACA3] text-xs w-[17rem] sm:w-[20rem] px-4 py-4 ml-[-1rem] sm:ml-0 sm:py-3 mt-8 rounded-lg focus:outline-none focus:ring-0 focus:border-[#87ACA3]"
               onChange={formik.handleChange}
