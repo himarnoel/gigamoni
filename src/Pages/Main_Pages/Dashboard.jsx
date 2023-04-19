@@ -439,7 +439,7 @@ const Dashboard = () => {
                           {item.transactionCreatedDate}
                         </p>
                         <p className="text-[#175873] font-semibold">
-                          Lorem Ipsum University, London{" "}
+                          {item.receiverBankName}, {item.receiverCountry}
                         </p>
                         <p className="text-[#175873] font-semibold">
                           ${item.amountReceived}
