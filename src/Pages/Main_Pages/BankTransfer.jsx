@@ -94,14 +94,14 @@ const BankTransfer = () => {
         <div className="flex  sm:flex-row flex-col w-full md:w-fit lg:w-full justify-between items-center font-medium text-sm">
           <div className="flex flex-col w-full sm:w-fit  ">
             <div className="flex flex-col md:flex-row ">
-              <p className="pr-8 mt-6">Transaction ID :1234567890987</p>
+              <p className="pr-8 mt-6">Transaction ID :{transaction}</p>
               <p className="flex mt-6">
                 <p> Status:</p>
                 <p className="text-[#FBBC05] ml-1"> In progress</p>
               </p>
             </div>
             <div className="flex flex-col  lg:flex-row  lg:w-full mt-6 md:mt-2 lg:mt-8">
-              <p className=" md:pr-0 lg:pr-8 ">Date: 01/01/2023 11:30am</p>
+              <p className=" md:pr-0 lg:pr-8 ">Date: {state.transactionCreatedDate}</p>
               <p className="md:mt-2 lg:mt-0 mt-6">
                 Mode of payment: Bank Transfer
               </p>
@@ -143,7 +143,7 @@ const BankTransfer = () => {
                   className={
                     formik.errors.sendingcurrency &&
                     formik.touched.sendingcurrency
-                      ? "  font-poppins pl-3  pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070] border-r   rounded-[6px] border-solid border-red-500 border-[4px] rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
+                      ?" font-poppins pl-3  pb-0 h-[52px] w-[85px] flex justify-center items-center  shade text-sm  mt-3 bg-transparent  text-[#707070] border-r   rounded-[6px] border-solid border-red-500 border-[4px] rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
                       : " font-poppins pl-3  pb-0 h-[52px] w-[85px] flex justify-center items-center  shade text-sm  mt-3 bg-transparent  text-[#707070] border-r   rounded-[6px] border-solid border-[#707070] border-[4px] rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
                     //placeholder=" "
                   }
@@ -163,6 +163,7 @@ const BankTransfer = () => {
               <input
                 type="number"
                 id="amountsent"
+                disabled
                 placeholder="00000"
                 className={
                   formik.errors.amountsent && formik.touched.amountsent
@@ -189,7 +190,7 @@ const BankTransfer = () => {
                   className={
                     formik.errors.receivingcurrency &&
                     formik.touched.receivingcurrency
-                      ? " font-poppins pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070]   rounded-[6px] lg:rounded-r- border-r  border-solid border-red-500 border-[4px]  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
+                      ? " font-poppins pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070]   rounded-[6px] lg:rounded-r-none border-r  border-solid border-red-500 border-[4px]  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
                       : " font-poppins pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070]   rounded-[6px] lg:rounded-r-none border-r  border-solid border-[#707070] border-[4px]  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
                     //placeholder=" "
                   }
@@ -209,6 +210,7 @@ const BankTransfer = () => {
               <input
                 type="number"
                 id="amountReceived"
+                disabled
                 placeholder="00000"
                 className={
                   formik.errors.amountReceived && formik.touched.amountReceived
@@ -234,6 +236,7 @@ const BankTransfer = () => {
                 <input
                   type="text"
                   id="receivername"
+                  disabled
                   className={
                     formik.errors.receivername && formik.touched.receivername
                       ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
@@ -266,6 +269,7 @@ const BankTransfer = () => {
                 <input
                   type="text"
                   id="phoneNumber"
+                  disabled
                   className={
                     formik.errors.phoneNumber && formik.touched.phoneNumber
                       ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
@@ -298,6 +302,7 @@ const BankTransfer = () => {
                 <input
                   type="text"
                   id="emailAddress"
+                  disabled
                   className={
                     formik.errors.emailAddress && formik.touched.emailAddress
                       ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
@@ -330,6 +335,7 @@ const BankTransfer = () => {
                 <input
                   type="text"
                   id="accountName"
+                  disabled
                   className={
                     formik.errors.accountName && formik.touched.accountName
                       ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
@@ -362,6 +368,7 @@ const BankTransfer = () => {
                 <input
                   type="text"
                   id="accountNumber"
+                  disabled
                   className={
                     formik.errors.accountNumber && formik.touched.accountNumber
                       ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
@@ -437,6 +444,7 @@ const BankTransfer = () => {
                 <input
                   type="text"
                   id="bankName"
+                  disabled
                   className={
                     formik.errors.bankName && formik.touched.bankName
                       ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
@@ -469,6 +477,7 @@ const BankTransfer = () => {
                 <input
                   type="text"
                   id="bankAddress"
+                  disabled
                   className={
                     formik.errors.bankAddress && formik.touched.bankAddress
                       ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
@@ -501,6 +510,7 @@ const BankTransfer = () => {
                 <input
                   type="text"
                   id="iban"
+                  disabled
                   className={
                     formik.errors.iban && formik.touched.iban
                       ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
@@ -533,6 +543,7 @@ const BankTransfer = () => {
                 <input
                   type="text"
                   id="swiftCode"
+                  disabled
                   className={
                     formik.errors.swiftCode && formik.touched.swiftCode
                       ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"

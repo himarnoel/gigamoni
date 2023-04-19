@@ -219,6 +219,7 @@ const UploadProof = () => {
             <input
               type="file"
               className="hidden"
+              
               ref={hiddenFileInput}
               onChange={handleChange}
             />
