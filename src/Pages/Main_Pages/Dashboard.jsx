@@ -125,12 +125,18 @@ const Dashboard = () => {
   };
 
   const transactionDetail = (item) => {
+    console.log(item);
     localStorage.setItem("transactiondata", JSON.stringify(item));
     if (item.status == "Pending") {
       navigate("/pending");
     } else if (item.status == "Update") {
       navigate("/update", { state: item });
-    } else if (item.status == "Rejected") {
+    } else if (item.status == "In Progress") {
+      if (item.paymentMethod == "Bank Transfer") {
+        navigate("/banktransfer", { state: item });
+      } else {
+        navigate("/banktransfer", { state: item });
+      }
     }
   };
   const fetchBeneficiaries = () => {
@@ -285,8 +291,7 @@ const Dashboard = () => {
             className="object-contain w-[1.6rem] sm:w-[2.3rem] md:w-[2.5rem] "
           />
         </div>
-     
-       
+
         <div className="flex  lg:flex-row flex-col-reverse w-full justify-between mxl:pt-20">
           <div className=" mt-10 lg:w-[27rem] xl:w-[34rem]">
             <span className="flex justify-between sm:justify-start">
