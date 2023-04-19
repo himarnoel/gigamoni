@@ -285,7 +285,8 @@ const Dashboard = () => {
             className="object-contain w-[1.6rem] sm:w-[2.3rem] md:w-[2.5rem] "
           />
         </div>
-
+     
+       
         <div className="flex  lg:flex-row flex-col-reverse w-full justify-between mxl:pt-20">
           <div className=" mt-10 lg:w-[27rem] xl:w-[34rem]">
             <span className="flex justify-between sm:justify-start">

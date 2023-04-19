@@ -76,7 +76,7 @@ const Profile = () => {
         .put(
           `${baseurl}/accounts/profile/`,
           {
-            fullname: values.name, 
+            fullname: values.name,
           },
 
           {
@@ -111,9 +111,36 @@ const Profile = () => {
     },
     validationSchema: updatePassword,
     onSubmit: (values) => {
-      // navigate("/summary", {
-      //   state: values,
-      // });
+      console.log(values);
+      axios
+        .post(
+          (`${baseurl}/accounts/change-password/`,
+          {
+            oldPassword: values.oldpassword,
+            password: values.confirmpassword,
+          },
+          {
+            headers: {  
+              Authorization: `Token ${localStorage.getItem("LoggedIntoken")}`,
+            },
+          })
+        )
+        .then((res) => {
+          setload(false);
+          console.log(res);
+          body.style.overflow = "";
+        })
+        .catch((e) => {
+          console.log(e);
+          body.style.overflow = "";
+          setload(false);
+          if (e.response.data.detail == "Invalid token.") {
+            toast.error("token expired");
+          } else {
+            toast.error("An error occurred");
+          }
+          console.log(e);
+        });
     },
   });
   return (

@@ -170,7 +170,7 @@ export const updatePassword = yup.object().shape({
     .required("Please fill up this field"),
   confirmpassword: yup
     .string()
-    .oneOf([yup.ref("password"), null], "Passwords must match")
+    .oneOf([yup.ref("newpassword"), null], "Passwords must match")
     .required("Please fill up this field"),
 });
 
