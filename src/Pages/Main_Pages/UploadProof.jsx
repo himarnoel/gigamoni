@@ -127,6 +127,7 @@ const UploadProof = () => {
         })
         .catch((e) => {
           console.log(e);
+          body.style.overflow = "";
           setload(false);
         });
       // localStorage.setItem("filetoupload", JSON.stringify(values));
