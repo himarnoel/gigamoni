@@ -18,6 +18,7 @@ import { IoCloseCircle } from "react-icons/io5";
 import mail from "../../assets/Vector.svg";
 import DashNav from "../../Components/DashBoardComponents/DashNav";
 import axios from "axios";
+import { toast } from "react-toastify";
 const Update = () => {
   const [overlay, setoverlay] = useState(false);
   const [change, setchange] = useState(false);
@@ -114,6 +115,8 @@ const Update = () => {
       )
       .then((res) => {
         console.log(res);
+        toast.success("success");
+        navigate("/dashboard");
       })
       .catch((e) => {
         console.log(e);
@@ -150,6 +153,8 @@ const Update = () => {
       )
       .then((res) => {
         console.log(res);
+        toast.success("success");
+        navigate("/dashboard");
       })
       .catch((e) => {
         console.log(e);
