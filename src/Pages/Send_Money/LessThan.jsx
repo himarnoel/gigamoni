@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import img3 from "../../assets/Send_Money/warning.png";
 import NavBar from "./../../Components/AppComponents/NavBar";
 import { useNavigate } from "react-router-dom";
 const LessThan = () => {
   const navigate = useNavigate();
 
+  useEffect(() => {
+    window.scroll({ top: 0, left: 0 });
+    const val = localStorage.getItem("LoggedIntoken");
+    if (!val) {
+      navigate("/login");
+    }
+  });
   return (
     <div className="h-screen flex flex-col font-poppins">
       <NavBar />

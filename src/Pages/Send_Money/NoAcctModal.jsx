@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import NavBar from "../../Components/AppComponents/NavBar";
 import img4 from "../../assets/Send_Money/noacct.svg";
 import { Navigate, useNavigate } from "react-router-dom";
 
 const NoAcctModal = () => {
   const navigate = useNavigate();
-
+  useEffect(() => {
+    window.scroll({ top: 0, left: 0 });
+    const val = localStorage.getItem("LoggedIntoken");
+    if (!val) {
+      navigate("/login");
+    }
+  });
   return (
     <div>
       {" "}

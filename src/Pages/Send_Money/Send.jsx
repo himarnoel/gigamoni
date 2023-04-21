@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import NavBar from "./../../Components/AppComponents/NavBar";
 import img1 from "../../assets/Send_Money/map.svg";
 import img2 from "../../assets/Send_Money/hand.png";
@@ -18,6 +18,13 @@ const Send = () => {
   const [noacc, setnoacc] = useState(false);
   const [load, setload] = useState(false);
   const [navigater, setnavigater] = useState(false);
+  useEffect(() => {
+    window.scroll({ top: 0, left: 0 });
+    const val = localStorage.getItem("LoggedIntoken");
+    if (!val) {
+      navigate("/login");
+    }
+  });
   const formik = useFormik({
     initialValues: {
       name: "",

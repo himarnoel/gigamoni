@@ -33,6 +33,15 @@ const Signup = () => {
       });
     }
   }, []);
+  useEffect(() => {
+    window.scroll({ top: 0, left: 0 });
+    const val = localStorage.getItem("LoggedIntoken");
+    if (val) {
+      navigate("/dashboard");
+    } else {
+      navigate("/login");
+    }
+  });
 
   const formik = useFormik({
     initialValues: {

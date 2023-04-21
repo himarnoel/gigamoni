@@ -15,7 +15,13 @@ const VerifyMail = () => {
   const navigate = useNavigate();
   const [load, setload] = useState(false);
   const [deter, setDeter] = useState(true);
-
+  useEffect(() => {
+    window.scroll({ top: 0, left: 0 });
+    const val = localStorage.getItem("LoggedIntoken");
+    if (val) {
+      navigate("/dashboard");
+    }
+  });
   useEffect(() => {
     const id = searchParams.get("id");
     const key = searchParams.get("key");

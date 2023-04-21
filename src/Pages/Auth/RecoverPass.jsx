@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import NavBar from "./../../Components/AppComponents/NavBar";
 import img1 from "../../assets/Vector.svg";
 import { RingLoader } from "react-spinners";
@@ -9,6 +9,13 @@ const RecoverPass = () => {
   const [load, setload] = useState(false);
   const navigate = useNavigate();
   const Resender = () => {
+    useEffect(() => {
+      window.scroll({ top: 0, left: 0 });
+      const val = localStorage.getItem("LoggedIntoken");
+      if (val) {
+        navigate("/dashboard");
+      }
+    });
     let email = localStorage.getItem("email");
     setload(true);
     axios
@@ -20,7 +27,7 @@ const RecoverPass = () => {
         setload(false);
       })
       .catch((e) => {
-        toast.error("an error occurred")
+        toast.error("an error occurred");
         console.log(e);
         setload(false);
       });

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import NavBar from "./../../Components/AppComponents/NavBar";
 import { baseurl, forgotValidate } from "../../Service/validate_and_api";
 import { useFormik } from "formik";
@@ -9,6 +9,13 @@ import { useNavigate } from "react-router-dom";
 const Forgot = () => {
   const [load, setload] = useState(false);
   const navigate = useNavigate();
+  useEffect(() => {
+    window.scroll({ top: 0, left: 0 });
+    const val = localStorage.getItem("LoggedIntoken");
+    if (val) {
+      navigate("/dashboard");
+    } 
+  });
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -89,9 +96,10 @@ const Forgot = () => {
               </button>
             </form>
           </div>
-          <button 
+          <button
             onClick={() => navigate("/login")}
-          className=" self-end bg-[#87ACA3] text-xs md:text-sm   float-right text-[#262626] rounded-[8px] font-semibold lg:mt-3 mt-5 xss:mt-3 xs:mt-6 px-12 py-3">
+            className=" self-end bg-[#87ACA3] text-xs md:text-sm   float-right text-[#262626] rounded-[8px] font-semibold lg:mt-3 mt-5 xss:mt-3 xs:mt-6 px-12 py-3"
+          >
             Back to Login
           </button>
         </div>

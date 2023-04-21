@@ -4,6 +4,13 @@ import { useNavigate } from "react-router-dom";
 import img1 from "../../assets/success/success.svg";
 const Success = () => {
   const navigate = useNavigate();
+  useEffect(() => {
+    window.scroll({ top: 0, left: 0 });
+    const val = localStorage.getItem("LoggedIntoken");
+    if (val) {
+      navigate("/dashboard");
+    }
+  });
   return (
     <div>
       <div className="flex flex-col h-screen  font-poppins justify-between ">
