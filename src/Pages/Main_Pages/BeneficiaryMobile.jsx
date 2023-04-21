@@ -19,6 +19,7 @@ const BeneficiaryMobile = () => {
       navigate("/login");
     } else {
       setload(true);
+      body.style.overflow = "hidden";
       axios
         .get(`${baseurl}/transactions/beneficiary/`, {
           headers: {
@@ -29,11 +30,13 @@ const BeneficiaryMobile = () => {
           console.log(res.data);
           setload(false);
           setdata(res.data);
+          body.style.overflow = "";
         })
         .catch((e) => {
           console.log(e);
           setload(false);
           toast.error("An error occurred");
+          body.style.overflow = "";
         });
     }
   }, []);
