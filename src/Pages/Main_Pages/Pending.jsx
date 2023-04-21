@@ -460,7 +460,7 @@ const Pending = () => {
               </div>{" "}
               <div className="relative z-0 mt-0">
                 <input
-                  type="text"
+                  type="number"
                   id="accountNumber"
                   className={
                     formik.errors.accountNumber && formik.touched.accountNumber
@@ -600,7 +600,7 @@ const Pending = () => {
               </div>{" "}
               <div className="relative z-0 mt-0">
                 <input
-                  type="text"
+                  type="number"
                   id="iban"
                   className={
                     formik.errors.iban && formik.touched.iban
@@ -632,7 +632,7 @@ const Pending = () => {
               </div>{" "}
               <div className="relative z-0 mt-0">
                 <input
-                  type="text"
+                  type="number"
                   id="swiftCode"
                   className={
                     formik.errors.swiftCode && formik.touched.swiftCode

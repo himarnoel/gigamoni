@@ -207,7 +207,6 @@ const Dashboard = () => {
               {beneficiarieslist.map((item, i) => (
                 <div
                   key={i}
-              
                   className="h-[6rem]  border-2 border-[#009186] rounded-lg bg-white mt-5 text-base  justify-between pt-5 pb-3 px-2 flex flex-col"
                 >
                   <p className="text-[#175873] font-semibold">
@@ -381,17 +380,18 @@ const Dashboard = () => {
               }
             >
               {load ? (
-                
                 <RingLoader className="text-[#009186] " />
               ) : loaderror ? (
                 <p className="text-red-500 font-semibold">An error occurred</p>
               ) : norecenttrans ? (
-                <p className="text-yellow-500 font-semibold">No beneficiary</p>
+                <p className="text-yellow-500 font-semibold ">No beneficiary</p>
               ) : (
                 beneficiarieslist.map((item, i) => (
                   <div
                     key={i}
-                    onClick={() => navigate("/singlebeneficiaryedit",{state:item})}
+                    onClick={() =>
+                      navigate("/singlebeneficiaryedit", { state: item })
+                    }
                     className="rounded-lg lg:py-1 lg:px-[0.24rem] cursor-pointer  flex flex-col justify-center gap-y-4 border-2 border-[#009186] text-sm mt-8 bg-[#F8F8FF] px-3  xl:px-3   py-1 min-h-[12rem] sm:min-h-[7rem]"
                   >
                     <p className="text-[#175873] font-semibold">
@@ -425,9 +425,11 @@ const Dashboard = () => {
               {load ? (
                 <RingLoader className="text-[#009186] " />
               ) : loaderror ? (
-                <p className="text-red-500">A error occurred</p>
+                <p className="text-red-500 font-semibold">An error occurred</p>
               ) : norecenttrans ? (
-                <p className="text-yellow-500">No recent transaction</p>
+                <p className="text-yellow-500 font-semibold">
+                  No recent transaction
+                </p>
               ) : (
                 trans
                   .map((item, i) => (
@@ -485,7 +487,19 @@ const Dashboard = () => {
                         <p className="text-white text-xs">Cw224</p>
                       </span>
                       <span className="flex sm:hidden justify-between text-xs">
-                        <p className="text-[#FBBC05]">{item.status}</p>
+                        <p
+                          className={
+                            item.status == "In Progress"
+                              ? `text-[#FBBC05]`
+                              : item.status == "Completed"
+                              ? `text-[#00913E]`
+                              : item.status == "Update"
+                              ? `text-[#D80010]`
+                              : "text-[#5D5FEF]" //Pending
+                          }
+                        >
+                          {item.status}
+                        </p>
                         <p className="ss">{item.paymentMethod}</p>
                         <p className="text-white text-xs">Card Payment</p>
                       </span>

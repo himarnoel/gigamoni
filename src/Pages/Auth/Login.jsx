@@ -5,8 +5,7 @@ import { RiArrowDownSLine } from "react-icons/ri";
 import { useFormik } from "formik";
 import {
   baseurl,
-  loginValidate,
-  signupValidate,
+  loginValidate
 } from "../../Service/validate_and_api";
 import axios from "axios";
 import RingLoader from "react-spinners/RingLoader";
@@ -106,9 +105,9 @@ const Login = () => {
                         : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-base text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
                     }
                     placeholder=" "
-                    onChange={formik.handleChange}
+                   onChange={formik.handleChange}
                     value={formik.values.email}
-                    onBlur={formik.handleBlur}
+                    onBlur={formik.handleBlur} 
                   />
                   <label
                     for="email"

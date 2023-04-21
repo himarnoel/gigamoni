@@ -79,21 +79,6 @@ const CardPayment = () => {
       sendingcurrency: "NGN",
       amountsent: "",
       amountReceived: "",
-      //   receivername: location.state.receivername,
-      //   bankName: location.state.bankName,
-      //   phoneNumber: location.state.phoneNumber,
-      //   bankAddress: location.state.bankAddress,
-      //   emailAddress: location.state.emailAddress,
-      //   iban: location.state.iban,
-      //   accountName: location.state.accountName,
-      //   swiftCode: location.state.swiftCode,
-      //   accountNumber: location.state.accountNumber,
-      //   receivingCountry: location.state.receivingCountry,
-      //   tractionDescription: location.state.tractionDescription,
-      //   receivingcurrency: location.state.receivingcurrency,
-      //   sendingcurrency: location.state.sendingcurrency,
-      //   amountsent: location.state.amountsent,
-      //   amountReceived: location.state.amountReceived,
     },
     validationSchema: updateValidate,
     onSubmit: (values) => {
@@ -142,7 +127,7 @@ const CardPayment = () => {
               <p className=" md:pr-0 lg:pr-8 ">
                 Date: {state.transactionCreatedDate}
               </p>
-              <p className="md:mt-2 lg:mt-0 mt-6 text-[#009186]  ml-8">
+              <p className="md:mt-2 lg:mt-0 mt-6 text-[#009186]  lg:ml-8">
                 Card Payment Completed
               </p>
             </div>
@@ -174,10 +159,10 @@ const CardPayment = () => {
           </div> */}
         </div>
 
-        <div className="flex  flex-row-reverse   justify-between items-center mt-12 w-[19rem] sm:w-[20rem] md:w-[30rem] lg:w-[27rem] sm:mt-14 lg:mt-8">
+        <div className="flex  flex-row-reverse   justify-between items-center mt-12 w-full sm:w-[20rem] md:w-[30rem] lg:w-[27rem] sm:mt-14 lg:mt-8">
           <span>
             <p className="text-[#175873] text-[0.59rem] ">Local Currency</p>
-            <span className="flex mr-4">
+            <span className="flex lg:mr-4">
               <span className="relative z-0 ">
                 <select
                   type="text"
@@ -186,8 +171,8 @@ const CardPayment = () => {
                   className={
                     formik.errors.sendingcurrency &&
                     formik.touched.sendingcurrency
-                      ? "  font-poppins pl-3  pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070] border-r   rounded-[6px] border-solid border-red-500 border-[4px] rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
-                      : " font-poppins pl-3  pb-0 h-[52px] w-[85px] flex justify-center items-center  shade text-sm  mt-3 bg-transparent  text-[#707070] border-r   rounded-[6px] border-solid border-[#707070] border-[4px] rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
+                      ? "  font-poppins pl-3  pb-0 h-[52px] w-[75px] lg:w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070] border-r   rounded-[6px] border-solid border-red-500 border-[4px] rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
+                      : " font-poppins pl-3  pb-0 h-[52px] w-[75px] lg:w-[85px] flex justify-center items-center  shade text-sm  mt-3 bg-transparent  text-[#707070] border-r   rounded-[6px] border-solid border-[#707070] border-[4px] rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
                     //placeholder=" "
                   }
                   onChange={formik.handleChange}
@@ -210,8 +195,8 @@ const CardPayment = () => {
                 placeholder="00000"
                 className={
                   formik.errors.amountsent && formik.touched.amountsent
-                    ? " font-poppins spin-button-none  pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-red-500 border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
-                    : " font-poppins spin-button-none  pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-[#707070] border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
+                    ? " font-poppins spin-button-none  pl-3 pb-0 h-[52px] w-[75px] lg:w-[85px] flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-red-500 border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
+                    : " font-poppins spin-button-none  pl-3 pb-0 h-[52px] w-[75px] lg:w-[85px] flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-[#707070] border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
                 }
                 onChange={formik.handleChange}
                 value={formik.values.amountsent}
@@ -234,8 +219,8 @@ const CardPayment = () => {
                   className={
                     formik.errors.receivingcurrency &&
                     formik.touched.receivingcurrency
-                      ? " font-poppins pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070]   rounded-[6px] lg:rounded-r- border-r  border-solid border-red-500 border-[4px]  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
-                      : " font-poppins pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070]   rounded-[6px] lg:rounded-r-none border-r  border-solid border-[#707070] border-[4px]  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
+                      ? " font-poppins pl-3 pb-0 h-[52px] w-[75px] lg:w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070]   rounded-[6px] rounded-r-none border-r  border-solid border-red-500 border-[4px]  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
+                      : " font-poppins pl-3 pb-0 h-[52px] w-[75px] lg:w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070]   rounded-[6px] rounded-r-none border-r  border-solid border-[#707070] border-[4px]  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
                     //placeholder=" "
                   }
                   onChange={formik.handleChange}
@@ -258,8 +243,8 @@ const CardPayment = () => {
                 placeholder="00000"
                 className={
                   formik.errors.amountReceived && formik.touched.amountReceived
-                    ? " font-poppins spin-button-none  pl-3 pb-0 h-[52px] w-[85px] hidden md:flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-red-500 border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
-                    : " font-poppins spin-button-none  pl-3 pb-0 h-[52px] w-[85px] hidden md:flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-[#707070] border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
+                    ? " font-poppins spin-button-none  pl-3 pb-0 h-[52px] w-[75px] lg:w-[85px] flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-red-500 border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
+                    : " font-poppins spin-button-none  pl-3 pb-0 h-[52px] w-[75px] lg:w-[85px] flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-[#707070] border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
                 }
                 onChange={formik.handleChange}
                 value={formik.values.amountReceived}

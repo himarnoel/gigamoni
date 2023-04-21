@@ -48,7 +48,9 @@ const Profile = () => {
           console.log(e);
           setload(false);
           body.style.overflow = "";
-          if (e.response.data.detail == "Invalid token.") {
+          if (e.name == "AxiosError") {
+            toast.error("Network Error");
+          } else if (e.response.data.detail == "Invalid token.") {
             toast.error("token expired");
           } else {
             toast.error("An error occurred");
@@ -92,7 +94,9 @@ const Profile = () => {
           console.log(e);
           body.style.overflow = "";
           setload(false);
-          if (e.response.data.detail == "Invalid token.") {
+          if (e.name == "AxiosError") {
+            toast.error("Network Error");
+          } else if (e.response.data.detail == "Invalid token.") {
             toast.error("token expired");
           } else {
             toast.error("An error occurred");
@@ -118,7 +122,7 @@ const Profile = () => {
             password: values.confirmpassword,
           },
           {
-            headers: {  
+            headers: {
               Authorization: `Token ${localStorage.getItem("LoggedIntoken")}`,
             },
           })
@@ -132,7 +136,9 @@ const Profile = () => {
           console.log(e);
           body.style.overflow = "";
           setload(false);
-          if (e.response.data.detail == "Invalid token.") {
+          if (e.name == "AxiosError") {
+            toast.error("Network Error");
+          } else if (e.response.data.detail == "Invalid token.") {
             toast.error("token expired");
           } else {
             toast.error("An error occurred");
@@ -156,7 +162,7 @@ const Profile = () => {
 
       <div className="flex justify-between items-center mt-28 px-2 xss:px-4 xs:px-6  sm:mt-26  sm:mt-26  lg:mt-20 2xl:px-[10rem] xl:px-[5rem] lg:px-10">
         <button
-          onClick={() => navigate("/dashboard")}
+          onClick={() => navigate(-1)}
           className=" text-sm px-[4rem] py-[0.7rem]  lg:px-[4rem] lg:py-[0.7rem] rounded-lg bg-[#87ACA3]"
         >
           Back
@@ -179,10 +185,10 @@ const Profile = () => {
       <p className="text-[1.7rem] font-semibold text-center mt-4 ">
         Your Profile
       </p>
-      <div className="flex justify-between gap-x-10 2xl:px-[10rem] xl:px-[5rem] lg:px-10 mt-8">
+      <div className="flex flex-col lg:flex-row w-full  mx-auto justify-between  px-2 xss:px-4 xs:px-6   lg:gap-x-10 2xl:px-[10rem] xl:px-[5rem] lg:px-10 mt-8">
         <form
           onSubmit={editprofileformik.handleSubmit}
-          className="w-full mt-2 md:mt-5  lg:mt-0  flex flex-col h-[24rem]   px-5  justify-between mxl:gap-y-16"
+          className="w-full mt-2 md:mt-5  lg:mt-0  flex flex-col h-[24rem] lg:px-5 justify-between mxl:gap-y-16"
         >
           <div className="relative z-0 mt-0">
             <input
@@ -362,7 +368,7 @@ const Profile = () => {
           </button>
         </form>
         {/* right side */}
-        <div className="w-full mt-2 md:mt-5 mx-20 mb-10  lg:mt-0  flex flex-col h-[30rem] justify-between     mxl:gap-y-16">
+        <div className="w-full mt-2 md:mt-5 lg:mx-20 mb-10  lg:mt-0  flex flex-col h-[30rem] justify-between     mxl:gap-y-16">
           <p className="text-[#262626] font-medium">Change Password</p>
           <form
             onSubmit={changepasswordformik.handleSubmit}
