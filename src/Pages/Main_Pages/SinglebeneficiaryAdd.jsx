@@ -24,6 +24,8 @@ import { RingLoader } from "react-spinners";
 
 const SinglebeneficiaryAdd = () => {
   const navigate = useNavigate();
+  const safeDocument = typeof document !== "undefined" ? document : {};
+  const { body } = safeDocument;
   const [load, setload] = useState(false);
   useEffect(() => {
     const val = localStorage.getItem("LoggedIntoken");
@@ -46,6 +48,8 @@ const SinglebeneficiaryAdd = () => {
     },
     validationSchema: addbeneficiaryValidate,
     onSubmit: (values) => {
+      window.scroll({ top: 0, left: 0 });
+      body.style.overflow = "hidden";
       setload(true);
       axios
         .post(
@@ -71,15 +75,18 @@ const SinglebeneficiaryAdd = () => {
         )
         .then((res) => {
           console.log(res);
-          navigate("/dashboard");
+          body.style.overflow = "";
           setload(false);
+          navigate("/dashboard");
         })
         .catch((e) => {
           console.log(e);
+          body.style.overflow = "";
           setload(false);
         });
     },
   });
+  console.log(formik.errors);
   return (
     <div className="font-poppins">
       <DashNav class="fixed top-0 z-[2]" />
@@ -114,7 +121,7 @@ const SinglebeneficiaryAdd = () => {
         </div>
       </div>
       <form
-        className="mt-20 mxl:mt-[7rem] sm:px-6  md:px-8 lg:px-20"
+        className="mt-20 mxl:mt-[7rem] pl-2 xss:pl-4 xs:pl-6 pr-14 mb-10   sm:px-10 md:px-20lg:px-20"
         action=""
         onSubmit={formik.handleSubmit}
       >
@@ -250,7 +257,7 @@ const SinglebeneficiaryAdd = () => {
             </div>{" "}
             <div className="relative z-0 mt-0">
               <input
-                type="text"
+                type="number"
                 id="accountNumber"
                 className={
                   formik.errors.accountNumber && formik.touched.accountNumber
@@ -281,7 +288,7 @@ const SinglebeneficiaryAdd = () => {
               )}
             </div>{" "}
           </div>
-          <div className="w-full mt-2 md:mt-5  lg:mt-0  flex flex-col   gap-y-8 mxl:gap-y-16">
+          <div className="w-full mt-8  md:mt-5  lg:mt-0  flex flex-col   gap-y-8 mxl:gap-y-16">
             <div className="relative z-0 mt-0">
               <input
                 type="text"
@@ -348,7 +355,7 @@ const SinglebeneficiaryAdd = () => {
             </div>{" "}
             <div className="relative z-0 mt-0">
               <input
-                type="text"
+                type="number"
                 id="iban"
                 className={
                   formik.errors.iban && formik.touched.iban
@@ -380,7 +387,7 @@ const SinglebeneficiaryAdd = () => {
             </div>{" "}
             <div className="relative z-0 mt-0">
               <input
-                type="text"
+                type="number"
                 id="swiftCode"
                 className={
                   formik.errors.swiftCode && formik.touched.swiftCode
@@ -413,8 +420,8 @@ const SinglebeneficiaryAdd = () => {
             <div className="relative z-0 ">
               <select
                 type="text"
-                id="country"
                 required
+                id="country"
                 className={
                   formik.errors.country && formik.touched.country
                     ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
