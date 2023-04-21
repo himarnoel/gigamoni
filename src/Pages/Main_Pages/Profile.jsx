@@ -392,11 +392,11 @@ const Profile = () => {
           </button>
         </form>
         {/* right side */}
-        <div className="w-full bg-red-200  md:mt-5 lg:mx-20 mb-10 mt-8  lg:mt-0  flex flex-col h-[25rem] lg:h-[30rem] justify-between     mxl:gap-y-16">
+        <div className="w-full  md:mt-5 lg:mx-20 mb-10 mt-8  lg:mt-0  flex flex-col h-[25rem] lg:h-[30rem] justify-between     mxl:gap-y-16">
           <p className="text-[#262626] font-medium">Change Password</p>
           <form
             onSubmit={changepasswordformik.handleSubmit}
-            className="mxl:gap-y-16 flex flex-col justify-between h-[16rem] bg-red-300 "
+            className="mxl:gap-y-16 flex flex-col justify-between h-[16rem]  "
           >
             <div className="relative z-0 mt-0">
               <input
