@@ -4,11 +4,11 @@ import bell from "../../assets/bell.svg";
 import { BiTransfer } from "react-icons/bi";
 import caller from "../../assets/Dashboard/caller.svg";
 const BeneficiaryMobile = () => {
-  
   useEffect(() => {
+    window.scroll({ top: 0, left: 0 });
     const val = localStorage.getItem("LoggedIntoken");
     if (!val) {
-      navigate("/signup");
+      navigate("/login");
     }
   }, []);
   return (
@@ -26,7 +26,7 @@ const BeneficiaryMobile = () => {
               className="ml-2 w-[1.8rem] sm:w-[2rem] mxl:w-[2.8rem]"
             />
           </button>
-          <img  
+          <img
             src={bell}
             alt=""
             className="object-contain w-[1.6rem] sm:w-[2.3rem] md:w-[2.5rem] "

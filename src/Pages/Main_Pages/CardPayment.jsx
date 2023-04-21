@@ -27,6 +27,7 @@ const CardPayment = () => {
   const [load, setload] = useState(false);
   const { state } = useLocation();
   useEffect(() => {
+    window.scroll({ top: 0, left: 0 });
     const val = localStorage.getItem("LoggedIntoken");
     if (!val) {
       navigate("/login");

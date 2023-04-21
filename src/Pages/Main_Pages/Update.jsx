@@ -216,7 +216,7 @@ const Update = () => {
       </div>
 
       <DashNav class="fixed top-0 z-[2]" />
-      <div className="flex justify-between items-center mt-28 px-2 xss:px-4 xs:px-6  sm:mt-26  sm:mt-26  lg:mt-20 lg:hidden  mxl:mt-10">
+      <div className="flex justify-between items-center  mt-28 px-2 xss:px-4 xs:px-6  sm:mt-26  sm:mt-26  lg:mt-20 lg:hidden  mxl:mt-10">
         <button
           onClick={() => navigate("/dashboard")}
           className=" text-sm px-[4rem] py-[0.7rem]  lg:px-[4rem] lg:py-[0.7rem] rounded-lg bg-[#87ACA3]"
@@ -237,7 +237,7 @@ const Update = () => {
           </p>
         </div>
       </div>
-      <div className=" 2xl:px-[10rem] xl:px-[5rem]  xss:pl-4  xss:pr-10   xs:pl-6 xs:pr-12 sm:pl-10 sm:pr-28 md:pl-8 md:pr-28 lg:px-10 w-full mt-4  lg:mt-20  mxl:pt-32">
+      <div className=" 2xl:px-[10rem] xl:px-[5rem] px-2 xss:px-4 xs:px-6  sm:pl-10 sm:pr-28 md:pl-8 md:pr-28 lg:px-10 w-full mt-4  lg:mt-20  mxl:pt-32">
         <div className=" justify-between items-center mxl:mt-10 hidden lg:flex">
           <button
             onClick={() => navigate("/dashboard")}
@@ -259,8 +259,8 @@ const Update = () => {
             </p>
           </div>
         </div>
-        <div className="flex flex-col lg:flex-row justify-between w-full sm:w-[20rem] md:w-[30rem] lg:w-full lg:pr-8 xl:pr-10 mt-4   mxl:mt-20">
-          <div className="lg:w-[26rem] xl:w-[32rem] flex flex-col justify-between  h-[4rem] text-sm">
+        <div className="flex flex-col   lg:flex-row justify-between  sm:w-[20rem] md:w-[30rem] lg:w-full lg:pr-8 xl:pr-10 mt-4   mxl:mt-20">
+          <div className="lg:w-[26rem]  xl:w-[32rem] flex flex-col justify-between  h-[4rem] text-sm">
             {" "}
             <div className="flex flex-col lg:flex-row justify-between font-medium lg:mt-4">
               <p className="">Transaction ID: {state.transactionID}</p>
@@ -275,10 +275,10 @@ const Update = () => {
               {/* <p className="ss">Service Fee: $10</p> */}
             </div>
           </div>
-          <div className="flex justify-between mt-12 w-[19rem] sm:w-[20rem] md:w-[30rem] lg:w-[30rem] pr-24 sm:mt-14 lg:mt-4">
+          <div className="flex  flex-row-reverse   justify-between items-center mt-12 w-full sm:w-[20rem] md:w-[30rem] lg:w-[27rem] sm:mt-14 lg:mt-8">
             <span>
-              <p className="text-[#175873] text-[0.59rem]">Local Currency</p>
-              <span className="flex">
+              <p className="text-[#175873] text-[0.59rem] ">Local Currency</p>
+              <span className="flex lg:mr-4">
                 <span className="relative z-0 ">
                   <select
                     type="text"
@@ -287,8 +287,8 @@ const Update = () => {
                     className={
                       formik.errors.sendingcurrency &&
                       formik.touched.sendingcurrency
-                        ? "  font-poppins pl-3  pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070] border-r   rounded-[6px] border-solid border-red-500 border-[4px] rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
-                        : " font-poppins pl-3  pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070] border-r   rounded-[6px] border-solid border-[#707070] border-[4px] rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
+                        ? "  font-poppins pl-3  pb-0 h-[52px] w-[75px] lg:w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070] border-r   rounded-[6px] border-solid border-red-500 border-[4px] rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
+                        : " font-poppins pl-3  pb-0 h-[52px] w-[75px] lg:w-[85px] flex justify-center items-center  shade text-sm  mt-3 bg-transparent  text-[#707070] border-r   rounded-[6px] border-solid border-[#707070] border-[4px] rounded-r-none appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
                       //placeholder=" "
                     }
                     onChange={formik.handleChange}
@@ -306,13 +306,13 @@ const Update = () => {
                 </span>
                 <input
                   type="number"
-                  id="amountsent"
                   disabled
+                  id="amountsent"
                   placeholder="00000"
                   className={
                     formik.errors.amountsent && formik.touched.amountsent
-                      ? " font-poppins spin-button-none  pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-red-500 border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
-                      : " font-poppins spin-button-none  pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-[#707070] border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
+                      ? " font-poppins spin-button-none  pl-3 pb-0 h-[52px] w-[75px] lg:w-[85px] flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-red-500 border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
+                      : " font-poppins spin-button-none  pl-3 pb-0 h-[52px] w-[75px] lg:w-[85px] flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-[#707070] border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
                   }
                   onChange={formik.handleChange}
                   value={formik.values.amountsent}
@@ -335,8 +335,8 @@ const Update = () => {
                     className={
                       formik.errors.receivingcurrency &&
                       formik.touched.receivingcurrency
-                        ? " font-poppins pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070]   rounded-[6px] lg:rounded-r-none border-solid border-red-500 border-[4px]  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
-                        : " font-poppins pl-3 pb-0 h-[52px] w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070]   rounded-[6px] lg:rounded-r-none border-solid border-[#707070] border-[4px]  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
+                        ? " font-poppins pl-3 pb-0 h-[52px] w-[75px] lg:w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070]   rounded-[6px] rounded-r-none border-r  border-solid border-red-500 border-[4px]  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
+                        : " font-poppins pl-3 pb-0 h-[52px] w-[75px] lg:w-[85px] flex justify-center items-center   shade text-sm  mt-3 bg-transparent  text-[#707070]   rounded-[6px] rounded-r-none border-r  border-solid border-[#707070] border-[4px]  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
                       //placeholder=" "
                     }
                     onChange={formik.handleChange}
@@ -354,14 +354,14 @@ const Update = () => {
                 </span>
                 <input
                   type="number"
-                  id="amountReceived"
                   disabled
+                  id="amountReceived"
                   placeholder="00000"
                   className={
                     formik.errors.amountReceived &&
                     formik.touched.amountReceived
-                      ? " font-poppins spin-button-none  pl-3 pb-0 h-[52px] w-[85px] hidden md:flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-red-500 border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
-                      : " font-poppins spin-button-none  pl-3 pb-0 h-[52px] w-[85px] hidden md:flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-[#707070] border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
+                      ? " font-poppins spin-button-none  pl-3 pb-0 h-[52px] w-[75px] lg:w-[85px] flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-red-500 border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
+                      : " font-poppins spin-button-none  pl-3 pb-0 h-[52px] w-[75px] lg:w-[85px] flex justify-center items-center shade  text-sm mt-3 bg-transparent placeholder:text-[#707070] text-[#707070]  rounded-[6px] border-solid border-[#707070] border-[4px] rounded-l-none border-l-0  appearance-none   focus:outline-none focus:ring-0 focus:border-[#707070]"
                   }
                   onChange={formik.handleChange}
                   value={formik.values.amountReceived}
@@ -369,7 +369,7 @@ const Update = () => {
                 />
               </span>
             </span>
-          </div>
+          </div>{" "}
         </div>
         <form
           className="mb-20 mxl:mt-32"
