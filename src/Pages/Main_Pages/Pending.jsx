@@ -98,7 +98,7 @@ const Pending = () => {
               currencyReceived: formik.values.receivingcurrency,
               amountReceived: formik.values.amountReceived,
               description: formik.values.tractionDescription,
-              paymentMethod: "payWithTransfer",
+              paymentMethod: "N/A",
             },
             {
               headers: {
@@ -140,7 +140,7 @@ const Pending = () => {
               currencyReceived: formik.values.receivingcurrency,
               amountReceived: formik.values.amountReceived,
               description: formik.values.tractionDescription,
-              paymentMethod: "payWithTransfer",
+              paymentMethod: "N/A",
             },
             {
               headers: {
