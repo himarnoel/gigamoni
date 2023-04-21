@@ -38,9 +38,7 @@ const Signup = () => {
     const val = localStorage.getItem("LoggedIntoken");
     if (val) {
       navigate("/dashboard");
-    } else {
-      navigate("/login");
-    }
+    } 
   });
 
   const formik = useFormik({
