@@ -88,6 +88,7 @@ const Profile = () => {
         .then((res) => {
           setload(false);
           console.log(res);
+          toast.success("Updated successfully");
           body.style.overflow = "";
         })
         .catch((e) => {
@@ -159,8 +160,31 @@ const Profile = () => {
       >
         <RingLoader color="#009186" size={90} />
       </div>
-
-      <div className="flex justify-between items-center mt-28 px-2 xss:px-4 xs:px-6  sm:mt-26  sm:mt-26  lg:mt-20 2xl:px-[10rem] xl:px-[5rem] lg:px-10">
+      <div className="w-full lg:hidden flex justify-between items-center mt-28  px-2 xss:px-4 xs:px-6">
+        {" "}
+        <button className="sm:py-2 py-1 px-10 text-sm sm:w-[20rem] lg:w-full  mxl:py-[12px] mxl:text-xl  flex    mxl:mt-[6rem] justify-center items-center text-[#009186]    rounded-lg border-2 border-[#009186]  ">
+          Customer Support
+          <img
+            src={caller}
+            alt=""
+            className="ml-2 w-[1.8rem] sm:w-[2rem] mxl:w-[2.8rem]"
+          />
+        </button>
+        <img
+          src={bell}
+          alt=""
+          className="object-contain w-[1.6rem] sm:w-[2.3rem] md:w-[2.5rem] "
+        />
+      </div>
+      <div className="w-full  px-2 xss:px-4 xs:px-6 lg:hidden mt-8">
+        <button
+          onClick={() => navigate(-1)}
+          className=" text-sm px-[3rem] py-[0.7rem] rounded-lg bg-[#87ACA3]"
+        >
+          Back
+        </button>
+      </div>
+      <div className="lg:flex hidden justify-between items-center  px-2 xss:px-4 xs:px-6  sm:mt-26  sm:mt-26  lg:mt-20 2xl:px-[10rem] xl:px-[5rem] lg:px-10">
         <button
           onClick={() => navigate(-1)}
           className=" text-sm px-[4rem] py-[0.7rem]  lg:px-[4rem] lg:py-[0.7rem] rounded-lg bg-[#87ACA3]"
@@ -182,7 +206,7 @@ const Profile = () => {
           </p>
         </div>
       </div>
-      <p className="text-[1.7rem] font-semibold text-center mt-4 ">
+      <p className="text-[1.7rem] font-semibold text-center mt-8 ">
         Your Profile
       </p>
       <div className="flex flex-col lg:flex-row w-full  mx-auto justify-between  px-2 xss:px-4 xs:px-6   lg:gap-x-10 2xl:px-[10rem] xl:px-[5rem] lg:px-10 mt-8">
@@ -368,13 +392,13 @@ const Profile = () => {
           </button>
         </form>
         {/* right side */}
-        <div className="w-full mt-2 md:mt-5 lg:mx-20 mb-10  lg:mt-0  flex flex-col h-[30rem] justify-between     mxl:gap-y-16">
+        <div className="w-full bg-red-200  md:mt-5 lg:mx-20 mb-10 mt-8  lg:mt-0  flex flex-col h-[25rem] lg:h-[30rem] justify-between     mxl:gap-y-16">
           <p className="text-[#262626] font-medium">Change Password</p>
           <form
             onSubmit={changepasswordformik.handleSubmit}
-            className="mxl:gap-y-16 flex flex-col justify-between h-[16rem] "
+            className="mxl:gap-y-16 flex flex-col justify-between h-[16rem] bg-red-300 "
           >
-            <div className="relative z- 0 mt-0">
+            <div className="relative z-0 mt-0">
               <input
                 type="text"
                 id="oldpassword"
@@ -476,35 +500,37 @@ const Profile = () => {
               Change password
             </button>
           </form>
-          <div className="flex items-center">
-            <input
-              type="checkbox"
-              //   checked
-              className=" cursor-pointer  rounded focus:ring-0  
+          <div className="flex flex-col gap-y-2 w-full">
+            <div className="flex items-center">
+              <input
+                type="checkbox"
+                //   checked
+                className=" cursor-pointer  rounded focus:ring-0  
               "
-            />
-            <input
-              type="checkbox"
-              name="genres"
-              className="border-[#009186] border-2 checked:border-[#009186]"
-              value="adventure"
-              id="adventure_id"
-            />
-            <label for="adventure_id" className="text-sm"></label>
-            <p className="text-xs ml-2">
-              I would like to receive emails on service and product update
-            </p>
-          </div>
-          <div className="flex items-center ">
-            <input
-              type="checkbox"
-              className="border-[#009186] border"
-              name="genres"
-              value="adventure"
-              id="adventure"
-            />
-            <label for="adventure" className="text-sm"></label>
-            <p className="text-xs ml-2">Subscribe to news letter</p>
+              />
+              <input
+                type="checkbox"
+                name="genres"
+                className="border-[#009186] border-2 checked:border-[#009186]"
+                value="adventure"
+                id="adventure_id"
+              />
+              <label for="adventure_id" className="text-sm"></label>
+              <p className="text-xs ml-2">
+                I would like to receive emails on service and product update
+              </p>
+            </div>
+            <div className="flex items-center ">
+              <input
+                type="checkbox"
+                className="border-[#009186] border"
+                name="genres"
+                value="adventure"
+                id="adventure"
+              />
+              <label for="adventure" className="text-sm"></label>
+              <p className="text-xs ml-2">Subscribe to news letter</p>
+            </div>
           </div>
           <button
             className="py-2
