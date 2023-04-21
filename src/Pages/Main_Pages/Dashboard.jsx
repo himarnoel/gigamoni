@@ -33,8 +33,6 @@ const Dashboard = () => {
   const [beneficiaries, setbeneficiaries] = useState(false);
   const navigate = useNavigate();
   const safeDocument = typeof document !== "undefined" ? document : {};
-  const scrollBlocked = useRef();
-  const html = safeDocument.documentElement;
   const { body } = safeDocument;
 
   useEffect(() => {
