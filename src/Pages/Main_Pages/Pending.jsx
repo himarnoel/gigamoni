@@ -22,6 +22,10 @@ import {
 import { toast } from "react-toastify";
 import DashNav from "../../Components/DashBoardComponents/DashNav";
 const Pending = () => {
+  const [checkFromSendMoney, setcheckFromSendMoney] = useState(false);
+  const [transactionIDFromSendMoney, settransactionIDFromSendMoney] =
+    useState("");
+  const [dateFromSendMoney, setdateFromSendMoney] = useState("");
   useEffect(() => {
     const transactiondata = JSON.parse(localStorage.getItem("transactiondata"));
     window.scroll({ top: 0, left: 0 });
@@ -30,6 +34,9 @@ const Pending = () => {
       navigate("/login");
     } else {
       if (transactiondata) {
+        setcheckFromSendMoney(true);
+        settransactionIDFromSendMoney(transactiondata.transactionID);
+        setdateFromSendMoney(transactiondata.transactionCreatedDate);
         formik.setValues({
           receivername: transactiondata.receiverName ?? "",
           bankName: transactiondata.receiverBankName ?? "",
@@ -232,7 +239,12 @@ const Pending = () => {
           <div className="lg:w-[26rem] xl:w-[32rem] flex flex-col justify-between  h-[4rem] text-sm">
             {" "}
             <div className="flex flex-col lg:flex-row justify-between font-medium lg:mt-4  mt-4">
-              <p className="">Transaction ID: 1234567890987</p>
+              <p className="">
+                Transaction ID:{" "}
+                {checkFromSendMoney
+                  ? transactionIDFromSendMoney
+                  : dateFromSendMoney}
+              </p>
               <p className="flex  mt-6 lg:mt-0">
                 <span className="mr-1"> Status:</span>{" "}
                 <span className="text-[#5D5FEF]">Pending</span>
@@ -464,8 +476,8 @@ const Pending = () => {
                   id="accountNumber"
                   className={
                     formik.errors.accountNumber && formik.touched.accountNumber
-                      ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
-                      : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                      ? "block font-poppins spin-button-none  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                      : "block font-poppins spin-button-none w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
                   }
                   placeholder=" "
                   onChange={formik.handleChange}
@@ -476,7 +488,7 @@ const Pending = () => {
                   for="name"
                   className={
                     formik.errors.accountNumber && formik.touched.accountNumber
-                      ? "absolute text-xs mxl:text-sm font-poppins text-red-500  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                      ? "absolute text-xs mxl:text-sm  font-poppins text-red-500  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                       : "absolute text-xs mxl:text-sm font-poppins text-[#262626]  duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#009186] peer-placeholder-shown:scale-100   peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                   }
                 >
@@ -604,8 +616,8 @@ const Pending = () => {
                   id="iban"
                   className={
                     formik.errors.iban && formik.touched.iban
-                      ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
-                      : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                      ? "block font-poppins spin-button-none w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                      : "block font-poppins spin-button-none  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
                   }
                   placeholder=" "
                   onChange={formik.handleChange}
@@ -636,8 +648,8 @@ const Pending = () => {
                   id="swiftCode"
                   className={
                     formik.errors.swiftCode && formik.touched.swiftCode
-                      ? "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
-                      : "block font-poppins  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                      ? "block font-poppins spin-button-none  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px]  border-red-500 appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
+                      : "block font-poppins spin-button-none  w-full pl-8 pb-1 pt-3 py-2 text-sm text-gray-900 bg-transparent border-0 border-b-[1.5px] border-[#262626] appearance-none   focus:outline-none focus:ring-0 focus:border-[#009186] peer"
                   }
                   placeholder=" "
                   onChange={formik.handleChange}
