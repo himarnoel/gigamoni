@@ -22,6 +22,7 @@ import { toast } from "react-toastify";
 const Update = () => {
   const [overlay, setoverlay] = useState(false);
   const [change, setchange] = useState(false);
+  const [amountobepaid, setamountobepaid] = useState(0);
   const navigate = useNavigate();
   const { state } = useLocation();
   const safeDocument = typeof document !== "undefined" ? document : {};
@@ -33,6 +34,7 @@ const Update = () => {
     if (!val) {
       navigate("/login");
     }
+    setamountobepaid(state.amountSent);
     formik.setValues({
       receivername: state.receiverName,
       bankName: state.receiverBankName,
@@ -81,7 +83,7 @@ const Update = () => {
     onSubmit: (values) => {
       blockScroll();
       setoverlay(true);
-      setchange(true);
+      setchange(false);
       // allowScroll();
     },
   });
@@ -203,10 +205,11 @@ const Update = () => {
               <img src={mail} alt="" className="object-contain w-12" />
             </div>
             <p className="text-center mt-8 w-[20rem]">
-              You will pay the sum of N500,000
+              You will pay the sum of <b className="font-semibold">₦</b>
+              {amountobepaid.toLocaleString()}
             </p>
             <button
-              onClick={() => setchange(false)}
+              onClick={() => setchange(true)}
               className="py-2 px-10 bg-[#009186] text-[#F8F8FF] rounded-lg mt-5"
             >
               Pay Now
