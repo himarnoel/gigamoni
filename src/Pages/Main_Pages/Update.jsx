@@ -83,8 +83,6 @@ const Update = () => {
     onSubmit: (values) => {
       blockScroll();
       setoverlay(true);
-      setchange(false);
-      // allowScroll();
     },
   });
   const payWithTransfer = () => {
@@ -169,6 +167,7 @@ const Update = () => {
   return (
     <div className=" bg-[#F8F8FF] font-poppins ">
       <div
+        onClick={setoverlay(false)}
         className={
           overlay
             ? "absolute bg-cover bg-[#262626]/[0.8] top-0 z-[20] h-screen w-full flex  justify-center items-center "
