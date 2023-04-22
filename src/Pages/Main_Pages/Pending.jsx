@@ -189,11 +189,11 @@ const Pending = () => {
         ) : (
           <div
             // onClick={() => setoverlay(true)}
-            className="bg-white h-[24rem] w-[26rem] rounded-lg flex flex-col items-center relative"
+            className="bg-white h-[24rem] w-[22rem]  lg:w-[26rem] rounded-lg flex flex-col items-center relative"
           >
             <IoCloseCircle
               onClick={() => setoverlay(false)}
-              className="text-[#009186] absolute right-3 top-2 text-xl"
+              className="text-[#009186] absolute right-3 top-3 text-xl"
             />
             <div className="flex justify-center items-center rounded-full h-[8rem] w-[8rem] bg-[#00913E]/[0.1] mx-auto mt-20">
               <img src={mail} alt="" className="object-contain w-20" />
