@@ -23,6 +23,7 @@ const Update = () => {
   const [overlay, setoverlay] = useState(false);
   const [change, setchange] = useState(false);
   const [amountobepaid, setamountobepaid] = useState(0);
+  const [load, setload] = useState(false);
   const navigate = useNavigate();
   const { state } = useLocation();
   const safeDocument = typeof document !== "undefined" ? document : {};
@@ -83,9 +84,13 @@ const Update = () => {
     onSubmit: (values) => {
       blockScroll();
       setoverlay(true);
+      setchange(false);
+      // allowScroll();
     },
   });
   const payWithTransfer = () => {
+    blockScroll();
+    setload(true);
     axios
       .patch(
         `${baseurl}/transactions/${state.transactionID}/transaction/`,
@@ -115,15 +120,20 @@ const Update = () => {
       )
       .then((res) => {
         console.log(res);
-        toast.success("success");
+        setload(false);
+        toast.success("Paid successfully");
+        allowScroll();
         navigate(-1);
       })
       .catch((e) => {
         console.log(e);
+        allowScroll();
+        setload(false);
       });
   };
   const payWithCard = () => {
     blockScroll();
+    setload(true);
     axios
       .patch(
         `${baseurl}/transactions/${state.transactionID}/transaction/`,
@@ -154,28 +164,32 @@ const Update = () => {
       )
       .then((res) => {
         console.log(res);
-        toast.success("success");
+        toast.success("Paid successfully");
+        setload(false);
         allowScroll();
-        navigate("/dashboard");
+        navigate(-1);
       })
       .catch((e) => {
         console.log(e);
         allowScroll();
+        setload(false);
       });
   };
 
   return (
     <div className=" bg-[#F8F8FF] font-poppins ">
       <div
-        onClick={setoverlay(false)}
+        // onClick={() => setoverlay(false)}
         className={
           overlay
-            ? "absolute bg-cover bg-[#262626]/[0.8] top-0 z-[20] h-screen w-full flex  justify-center items-center "
+            ? "absolute bg-cover bg-[#262626]/[0.8] top-0 z-[90] h-screen w-full flex  justify-center items-center "
             : "hidden"
         }
       >
-        {change ? (
-          <div className="bg-[#F8F8FF] h-[16rem] rounded-[11.8392px] text-xs mxl:text-sm w-[26rem] mxl:h-[20rem] mxl:w-[30rem] py-8 px-10  font-semibold">
+        {load ? (
+          <RingLoader color="#009186" size={90} />
+        ) : change ? (
+          <div className="bg-[#F8F8FF] h-[16rem] rounded-[11.8392px] text-xs mxl:text-sm w-[24rem] lg:w-[26rem] mxl:h-[20rem] mxl:w-[30rem] py-8 px-10  font-semibold">
             <p className="text-center">Select Mode Of Payment</p>
             <div
               onClick={() => payWithTransfer()}
@@ -195,7 +209,7 @@ const Update = () => {
             </div>
           </div>
         ) : (
-          <div className="bg-white h-[24rem] w-[26rem] rounded-lg flex flex-col items-center relative">
+          <div className="bg-white h-[24rem] w-[22rem] lg:w-[26rem] rounded-lg flex flex-col items-center relative">
             <IoCloseCircle
               className="text-[#009186] absolute right-3 top-2 text-xl cursor-pointer"
               onClick={() => setoverlay(false)}
