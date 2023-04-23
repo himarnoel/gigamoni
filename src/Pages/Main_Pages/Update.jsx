@@ -739,6 +739,7 @@ const Update = () => {
                 <textarea
                   placeholder="Enter traction description "
                   name=""
+                  disabled
                   id="tractionDescription"
                   cols="30"
                   className={

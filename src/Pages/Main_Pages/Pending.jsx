@@ -678,6 +678,7 @@ const Pending = () => {
                 <textarea
                   placeholder="Enter transaction description "
                   name=""
+                  disabled
                   id="tractionDescription"
                   cols="30"
                   className={
