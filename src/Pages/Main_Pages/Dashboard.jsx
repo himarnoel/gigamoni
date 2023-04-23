@@ -165,6 +165,26 @@ const Dashboard = () => {
         });
     }
   };
+
+  const searchTransaction = (val) => {
+    Settrans([]);
+    setload(true);
+    axios
+      .get(`${baseurl}/transactions/?search=${val}`, {
+        headers: {
+          Authorization: `Token ${localStorage.getItem("LoggedIntoken")}`,
+        },
+      })
+      .then((res) => {
+        console.log(res);
+        Settrans(res.data);
+        setload(false);
+      })
+      .catch((e) => {
+        console.log(e);
+        setload(false);
+      });
+  };
   return (
     <div className="font-poppins bg-[#F8F8FF] overflow-y-hidden ">
       <div
@@ -318,6 +338,7 @@ const Dashboard = () => {
             <div className="flex items-center mt-5 lg:mt-8 sm:w-full  justify-between lg:w-fit">
               <div className="relative  ">
                 <input
+                  onChange={(e) => searchTransaction(e.target.value)}
                   type="text"
                   className="w-[12rem] sm:w-[26rem] lg:w-fit  pl-3 lg:pr-[5rem] xl:pr-[10rem] py-3 text-sm placeholder:text-[#87ACA3] placeholder:text-xs rounded-[8px] border-[2px] focus:outline-none border-[#009186] focus:border-[#009186]  border-solid
             "
