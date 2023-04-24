@@ -7,7 +7,9 @@ import axios from "axios";
 import { baseurl } from "../../Service/validate_and_api";
 import { toast } from "react-toastify";
 import { RingLoader } from "react-spinners";
+import { useNavigate } from "react-router-dom";
 const BeneficiaryMobile = () => {
+  const navigate = useNavigate();
   const [data, setdata] = useState([]);
   const [load, setload] = useState(false);
   const safeDocument = typeof document !== "undefined" ? document : {};
@@ -90,16 +92,14 @@ const BeneficiaryMobile = () => {
         <div className="mt-4 bg-[#DAF2F1] w-full h-[25rem] rounded-lg px-4  overflow-y-auto ">
           {data.map((item, i) => (
             <div
-              onClick={() => beneficiaryToPending()}
+              onClick={() => beneficiaryToPending(item)}
               key={i}
               className="w-full border-2 border-[#009186] border-solid min-h-[5rem] rounded-lg mt-5 px-2 pt-5 bg-white  pb-3"
             >
-              <p className="text-xs font-semibold text-[#175873]">
-                {item.fullName}
-              </p>
-              <div className="flex text-[#262626] text-xs mt-5">
-                <p className="mr-5">{item.bankName}</p>
-                <p className="">{item.id}</p>
+              <p className="text-[#175873] font-semibold">{item.fullName}</p>
+              <div className="flex font-[#262626] text-xs">
+                <p className="mr-4">{item.bankName}</p>
+                <p>{item.acctNo}</p>
               </div>
             </div>
           ))}
