@@ -243,7 +243,7 @@ const Pending = () => {
                 Transaction ID:{" "}
                 {checkFromSendMoney
                   ? transactionIDFromSendMoney
-                  : dateFromSendMoney}
+                  : "123456789087"}
               </p>
               <p className="flex  mt-6 lg:mt-0">
                 <span className="mr-1"> Status:</span>{" "}
@@ -252,7 +252,10 @@ const Pending = () => {
             </div>
             <div className="flex  justify-between font-medium mt-6 md:mt-8 lg:mt-6 ">
               {" "}
-              <p className="d">Date: 01/01/2023 11:30am</p>
+              <p className="d">
+                Date:
+                {checkFromSendMoney ? dateFromSendMoney : "01/01/2023 11:30am"}
+              </p>
               {/* <p className="ss">Service Fee: $10</p> */}
             </div>
           </div>
@@ -678,7 +681,6 @@ const Pending = () => {
                 <textarea
                   placeholder="Enter transaction description "
                   name=""
-                  disabled
                   id="tractionDescription"
                   cols="30"
                   className={
