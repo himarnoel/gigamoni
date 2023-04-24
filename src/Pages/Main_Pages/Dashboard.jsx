@@ -185,10 +185,27 @@ const Dashboard = () => {
         setload(false);
       });
   };
+  const beneficiaryToPending = (item) => {
+    const data = {
+      receiverName: item.fullName,
+      receiverBankName: item.bankName,
+      receiverBankAddress: item.bankAddress,
+      receiverEmail: item.email,
+      receiverSwiftCode: item.swiftCode,
+      receiverPhone: item.phoneNumber,
+      receiverCountry: item.country,
+      receiverIban: item.iban,
+      receiverAcctNo: item.acctNo,
+      receiverAcctName: item.acctName,
+    };
+    body.style.overflow = "";
+    localStorage.setItem("transactiondata", JSON.stringify(data));
+    navigate("/pending");
+  };
   return (
     <div className="font-poppins bg-[#F8F8FF] overflow-y-hidden ">
       <div
-        onClick={() => closeBeneficiarises()}
+        // onClick={() => closeBeneficiarises()}
         className={
           beneficiaries
             ? `absolute h-screen  w-full top-0 bg-[#262626]/[0.8] z-[90] sm:flex items-center justify-center hidden`
@@ -215,7 +232,7 @@ const Dashboard = () => {
           </p>
 
           {load ? (
-            <RingLoader className="text-[#009186] " />
+            <RingLoader className="text-[#009186]  " />
           ) : loaderror ? (
             <p className="text-red-500 font-semibold">An error occurred</p>
           ) : norecenttrans ? (
@@ -224,6 +241,7 @@ const Dashboard = () => {
             <div className="   h-[86%]  overflow-auto mt-5 px-8 bg-">
               {beneficiarieslist.map((item, i) => (
                 <div
+                  onClick={() => beneficiaryToPending(item)}
                   key={i}
                   className="h-[6rem]  border-2 border-[#009186] rounded-lg bg-white mt-5 text-base  justify-between pt-5 pb-3 px-2 flex flex-col"
                 >

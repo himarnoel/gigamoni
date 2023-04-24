@@ -242,7 +242,7 @@ const Pending = () => {
               <p className="">
                 Transaction ID:{" "}
                 {checkFromSendMoney
-                  ? transactionIDFromSendMoney
+                  ? transactionIDFromSendMoney ?? "123456789087"
                   : "123456789087"}
               </p>
               <p className="flex  mt-6 lg:mt-0">
@@ -254,7 +254,9 @@ const Pending = () => {
               {" "}
               <p className="d">
                 Date:
-                {checkFromSendMoney ? dateFromSendMoney : "01/01/2023 11:30am"}
+                {checkFromSendMoney
+                  ? dateFromSendMoney ?? "01/01/2023 11:30am"
+                  : "01/01/2023 11:30am"}
               </p>
               {/* <p className="ss">Service Fee: $10</p> */}
             </div>
