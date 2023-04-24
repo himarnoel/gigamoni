@@ -40,6 +40,23 @@ const BeneficiaryMobile = () => {
         });
     }
   }, []);
+  const beneficiaryToPending = (item) => {
+    const data = {
+      receiverName: item.fullName,
+      receiverBankName: item.bankName,
+      receiverBankAddress: item.bankAddress,
+      receiverEmail: item.email,
+      receiverSwiftCode: item.swiftCode,
+      receiverPhone: item.phoneNumber,
+      receiverCountry: item.country,
+      receiverIban: item.iban,
+      receiverAcctNo: item.acctNo,
+      receiverAcctName: item.acctName,
+    };
+    body.style.overflow = "";
+    localStorage.setItem("transactiondata", JSON.stringify(data));
+    navigate("/pending");
+  };
   return (
     <div className="font-poppins ">
       <div
@@ -72,7 +89,11 @@ const BeneficiaryMobile = () => {
         <p className="text-center mt-10">Beneficiaries</p>
         <div className="mt-4 bg-[#DAF2F1] w-full h-[25rem] rounded-lg px-4  overflow-y-auto ">
           {data.map((item, i) => (
-            <div className="w-full border-2 border-[#009186] border-solid min-h-[5rem] rounded-lg mt-5 px-2 pt-5 bg-white  pb-3">
+            <div
+              onClick={() => beneficiaryToPending()}
+              key={i}
+              className="w-full border-2 border-[#009186] border-solid min-h-[5rem] rounded-lg mt-5 px-2 pt-5 bg-white  pb-3"
+            >
               <p className="text-xs font-semibold text-[#175873]">
                 {item.fullName}
               </p>

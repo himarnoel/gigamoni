@@ -243,14 +243,14 @@ const Dashboard = () => {
                 <div
                   onClick={() => beneficiaryToPending(item)}
                   key={i}
-                  className="h-[6rem]  border-2 border-[#009186] rounded-lg bg-white mt-5 text-base  justify-between pt-5 pb-3 px-2 flex flex-col"
+                  className="h-[6rem] cursor-pointer  border-2 border-[#009186] rounded-lg bg-white mt-5 text-base  justify-between pt-5 pb-3 px-2 flex flex-col"
                 >
                   <p className="text-[#175873] font-semibold">
                     {item.fullName}
                   </p>
                   <div className="flex font-[#262626] text-xs">
                     <p className="mr-4">{item.bankName}</p>
-                    <p>{item.acctNo}01234</p>
+                    <p>{item.acctNo}</p>
                   </div>
                 </div>
               ))}
