@@ -15,6 +15,7 @@ import DatePicker from "react-datepicker";
 import { RiCloseCircleFill } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
 import { RingLoader, SyncLoader } from "react-spinners";
+import { toast } from "react-toastify";
 
 const Dashboard = () => {
   const [first, setfirst] = useState("");
@@ -42,6 +43,34 @@ const Dashboard = () => {
       navigate("/login");
     } else {
       localStorage.removeItem("transactiondata");
+      setload(true);
+      axios
+        .get(`${baseurl}/transactions/`, {
+          headers: {
+            Authorization: `Token ${localStorage.getItem("LoggedIntoken")}`,
+          },
+        })
+        .then((res) => {
+          console.log(res.data);
+          Settrans(res.data);
+          setload(false);
+          setloaderror(false);
+          if (res.data.length == 0) {
+            setnorecenttrans(true);
+          }
+        })
+        .catch((e) => {
+          console.log(e);
+          setloaderror(true);
+          setload(false);
+          if (e.response.data.detail == "Invalid token.") {
+            localStorage.removeItem("LoggedIntoken");
+            toast.warning("Session expired please login again", {
+              toastId: 1,
+            });
+            navigate("/login");
+          }
+        });
     }
   }, []);
 
@@ -52,30 +81,6 @@ const Dashboard = () => {
   const allowScroll = () => {
     body.style.overflow = "";
   };
-  useEffect(() => {
-    setload(true);
-    axios
-      .get(`${baseurl}/transactions/`, {
-        headers: {
-          Authorization: `Token ${localStorage.getItem("LoggedIntoken")}`,
-        },
-      })
-      .then((res) => {
-        console.log(res.data);
-        Settrans(res.data);
-        setload(false);
-        setloaderror(false);
-        if (res.data.length == 0) {
-          setnorecenttrans(true);
-        }
-      })
-      .catch((e) => {
-        console.log(e);
-        setloaderror(true);
-        setload(false);
-      });
-  }, []);
-
   const showBeneficiaries = () => {
     setbuttons(false);
     blockScroll();

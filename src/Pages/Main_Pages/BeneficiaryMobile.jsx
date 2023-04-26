@@ -35,6 +35,9 @@ const BeneficiaryMobile = () => {
           body.style.overflow = "";
         })
         .catch((e) => {
+          if (e.data == "Invalid token.") {
+            localStorage.removeItem("LoggedIntoken");
+          }
           console.log(e);
           setload(false);
           toast.error("An error occurred");
