@@ -48,9 +48,7 @@ const Profile = () => {
           console.log(e);
           setload(false);
           body.style.overflow = "";
-          if (e.name == "AxiosError") {
-            toast.error("Network Error");
-          } else if (e.response.data.detail == "Invalid token.") {
+          if (e.response.data.detail == "Invalid token.") {
             localStorage.removeItem("LoggedIntoken");
             toast.warning("Session expired  login again", {
               toastId: 1,
@@ -99,10 +97,12 @@ const Profile = () => {
           console.log(e);
           body.style.overflow = "";
           setload(false);
-          if (e.name == "AxiosError") {
-            toast.error("Network Error");
-          } else if (e.response.data.detail == "Invalid token.") {
-            toast.error("token expired");
+          if (e.response.data.detail == "Invalid token.") {
+            localStorage.removeItem("LoggedIntoken");
+            toast.warning("Session expired  login again", {
+              toastId: 1,
+            });
+            navigate("/login");
           } else {
             toast.error("An error occurred");
           }
@@ -141,10 +141,12 @@ const Profile = () => {
           console.log(e);
           body.style.overflow = "";
           setload(false);
-          if (e.name == "AxiosError") {
-            toast.error("Network Error");
-          } else if (e.response.data.detail == "Invalid token.") {
-            toast.error("token expired");
+          if (e.response.data.detail == "Invalid token.") {
+            localStorage.removeItem("LoggedIntoken");
+            toast.warning("Session expired  login again", {
+              toastId: 1,
+            });
+            navigate("/login");
           } else {
             toast.error("An error occurred");
           }

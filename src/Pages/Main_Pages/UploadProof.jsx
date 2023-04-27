@@ -129,9 +129,7 @@ const UploadProof = () => {
           console.log(e);
           body.style.overflow = "";
           setload(false);
-          if (e.name == "AxiosError") {
-            toast.error("Network Error");
-          } else if (e.response.data.detail == "Invalid token.") {
+          if (e.response.data.detail == "Invalid token.") {
             localStorage.removeItem("LoggedIntoken");
             toast.warning("Session expired  login again", {
               toastId: 1,
@@ -230,7 +228,6 @@ const UploadProof = () => {
             <input
               type="file"
               className="hidden"
-              
               ref={hiddenFileInput}
               onChange={handleChange}
             />
