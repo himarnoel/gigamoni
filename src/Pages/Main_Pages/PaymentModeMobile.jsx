@@ -9,7 +9,6 @@ import { useState } from "react";
 import axios from "axios";
 import { baseurl } from "../../Service/validate_and_api";
 const PaymentModeMobile = () => {
-
   useEffect(() => {
     const val = localStorage.getItem("LoggedIntoken");
     if (!val) {
@@ -59,6 +58,15 @@ const PaymentModeMobile = () => {
       .catch((e) => {
         setload(false);
         console.log(e);
+        if (e.response.data.detail == "Invalid token.") {
+          localStorage.removeItem("LoggedIntoken");
+          toast.warning("Session expired  login again", {
+            toastId: 1,
+          });
+          navigate("/login");
+        } else {
+          toast.error("An error occurred");
+        }
       });
   };
 

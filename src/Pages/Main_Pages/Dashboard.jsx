@@ -43,6 +43,7 @@ const Dashboard = () => {
       navigate("/login");
     } else {
       localStorage.removeItem("transactiondata");
+      localStorage.removeItem("Send");
       setload(true);
       axios
         .get(`${baseurl}/transactions/`, {
@@ -123,9 +124,7 @@ const Dashboard = () => {
           console.log(e);
           setloaderror(true);
           setload(false);
-          if (e.name == "AxiosError") {
-            toast.error("Network Error");
-          } else if (e.response.data.detail == "Invalid token.") {
+          if (e.response.data.detail == "Invalid token.") {
             localStorage.removeItem("LoggedIntoken");
             toast.warning("Session expired  login again", {
               toastId: 1,
@@ -178,6 +177,15 @@ const Dashboard = () => {
           console.log(e);
           setloaderror(true);
           setload(false);
+          if (e.response.data.detail == "Invalid token.") {
+            localStorage.removeItem("LoggedIntoken");
+            toast.warning("Session expired  login again", {
+              toastId: 1,
+            });
+            navigate("/login");
+          } else {
+            toast.error("An error occurred");
+          }
         });
     }
   };
@@ -199,9 +207,7 @@ const Dashboard = () => {
       .catch((e) => {
         console.log(e);
         setload(false);
-        if (e.name == "AxiosError") {
-          toast.error("Network Error");
-        } else if (e.response.data.detail == "Invalid token.") {
+        if (e.response.data.detail == "Invalid token.") {
           localStorage.removeItem("LoggedIntoken");
           toast.warning("Session expired  login again", {
             toastId: 1,

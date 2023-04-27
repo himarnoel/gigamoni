@@ -15,7 +15,7 @@ import { useRef } from "react";
 import { useState } from "react";
 import { RingLoader } from "react-spinners";
 import { IoCloseCircle } from "react-icons/io5";
-import axios from "axios";
+
 import { useLocation, useNavigate } from "react-router-dom";
 import img1 from "../../assets/overlayimage/one.svg";
 import img2 from "../../assets/overlayimage/vector.svg";
