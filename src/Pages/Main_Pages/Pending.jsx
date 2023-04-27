@@ -121,7 +121,11 @@ const Pending = () => {
           .catch((e) => {
             setoverlay(false);
             if (e.response.data.detail == "Invalid token.") {
-              toast.error("token expired");
+              localStorage.removeItem("LoggedIntoken");
+              toast.warning("Session expired  login again", {
+                toastId: 1,
+              });
+              navigate("/login");
             } else {
               toast.error("An error occurred");
             }
@@ -161,9 +165,12 @@ const Pending = () => {
             setload(false);
           })
           .catch((e) => {
-            setoverlay(false);
             if (e.response.data.detail == "Invalid token.") {
-              toast.error("token expired");
+              localStorage.removeItem("LoggedIntoken");
+              toast.warning("Session expired  login again", {
+                toastId: 1,
+              });
+              navigate("/login");
             } else {
               toast.error("An error occurred");
             }

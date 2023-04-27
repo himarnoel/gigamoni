@@ -83,6 +83,17 @@ const SinglebeneficiaryEdit = () => {
         // navigate(-1);
         setload(false);
         toast.error("An error occured");
+        if (e.name == "AxiosError") {
+          toast.error("Network Error");
+        } else if (e.response.data.detail == "Invalid token.") {
+          localStorage.removeItem("LoggedIntoken");
+          toast.warning("Session expired  login again", {
+            toastId: 1,
+          });
+          navigate("/login");
+        } else {
+          toast.error("An error occurred");
+        }
       });
   };
 

@@ -110,6 +110,17 @@ const OrderSummary = () => {
         setload(false);
         console.log(e);
         allowScroll();
+        if (e.name == "AxiosError") {
+          toast.error("Network Error");
+        } else if (e.response.data.detail == "Invalid token.") {
+          localStorage.removeItem("LoggedIntoken");
+          toast.warning("Session expired  login again", {
+            toastId: 1,
+          });
+          navigate("/login");
+        } else {
+          toast.error("An error occurred");
+        }
       });
   };
 
@@ -153,6 +164,15 @@ const OrderSummary = () => {
       .catch((e) => {
         setload(false);
         console.log(e);
+        if (e.response.data.detail == "Invalid token.") {
+          localStorage.removeItem("LoggedIntoken");
+          toast.warning("Session expired  login again", {
+            toastId: 1,
+          });
+          navigate("/login");
+        } else {
+          toast.error("An error occurred");
+        }
       });
   };
   return (
@@ -176,7 +196,7 @@ const OrderSummary = () => {
             ? "absolute top-0   bg-[#262626]/[0.8]   z-[90] h-screen w-full flex  justify-center items-center"
             : "hidden"
         }
-      > 
+      >
         <div className="bg-[#F8F8FF] h-[16rem] rounded-[11.8392px] text-xs mxl:text-sm w-[26rem] mxl:h-[20rem] mxl:w-[30rem] py-8 px-10  font-semibold">
           <p className="text-center">Select Mode Of Payment</p>
           <div

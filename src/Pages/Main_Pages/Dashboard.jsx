@@ -65,7 +65,7 @@ const Dashboard = () => {
           setload(false);
           if (e.response.data.detail == "Invalid token.") {
             localStorage.removeItem("LoggedIntoken");
-            toast.warning("Session expired please login again", {
+            toast.warning("Session expired  login again", {
               toastId: 1,
             });
             navigate("/login");
@@ -123,6 +123,17 @@ const Dashboard = () => {
           console.log(e);
           setloaderror(true);
           setload(false);
+          if (e.name == "AxiosError") {
+            toast.error("Network Error");
+          } else if (e.response.data.detail == "Invalid token.") {
+            localStorage.removeItem("LoggedIntoken");
+            toast.warning("Session expired  login again", {
+              toastId: 1,
+            });
+            navigate("/login");
+          } else {
+            toast.error("An error occurred");
+          }
         });
     }
   };
@@ -188,6 +199,17 @@ const Dashboard = () => {
       .catch((e) => {
         console.log(e);
         setload(false);
+        if (e.name == "AxiosError") {
+          toast.error("Network Error");
+        } else if (e.response.data.detail == "Invalid token.") {
+          localStorage.removeItem("LoggedIntoken");
+          toast.warning("Session expired  login again", {
+            toastId: 1,
+          });
+          navigate("/login");
+        } else {
+          toast.error("An error occurred");
+        }
       });
   };
   const beneficiaryToPending = (item) => {
