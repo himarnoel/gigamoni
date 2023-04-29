@@ -9,6 +9,8 @@ import { toast } from "react-toastify";
 import { useEffect } from "react";
 
 const CheckMail = () => {
+  const safeDocument = typeof document !== "undefined" ? document : {};
+  const { body } = safeDocument;
   useEffect(() => {
     localStorage.removeItem("Send");
   }, []);
@@ -24,7 +26,9 @@ const CheckMail = () => {
   const [load, setload] = useState(false);
   const Resender = () => {
     let email = localStorage.getItem("email");
+    window.scrollTo(0, 0);
     setload(true);
+    body.style.overflow = "hidden";
     axios
       .post(`${baseurl}/accounts/request/`, {
         email,
@@ -32,17 +36,19 @@ const CheckMail = () => {
       .then((res) => {
         console.log(res);
         setload(false);
+        body.style.overflow = "";
       })
       .catch((e) => {
         console.log(e);
         toast.error("An error occurred");
         setload(false);
+        body.style.overflow = "";
       });
   };
   return (
     <div>
       {load ? (
-        <div className="absolute bg-cover bg-[#262626]/[0.8]  z-[20] h-screen w-screen flex  justify-center items-center text-3xl">
+        <div className="absolute bg-cover bg-[#262626]/[0.8]  z-[90] h-screen w-full flex  justify-center items-center text-3xl">
           <RingLoader color="#009186" size={90} />
         </div>
       ) : (

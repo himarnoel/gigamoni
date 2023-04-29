@@ -140,7 +140,7 @@ const Dashboard = () => {
   const transactionDetail = (item) => {
     console.log(item);
     localStorage.setItem("transactiondata", JSON.stringify(item));
-    if (item.status == "Pending") {
+    if (item.status == "Pending" || item.status == "Incomplete") {
       navigate("/pending");
     } else if (item.status == "Update") {
       navigate("/update", { state: item });

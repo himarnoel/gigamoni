@@ -17,8 +17,7 @@ const Signup = () => {
   const [first, setfirst] = useState({});
   const navigate = useNavigate();
   const safeDocument = typeof document !== "undefined" ? document : {};
-  const scrollBlocked = useRef();
-  const html = safeDocument.documentElement;
+
   const { body } = safeDocument;
   const fromSendMoney = JSON.parse(localStorage.getItem("Send"));
   useEffect(() => {
@@ -38,7 +37,7 @@ const Signup = () => {
     const val = localStorage.getItem("LoggedIntoken");
     if (val) {
       navigate("/dashboard");
-    } 
+    }
   });
 
   const formik = useFormik({

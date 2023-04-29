@@ -18,8 +18,6 @@ const Login = () => {
     const val = localStorage.getItem("LoggedIntoken");
     if (val) {
       navigate("/dashboard");
-    } else {
-      navigate("/login");
     }
   }, []);
 
@@ -48,6 +46,7 @@ const Login = () => {
           setload(false);
           if (e.response.data.detail == "Account has not been verified") {
             toast.error("Account has not been verified");
+            localStorage.setItem("email", values.email.toString());
             navigate("/check");
           } else if (
             e.response.data.detail == "Phone number has not been verified"
@@ -69,7 +68,7 @@ const Login = () => {
     <>
       <div className="hidden lg:block font-poppins">
         {load ? (
-          <div className="absolute bg-cover bg-[#262626]/[0.8]  z-[20] h-screen w-screen flex  justify-center items-center text-3xl">
+          <div className="absolute bg-cover bg-[#262626]/[0.8]  z-[90] h-screen w-screen flex  justify-center items-center text-3xl">
             <RingLoader color="#009186" size={90} />
           </div>
         ) : (
