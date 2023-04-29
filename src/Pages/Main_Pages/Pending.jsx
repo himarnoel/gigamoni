@@ -56,7 +56,7 @@ const Pending = () => {
           receivingcurrency: "USD",
           amountReceived: transactiondata.amountReceived ?? "",
         });
-      } else if(savedBeneficiary) {
+      } else if (savedBeneficiary) {
         setcheckFromSendMoney(true);
         settransactionIDFromSendMoney(savedBeneficiary.transactionID);
         setdateFromSendMoney(savedBeneficiary.transactionCreatedDate);
@@ -223,7 +223,7 @@ const Pending = () => {
           >
             <IoCloseCircle
               onClick={() => setoverlay(false)}
-              className="text-[#009186] absolute right-3 top-3 text-xl"
+              className="text-[#009186] absolute right-3 top-3 text-xl cursor-pointer"
             />
             <div className="flex justify-center items-center rounded-full h-[8rem] w-[8rem] bg-[#00913E]/[0.1] mx-auto mt-20">
               <img src={mail} alt="" className="object-contain w-20" />
