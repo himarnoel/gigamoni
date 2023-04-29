@@ -29,6 +29,7 @@ const SinglebeneficiaryEdit = () => {
       navigate("/login");
     } else {
       window.scroll({ top: 0, left: 0 });
+      console.log(state);
       formik.setValues({
         receivername: state.fullName,
         bankName: state.bankName,

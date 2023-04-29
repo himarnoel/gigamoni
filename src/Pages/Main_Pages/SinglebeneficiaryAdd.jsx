@@ -58,7 +58,7 @@ const SinglebeneficiaryAdd = () => {
             fullName: values.receivername,
             email: values.emailAddress,
             phoneNumber: values.phoneNumber,
-            acctName: values.accountNumber,
+            acctName: values.accountName,
             acctNo: values.accountNumber,
             bankName: values.bankName,
             bankAddress: values.bankAddress,
@@ -95,7 +95,7 @@ const SinglebeneficiaryAdd = () => {
         });
     },
   });
-  console.log(formik.errors);
+  console.log(formik.values);
   return (
     <div className="font-poppins">
       <DashNav class="fixed top-0 z-[2]" />
