@@ -43,6 +43,7 @@ const Dashboard = () => {
       navigate("/login");
     } else {
       localStorage.removeItem("transactiondata");
+      localStorage.removeItem("savedBeneficiary");
       localStorage.removeItem("Send");
       setload(true);
       axios
@@ -232,7 +233,7 @@ const Dashboard = () => {
       receiverAcctName: item.acctName,
     };
     body.style.overflow = "";
-    localStorage.setItem("transactiondata", JSON.stringify(data));
+    localStorage.setItem("savedBeneficiary", JSON.stringify(data));
     navigate("/pending");
   };
   return (

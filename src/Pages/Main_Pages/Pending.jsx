@@ -28,6 +28,9 @@ const Pending = () => {
   const [dateFromSendMoney, setdateFromSendMoney] = useState("");
   useEffect(() => {
     const transactiondata = JSON.parse(localStorage.getItem("transactiondata"));
+    const savedBeneficiary = JSON.parse(
+      localStorage.getItem("savedBeneficiary")
+    );
     window.scroll({ top: 0, left: 0 });
     const val = localStorage.getItem("LoggedIntoken");
     if (!val) {
@@ -52,6 +55,26 @@ const Pending = () => {
           sendingcurrency: "NGN",
           receivingcurrency: "USD",
           amountReceived: transactiondata.amountReceived ?? "",
+        });
+      } else {
+        setcheckFromSendMoney(true);
+        settransactionIDFromSendMoney(savedBeneficiary.transactionID);
+        setdateFromSendMoney(savedBeneficiary.transactionCreatedDate);
+        formik.setValues({
+          receivername: savedBeneficiary.receiverName ?? "",
+          bankName: savedBeneficiary.receiverBankName ?? "",
+          phoneNumber: savedBeneficiary.receiverPhone ?? "",
+          bankAddress: savedBeneficiary.receiverBankAddress ?? "",
+          emailAddress: savedBeneficiary.receiverEmail ?? "",
+          iban: savedBeneficiary.receiverIban ?? "",
+          accountName: savedBeneficiary.receiverAcctName ?? "",
+          swiftCode: savedBeneficiary.receiverSwiftCode ?? "",
+          accountNumber: savedBeneficiary.receiverAcctNo ?? "",
+          receivingCountry: savedBeneficiary.receiverCountry ?? "",
+          tractionDescription: savedBeneficiary.description ?? "",
+          sendingcurrency: "NGN",
+          receivingcurrency: "USD",
+          amountReceived: savedBeneficiary.amountReceived ?? "",
         });
       }
     }
