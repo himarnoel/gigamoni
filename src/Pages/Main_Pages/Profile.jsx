@@ -406,7 +406,7 @@ const Profile = () => {
           >
             <div className="relative z-0 mt-0">
               <input
-                type="text"
+                type="password"
                 id="oldpassword"
                 className={
                   changepasswordformik.errors.oldpassword &&
@@ -431,7 +431,7 @@ const Profile = () => {
             </div>{" "}
             <div className="relative z-0 mt-0">
               <input
-                type="text"
+                 type="password"
                 id="newpassword"
                 className={
                   changepasswordformik.errors.newpassword &&
@@ -466,7 +466,7 @@ const Profile = () => {
             </div>{" "}
             <div className="relative z-0 mt-0">
               <input
-                type="text"
+                 type="password"
                 id="confirmpassword"
                 className={
                   changepasswordformik.errors.confirmpassword &&
