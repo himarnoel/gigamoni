@@ -56,7 +56,7 @@ const Pending = () => {
           receivingcurrency: "USD",
           amountReceived: transactiondata.amountReceived ?? "",
         });
-      } else {
+      } else if(savedBeneficiary) {
         setcheckFromSendMoney(true);
         settransactionIDFromSendMoney(savedBeneficiary.transactionID);
         setdateFromSendMoney(savedBeneficiary.transactionCreatedDate);
