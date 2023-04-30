@@ -299,16 +299,15 @@ const Dashboard = () => {
             onClick={() => closeBeneficiarises()}
             className="absolute top-3 right-4 cursor-pointer text-[#009186] text-xl "
           />
-          <p className="text-[#262626] font-semibold text-center text-lg mt-5 absolute top-0 right-0 left-0 ">
+          <p className="text-[#262626] font-semibold text-center   text-lg mt-5 absolute top-3 right-0 left-0 ">
             Beneficiaries
           </p>
           {loader ? (
             <RingLoader />
           ) : norecentbeneficiaryoverlay ? (
             <p className="text-yellow-500 font-semibold ">No beneficiary</p>
-          ) : loaderrorbeneficiaryoverlay ? (
-            <p className="text-red-500 font-semibold">An error occurred</p>
-          ) : (
+          ) :loaderrorbeneficiaryoverlay?
+          <p className="text-red-500 font-semibold">An error occurred</p> :(
             <div className="   h-[86%]  overflow-auto mt-5 px-8 bg-">
               {beneficiarieslist.map((item, i) => (
                 <div
