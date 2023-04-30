@@ -34,7 +34,7 @@ const Dashboard = () => {
   const [beneficiaries, setbeneficiaries] = useState(false);
   const [beneficiariesOverlay, setbeneficiariesOverlay] = useState(false);
   const [norecentbeneficiaryoverlay, setnorecentbeneficiaryoverlay] =
-    useState(second);
+    useState(false);
   const [loader, setloader] = useState(false);
   const navigate = useNavigate();
   const safeDocument = typeof document !== "undefined" ? document : {};
@@ -282,7 +282,13 @@ const Dashboard = () => {
       >
         <div
           className={`relative 
-          ${loader ? "flex justify-center items-center" : ""}
+          ${
+            loader
+              ? "flex justify-center items-center"
+              : norecentbeneficiaryoverlay
+              ? "flex justify-center items-center"
+              : ""
+          }
           xl:w-[30rem] mxl:w-[40rem] sm:h-[30rem] sm:w-[30rem] md:h-[35rem] md:w-[33rem] mxl:h-[40rem]  xl:h-[29rem] bg-[#DAF2F1] rounded-lg px-3 flex  flex-col py-4 mxl:py-10`}
         >
           <RiCloseCircleFill
