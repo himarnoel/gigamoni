@@ -32,6 +32,10 @@ const Dashboard = () => {
   const [openDate, setopenDate] = useState(false);
   const [buttons, setbuttons] = useState(false);
   const [beneficiaries, setbeneficiaries] = useState(false);
+  const [beneficiariesOverlay, setbeneficiariesOverlay] = useState(false);
+  const [norecentbeneficiaryoverlay, setnorecentbeneficiaryoverlay] =
+    useState(second);
+  const [loader, setloader] = useState(false);
   const navigate = useNavigate();
   const safeDocument = typeof document !== "undefined" ? document : {};
   const { body } = safeDocument;
@@ -86,8 +90,38 @@ const Dashboard = () => {
   const showBeneficiaries = () => {
     setbuttons(false);
     blockScroll();
-    setbeneficiaries(true);
-    fetchBeneficiaries();
+    setbeneficiariesOverlay(true);
+    setloader(true);
+
+    axios
+      .get(`${baseurl}/transactions/beneficiary/`, {
+        headers: {
+          Authorization: `Token ${localStorage.getItem("LoggedIntoken")}`,
+        },
+      })
+      .then((res) => {
+        console.log(res.data);
+        setloader(false);
+        if (res.data.length == 0) {
+          setnorecentbeneficiaryoverlay(true);
+        } else {
+          setbeneficiarieslist(res.data);
+        }
+      })
+      .catch((e) => {
+        console.log(e);
+
+        setloader(false);
+        if (e.response.data.detail == "Invalid token.") {
+          localStorage.removeItem("LoggedIntoken");
+          toast.warning("Session expired  login again", {
+            toastId: 1,
+          });
+          navigate("/login");
+        } else {
+          toast.error("An error occurred");
+        }
+      });
   };
   const mobileShowBeneficiaries = () => {
     setbuttons(false);
@@ -98,7 +132,7 @@ const Dashboard = () => {
     navigate("/pending");
   };
   const closeBeneficiarises = () => {
-    setbeneficiaries(false);
+    setbeneficiariesOverlay(false);
     allowScroll();
   };
   const fetchTransaction = () => {
@@ -241,36 +275,25 @@ const Dashboard = () => {
       <div
         // onClick={() => closeBeneficiarises()}
         className={
-          beneficiaries
+          beneficiariesOverlay
             ? `absolute h-screen  w-full top-0 bg-[#262626]/[0.8] z-[90] sm:flex items-center justify-center hidden`
             : "hidden"
         }
       >
         <div
-          className={`bg-[#DAF2F1] relative ${
-            load
-              ? "flex items-center justify-center"
-              : loaderror
-              ? "flex items-center justify-center"
-              : norecenttrans
-              ? "flex items-center justify-center "
-              : ""
-          }relative xl:w-[30rem] mxl:w-[40rem] sm:h-[30rem] sm:w-[30rem] md:h-[35rem] md:w-[33rem] mxl:h-[40rem]  xl:h-[29rem] bg-[#DAF2F1] rounded-lg px-3 flex  flex-col py-4 mxl:py-10`}
+          className={`relative 
+          ${loader ? "flex justify-center items-center" : ""}
+          xl:w-[30rem] mxl:w-[40rem] sm:h-[30rem] sm:w-[30rem] md:h-[35rem] md:w-[33rem] mxl:h-[40rem]  xl:h-[29rem] bg-[#DAF2F1] rounded-lg px-3 flex  flex-col py-4 mxl:py-10`}
         >
           <RiCloseCircleFill
             onClick={() => closeBeneficiarises()}
             className="absolute top-3 right-4 cursor-pointer text-[#009186] text-xl "
           />
-          <p className="text-[#262626] font-semibold text-center text-lg mt-5 absolute top-0">
+          <p className="text-[#262626] font-semibold text-center text-lg mt-5 absolute top-0 right-0 left-0 ">
             Beneficiaries
           </p>
-
-          {load ? (
-            <RingLoader className="text-[#009186]  " />
-          ) : loaderror ? (
-            <p className="text-red-500 font-semibold">An error occurred</p>
-          ) : norecenttrans ? (
-            <p className="text-yellow-500 font-semibold">No beneficiary</p>
+          {loader ? (
+            <RingLoader />
           ) : (
             <div className="   h-[86%]  overflow-auto mt-5 px-8 bg-">
               {beneficiarieslist.map((item, i) => (
