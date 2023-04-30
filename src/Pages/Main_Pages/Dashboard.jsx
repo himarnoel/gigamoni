@@ -36,6 +36,8 @@ const Dashboard = () => {
   const [norecentbeneficiaryoverlay, setnorecentbeneficiaryoverlay] =
     useState(false);
   const [loader, setloader] = useState(false);
+  const [loaderrorbeneficiaryoverlay, setloaderrorbeneficiaryoverlay] =
+    useState(false);
   const navigate = useNavigate();
   const safeDocument = typeof document !== "undefined" ? document : {};
   const { body } = safeDocument;
@@ -110,7 +112,7 @@ const Dashboard = () => {
       })
       .catch((e) => {
         console.log(e);
-
+        setloaderrorbeneficiaryoverlay(true);
         setloader(false);
         if (e.response.data.detail == "Invalid token.") {
           localStorage.removeItem("LoggedIntoken");
@@ -300,6 +302,8 @@ const Dashboard = () => {
           </p>
           {loader ? (
             <RingLoader />
+          ) : norecentbeneficiaryoverlay ? (
+            <p className="text-yellow-500 font-semibold ">No beneficiary</p>
           ) : (
             <div className="   h-[86%]  overflow-auto mt-5 px-8 bg-">
               {beneficiarieslist.map((item, i) => (
