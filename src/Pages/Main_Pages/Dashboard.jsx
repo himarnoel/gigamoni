@@ -289,6 +289,8 @@ const Dashboard = () => {
               ? "flex justify-center items-center"
               : norecentbeneficiaryoverlay
               ? "flex justify-center items-center"
+              : loaderrorbeneficiaryoverlay
+              ? "flex justify-center items-center"
               : ""
           }
           xl:w-[30rem] mxl:w-[40rem] sm:h-[30rem] sm:w-[30rem] md:h-[35rem] md:w-[33rem] mxl:h-[40rem]  xl:h-[29rem] bg-[#DAF2F1] rounded-lg px-3 flex  flex-col py-4 mxl:py-10`}
@@ -304,6 +306,8 @@ const Dashboard = () => {
             <RingLoader />
           ) : norecentbeneficiaryoverlay ? (
             <p className="text-yellow-500 font-semibold ">No beneficiary</p>
+          ) : loaderrorbeneficiaryoverlay ? (
+            <p className="text-red-500 font-semibold">An error occurred</p>
           ) : (
             <div className="   h-[86%]  overflow-auto mt-5 px-8 bg-">
               {beneficiarieslist.map((item, i) => (
