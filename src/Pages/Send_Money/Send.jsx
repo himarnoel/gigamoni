@@ -24,12 +24,11 @@ const Send = () => {
   useEffect(() => {
     window.scroll({ top: 0, left: 0 });
     const val = localStorage.getItem("LoggedIntoken");
-    if (!val) {
-      navigate("/login");
+    if (val) {
+      navigate("/dashboard");
     }
-  },[]);
- 
-  
+  }, []);
+
   const blockScroll = () => {
     window.scrollTo({ top: 0, left: 0 });
     body.style.overflow = "hidden";
