@@ -22,7 +22,7 @@ const Send = () => {
   const { body } = safeDocument;
 
   useEffect(() => {
-    // window.scroll({ top: 0, left: 0 });
+    window.scroll({ top: 0, left: 0 });
     const val = localStorage.getItem("LoggedIntoken");
     if (!val) {
       navigate("/login");
