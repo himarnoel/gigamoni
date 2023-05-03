@@ -18,13 +18,23 @@ const Send = () => {
   const [noacc, setnoacc] = useState(false);
   const [load, setload] = useState(false);
   const [navigater, setnavigater] = useState(false);
+  const safeDocument = typeof document !== "undefined" ? document : {};
+  const { body } = safeDocument;
+
   useEffect(() => {
-    window.scroll({ top: 0, left: 0 });
+    // window.scroll({ top: 0, left: 0 });
     const val = localStorage.getItem("LoggedIntoken");
     if (!val) {
       navigate("/login");
     }
   });
+  const blockScroll = () => {
+    window.scrollTo({ top: 0, left: 0 });
+    body.style.overflow = "hidden";
+  };
+  const allowScroll = () => {
+    body.style.overflow = "";
+  };
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -38,24 +48,32 @@ const Send = () => {
     },
     validationSchema: sendmoney,
     onSubmit: (values) => {
-      window.scrollTo(0, 0);
+      blockScroll();
       if (navigater) {
         if (values.sendamount < 100) {
           navigate("/less");
+          allowScroll();
         } else {
           localStorage.setItem("Send", JSON.stringify(values));
           navigate("/noacct");
+          allowScroll();
         }
       } else {
         if (values.sendamount < 100) {
           setlessamount(true);
+          allowScroll();
         } else {
           localStorage.setItem("Send", JSON.stringify(values));
           setnoacc(true);
+          allowScroll();
         }
       }
     },
   });
+  const continuetoSignup=()=>{
+    allowScroll();
+    navigate("/signup")
+  }
   return (
     <div className="font-poppins">
       {load ? (
@@ -114,7 +132,7 @@ const Send = () => {
             </div>
             <img src={img4} alt="" className="object-contain w-[10rem]" />
             <button
-              onClick={() => navigate("/signup")}
+              onClick={() =>continue()}
               className=" text-[#F8F8FF] rounded text-sm bg-[#009186] w-full mt-0 py-2"
             >
               continue
