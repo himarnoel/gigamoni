@@ -17,7 +17,7 @@ const Send = () => {
   const [lessamount, setlessamount] = useState(false);
   const [noacc, setnoacc] = useState(false);
   const [load, setload] = useState(false);
-  const [navigater, setnavigater] = useState(false);
+  const [onPhone, setonPhone] = useState(false);
   const safeDocument = typeof document !== "undefined" ? document : {};
   const { body } = safeDocument;
 
@@ -49,23 +49,21 @@ const Send = () => {
     validationSchema: sendmoney,
     onSubmit: (values) => {
       blockScroll();
-      if (navigater) {
+      if (onPhone) {
         if (values.sendamount < 100) {
-          navigate("/less");
           allowScroll();
+          navigate("/less");
         } else {
           localStorage.setItem("Send", JSON.stringify(values));
-          navigate("/noacct");
           allowScroll();
+          navigate("/noacct");
         }
       } else {
         if (values.sendamount < 100) {
           setlessamount(true);
-          allowScroll();
         } else {
           localStorage.setItem("Send", JSON.stringify(values));
           setnoacc(true);
-          allowScroll();
         }
       }
     },
@@ -73,6 +71,11 @@ const Send = () => {
   const continuetoSignup = () => {
     allowScroll();
     navigate("/signup");
+  };
+  const closeModal = () => {
+    allowScroll();
+    setnoacc(false);
+    setlessamount(false);
   };
   return (
     <div className="font-poppins">
@@ -90,7 +93,7 @@ const Send = () => {
           "
           >
             <IoIosCloseCircle
-              onClick={() => setlessamount(!lessamount)}
+              onClick={() => closeModal()}
               className="text-2xl right-3 absolute top-3 text-[#009186] cursor-pointer"
             />
             <div className="flex flex-col items-center">
@@ -102,7 +105,7 @@ const Send = () => {
               </h4>
             </div>
             <button
-              onClick={() => setlessamount(!lessamount)}
+              onClick={() => closeModal()}
               className=" text-[#F8F8FF] rounded text-sm bg-[#009186] w-full mt-0 py-2"
             >
               continue
@@ -114,7 +117,7 @@ const Send = () => {
       )}
       {noacc ? (
         <div
-          onClick={() => setnoacc(!noacc)}
+          onClick={() => closeModal()}
           className="absolute top-0 bg-cover bg-[#262626]/[0.8]  z-[90] h-full overla w-full flex  justify-center items-center text-3xl"
         >
           <div
@@ -122,7 +125,7 @@ const Send = () => {
           "
           >
             <IoIosCloseCircle
-              onClick={() => setnoacc(!noacc)}
+              onClick={() => closeModal()}
               className="text-2xl right-3 absolute top-3 text-[#009186] cursor-pointer"
             />
             <div className="text-center">
@@ -445,7 +448,7 @@ const Send = () => {
                 </button>
                 <button
                   type="submit"
-                  onClick={() => setnavigater(true)}
+                  onClick={() => setonPhone(true)}
                   className=" lg:hidden text-[#F8F8FF] rounded bg-[#009186] w-full mt-0 py-2"
                 >
                   continue
