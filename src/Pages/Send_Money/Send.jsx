@@ -27,7 +27,9 @@ const Send = () => {
     if (!val) {
       navigate("/login");
     }
-  });
+  },[]);
+ 
+  
   const blockScroll = () => {
     window.scrollTo({ top: 0, left: 0 });
     body.style.overflow = "hidden";
