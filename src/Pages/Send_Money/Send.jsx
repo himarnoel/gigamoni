@@ -70,10 +70,10 @@ const Send = () => {
       }
     },
   });
-  const continuetoSignup=()=>{
+  const continuetoSignup = () => {
     allowScroll();
-    navigate("/signup")
-  }
+    navigate("/signup");
+  };
   return (
     <div className="font-poppins">
       {load ? (
@@ -132,7 +132,7 @@ const Send = () => {
             </div>
             <img src={img4} alt="" className="object-contain w-[10rem]" />
             <button
-              onClick={() =>continue()}
+              onClick={() => continuetoSignup()}
               className=" text-[#F8F8FF] rounded text-sm bg-[#009186] w-full mt-0 py-2"
             >
               continue
