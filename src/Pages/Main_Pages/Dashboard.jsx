@@ -41,6 +41,7 @@ const Dashboard = () => {
   const [loaderrorbeneficiaryoverlay, setloaderrorbeneficiaryoverlay] =
     useState(false);
   const [notificationloader, setnotificationloader] = useState(false);
+
   const navigate = useNavigate();
   const safeDocument = typeof document !== "undefined" ? document : {};
   const { body } = safeDocument;
@@ -317,6 +318,29 @@ const Dashboard = () => {
     localStorage.setItem("savedBeneficiary", JSON.stringify(data));
     navigate("/pending");
   };
+  // close notification
+  let showNotificationRef = useRef();
+  let showButtonsRef = useRef();
+
+  document.addEventListener("mousedown", (e) => {
+    if (e.target !== showNotificationRef?.current) {
+      setshowNotification(false);
+    }
+  });
+
+  useEffect(() => {
+    const performer = (e) => {
+      if (!showButtonsRef.current.contains(e.target)) {
+        setbuttons(false);
+      }
+    };
+    document.addEventListener("mousedown", performer);
+
+    return () => {
+      document.removeEventListener("mousedown", performer);
+    };
+  }, []);
+
   return (
     <div className="font-poppins bg-[#F8F8FF] overflow-y-hidden ">
       <div
@@ -376,59 +400,66 @@ const Dashboard = () => {
       </div>
       <DashNav class="fixed top-0 w-full z-[30]" />
       <div className="2xl:px-[10rem] xl:px-[5rem]  px-2 xss:px-4 xs:px-6 sm:px-10 md:px-20   flex flex-col justify-center items-center gap-y-8 pb-8   lg:px-10 mt-20 mxl:pt-20">
-        <span
-          // onMouseOver={() => setshowNotification(true)}
-          // onMouseOut={() => setshowNotification(false)}
-          // onM={()=>setshowNotification(false)}
-          onClick={() => fetchNotification()}
-          className=" text-[#009186] self-end items-center cursor-pointer hidden lg:flex py-2  "
+        <div
+          className="float-right self-end items-center"
+          ref={showNotificationRef}
         >
-          <img
-            src={bell}
-            alt=""
-            className="object-contain w-[1.6rem] mxl:w-[2rem] mr-3"
-          />
-          <p className="font-semibold mxl:text-xl">Notifications</p>
-        </span>
-        {/* not className is for shadow */}
-
-        {showNotification ? (
-          <div
-            // onClick={() => fetchNotification()}
+          <span
+            // onMouseOver={() => setshowNotification(true)}
             // onMouseOut={() => setshowNotification(false)}
-            className={
-              notificationloader
-                ? "absolute bg-[#D1DEE3] not flex justify-center items-center  h-[26rem] w-[24rem] z-[20] top-[7.2rem] right-11 rounded-[11.8392px] px-4 py-2 overflow-y-auto"
-                : notificationnoitem
-                ? "absolute bg-[#D1DEE3] not flex justify-center items-center  h-[26rem] w-[24rem] z-[20] top-[7.2rem] right-11 rounded-[11.8392px] px-4 py-2 overflow-y-auto"
-                : "hidden"
-            }
+            // onM={()=>setshowNotification(false)}
+
+            onClick={() => fetchNotification()}
+            className=" text-[#009186]  cursor-pointer hidden lg:flex py-2  "
           >
-            <p className="text-[#262626] text-sm font-semibold ml-8 absolute top-0 left-2  mt-5">
-              Notifications
-            </p>
-            {notificationloader ? (
-              <RingLoader />
-            ) : notificationnoitem ? (
-              <p>No item</p>
-            ) : (
-              notification.map((notification, index) => (
-                <div
-                  key={index}
-                  className="flex text-xs justify-around items-center mt-5"
-                >
-                  <div className="h-3 w-3 bg-[#00913E] rounded-full"></div>
-                  <div className="border-b-2 w-[19rem] border-[#175873] leading-[2]">
-                    Transfer to Lorem Ipsum, successful Transaction ID:
-                    123456789012
+            <img
+              src={bell}
+              alt=""
+              className="object-contain w-[1.6rem] mxl:w-[2rem] mr-3"
+            />
+            <p className="font-semibold mxl:text-xl">Notifications</p>
+          </span>
+          {/* not className is for shadow */}
+
+          {showNotification ? (
+            <div
+              // ref={showNotificationRef}
+              // onClick={() => fetchNotification()}
+              // onMouseOut={() => setshowNotification(false)}
+              className={
+                notificationloader
+                  ? "absolute bg-[#D1DEE3] not flex justify-center items-center  h-[26rem] w-[24rem] z-[20] top-[7.2rem] right-11 rounded-[11.8392px] px-4 py-2 overflow-y-auto"
+                  : notificationnoitem
+                  ? "absolute bg-[#D1DEE3] not flex justify-center items-center  h-[26rem] w-[24rem] z-[20] top-[7.2rem] right-11 rounded-[11.8392px] px-4 py-2 overflow-y-auto"
+                  : "hidden"
+              }
+            >
+              <p className="text-[#262626] text-sm font-semibold ml-8 absolute top-0 left-2  mt-5">
+                Notifications
+              </p>
+              {notificationloader ? (
+                <RingLoader />
+              ) : notificationnoitem ? (
+                <p>No item</p>
+              ) : (
+                notification.map((notification, index) => (
+                  <div
+                    key={index}
+                    className="flex text-xs justify-around items-center mt-5"
+                  >
+                    <div className="h-3 w-3 bg-[#00913E] rounded-full"></div>
+                    <div className="border-b-2 w-[19rem] border-[#175873] leading-[2]">
+                      Transfer to Lorem Ipsum, successful Transaction ID:
+                      123456789012
+                    </div>
                   </div>
-                </div>
-              ))
-            )}
-          </div>
-        ) : (
-          ""
-        )}
+                ))
+              )}
+            </div>
+          ) : (
+            ""
+          )}
+        </div>
         <div className="w-full lg:hidden flex justify-between items-center mt-10">
           {" "}
           <button className="sm:py-2 py-1 px-10 text-sm sm:w-[20rem] lg:w-full  mxl:py-[12px] mxl:text-xl  flex    mxl:mt-[6rem] justify-center items-center text-[#009186]    rounded-lg border-2 border-[#009186]  ">
@@ -683,6 +714,7 @@ const Dashboard = () => {
                   <RiArrowDownSLine className="text-xl ml-2 " />
                 </button>
                 <div
+                  ref={showButtonsRef}
                   className={
                     buttons
                       ? ` duration-700 ease-in-out  bg-[#F8F8FF] shadow h-[8rem] sm:h-[9rem] sm:mb-[-9rem] md:h-[10rem] md:mb-[-10rem] xl:h-[9rem]   xl:mb-[-9rem] mxl:mb-[-12.9rem]  sm:w-[17rem]  mxl:h-[13rem] mxl:w-[17rem] flex justify-around flex-col px-4  rounded-lg left-1  `
