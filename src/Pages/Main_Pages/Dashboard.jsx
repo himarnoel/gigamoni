@@ -33,6 +33,7 @@ const Dashboard = () => {
   const [buttons, setbuttons] = useState(false);
   const [beneficiaries, setbeneficiaries] = useState(false);
   const [beneficiariesOverlay, setbeneficiariesOverlay] = useState(false);
+  const [notification, setnotification] = useState([])
   const [norecentbeneficiaryoverlay, setnorecentbeneficiaryoverlay] =
     useState(false);
   const [loader, setloader] = useState(false);
@@ -80,6 +81,20 @@ const Dashboard = () => {
           }
         });
     }
+  }, []);
+  useEffect(() => {
+    axios
+      .get(`${baseurl}/transactions/notifications/`, {
+        headers: {
+          Authorization: `Token ${localStorage.getItem("LoggedIntoken")}`,
+        },
+      })
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   }, []);
 
   const blockScroll = () => {
@@ -306,8 +321,9 @@ const Dashboard = () => {
             <RingLoader />
           ) : norecentbeneficiaryoverlay ? (
             <p className="text-yellow-500 font-semibold ">No beneficiary</p>
-          ) :loaderrorbeneficiaryoverlay?
-          <p className="text-red-500 font-semibold">An error occurred</p> :(
+          ) : loaderrorbeneficiaryoverlay ? (
+            <p className="text-red-500 font-semibold">An error occurred</p>
+          ) : (
             <div className="   h-[86%]  overflow-auto mt-5 px-8 bg-">
               {beneficiarieslist.map((item, i) => (
                 <div
