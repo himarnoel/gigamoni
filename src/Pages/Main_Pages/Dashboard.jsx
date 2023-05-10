@@ -33,13 +33,14 @@ const Dashboard = () => {
   const [buttons, setbuttons] = useState(false);
   const [beneficiaries, setbeneficiaries] = useState(false);
   const [beneficiariesOverlay, setbeneficiariesOverlay] = useState(false);
-  const [notification, setnotification] = useState([])
+  const [notification, setnotification] = useState([]);
+  const [notificationnoitem, setnotificationnoitem] = useState([]);
   const [norecentbeneficiaryoverlay, setnorecentbeneficiaryoverlay] =
     useState(false);
   const [loader, setloader] = useState(false);
   const [loaderrorbeneficiaryoverlay, setloaderrorbeneficiaryoverlay] =
     useState(false);
-    const [notificationloader, setnotificationloader] = useState(false)
+  const [notificationloader, setnotificationloader] = useState(false);
   const navigate = useNavigate();
   const safeDocument = typeof document !== "undefined" ? document : {};
   const { body } = safeDocument;
@@ -84,7 +85,7 @@ const Dashboard = () => {
     }
   }, []);
   useEffect(() => {
-    setnotificationloader(true)
+    setnotificationloader(true);
     axios
       .get(`${baseurl}/transactions/notifications/`, {
         headers: {
@@ -93,15 +94,39 @@ const Dashboard = () => {
       })
       .then((res) => {
         console.log(res.data);
-        setnotification(res.data)
-        setnotificationloader(false)
+        setnotification(res.data);
+        setnotificationloader(false);
+        if (res.data.length == 0) {
+          setnotificationnoitem(true);
+        }
       })
       .catch((e) => {
         console.log(e);
-        setnotificationloader(false)
+        setnotificationloader(false);
       });
   }, []);
-
+  const fetchNotification = () => {
+    setshowNotification(!showNotification);
+    setnotificationloader(true);
+    axios
+      .get(`${baseurl}/transactions/notifications/`, {
+        headers: {
+          Authorization: `Token ${localStorage.getItem("LoggedIntoken")}`,
+        },
+      })
+      .then((res) => {
+        console.log(res.data);
+        setnotification(res.data);
+        setnotificationloader(false);
+        if (res.data.length == 0) {
+          setnotificationnoitem(true);
+        }
+      })
+      .catch((e) => {
+        console.log(e);
+        setnotificationloader(false);
+      });
+  };
   const blockScroll = () => {
     window.scrollTo({ top: 0, left: 0 });
     body.style.overflow = "hidden";
@@ -352,9 +377,10 @@ const Dashboard = () => {
       <DashNav class="fixed top-0 w-full z-[30]" />
       <div className="2xl:px-[10rem] xl:px-[5rem]  px-2 xss:px-4 xs:px-6 sm:px-10 md:px-20   flex flex-col justify-center items-center gap-y-8 pb-8   lg:px-10 mt-20 mxl:pt-20">
         <span
-          onMouseOver={() => setshowNotification(true)}
-          onMouseOut={() => setshowNotification(false)}
-          // onClick={() => setshowNotification(false)}
+          // onMouseOver={() => setshowNotification(true)}
+          // onMouseOut={() => setshowNotification(false)}
+          // onM={()=>setshowNotification(false)}
+          onClick={() => fetchNotification()}
           className=" text-[#009186] self-end items-center cursor-pointer hidden lg:flex py-2  "
         >
           <img
@@ -365,33 +391,44 @@ const Dashboard = () => {
           <p className="font-semibold mxl:text-xl">Notifications</p>
         </span>
         {/* not className is for shadow */}
-        <div
-          onMouseOver={() => setshowNotification(true)}
-          onMouseOut={() => setshowNotification(false)}
-          className={
-            showNotification
-              ? "absolute bg-[#D1DEE3] not h-[26rem] w-[24rem] z-[20] top-[7.2rem] right-11 rounded-[11.8392px] px-4 py-2 overflow-y-auto"
-              : "hidden"
-          }
-        >
-          <p className="text-[#262626] text-sm font-semibold ml-8  mt-5">
-            Notifications
-          </p>
-          {
-          notification.map((notification, index)=>(
 
-          <div key={index} className="flex text-xs justify-around items-center mt-5">
-            <div className="h-3 w-3 bg-[#00913E] rounded-full"></div>
-            <div className="border-b-2 w-[19rem] border-[#175873] leading-[2]">
-              Transfer to Lorem Ipsum, successful Transaction ID: 123456789012
-            </div>
+        {showNotification ? (
+          <div
+            // onClick={() => fetchNotification()}
+            // onMouseOut={() => setshowNotification(false)}
+            className={
+              notificationloader
+                ? "absolute bg-[#D1DEE3] not flex justify-center items-center  h-[26rem] w-[24rem] z-[20] top-[7.2rem] right-11 rounded-[11.8392px] px-4 py-2 overflow-y-auto"
+                : notificationnoitem
+                ? "absolute bg-[#D1DEE3] not flex justify-center items-center  h-[26rem] w-[24rem] z-[20] top-[7.2rem] right-11 rounded-[11.8392px] px-4 py-2 overflow-y-auto"
+                : "hidden"
+            }
+          >
+            <p className="text-[#262626] text-sm font-semibold ml-8 absolute top-0 left-2  mt-5">
+              Notifications
+            </p>
+            {notificationloader ? (
+              <RingLoader />
+            ) : notificationnoitem ? (
+              <p>No item</p>
+            ) : (
+              notification.map((notification, index) => (
+                <div
+                  key={index}
+                  className="flex text-xs justify-around items-center mt-5"
+                >
+                  <div className="h-3 w-3 bg-[#00913E] rounded-full"></div>
+                  <div className="border-b-2 w-[19rem] border-[#175873] leading-[2]">
+                    Transfer to Lorem Ipsum, successful Transaction ID:
+                    123456789012
+                  </div>
+                </div>
+              ))
+            )}
           </div>
-          ))
-}
-          
-         
-        
-        </div>
+        ) : (
+          ""
+        )}
         <div className="w-full lg:hidden flex justify-between items-center mt-10">
           {" "}
           <button className="sm:py-2 py-1 px-10 text-sm sm:w-[20rem] lg:w-full  mxl:py-[12px] mxl:text-xl  flex    mxl:mt-[6rem] justify-center items-center text-[#009186]    rounded-lg border-2 border-[#009186]  ">
