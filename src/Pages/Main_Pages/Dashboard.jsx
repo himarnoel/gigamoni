@@ -39,6 +39,7 @@ const Dashboard = () => {
   const [loader, setloader] = useState(false);
   const [loaderrorbeneficiaryoverlay, setloaderrorbeneficiaryoverlay] =
     useState(false);
+    const [notificationloader, setnotificationloader] = useState(false)
   const navigate = useNavigate();
   const safeDocument = typeof document !== "undefined" ? document : {};
   const { body } = safeDocument;
@@ -83,6 +84,7 @@ const Dashboard = () => {
     }
   }, []);
   useEffect(() => {
+    setnotificationloader(true)
     axios
       .get(`${baseurl}/transactions/notifications/`, {
         headers: {
@@ -91,9 +93,12 @@ const Dashboard = () => {
       })
       .then((res) => {
         console.log(res.data);
+        setnotification(res.data)
+        setnotificationloader(false)
       })
       .catch((e) => {
         console.log(e);
+        setnotificationloader(false)
       });
   }, []);
 
@@ -372,30 +377,20 @@ const Dashboard = () => {
           <p className="text-[#262626] text-sm font-semibold ml-8  mt-5">
             Notifications
           </p>
-          <div className="flex text-xs justify-around items-center mt-5">
+          {
+          notification.map((notification, index)=>(
+
+          <div key={index} className="flex text-xs justify-around items-center mt-5">
             <div className="h-3 w-3 bg-[#00913E] rounded-full"></div>
             <div className="border-b-2 w-[19rem] border-[#175873] leading-[2]">
               Transfer to Lorem Ipsum, successful Transaction ID: 123456789012
             </div>
           </div>
-          <div className="flex text-xs justify-around items-center mt-5">
-            <div className="h-3 w-3 bg-[#00913E] rounded-full"></div>
-            <div className="border-b-2 w-[19rem] border-[#175873] leading-[2]">
-              Transfer to Lorem Ipsum, successful Transaction ID: 123456789012
-            </div>
-          </div>
-          <div className="flex text-xs justify-around items-center mt-5">
-            <div className="h-3 w-3 bg-[#00913E] rounded-full"></div>
-            <div className="border-b-2 w-[19rem] border-[#175873] leading-[2]">
-              Transfer to Lorem Ipsum, successful Transaction ID: 123456789012
-            </div>
-          </div>
-          <div className="flex text-xs justify-around items-center mt-5">
-            <div className="h-3 w-3 bg-[#00913E] rounded-full"></div>
-            <div className="border-b-2 w-[19rem] border-[#175873] leading-[2]">
-              Transfer to Lorem Ipsum, successful Transaction ID: 123456789012
-            </div>
-          </div>
+          ))
+}
+          
+         
+        
         </div>
         <div className="w-full lg:hidden flex justify-between items-center mt-10">
           {" "}
