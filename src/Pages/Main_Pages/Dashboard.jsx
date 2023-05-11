@@ -318,7 +318,7 @@ const Dashboard = () => {
     localStorage.setItem("savedBeneficiary", JSON.stringify(data));
     navigate("/pending");
   };
-  // close notification
+  // close notification and buttons
   let showNotificationRef = useRef();
   let showButtonsRef = useRef();
   useEffect(() => {
@@ -413,10 +413,7 @@ const Dashboard = () => {
           ref={showNotificationRef}
         >
           <span
-            // onMouseOver={() => setshowNotification(true)}
-            // onMouseOut={() => setshowNotification(false)}
-            // onM={()=>setshowNotification(false)}
-
+      
             onClick={() => fetchNotification()}
             className=" text-[#009186]  cursor-pointer hidden lg:flex py-2  "
           >
@@ -457,7 +454,7 @@ const Dashboard = () => {
                   >
                     <div className="h-3 w-3 bg-[#00913E] rounded-full"></div>
                     <div className="border-b-2 w-[19rem] border-[#175873] leading-[2]">
-                      Transfer to Lorem Ipsum, successful Transaction ID:
+                    {notification.detail}:
                       123456789012
                     </div>
                   </div>
