@@ -321,12 +321,20 @@ const Dashboard = () => {
   // close notification
   let showNotificationRef = useRef();
   let showButtonsRef = useRef();
-
-  document.addEventListener("mousedown", (e) => {
-    if (e.target !== showNotificationRef?.current) {
-      setshowNotification(false);
-    }
-  });
+  useEffect(() => {
+    document.addEventListener("mousedown", (e) => {
+      if (!showButtonsRef.current.contains(e.target)) {
+        setshowNotification(false);
+      }
+    });
+    return () => {
+      document.removeEventListener("mousedown", (e) => {
+        if (!showButtonsRef.current.contains(e.target)) {
+          setshowNotification(false);
+        }
+      });
+    };
+  }, []);
 
   useEffect(() => {
     const performer = (e) => {
