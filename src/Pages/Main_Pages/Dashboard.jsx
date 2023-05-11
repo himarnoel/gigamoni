@@ -455,7 +455,7 @@ const Dashboard = () => {
                     <div className="h-3 w-3 bg-[#00913E] rounded-full"></div>
                     <div className="border-b-2 w-[19rem] border-[#175873] leading-[2]">
                     {notification.detail}:
-                      123456789012
+                    {notification.receiver}
                     </div>
                   </div>
                 ))
