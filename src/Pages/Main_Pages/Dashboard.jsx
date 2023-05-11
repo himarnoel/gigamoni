@@ -34,7 +34,7 @@ const Dashboard = () => {
   const [beneficiaries, setbeneficiaries] = useState(false);
   const [beneficiariesOverlay, setbeneficiariesOverlay] = useState(false);
   const [notification, setnotification] = useState([]);
-  const [notificationnoitem, setnotificationnoitem] = useState([]);
+  const [notificationnoitem, setnotificationnoitem] = useState(false);
   const [norecentbeneficiaryoverlay, setnorecentbeneficiaryoverlay] =
     useState(false);
   const [loader, setloader] = useState(false);
@@ -428,9 +428,7 @@ const Dashboard = () => {
 
           {showNotification ? (
             <div
-              // ref={showNotificationRef}
-              // onClick={() => fetchNotification()}
-              // onMouseOut={() => setshowNotification(false)}
+             
               className={
                 notificationloader
                   ? "absolute bg-[#D1DEE3] not flex justify-center items-center  h-[26rem] w-[24rem] z-[20] top-[7.2rem] right-11 rounded-[11.8392px] px-4 py-2 overflow-y-auto"
