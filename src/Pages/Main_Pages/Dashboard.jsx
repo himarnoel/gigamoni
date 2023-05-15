@@ -443,7 +443,9 @@ const Dashboard = () => {
               {notificationloader ? (
                 <RingLoader />
               ) : notificationnoitem ? (
-                <p>No item</p>
+                <p className="text-center font-medium text-[#009186] italic  ">
+              .....No Notification
+            </p>
               ) : (
                 notification.map((notification, index) => (
                   <div
