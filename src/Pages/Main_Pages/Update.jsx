@@ -260,11 +260,11 @@ const Update = () => {
           Back
         </button>
         <img
-          onClick={() => navigate("/mobileviewofnotification")}
-          src={bell}
-          alt=""
-          className="object-contain w-[1.6rem] sm:w-[2.3rem] md:w-[2.5rem] "
-        />
+            onClick={() => navigate("/mobileviewofnotification")}
+            src={bell}
+            alt=""
+            className="object-contain w-[1.6rem] sm:w-[2.3rem] md:w-[2.5rem] lg:hidden "
+          />
         <div
           onClick={() => alert("Notification")}
           className=" text-[#009186] items-center cursor-pointer hidden lg:flex "

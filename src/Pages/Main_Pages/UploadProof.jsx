@@ -191,11 +191,11 @@ const UploadProof = () => {
               <p className="font-semibold mxl:text-xl">Notifications</p>
             </div>
             <img
-              onClick={() => navigate("/mobileviewofnotification")}
-              src={bell}
-              alt=""
-              className="object-contain w-[1.6rem] sm:w-[2.3rem] md:w-[2.5rem] "
-            />
+            onClick={() => navigate("/mobileviewofnotification")}
+            src={bell}
+            alt=""
+            className="object-contain w-[1.6rem] sm:w-[2.3rem] md:w-[2.5rem] lg:hidden "
+          />
           </div>
         </div>
         <p className="text-xl sm:text-[1.5rem] xl:text-[1.7rem] font-semibold text-center mt-8">
