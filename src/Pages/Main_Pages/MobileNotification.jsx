@@ -42,18 +42,20 @@ const MobileNotification = () => {
         <div className="text-center text-lg text-[#262626] mt-10 font-poppins font-semibold">
           Notifications
         </div>
-        <div className="flex justify-center mt-10">
+        <div className="flex justify-center ">
           {notificationloader ? (
-            <RingLoader />
+            <RingLoader className="mt-20" />
           ) : notificationnoitem ? (
-            <p className="text-center font-medium text-[]">No Notification</p>
+            <p className="text-center font-medium text-[#009186] italic  mt-20">
+              No Notification
+            </p>
           ) : (
             notification.map((notification, index) => (
               <div className="flex text-xs xss:text-sm justify-around items-center mt-5">
                 <div className="h-3 w-3 bg-[#00913E] rounded-full"></div>
                 <div className="border-b-2 pb-3 w-[19rem] border-[#175873] leading-[2]">
-                  <p> Transfer to Lorem Ipsum, successful</p>
-                  <p> Transaction ID: 123456789012</p>
+                  <p>{notification.detail}</p>
+                  <p> {notification.receiver}</p>
                 </div>
               </div>
             ))
