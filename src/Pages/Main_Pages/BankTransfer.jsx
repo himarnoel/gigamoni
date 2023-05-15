@@ -89,9 +89,10 @@ const BankTransfer = () => {
             className=" text-[#009186] items-center cursor-pointer hidden lg:flex  "
           >
             <img
+              onClick={() => navigate("/mobileviewofnotification")}
               src={bell}
               alt=""
-              className="object-contain w-[1.6rem] mxl:w-[2rem] mr-3"
+              className="object-contain w-[1.6rem] sm:w-[2.3rem] md:w-[2.5rem] "
             />
             <p className="font-semibold mxl:text-xl">Notifications</p>
           </div>
