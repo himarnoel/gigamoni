@@ -5,6 +5,7 @@ import { FastField } from "formik";
 import axios from "axios";
 import { baseurl } from "../../Service/validate_and_api";
 import { RingLoader } from "react-spinners";
+import { useNavigate } from "react-router-dom";
 
 const MobileNotification = () => {
   const [notification, setnotification] = useState([]);
@@ -31,12 +32,16 @@ const MobileNotification = () => {
         setnotificationloader(false);
       });
   }, []);
+  const navigate = useNavigate();
 
   return (
     <div className="font-poppins">
       <NavBar />
       <div className="w-full lg:hidden mt-24   px-2 xss:px-4 xs:px-6 sm:px-10 md:px-8">
-        <button className="bg-[#87ACA3]  text-[#262626] h-10 px-12 font-poppins  rounded-lg font-semibold">
+        <button
+          onClick={() => navigate(-1)}
+          className="bg-[#87ACA3]  text-[#262626] h-10 px-12 font-poppins  rounded-lg font-semibold"
+        >
           Back
         </button>
         <div className="text-center text-lg text-[#262626] mt-10 font-poppins font-semibold">
@@ -47,7 +52,7 @@ const MobileNotification = () => {
             <RingLoader className="mt-20" />
           ) : notificationnoitem ? (
             <p className="text-center font-medium text-[#009186] italic  mt-20">
-              No Notification
+              .....No Notification
             </p>
           ) : (
             notification.map((notification, index) => (
