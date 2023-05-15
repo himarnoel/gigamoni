@@ -51,10 +51,7 @@ const NotificationComponent = (props) => {
   }, []);
   const navigate = useNavigate();
   return (
-    <div
-      className="float-right  items-center"
-      ref={showNotificationRef}
-    >
+    <div className="float-right  items-center" ref={showNotificationRef}>
       <img
         onClick={() => navigate("/mobileviewofnotification")}
         src={bell}
@@ -73,7 +70,7 @@ const NotificationComponent = (props) => {
         <p className="font-semibold mxl:text-xl">Notifications</p>
       </span>
       {/* not className is for shadow */}
-{/* top-[10rem] */}
+      {/* top-[10rem] */}
       {showNotification ? (
         <div
           className={
@@ -90,7 +87,9 @@ const NotificationComponent = (props) => {
           {notificationloader ? (
             <RingLoader />
           ) : notificationnoitem ? (
-            <p>No item</p>
+            <p className="text-center font-medium text-[#009186] italic  ">
+              .....No Notification
+            </p>
           ) : (
             notification.map((notification, index) => (
               <div

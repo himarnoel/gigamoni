@@ -260,7 +260,7 @@ const Update = () => {
         >
           Back
         </button>
-        <NotificationComponent/>
+        
       </div>
       <div className=" 2xl:px-[10rem] xl:px-[5rem] px-2 xss:px-4 xs:px-6  sm:pl-10 sm:pr-28 md:pl-8 md:pr-28 lg:px-10 w-full mt-4  lg:mt-20  mxl:pt-32">
         <div className=" justify-between items-center mxl:mt-10 hidden lg:flex">
@@ -270,19 +270,8 @@ const Update = () => {
           >
             Back
           </button>
-          <div
-            onClick={() => alert("Notification")}
-            className=" text-[#009186] items-center cursor-pointer flex "
-          >
-            <img
-              src={bell}
-              alt=""
-              className="object-contain w-[1.6rem] mxl:w-[2rem] mr-3"
-            />
-            <p className="font-semibold mxl:text-xl hidden lg:block ">
-              Notifications
-            </p>
-          </div>
+          <NotificationComponent/>
+          
         </div>
         <div className="flex flex-col   lg:flex-row justify-between  sm:w-[20rem] md:w-[30rem] lg:w-full lg:pr-8 xl:pr-10 mt-4   mxl:mt-20">
           <div className="lg:w-[26rem]  xl:w-[32rem] flex flex-col justify-between  h-[4rem] text-sm">
