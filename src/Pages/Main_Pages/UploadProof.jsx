@@ -178,6 +178,7 @@ const UploadProof = () => {
             <p className=" mr-3 sm:mr-20 text-[#009186] text-xs  sm:text-base cursor-pointer hidden lg:flex">
               Upload proof of payment
             </p>
+
             <div
               onClick={() => alert("Notification")}
               className=" text-[#009186] items-center cursor-pointer hidden lg:flex "
@@ -190,9 +191,10 @@ const UploadProof = () => {
               <p className="font-semibold mxl:text-xl">Notifications</p>
             </div>
             <img
+              onClick={() => navigate("/mobileviewofnotification")}
               src={bell}
               alt=""
-              className="object-contain w-[1.6rem] sm:w-[2.3rem] md:w-[2.5rem] lg:hidden "
+              className="object-contain w-[1.6rem] sm:w-[2.3rem] md:w-[2.5rem] "
             />
           </div>
         </div>
