@@ -20,6 +20,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import img1 from "../../assets/overlayimage/one.svg";
 import img2 from "../../assets/overlayimage/vector.svg";
 import DashNav from "../../Components/DashBoardComponents/DashNav";
+import NotificationComponent from "../../Components/AppComponents/NotificationComponent";
 
 const CardPayment = () => {
   const navigate = useNavigate();
@@ -103,23 +104,8 @@ const CardPayment = () => {
           >
             Back
           </button>
-          <img
-            onClick={() => navigate("/mobileviewofnotification")}
-            src={bell}
-            alt=""
-            className="object-contain w-[1.6rem] sm:w-[2.3rem] md:w-[2.5rem] lg:hidden "
-          />
-          <div
-            onClick={() => alert("Notification")}
-            className=" text-[#009186] items-center cursor-pointer hidden lg:flex  "
-          >
-            <img
-              src={bell}
-              alt=""
-              className="object-contain w-[1.6rem] mxl:w-[2rem] mr-3"
-            />
-            <p className="font-semibold mxl:text-xl">Notifications</p>
-          </div>
+
+          <NotificationComponent />
         </div>
         <div className="flex  sm:flex-row flex-col w-full md:w-fit lg:w-full justify-between items-center font-medium text-sm">
           <div className="flex flex-col w-full sm:w-fit  ">
