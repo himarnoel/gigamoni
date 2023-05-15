@@ -33,8 +33,7 @@ import BankTransfer from "./Pages/Main_Pages/BankTransfer";
 import SinglebeneficiaryAdd from "./Pages/Main_Pages/SinglebeneficiaryAdd";
 import SinglebeneficiaryEdit from "./Pages/Main_Pages/SinglebeneficiaryEdit";
 import Profile from "./Pages/Main_Pages/Profile";
-
-
+import MobileNotification from "./Pages/Main_Pages/MobileNotification";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -66,6 +65,10 @@ function App() {
         <Route path="/upload" element={<UploadProof />} />
         <Route path="/pay" element={<PaymentModeMobile />} />
         <Route path="/update" element={<Update />} />
+        <Route
+          path="/mobileviewofnotification"
+          element={<MobileNotification />}
+        />
         <Route
           path="/singlebeneficiaryadd"
           element={<SinglebeneficiaryAdd />}

@@ -474,6 +474,7 @@ const Dashboard = () => {
             />
           </button>
           <img
+          onClick={()=>navigate("/mobileviewofnotification")}
             src={bell}
             alt=""
             className="object-contain w-[1.6rem] sm:w-[2.3rem] md:w-[2.5rem] "
