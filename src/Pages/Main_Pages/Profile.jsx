@@ -177,6 +177,7 @@ const Profile = () => {
           />
         </button>
         <img
+          onClick={() => navigate("/mobileviewofnotification")}
           src={bell}
           alt=""
           className="object-contain w-[1.6rem] sm:w-[2.3rem] md:w-[2.5rem] "
@@ -431,7 +432,7 @@ const Profile = () => {
             </div>{" "}
             <div className="relative z-0 mt-0">
               <input
-                 type="password"
+                type="password"
                 id="newpassword"
                 className={
                   changepasswordformik.errors.newpassword &&
@@ -466,7 +467,7 @@ const Profile = () => {
             </div>{" "}
             <div className="relative z-0 mt-0">
               <input
-                 type="password"
+                type="password"
                 id="confirmpassword"
                 className={
                   changepasswordformik.errors.confirmpassword &&

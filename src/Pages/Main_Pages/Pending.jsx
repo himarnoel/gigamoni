@@ -304,6 +304,7 @@ const Pending = () => {
               onClick={() => fetchNotification()}
               className=" text-[#009186]  cursor-pointer hidden lg:flex py-2  "
             >
+               
               <img
                 src={bell}
                 alt=""
