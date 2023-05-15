@@ -115,18 +115,22 @@ const SinglebeneficiaryAdd = () => {
         >
           Back
         </button>
+        <img
+          onClick={() => navigate("/mobileviewofnotification")}
+          src={bell}
+          alt=""
+          className="object-contain w-[1.6rem] sm:w-[2.3rem] md:w-[2.5rem] "
+        />
         <div
           onClick={() => alert("Notification")}
-          className=" text-[#009186] items-center cursor-pointer flex "
+          className=" text-[#009186] items-center cursor-pointer  hidden lg:flex "
         >
           <img
             src={bell}
             alt=""
             className="object-contain w-[1.6rem] mxl:w-[2rem] mr-3"
           />
-          <p className="font-semibold mxl:text-xl hidden lg:block ">
-            Notifications
-          </p>
+          <p className="font-semibold mxl:text-xl  ">Notifications</p>
         </div>
       </div>
       <form
