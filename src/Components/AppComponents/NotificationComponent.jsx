@@ -5,7 +5,7 @@ import bell from "../../assets/bell.svg";
 import { RingLoader } from "react-spinners";
 import { useNavigate } from "react-router-dom";
 
-const NotificationComponent = () => {
+const NotificationComponent = (props) => {
   const [showNotification, setshowNotification] = useState(false);
   const [notificationloader, setnotificationloader] = useState(false);
   const [notification, setnotification] = useState([]);
@@ -52,7 +52,7 @@ const NotificationComponent = () => {
   const navigate = useNavigate();
   return (
     <div
-      className="float-right self-end items-center"
+      className="float-right  items-center"
       ref={showNotificationRef}
     >
       <img
@@ -73,14 +73,14 @@ const NotificationComponent = () => {
         <p className="font-semibold mxl:text-xl">Notifications</p>
       </span>
       {/* not className is for shadow */}
-
+{/* top-[10rem] */}
       {showNotification ? (
         <div
           className={
             notificationloader
-              ? "absolute bg-[#D1DEE3] not flex justify-center items-center  h-[26rem] w-[24rem] z-[20] top-[7.2rem] right-11 rounded-[11.8392px] px-4 py-2 overflow-y-auto"
+              ? `absolute bg-[#D1DEE3] not flex justify-center items-center  h-[26rem] w-[24rem] z-[20] right-11 rounded-[11.8392px] px-4 py-2 overflow-y-auto`
               : notificationnoitem
-              ? "absolute bg-[#D1DEE3] not flex justify-center items-center  h-[26rem] w-[24rem] z-[20] top-[7.2rem] right-11 rounded-[11.8392px] px-4 py-2 overflow-y-auto"
+              ? `absolute bg-[#D1DEE3] not flex justify-center items-center  h-[26rem] w-[24rem] z-[20] right-11 rounded-[11.8392px] px-4 py-2 overflow-y-auto`
               : "hidden"
           }
         >

@@ -16,6 +16,7 @@ import { useFormik } from "formik";
 import DashNav from "../../Components/DashBoardComponents/DashNav";
 import { RingLoader } from "react-spinners";
 import { toast } from "react-toastify";
+import NotificationComponent from "./../../Components/AppComponents/NotificationComponent";
 const SinglebeneficiaryEdit = () => {
   const { state } = useLocation();
   const safeDocument = typeof document !== "undefined" ? document : {};
@@ -123,25 +124,7 @@ const SinglebeneficiaryEdit = () => {
             Remove
           </button>
         </div>
-        <img
-          onClick={() => navigate("/mobileviewofnotification")}
-          src={bell}
-          alt=""
-          className="object-contain w-[1.6rem] sm:w-[2.3rem] md:w-[2.5rem] lg:hidden "
-        />
-        <div
-          onClick={() => alert("Notification")}
-          className=" text-[#009186] items-center cursor-pointer hidden lg:flex "
-        >
-          <img
-            src={bell}
-            alt=""
-            className="object-contain w-[1.6rem] mxl:w-[2rem] mr-3"
-          />
-          <p className="font-semibold mxl:text-xl ">
-            Notifications
-          </p>
-        </div>
+        <NotificationComponent />
       </div>
       <form
         className="mt-20 mxl:mt-[7rem] pl-2 xss:pl-4 xs:pl-6 pr-14 mb-10   sm:px-10 md:px-20lg:px-20"

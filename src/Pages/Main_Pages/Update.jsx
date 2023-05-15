@@ -19,6 +19,7 @@ import mail from "../../assets/Vector.svg";
 import DashNav from "../../Components/DashBoardComponents/DashNav";
 import axios from "axios";
 import { toast } from "react-toastify";
+import NotificationComponent from "../../Components/AppComponents/NotificationComponent";
 const Update = () => {
   const [overlay, setoverlay] = useState(false);
   const [change, setchange] = useState(false);
@@ -259,25 +260,7 @@ const Update = () => {
         >
           Back
         </button>
-        <img
-            onClick={() => navigate("/mobileviewofnotification")}
-            src={bell}
-            alt=""
-            className="object-contain w-[1.6rem] sm:w-[2.3rem] md:w-[2.5rem] lg:hidden "
-          />
-        <div
-          onClick={() => alert("Notification")}
-          className=" text-[#009186] items-center cursor-pointer hidden lg:flex "
-        >
-          <img
-            src={bell}
-            alt=""
-            className="object-contain w-[1.6rem] mxl:w-[2rem] mr-3"
-          />
-          <p className="font-semibold mxl:text-xl ">
-            Notifications
-          </p>
-        </div>
+        <NotificationComponent/>
       </div>
       <div className=" 2xl:px-[10rem] xl:px-[5rem] px-2 xss:px-4 xs:px-6  sm:pl-10 sm:pr-28 md:pl-8 md:pr-28 lg:px-10 w-full mt-4  lg:mt-20  mxl:pt-32">
         <div className=" justify-between items-center mxl:mt-10 hidden lg:flex">

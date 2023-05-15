@@ -11,6 +11,7 @@ import { baseurl, uploadfileValidate } from "../../Service/validate_and_api";
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { RingLoader } from "react-spinners";
+import NotificationComponent from './../../Components/AppComponents/NotificationComponent';
 
 const UploadProof = () => {
   const navigate = useNavigate();
@@ -179,24 +180,7 @@ const UploadProof = () => {
               Upload proof of payment
             </p>
 
-            <div
-              onClick={() => alert("Notification")}
-              className=" text-[#009186] items-center cursor-pointer hidden lg:flex "
-            >
-              <img
-                src={bell}
-                alt=""
-                className="object-contain w-[1.6rem] mxl:w-[2rem] mr-3"
-              />
-              <p className="font-semibold mxl:text-xl">Notifications</p>
-            </div>
-            <img
-            onClick={() => navigate("/mobileviewofnotification")}
-            src={bell}
-            alt=""
-            className="object-contain w-[1.6rem] sm:w-[2.3rem] md:w-[2.5rem] lg:hidden "
-          />
-          </div>
+            <NotificationComponent/></div>
         </div>
         <p className="text-xl sm:text-[1.5rem] xl:text-[1.7rem] font-semibold text-center mt-8">
           Upload Proof of payment
