@@ -14,6 +14,7 @@ import { RingLoader } from "react-spinners";
 import { useNavigate } from "react-router-dom";
 import DashNav from "../../Components/DashBoardComponents/DashNav";
 import { toast } from "react-toastify";
+import NotificationComponent from "../../Components/AppComponents/NotificationComponent";
 const Profile = () => {
   const navigate = useNavigate();
   const safeDocument = typeof document !== "undefined" ? document : {};
@@ -199,19 +200,7 @@ const Profile = () => {
           Back
         </button>
 
-        <div
-          onClick={() => alert("Notification")}
-          className=" text-[#009186] items-center cursor-pointer flex "
-        >
-          <img
-            src={bell}
-            alt=""
-            className="object-contain w-[1.6rem] mxl:w-[2rem] mr-3"
-          />
-          <p className="font-semibold mxl:text-xl hidden lg:block ">
-            Notifications
-          </p>
-        </div>
+        <NotificationComponent />
       </div>
       <p className="text-[1.7rem] font-semibold text-center mt-8 ">
         Your Profile

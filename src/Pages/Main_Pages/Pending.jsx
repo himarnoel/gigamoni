@@ -21,6 +21,7 @@ import {
 } from "react-remove-scroll-bar";
 import { toast } from "react-toastify";
 import DashNav from "../../Components/DashBoardComponents/DashNav";
+import NotificationComponent from './../../Components/AppComponents/NotificationComponent';
 const Pending = () => {
   const [checkFromSendMoney, setcheckFromSendMoney] = useState(false);
   const [transactionIDFromSendMoney, settransactionIDFromSendMoney] =
@@ -207,45 +208,9 @@ const Pending = () => {
     },
   });
   // close notification and buttons
-  let showNotificationRef = useRef();
 
-  useEffect(() => {
-    document.addEventListener("mousedown", (e) => {
-      if (!showNotificationRef.current.contains(e.target)) {
-        setshowNotification(false);
-      }
-    });
-    return () => {
-      document.removeEventListener("mousedown", (e) => {
-        if (!showNotificationRef.current.contains(e.target)) {
-          setshowNotification(false);
-        }
-      });
-    };
-  }, []);
 
-  const fetchNotification = () => {
-    setshowNotification(!showNotification);
-    setnotificationloader(true);
-    axios
-      .get(`${baseurl}/transactions/notifications/`, {
-        headers: {
-          Authorization: `Token ${localStorage.getItem("LoggedIntoken")}`,
-        },
-      })
-      .then((res) => {
-        console.log(res.data);
-        setnotification(res.data);
-        setnotificationloader(false);
-        if (res.data.length == 0) {
-          setnotificationnoitem(true);
-        }
-      })
-      .catch((e) => {
-        console.log(e);
-        setnotificationloader(false);
-      });
-  };
+
 
   return (
     <div className={`bg-[#F8F8FF] font-poppins `}>
@@ -296,59 +261,7 @@ const Pending = () => {
             Back
           </button>
           
-          <div
-            className="float-right self-end items-center"
-            ref={showNotificationRef}
-          >
-            <span
-              onClick={() => fetchNotification()}
-              className=" text-[#009186]  cursor-pointer hidden lg:flex py-2  "
-            >
-               
-              <img
-                src={bell}
-                alt=""
-                className="object-contain w-[1.6rem] mxl:w-[2rem] mr-3"
-              />
-              <p className="font-semibold mxl:text-xl">Notifications</p>
-            </span>
-            {/* not className is for shadow */}
-
-            {showNotification ? (
-              <div
-                className={
-                  notificationloader
-                    ? "absolute bg-[#D1DEE3] not flex justify-center items-center  h-[26rem] w-[24rem] z-[20] top-[7.2rem] right-11 rounded-[11.8392px] px-4 py-2 overflow-y-auto"
-                    : notificationnoitem
-                    ? "absolute bg-[#D1DEE3] not flex justify-center items-center  h-[26rem] w-[24rem] z-[20] top-[7.2rem] right-11 rounded-[11.8392px] px-4 py-2 overflow-y-auto"
-                    : "hidden"
-                }
-              >
-                <p className="text-[#262626] text-sm font-semibold ml-8 absolute top-0 left-2  mt-5">
-                  Notifications
-                </p>
-                {notificationloader ? (
-                  <RingLoader />
-                ) : notificationnoitem ? (
-                  <p>No item</p>
-                ) : (
-                  notification.map((notification, index) => (
-                    <div
-                      key={index}
-                      className="flex text-xs justify-around items-center mt-5"
-                    >
-                      <div className="h-3 w-3 bg-[#00913E] rounded-full"></div>
-                      <div className="border-b-2 w-[19rem] border-[#175873] leading-[2]">
-                        {notification.detail}:{notification.receiver}
-                      </div>
-                    </div>
-                  ))
-                )}
-              </div>
-            ) : (
-              ""
-            )}
-          </div>
+          <NotificationComponent/>
         </div>
         <div className="flex flex-col lg:flex-row justify-between w-full sm:w-[20rem] md:w-[30rem] lg:w-full lg:pr-8 xl:pr-[13rem] mt-4   mxl:mt-20  lg:mt-10">
           <div className="lg:w-[26rem] xl:w-[32rem] flex flex-col justify-between  h-[4rem] text-sm">

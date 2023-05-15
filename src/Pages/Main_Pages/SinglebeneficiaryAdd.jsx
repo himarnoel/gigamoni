@@ -21,6 +21,7 @@ import { useNavigate } from "react-router-dom";
 import NavBar from "./../../Components/AppComponents/NavBar";
 import { useFormik } from "formik";
 import { RingLoader } from "react-spinners";
+import NotificationComponent from "../../Components/AppComponents/NotificationComponent";
 
 const SinglebeneficiaryAdd = () => {
   const navigate = useNavigate();
@@ -115,23 +116,7 @@ const SinglebeneficiaryAdd = () => {
         >
           Back
         </button>
-        <img
-          onClick={() => navigate("/mobileviewofnotification")}
-          src={bell}
-          alt=""
-          className="object-contain w-[1.6rem] sm:w-[2.3rem] md:w-[2.5rem]  lg:hidden"
-        />
-        <div
-          onClick={() => alert("Notification")}
-          className=" text-[#009186] items-center cursor-pointer  hidden lg:flex "
-        >
-          <img
-            src={bell}
-            alt=""
-            className="object-contain w-[1.6rem] mxl:w-[2rem] mr-3"
-          />
-          <p className="font-semibold mxl:text-xl  ">Notifications</p>
-        </div>
+         <NotificationComponent />
       </div>
       <form
         className="mt-20 mxl:mt-[7rem] pl-2 xss:pl-4 xs:pl-6 pr-14 mb-10   sm:px-10 md:px-20lg:px-20"
