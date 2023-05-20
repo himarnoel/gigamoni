@@ -1,15 +1,32 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { HiOutlinePlus, HiOutlineMinus } from "react-icons/hi";
 
 import { accordionData } from "../../Service/accordion";
 import { useState } from "react";
 const Accordion = () => {
   const [activeIndex, setactiveIndex] = useState(null);
+  let showAccordionRef = useRef();
+
+  useEffect(() => {
+    document.addEventListener("mousedown", (e) => {
+      if (!showAccordionRef.current.contains(e.target)) {
+        setactiveIndex(null);
+      }
+    });
+    return () => {
+      document.removeEventListener("mousedown", (e) => {
+        if (!showAccordionRef.current.contains(e.target)) {
+          setactiveIndex(null);
+        }
+      });
+    };
+  }, []);
   return (
     <>
       {accordionData.map((section, index) => (
         <div key={index}>
           <div
+          ref={showAccordionRef}
             onClick={
               activeIndex === index
                 ? () => setactiveIndex(null)
@@ -40,7 +57,7 @@ const Accordion = () => {
               className={
                 activeIndex === index
                   ? "text-sm top-[100%]  duration-300 ease-in-out  text-left mt-12 leading-6 "
-                  : "  top-[-100%] duration-300 ease-in-out "
+                  : "top-[-100%] duration-300 ease-in-out "
               }
             >
               {activeIndex === index ? section.content : ""}
