@@ -24,16 +24,19 @@ const Accordion = () => {
   return (
     <>
       {accordionData.map((section, index) => (
-        <div ref={showAccordionRef} key={index}>
+        <div key={index}>
           <div
-            onClick={
-              activeIndex === index
-                ? () => setactiveIndex(null)
-                : () => setactiveIndex(index)
-            }
+            // onClick={
+            //   activeIndex === index
+            //     ? () => setactiveIndex(null)
+            //     : () => setactiveIndex(index)
+            // }
             className="border mt-10 cursor-pointer border-solid px-3 sm:px-3  md:px-10 py-4 flex-col  text-xs  md:text-sm border-[#009186] rounded-[8px] md:rounded-[16px] flex items-center justify-between"
           >
-            <div className="flex items-center justify-between w-full">
+            <div
+              ref={showAccordionRef}
+              className="flex items-center justify-between w-full"
+            >
               <p className="text-left ">
                 {" "}
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -55,7 +58,7 @@ const Accordion = () => {
             <div
               className={
                 activeIndex === index
-                  ? "text-sm top-[100%]  duration-300 ease-in-out  text-left mt-12 leading-6 "
+                  ? "text-sm top-[100%]  duration-300 ease-in-out  text-left mt-10 leading-6 "
                   : "top-[-100%] duration-300 ease-in-out "
               }
             >
