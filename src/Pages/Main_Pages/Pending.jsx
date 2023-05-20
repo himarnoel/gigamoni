@@ -226,7 +226,7 @@ const Pending = () => {
     <div className={`bg-[#F8F8FF] font-poppins `}>
       {overlay ? <RemoveScrollBar /> : ""}
       <div
-        onClick={() => setoverlay(false)}
+       
         className={
           overlay
             ? "absolute bg-cover bg-[#262626]/[0.8] top-[-7.2rem] lg:top-[-5rem] z-[90]  h-screen w-screen flex  justify-center items-center "
@@ -236,14 +236,7 @@ const Pending = () => {
         {load ? (
           <RingLoader color="#009186" size={90} className="text-3xl" />
         ) : (
-          <div
-            // onClick={() => setoverlay(true)}
-            className="bg-white h-[24rem] w-[22rem]  lg:w-[26rem] rounded-lg flex flex-col items-center relative"
-          >
-            <IoCloseCircle
-              onClick={() => setoverlay(false)}
-              className="text-[#009186] absolute right-3 top-3 text-xl cursor-pointer"
-            />
+          <div className="bg-white h-[24rem] w-[22rem]  lg:w-[26rem] rounded-lg flex flex-col items-center relative">
             <div className="flex justify-center items-center rounded-full h-[8rem] w-[8rem] bg-[#00913E]/[0.1] mx-auto mt-20">
               <img src={mail} alt="" className="object-contain w-20" />
             </div>
@@ -293,8 +286,8 @@ const Pending = () => {
               <p className="d">
                 Date:
                 {checkFromSendMoney
-                  ? dateFromSendMoney ?? date + " "+ time
-                  : date+ "  "+time}
+                  ? dateFromSendMoney ?? date + " " + time
+                  : date + "  " + time}
               </p>
               {/* <p className="ss">Service Fee: $10</p> */}
             </div>
