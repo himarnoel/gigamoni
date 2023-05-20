@@ -17,9 +17,7 @@ const Faqs = () => {
       <div className="mt-10">
         {" "}
         <Accordion />
-        <Accordion />
-        <Accordion />
-        <Accordion />
+       
       </div>
     </div>
   );
