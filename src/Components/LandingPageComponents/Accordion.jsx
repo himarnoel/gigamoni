@@ -35,13 +35,16 @@ const Accordion = () => {
                 />
               )}
             </div>
-            {activeIndex === index ? (
-              <div className="text-sm text-left mt-12 leading-6 ">
-                {section.content}
-              </div>
-            ) : (
-              ""
-            )}
+
+            <div
+              className={
+                activeIndex === index
+                  ? "text-sm top-[100%]  duration-300 ease-in-out  text-left mt-12 leading-6 "
+                  : "  top-[-100%] duration-300 ease-in-out "
+              }
+            >
+              {activeIndex === index ? section.content : ""}
+            </div>
           </div>
         </div>
       ))}
