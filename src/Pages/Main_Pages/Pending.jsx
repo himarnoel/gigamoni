@@ -21,7 +21,7 @@ import {
 } from "react-remove-scroll-bar";
 import { toast } from "react-toastify";
 import DashNav from "../../Components/DashBoardComponents/DashNav";
-import NotificationComponent from './../../Components/AppComponents/NotificationComponent';
+import NotificationComponent from "./../../Components/AppComponents/NotificationComponent";
 const Pending = () => {
   const [checkFromSendMoney, setcheckFromSendMoney] = useState(false);
   const [transactionIDFromSendMoney, settransactionIDFromSendMoney] =
@@ -31,7 +31,20 @@ const Pending = () => {
   const [dateFromSendMoney, setdateFromSendMoney] = useState("");
   const [notification, setnotification] = useState([]);
   const [notificationnoitem, setnotificationnoitem] = useState(false);
+  const [date, setdate] = useState("");
+  const [time, settime] = useState("");
   useEffect(() => {
+    const date = new Date();
+    const time = new Date();
+    setdate(date.toLocaleDateString());
+    settime(
+      time.toLocaleString("en-US", {
+        hour: "numeric",
+        minute: "numeric",
+        hour12: true,
+      })
+    );
+
     const transactiondata = JSON.parse(localStorage.getItem("transactiondata"));
     const savedBeneficiary = JSON.parse(
       localStorage.getItem("savedBeneficiary")
@@ -209,9 +222,6 @@ const Pending = () => {
   });
   // close notification and buttons
 
-
-
-
   return (
     <div className={`bg-[#F8F8FF] font-poppins `}>
       {overlay ? <RemoveScrollBar /> : ""}
@@ -260,8 +270,8 @@ const Pending = () => {
           >
             Back
           </button>
-          
-          <NotificationComponent/>
+
+          <NotificationComponent />
         </div>
         <div className="flex flex-col lg:flex-row justify-between w-full sm:w-[20rem] md:w-[30rem] lg:w-full lg:pr-8 xl:pr-[13rem] mt-4   mxl:mt-20  lg:mt-10">
           <div className="lg:w-[26rem] xl:w-[32rem] flex flex-col justify-between  h-[4rem] text-sm">
@@ -283,8 +293,8 @@ const Pending = () => {
               <p className="d">
                 Date:
                 {checkFromSendMoney
-                  ? dateFromSendMoney ?? "01/01/2023 11:30am"
-                  : "01/01/2023 11:30am"}
+                  ? dateFromSendMoney ?? date + " "+ time
+                  : date+ "  "+time}
               </p>
               {/* <p className="ss">Service Fee: $10</p> */}
             </div>
