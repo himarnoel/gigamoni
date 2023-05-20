@@ -31,6 +31,7 @@ const Accordion = () => {
             //     ? () => setactiveIndex(null)
             //     : () => setactiveIndex(index)
             // }
+            ref={showAccordionRef}
             className="border mt-10 cursor-pointer border-solid px-3 sm:px-3  md:px-10 py-4 flex-col  text-xs  md:text-sm border-[#009186] rounded-[8px] md:rounded-[16px] flex items-center justify-between"
           >
             <div
