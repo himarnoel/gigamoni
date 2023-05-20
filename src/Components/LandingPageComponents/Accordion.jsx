@@ -24,9 +24,8 @@ const Accordion = () => {
   return (
     <>
       {accordionData.map((section, index) => (
-        <div key={index}>
+        <div ref={showAccordionRef} key={index}>
           <div
-          ref={showAccordionRef}
             onClick={
               activeIndex === index
                 ? () => setactiveIndex(null)
