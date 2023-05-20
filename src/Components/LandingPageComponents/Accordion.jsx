@@ -9,7 +9,14 @@ const Accordion = () => {
     <>
       {accordionData.map((section, index) => (
         <div key={index}>
-          <div className="border mt-10 border-solid px-3 sm:px-3  md:px-10 py-4 flex-col  text-xs  md:text-sm border-[#009186] rounded-[8px] md:rounded-[16px] flex items-center justify-between">
+          <div
+            onClick={
+              activeIndex === index
+                ? () => setactiveIndex(null)
+                : () => setactiveIndex(index)
+            }
+            className="border mt-10 cursor-pointer border-solid px-3 sm:px-3  md:px-10 py-4 flex-col  text-xs  md:text-sm border-[#009186] rounded-[8px] md:rounded-[16px] flex items-center justify-between"
+          >
             <div className="flex items-center justify-between w-full">
               <p className="text-left ">
                 {" "}
