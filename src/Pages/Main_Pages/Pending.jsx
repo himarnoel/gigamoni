@@ -13,6 +13,8 @@ import { RingLoader } from "react-spinners";
 import { IoCloseCircle } from "react-icons/io5";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import img3 from "../../assets/Send_Money/warning.png";
+
 import {
   RemoveScrollBar,
   zeroRightClassName,
@@ -22,6 +24,7 @@ import {
 import { toast } from "react-toastify";
 import DashNav from "../../Components/DashBoardComponents/DashNav";
 import NotificationComponent from "./../../Components/AppComponents/NotificationComponent";
+import { IoIosCloseCircle } from "react-icons/io";
 const Pending = () => {
   const [checkFromSendMoney, setcheckFromSendMoney] = useState(false);
   const [transactionIDFromSendMoney, settransactionIDFromSendMoney] =
@@ -31,8 +34,20 @@ const Pending = () => {
   const [dateFromSendMoney, setdateFromSendMoney] = useState("");
   const [notification, setnotification] = useState([]);
   const [notificationnoitem, setnotificationnoitem] = useState(false);
+  const [checklessthanhundereddollar, setchecklessthanhundereddollar] =
+    useState(false);
   const [date, setdate] = useState("");
   const [time, settime] = useState("");
+  const safeDocument = typeof document !== "undefined" ? document : {};
+  const { body } = safeDocument;
+
+  const blockScroll = () => {
+    window.scrollTo({ top: 0, left: 0 });
+    body.style.overflow = "hidden";
+  };
+  const allowScroll = () => {
+    body.style.overflow = "";
+  };
   useEffect(() => {
     const date = new Date();
     const time = new Date();
@@ -123,10 +138,11 @@ const Pending = () => {
       const transactiondata = JSON.parse(
         localStorage.getItem("transactiondata")
       );
-      setoverlay(true);
-      window.scrollTo({ top: 0, left: 0 });
-      setload(true);
+
       if (transactiondata) {
+        setoverlay(true);
+        window.scrollTo({ top: 0, left: 0 });
+        setload(true);
         axios
           .patch(
             `${baseurl}/transactions/${transactiondata.transactionID}/transaction/`,
@@ -173,60 +189,105 @@ const Pending = () => {
             console.log(e);
           });
       } else {
-        axios
-          .post(
-            `${baseurl}/transactions/`,
-            {
-              beneficiary: false,
-              receiverName: values.receivername,
-              receiverEmail: values.emailAddress,
-              receiverPhone: values.phoneNumber,
-              receiverAcctName: values.accountName,
-              receiverAcctNo: values.accountNumber,
-              receiverBankName: values.bankName,
-              receiverBankAddress: values.bankAddress,
-              receiverIban: values.iban,
-              receiverSwiftCode: values.swiftCode,
-              receiverCountry: values.receivingCountry,
-              currencySent: formik.values.sendingcurrency,
-              currencyReceived: formik.values.receivingcurrency,
-              amountReceived: formik.values.amountReceived,
-              description: formik.values.tractionDescription,
-              paymentMethod: "N/A",
-            },
-            {
-              headers: {
-                Authorization: `Token ${localStorage.getItem("LoggedIntoken")}`,
+        if (values.amountReceived >= 100) {
+          console.log(values.amountReceived);
+          setoverlay(true);
+          window.scrollTo({ top: 0, left: 0 });
+          setload(true);
+          axios
+            .post(
+              `${baseurl}/transactions/`,
+              {
+                beneficiary: false,
+                receiverName: values.receivername,
+                receiverEmail: values.emailAddress,
+                receiverPhone: values.phoneNumber,
+                receiverAcctName: values.accountName,
+                receiverAcctNo: values.accountNumber,
+                receiverBankName: values.bankName,
+                receiverBankAddress: values.bankAddress,
+                receiverIban: values.iban,
+                receiverSwiftCode: values.swiftCode,
+                receiverCountry: values.receivingCountry,
+                currencySent: formik.values.sendingcurrency,
+                currencyReceived: formik.values.receivingcurrency,
+                amountReceived: formik.values.amountReceived,
+                description: formik.values.tractionDescription,
+                paymentMethod: "N/A",
               },
-            }
-          )
-          .then((res) => {
-            console.log(res.data);
+              {
+                headers: {
+                  Authorization: `Token ${localStorage.getItem(
+                    "LoggedIntoken"
+                  )}`,
+                },
+              }
+            )
+            .then((res) => {
+              console.log(res.data);
 
-            setload(false);
-          })
-          .catch((e) => {
-            if (e.response.data.detail == "Invalid token.") {
-              localStorage.removeItem("LoggedIntoken");
-              toast.warning("Session expired  login again", {
-                toastId: 1,
-              });
-              navigate("/login");
-            } else {
-              toast.error("An error occurred");
-            }
-            console.log(e);
-          });
+              setload(false);
+            })
+            .catch((e) => {
+              if (e.response.data.detail == "Invalid token.") {
+                localStorage.removeItem("LoggedIntoken");
+                toast.warning("Session expired  login again", {
+                  toastId: 1,
+                });
+                navigate("/login");
+              } else {
+                toast.error("An error occurred");
+              }
+              console.log(e);
+            });
+        } else {
+          blockScroll();
+          setchecklessthanhundereddollar(true);
+        }
       }
     },
   });
   // close notification and buttons
 
+  const closeModal = () => {
+    allowScroll();
+
+    setchecklessthanhundereddollar(false);
+  };
+
   return (
     <div className={`bg-[#F8F8FF] font-poppins `}>
       {overlay ? <RemoveScrollBar /> : ""}
+      {checklessthanhundereddollar ? (
+        <div className="absolute top-0 bg-cover bg-[#262626]/[0.8]  z-[90] h-full overla w-full flex  justify-center items-center text-3xl">
+          <div
+            className="bg-[#F8F8FF] w-[26rem] relative rounded-md h-[26rem] flex flex-col items-center justify-around px-10
+          "
+          >
+            <IoIosCloseCircle
+              onClick={() => closeModal()}
+              className="text-2xl right-3 absolute top-3 text-[#009186] cursor-pointer"
+            />
+            <div className="flex flex-col items-center">
+              <img src={img3} alt="" className="object-contain w-[8rem]" />
+
+              <h4 className="text-sm w-[19rem] text-center mt-4">
+                Your transfer amount is below <b>$100</b>. <br /> Amount needs
+                to be $100 or more
+              </h4>
+            </div>
+            <button
+              onClick={() => closeModal()}
+              className=" text-[#F8F8FF] rounded text-sm bg-[#009186] w-full mt-0 py-2"
+            >
+              continue
+            </button>
+          </div>
+        </div>
+      ) : (
+        ""
+      )}
       <div
-       
         className={
           overlay
             ? "absolute bg-cover bg-[#262626]/[0.8] top-[-7.2rem] lg:top-[-5rem] z-[90]  h-screen w-screen flex  justify-center items-center "

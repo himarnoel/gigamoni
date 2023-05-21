@@ -73,11 +73,7 @@ const Send = () => {
     allowScroll();
     navigate("/signup");
   };
-  const closeModal = () => {
-    allowScroll();
-    setnoacc(false);
-    setlessamount(false);
-  };
+  
   return (
     <div className="font-poppins">
       {load ? (
