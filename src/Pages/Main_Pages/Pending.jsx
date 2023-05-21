@@ -140,54 +140,61 @@ const Pending = () => {
       );
 
       if (transactiondata) {
-        setoverlay(true);
-        window.scrollTo({ top: 0, left: 0 });
-        setload(true);
-        axios
-          .patch(
-            `${baseurl}/transactions/${transactiondata.transactionID}/transaction/`,
-            {
-              beneficiary: false,
-              receiverName: values.receivername,
-              receiverEmail: values.emailAddress,
-              receiverPhone: values.phoneNumber,
-              receiverAcctName: values.accountName,
-              receiverAcctNo: values.accountNumber,
-              receiverBankName: values.bankName,
-              receiverBankAddress: values.bankAddress,
-              receiverIban: values.iban,
-              receiverSwiftCode: values.swiftCode,
-              receiverCountry: values.receivingCountry,
-              currencySent: formik.values.sendingcurrency,
-              currencyReceived: formik.values.receivingcurrency,
-              amountReceived: formik.values.amountReceived,
-              description: formik.values.tractionDescription,
-              paymentMethod: "N/A",
-            },
-            {
-              headers: {
-                Authorization: `Token ${localStorage.getItem("LoggedIntoken")}`,
+        if (values.amountReceived >= 100) {
+          setoverlay(true);
+          window.scrollTo({ top: 0, left: 0 });
+          setload(true);
+          axios
+            .patch(
+              `${baseurl}/transactions/${transactiondata.transactionID}/transaction/`,
+              {
+                beneficiary: false,
+                receiverName: values.receivername,
+                receiverEmail: values.emailAddress,
+                receiverPhone: values.phoneNumber,
+                receiverAcctName: values.accountName,
+                receiverAcctNo: values.accountNumber,
+                receiverBankName: values.bankName,
+                receiverBankAddress: values.bankAddress,
+                receiverIban: values.iban,
+                receiverSwiftCode: values.swiftCode,
+                receiverCountry: values.receivingCountry,
+                currencySent: formik.values.sendingcurrency,
+                currencyReceived: formik.values.receivingcurrency,
+                amountReceived: formik.values.amountReceived,
+                description: formik.values.tractionDescription,
+                paymentMethod: "N/A",
               },
-            }
-          )
-          .then((res) => {
-            console.log(res.data);
+              {
+                headers: {
+                  Authorization: `Token ${localStorage.getItem(
+                    "LoggedIntoken"
+                  )}`,
+                },
+              }
+            )
+            .then((res) => {
+              console.log(res.data);
 
-            setload(false);
-          })
-          .catch((e) => {
-            setoverlay(false);
-            if (e.response.data.detail == "Invalid token.") {
-              localStorage.removeItem("LoggedIntoken");
-              toast.warning("Session expired  login again", {
-                toastId: 1,
-              });
-              navigate("/login");
-            } else {
-              toast.error("An error occurred");
-            }
-            console.log(e);
-          });
+              setload(false);
+            })
+            .catch((e) => {
+              setoverlay(false);
+              if (e.response.data.detail == "Invalid token.") {
+                localStorage.removeItem("LoggedIntoken");
+                toast.warning("Session expired  login again", {
+                  toastId: 1,
+                });
+                navigate("/login");
+              } else {
+                toast.error("An error occurred");
+              }
+              console.log(e);
+            });
+        } else {
+          blockScroll();
+          setchecklessthanhundereddollar(true);
+        }
       } else {
         if (values.amountReceived >= 100) {
           console.log(values.amountReceived);
@@ -251,7 +258,6 @@ const Pending = () => {
 
   const closeModal = () => {
     allowScroll();
-
     setchecklessthanhundereddollar(false);
   };
 
