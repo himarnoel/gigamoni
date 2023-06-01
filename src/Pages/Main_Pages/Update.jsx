@@ -314,7 +314,7 @@ const Update = () => {
                       NGN
                     </option>
 
-                    <option value="Pounds">Pounds</option>
+                  
                   </select>
                   <RiArrowDownSLine className="pointer-events-none cursor-pointer text-4xl absolute inset-y-5 right-0 flex items-center px-2 text-[#707070]" />
                 </span>
@@ -362,7 +362,7 @@ const Update = () => {
                       USD
                     </option>
 
-                    <option value="Pounds">Pounds</option>
+        
                   </select>
                   <RiArrowDownSLine className="pointer-events-none cursor-pointer  text-4xl absolute inset-y-5 right-0 flex items-center px-2 text-[#707070]" />
                 </span>
