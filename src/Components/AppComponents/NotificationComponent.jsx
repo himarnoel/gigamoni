@@ -78,6 +78,8 @@ const NotificationComponent = (props) => {
               ? `absolute bg-[#D1DEE3] not flex justify-center items-center  h-[26rem] w-[24rem] z-[20] right-11 rounded-[11.8392px] px-4 py-2 overflow-y-auto`
               : notificationnoitem
               ? `absolute bg-[#D1DEE3] not flex justify-center items-center  h-[26rem] w-[24rem] z-[20] right-11 rounded-[11.8392px] px-4 py-2 overflow-y-auto`
+              : notification.length !== 0
+              ? "absolute bg-[#D1DEE3] not flex flex-col pt-10  h-[26rem] w-[24rem] z-[20] top-[7.2rem] right-11 rounded-[11.8392px] px-4 py-2 overflow-y-auto"
               : "hidden"
           }
         >

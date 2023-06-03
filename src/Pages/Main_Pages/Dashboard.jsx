@@ -413,7 +413,6 @@ const Dashboard = () => {
           ref={showNotificationRef}
         >
           <span
-      
             onClick={() => fetchNotification()}
             className=" text-[#009186]  cursor-pointer hidden lg:flex py-2  "
           >
@@ -428,12 +427,13 @@ const Dashboard = () => {
 
           {showNotification ? (
             <div
-             
               className={
                 notificationloader
                   ? "absolute bg-[#D1DEE3] not flex justify-center items-center  h-[26rem] w-[24rem] z-[20] top-[7.2rem] right-11 rounded-[11.8392px] px-4 py-2 overflow-y-auto"
                   : notificationnoitem
                   ? "absolute bg-[#D1DEE3] not flex justify-center items-center  h-[26rem] w-[24rem] z-[20] top-[7.2rem] right-11 rounded-[11.8392px] px-4 py-2 overflow-y-auto"
+                  : notification.length !== 0
+                  ? "absolute bg-[#D1DEE3] not flex flex-col pt-10  h-[26rem] w-[24rem] z-[20] top-[7.2rem] right-11 rounded-[11.8392px] px-4 py-2 overflow-y-auto"
                   : "hidden"
               }
             >
@@ -444,8 +444,8 @@ const Dashboard = () => {
                 <RingLoader />
               ) : notificationnoitem ? (
                 <p className="text-center font-medium text-[#009186] italic  ">
-              .....No Notification
-            </p>
+                  .....No Notification
+                </p>
               ) : (
                 notification.map((notification, index) => (
                   <div
@@ -454,8 +454,7 @@ const Dashboard = () => {
                   >
                     <div className="h-3 w-3 bg-[#00913E] rounded-full"></div>
                     <div className="border-b-2 w-[19rem] border-[#175873] leading-[2]">
-                    {notification.detail}:
-                    {notification.receiver}
+                      {notification.detail}:{notification.receiver}
                     </div>
                   </div>
                 ))
@@ -476,7 +475,7 @@ const Dashboard = () => {
             />
           </button>
           <img
-          onClick={()=>navigate("/mobileviewofnotification")}
+            onClick={() => navigate("/mobileviewofnotification")}
             src={bell}
             alt=""
             className="object-contain w-[1.6rem] sm:w-[2.3rem] md:w-[2.5rem] "
@@ -623,85 +622,83 @@ const Dashboard = () => {
                   No recent transaction
                 </p>
               ) : (
-                trans
-                  .map((item, i) => (
-                    <div
-                      key={i}
-                      onClick={() => transactionDetail(item)}
-                      className="rounded-lg lg:py-1 lg:px-[0.24rem] cursor-pointer mb-5 flex flex-col justify-between border-2 border-[#009186] text-sm mt-8 bg-[#F8F8FF] px-3  xl:px-3  py-1 min-h-[12rem] sm:min-h-[7rem]"
-                    >
-                      <span className="hidden sm:flex items-center justify-between mt-2">
-                        <p className=" text-[#175873] text-xs">
-                          {item.transactionCreatedDate}
-                        </p>
-                        <p className="text-[#175873] font-semibold">
-                          {item.receiverBankName}, {item.receiverCountry}
-                        </p>
-                        <p className="text-[#175873] font-semibold">
-                          ${item.amountReceived}
-                        </p>
-                      </span>
-                      <div className="hidden  sm:flex  w-full justify-between items-center ">
-                        <p className="text-xs">{item.receiverBankName}</p>
-                        <p className="text-xs">{item.transactionID}</p>
-                        {/* Dummy values to help design */}
-                        <p className="text-[#F8F8FF]">12345678901234</p>
-                        {/* Dummy values to help design */}
-                      </div>
-                      <span className="hidden sm:flex text-xs justify-between items-center">
-                        <p
-                          className={
-                            item.status == "In Progress"
-                              ? `text-[#FBBC05]`
-                              : item.status == "Completed"
-                              ? `text-[#00913E]`
-                              : item.status == "Update"
-                              ? `text-[#D80010]`
-                              : "text-[#5D5FEF]" //Pending
-                          }
-                        >
-                          {item.status}
-                        </p>
-                        <p className="text-[#262626] ">{item.paymentMethod}</p>
-                        <p className="text-[#009186] ">see more</p>
-                      </span>
-                      {/* FOR MOBILE SCREEN */}
-                      <span className="text-[#175873] flex sm:hidden mt-3">
+                trans.map((item, i) => (
+                  <div
+                    key={i}
+                    onClick={() => transactionDetail(item)}
+                    className="rounded-lg lg:py-1 lg:px-[0.24rem] cursor-pointer mb-5 flex flex-col justify-between border-2 border-[#009186] text-sm mt-8 bg-[#F8F8FF] px-3  xl:px-3  py-1 min-h-[12rem] sm:min-h-[7rem]"
+                  >
+                    <span className="hidden sm:flex items-center justify-between mt-2">
+                      <p className=" text-[#175873] text-xs">
                         {item.transactionCreatedDate}
-                      </span>
-                      <span className="text-[#175873] font-semibold flex sm:hidden  justify-between">
-                        <p>Lorem Ipsum University, London </p>
-                        <p> ${item.amountReceived}</p>
-                      </span>
-                      <span className="flex sm:hidden text-xs justify-between text-[#262626]">
-                        <p className="ss">{item.receiverBankName}</p>
-                        <p>{item.transactionID}</p>
-                        <p className="text-white text-xs">Cw224</p>
-                      </span>
-                      <span className="flex sm:hidden justify-between text-xs">
-                        <p
-                          className={
-                            item.status == "In Progress"
-                              ? `text-[#FBBC05]`
-                              : item.status == "Completed"
-                              ? `text-[#00913E]`
-                              : item.status == "Update"
-                              ? `text-[#D80010]`
-                              : "text-[#5D5FEF]" //Pending
-                          }
-                        >
-                          {item.status}
-                        </p>
-                        <p className="ss">{item.paymentMethod}</p>
-                        <p className="text-white text-xs">Card Payment</p>
-                      </span>
-                      <p className="flex sm:hidden text-[#009186] text-xs">
-                        see more
                       </p>
-                      {/* The end for the Mobile screen */}
+                      <p className="text-[#175873] font-semibold">
+                        {item.receiverBankName}, {item.receiverCountry}
+                      </p>
+                      <p className="text-[#175873] font-semibold">
+                        ${item.amountReceived}
+                      </p>
+                    </span>
+                    <div className="hidden  sm:flex  w-full justify-between items-center ">
+                      <p className="text-xs">{item.receiverBankName}</p>
+                      <p className="text-xs">{item.transactionID}</p>
+                      {/* Dummy values to help design */}
+                      <p className="text-[#F8F8FF]">12345678901234</p>
+                      {/* Dummy values to help design */}
                     </div>
-                  ))
-                  
+                    <span className="hidden sm:flex text-xs justify-between items-center">
+                      <p
+                        className={
+                          item.status == "In Progress"
+                            ? `text-[#FBBC05]`
+                            : item.status == "Completed"
+                            ? `text-[#00913E]`
+                            : item.status == "Update"
+                            ? `text-[#D80010]`
+                            : "text-[#5D5FEF]" //Pending
+                        }
+                      >
+                        {item.status}
+                      </p>
+                      <p className="text-[#262626] ">{item.paymentMethod}</p>
+                      <p className="text-[#009186] ">see more</p>
+                    </span>
+                    {/* FOR MOBILE SCREEN */}
+                    <span className="text-[#175873] flex sm:hidden mt-3">
+                      {item.transactionCreatedDate}
+                    </span>
+                    <span className="text-[#175873] font-semibold flex sm:hidden  justify-between">
+                      <p>Lorem Ipsum University, London </p>
+                      <p> ${item.amountReceived}</p>
+                    </span>
+                    <span className="flex sm:hidden text-xs justify-between text-[#262626]">
+                      <p className="ss">{item.receiverBankName}</p>
+                      <p>{item.transactionID}</p>
+                      <p className="text-white text-xs">Cw224</p>
+                    </span>
+                    <span className="flex sm:hidden justify-between text-xs">
+                      <p
+                        className={
+                          item.status == "In Progress"
+                            ? `text-[#FBBC05]`
+                            : item.status == "Completed"
+                            ? `text-[#00913E]`
+                            : item.status == "Update"
+                            ? `text-[#D80010]`
+                            : "text-[#5D5FEF]" //Pending
+                        }
+                      >
+                        {item.status}
+                      </p>
+                      <p className="ss">{item.paymentMethod}</p>
+                      <p className="text-white text-xs">Card Payment</p>
+                    </span>
+                    <p className="flex sm:hidden text-[#009186] text-xs">
+                      see more
+                    </p>
+                    {/* The end for the Mobile screen */}
+                  </div>
+                ))
               )}
             </div>
           </div>
