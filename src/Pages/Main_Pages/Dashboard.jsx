@@ -321,15 +321,16 @@ const Dashboard = () => {
   // close notification and buttons
   let showNotificationRef = useRef();
   let showButtonsRef = useRef();
+
   useEffect(() => {
     document.addEventListener("mousedown", (e) => {
-      if (!showButtonsRef.current.contains(e.target)) {
+      if (!showNotificationRef.current.contains(e.target)) {
         setshowNotification(false);
       }
     });
     return () => {
       document.removeEventListener("mousedown", (e) => {
-        if (!showButtonsRef.current.contains(e.target)) {
+        if (!showNotificationRef.current.contains(e.target)) {
           setshowNotification(false);
         }
       });
@@ -349,6 +350,10 @@ const Dashboard = () => {
     };
   }, []);
 
+  const GoToTransaction = (value) => {
+    let id = value.split(" ")[0];
+    console.log(id);
+  };
   return (
     <div className="font-poppins bg-[#F8F8FF] overflow-y-hidden ">
       <div
@@ -449,11 +454,12 @@ const Dashboard = () => {
               ) : (
                 notification.map((notification, index) => (
                   <div
+                    onClick={() => GoToTransaction(notification.detail)}
                     key={index}
-                    className="flex text-xs justify-around items-center mt-5"
+                    className="flex text-xs justify-around items-center mt-5 cursor-pointer"
                   >
                     <div className="h-3 w-3 bg-[#00913E] rounded-full"></div>
-                    <div className="border-b-2 w-[19rem] border-[#175873] leading-[2]">
+                    <div className="border-b-2 w-[19rem] border-[#175873] leading-[2] ">
                       {notification.detail}:{notification.receiver}
                     </div>
                   </div>

@@ -50,6 +50,11 @@ const NotificationComponent = (props) => {
     };
   }, []);
   const navigate = useNavigate();
+
+  const GoToTransaction = (value) => {
+    let id = value.split(" ").at(0);
+    console.log(id);
+  };
   return (
     <div className="float-right  items-center" ref={showNotificationRef}>
       <img
@@ -96,6 +101,7 @@ const NotificationComponent = (props) => {
             notification.map((notification, index) => (
               <div
                 key={index}
+                onClick={() => GoToTransaction(notification.detail)}
                 className="flex text-xs justify-around items-center mt-5"
               >
                 <div className="h-3 w-3 bg-[#00913E] rounded-full"></div>
