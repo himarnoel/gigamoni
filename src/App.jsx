@@ -34,6 +34,7 @@ import SinglebeneficiaryAdd from "./Pages/Main_Pages/SinglebeneficiaryAdd";
 import SinglebeneficiaryEdit from "./Pages/Main_Pages/SinglebeneficiaryEdit";
 import Profile from "./Pages/Main_Pages/Profile";
 import MobileNotification from "./Pages/Main_Pages/MobileNotification";
+import Practice from "./Pages/Main_Pages/Practice";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -78,6 +79,7 @@ function App() {
           element={<SinglebeneficiaryEdit />}
         />
         <Route path="/cardpayment" element={<CardPayment />} />
+        <Route path="/practice" element={<Practice />} />
         <Route path="/profile" element={<Profile />} />
 
         <Route path="*" element={<Navigate to="/" />} />
